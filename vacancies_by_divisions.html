@@ -60,32 +60,46 @@
     }
 
     .brand-banner {
-      min-height: 135px;
-      background: var(--dod-action-green);
+      background: #ffffff;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      padding: 18px 24px;
-      margin-bottom: 22px;
-      border-radius: 1rem;
-      box-shadow: 0 10px 26px rgba(7, 37, 28, 0.16);
+      gap: 6px;
+      padding: 8px 24px 4px;
+      margin-bottom: 18px;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .brand-logo {
-      width: 130px;
-      height: 130px;
+      width: 220px;
+      height: 220px;
       object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.34));
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18));
     }
 
     .brand-title {
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      font-weight: 900;
-      letter-spacing: 1px;
+      color: #111111;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
       margin: 0;
+      line-height: 1.1;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .brand-subtitle {
+      margin: 0;
+      color: #1ea34a;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: center;
     }
 
     .page-title {
@@ -575,170 +589,49 @@
       }
 
       .brand-banner {
-        flex-direction: column;
-      }
-
-      .brand-logo {
-        width: 110px;
-        height: 110px;
-      }
-
-      .summary-grid,
-      .filter-row {
-        grid-template-columns: 1fr;
-      }
-
-      .division-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .view-btn {
-        width: 100%;
-        justify-content: center;
-      }
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 24px 4px;
+      margin-bottom: 18px;
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    @media (max-width: 700px) {
-      .table-responsive {
-        border: 0;
-        overflow: visible;
-      }
-
-      .vacancy-table,
-      .vacancy-table thead,
-      .vacancy-table tbody,
-      .vacancy-table th,
-      .vacancy-table td,
-      .vacancy-table tr {
-        display: block;
-        width: 100% !important;
-      }
-
-      .vacancy-table {
-        min-width: 0;
-        border: 0;
-      }
-
-      .vacancy-table thead {
-        display: none;
-      }
-
-      .vacancy-table tbody tr {
-        background: #fff;
-        border: 1px solid var(--dod-border);
-        border-radius: 0.95rem;
-        box-shadow: 0 8px 22px rgba(7, 37, 28, 0.06);
-        margin-bottom: 14px;
-        overflow: hidden;
-      }
-
-      .vacancy-table td {
-        display: grid;
-        grid-template-columns: 132px 1fr;
-        gap: 12px;
-        padding: 11px 14px;
-        text-align: left !important;
-        border-bottom: 1px solid rgba(11, 61, 46, 0.08);
-      }
-
-      .vacancy-table td::before {
-        content: attr(data-label);
-        color: var(--dod-green);
-        font-weight: 850;
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.03em;
-      }
-
-      .vacancy-table td:last-child {
-        border-bottom: 0;
-      }
-
-      .vacancy-table td:nth-child(6) {
-        display: block;
-      }
-
-      .vacancy-table td:nth-child(6)::before {
-        display: block;
-        margin-bottom: 8px;
-      }
-
-      .vacancy-table .small-code {
-        white-space: normal;
-        overflow: visible;
-        text-overflow: clip;
-      }
-
-      .action-cell {
-        grid-template-columns: 1fr;
-      }
+    .brand-logo {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18));
     }
 
-    @media (max-width: 576px) {
-      .job-description-body dl {
-        grid-template-columns: 1fr;
-      }
-
-      .action-cell {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .action-cell .btn-dod,
-      .action-cell .btn-job-desc {
-        width: 100%;
-      }
+    .brand-title {
+      color: #111111;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 0;
+      line-height: 1.1;
+      text-transform: uppercase;
+      text-align: center;
     }
 
+    .brand-subtitle {
+      margin: 0;
+      color: #1ea34a;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: center;
+    }
 
-    /* Standard mobile-friendly layout improvements */
-    @media (max-width: 768px) {
-      html {
-        -webkit-text-size-adjust: 100%;
-      }
-
-      body {
-        background: var(--dod-page);
-        min-height: 100vh;
-      }
-
-      .page-shell {
-        width: 100%;
-        margin: 0;
-        border: 0;
-        border-radius: 0;
-        box-shadow: none;
-      }
-
-      .top-header {
-        padding: 14px 14px 16px;
-      }
-
-      .brand-banner {
-        min-height: auto;
-        flex-direction: row;
-        justify-content: flex-start;
-        text-align: left;
-        gap: 12px;
-        padding: 12px 14px;
-        margin-bottom: 16px;
-        border-radius: 0.85rem;
-      }
-
-      .brand-logo {
-        width: 74px;
-        height: 74px;
-        flex: 0 0 auto;
-      }
-
-      .brand-title {
-        font-size: 1.05rem;
-        line-height: 1.2;
-        letter-spacing: 0.04em;
-      }
-
-      .page-title {
+    .page-title {
         font-size: 1.25rem;
         line-height: 1.25;
         margin-bottom: 6px;
@@ -982,134 +875,49 @@
 
     @media (max-width: 420px) {
       .brand-banner {
-        align-items: center;
-      }
-
-      .brand-logo {
-        width: 64px;
-        height: 64px;
-      }
-
-      .brand-title {
-        font-size: 0.96rem;
-      }
-
-      .summary-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .summary-card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        text-align: left;
-        padding: 10px 12px;
-      }
-
-      .summary-card span {
-        min-height: 0;
-        margin-bottom: 0;
-        font-size: 0.78rem;
-      }
-
-      .summary-card strong {
-        font-size: 1.1rem;
-      }
-
-      .vacancy-table td {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left !important;
-        gap: 4px;
-      }
-
-      .vacancy-table td::before {
-        flex: 0 0 auto;
-      }
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 24px 4px;
+      margin-bottom: 18px;
+      border-radius: 0;
+      box-shadow: none;
     }
 
+    .brand-logo {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18));
+    }
 
-  
-    /* Mobile app-style layout inspired by the provided reference image */
-    @media (max-width: 768px) {
-      :root {
-        --mobile-shell: #f3f4f5;
-        --mobile-dark: #24272a;
-        --mobile-dark-soft: #303438;
-        --mobile-orange: #f59a3d;
-      }
+    .brand-title {
+      color: #111111;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 0;
+      line-height: 1.1;
+      text-transform: uppercase;
+      text-align: center;
+    }
 
-      html,
-      body {
-        width: 100%;
-        overflow-x: hidden;
-      }
+    .brand-subtitle {
+      margin: 0;
+      color: #1ea34a;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: center;
+    }
 
-      body {
-        background: #e9ebed;
-        padding: 14px 0;
-      }
-
-      .page-shell {
-        width: min(430px, calc(100% - 22px));
-        min-height: calc(100vh - 28px);
-        margin: 0 auto;
-        border: 0;
-        border-radius: 30px;
-        background: var(--mobile-shell);
-        box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
-        overflow: hidden;
-      }
-
-      .top-header {
-        position: relative;
-        padding: 18px 18px 20px;
-        background: var(--mobile-dark);
-        text-align: left;
-        color: #ffffff;
-      }
-
-      .top-header::after {
-        content: "";
-        position: absolute;
-        left: 18px;
-        right: 18px;
-        bottom: -1px;
-        height: 1px;
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      .brand-banner {
-        min-height: auto;
-        margin: 0 0 18px;
-        padding: 0;
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 12px;
-      }
-
-      .brand-logo {
-        width: 62px;
-        height: 62px;
-        padding: 5px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.10);
-        filter: drop-shadow(0 5px 9px rgba(0, 0, 0, 0.28));
-      }
-
-      .brand-title {
-        font-size: 0.9rem;
-        line-height: 1.15;
-        letter-spacing: 0.08em;
-        color: #ffffff;
-      }
-
-      .page-title {
+    .page-title {
         margin: 0 0 8px;
         color: #ffffff;
         font-size: 1.45rem;
@@ -1523,26 +1331,49 @@
       }
 
       .brand-banner {
-        margin-bottom: 12px;
-        gap: 10px;
-      }
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 24px 4px;
+      margin-bottom: 18px;
+      border-radius: 0;
+      box-shadow: none;
+    }
 
-      .brand-logo {
-        width: 52px;
-        height: 52px;
-        padding: 2px;
-        background: transparent;
-        border-radius: 14px;
-      }
+    .brand-logo {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18));
+    }
 
-      .brand-title {
-        font-size: 0.72rem;
-        line-height: 1.1;
-        letter-spacing: 0.07em;
-        color: #ffffff;
-      }
+    .brand-title {
+      color: #111111;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 0;
+      line-height: 1.1;
+      text-transform: uppercase;
+      text-align: center;
+    }
 
-      .page-title {
+    .brand-subtitle {
+      margin: 0;
+      color: #1ea34a;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .page-title {
         color: #ffffff;
         font-size: 1.12rem;
         line-height: 1.12;
@@ -1843,6 +1674,7 @@
       <div class="brand-banner">
         <img alt="Papua New Guinea Emblem" class="brand-logo" src="logo.png" />
         <h1 class="brand-title">DEPARTMENT OF DEFENCE</h1>
+        <p class="brand-subtitle">Position Vacancies by Division</p>
       </div>
 
       <h2 class="page-title">Position Vacancies by Division</h2>
@@ -2406,6 +2238,14 @@
           </div>
 
           <div class="division-panel" id="division-${index + 1}">
+            <div class="advertisement-heading">
+              <div>
+                <strong>${escapeHtml(division)}</strong>
+                <span>Position vacancies arranged in the official internal advertisement table format.</span>
+              </div>
+              <div class="advertisement-count">${items.length} position${items.length === 1 ? '' : 's'}</div>
+            </div>
+
             <div class="table-responsive">
               <table class="table vacancy-table align-middle mb-0">
                 <colgroup>
@@ -2417,13 +2257,16 @@
                   <col class="col-action">
                 </colgroup>
                 <thead>
-                  <tr>
+                  <tr class="division-title-row">
+                    <th colspan="6">${escapeHtml(division).toUpperCase()}</th>
+                  </tr>
+                  <tr class="official-column-row">
                     <th>Ser.No</th>
                     <th>Position Number</th>
                     <th>Reference Number</th>
                     <th>Position Title</th>
                     <th>Class</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>${rows}</tbody>
