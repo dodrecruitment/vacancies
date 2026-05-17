@@ -1666,6 +1666,21 @@
       }
     }
 
+
+    /* Final button alignment: Back to Home matches Apply Now text styling */
+    .footer-actions .btn-home {
+      background: var(--dod-action-green) !important;
+      border-color: var(--dod-action-green) !important;
+      color: #ffffff !important;
+    }
+
+    .footer-actions .btn-home:hover,
+    .footer-actions .btn-home:focus {
+      background: var(--dod-action-green-dark) !important;
+      border-color: var(--dod-action-green-dark) !important;
+      color: #ffffff !important;
+    }
+
 </style>
 </head>
 <body>
@@ -1784,7 +1799,7 @@
     const visibleDivisions = document.getElementById('visibleDivisions');
 
 
-        // DAS JD links are mapped by Position Title A-Z order, matching the supplied Google Drive JD list.
+        // JD links are mapped by reference number, matching the supplied Google Drive JD lists.
     const JOB_DESCRIPTION_LINK_MAP = {
       "DEX.002": ["https://drive.google.com/open?id=1ZictQ1-9aoVsCYq6uMCul4MZhTNWjMUM&usp=drive_copy"],
       "DEX.003": ["https://drive.google.com/open?id=1kPQPBcqtsPUOPf-_Vtq63qPCCkZGAFbH&usp=drive_copy"],
@@ -1810,6 +1825,7 @@
       "DEX.025": ["https://drive.google.com/open?id=1ZkkGetadr8YN7s_MYpALmZGE2gMkGN1y&usp=drive_copy"],
       "DEX.026": ["https://drive.google.com/open?id=1rpDNx2mCt65SRNYEOczLPIDqxUlI_wyF&usp=drive_copy"],
       "DEX.029": ["https://drive.google.com/open?id=1M2JTdRLgMihuLDAtl0j_mB8LqFYcHQkH&usp=drive_copy"],
+      "DEX.033": ["https://drive.google.com/open?id=120_dDQJtWKDQAXKeyAGIImlyeHZ-cTwx&usp=drive_copy"],
       "DEX.034": ["https://drive.google.com/open?id=1Jvdga47ftWuZ7Cvgmvl0wY3d4yI389KZ&usp=drive_copy"],
       "DEX.035": ["https://drive.google.com/open?id=1iz4NajmJd08OXUq0ktTVpTFd_IzlmrWT&usp=drive_copy"],
       "DEX.036": ["https://drive.google.com/open?id=1YI_GuKgoiMuY9k_WZ1g2VyV7Tieq8ISH&usp=drive_copy"],
@@ -1832,6 +1848,8 @@
       "DSPRD.010": ["https://drive.google.com/open?id=1gwqGfnBvcmQO9Ani9pjnVW8xtJ4tb7Ko&usp=drive_copy"],
       "DSPRD.011": ["https://drive.google.com/open?id=1obUbrLtiA63PKh0dFEQ-sq4AAUwzalgZ&usp=drive_copy"],
       "DSPRD.012": ["https://drive.google.com/open?id=1yR9kwAjKf3HolrdL1_1C35Jf-F3iYDGG&usp=drive_copy"],
+      "DSPRD.013": ["https://drive.google.com/open?id=1S0UCLBtv0EDzxf5S-ge0UXNhgROOr1_P&usp=drive_copy"],
+      "DSPRD.014": ["https://drive.google.com/open?id=1noIMi9j-3eLnqELVAE7UxDpBen1gJKrq&usp=drive_copy"],
       "DSPRD.015": ["https://drive.google.com/open?id=1fWt7SUSj2r7NCLdK3v15V7Kle8k_1Zxe&usp=drive_copy"],
       "DSPRD.016": ["https://drive.google.com/open?id=17rCksymboaNR5GVMgUDjO2Uf3c-yF2qX&usp=drive_copy"],
       "DSPRD.017": ["https://drive.google.com/open?id=1QvrSfnZgqeYQ8J0-nfzYtz0zHkWb5Iki&usp=drive_copy"],
