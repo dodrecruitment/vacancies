@@ -1029,7 +1029,813 @@
     }
 
 
-  </style>
+  
+    /* Mobile app-style layout inspired by the provided reference image */
+    @media (max-width: 768px) {
+      :root {
+        --mobile-shell: #f3f4f5;
+        --mobile-dark: #24272a;
+        --mobile-dark-soft: #303438;
+        --mobile-orange: #f59a3d;
+      }
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #e9ebed;
+        padding: 14px 0;
+      }
+
+      .page-shell {
+        width: min(430px, calc(100% - 22px));
+        min-height: calc(100vh - 28px);
+        margin: 0 auto;
+        border: 0;
+        border-radius: 30px;
+        background: var(--mobile-shell);
+        box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
+        overflow: hidden;
+      }
+
+      .top-header {
+        position: relative;
+        padding: 18px 18px 20px;
+        background: var(--mobile-dark);
+        text-align: left;
+        color: #ffffff;
+      }
+
+      .top-header::after {
+        content: "";
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: -1px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .brand-banner {
+        min-height: auto;
+        margin: 0 0 18px;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+      }
+
+      .brand-logo {
+        width: 62px;
+        height: 62px;
+        padding: 5px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.10);
+        filter: drop-shadow(0 5px 9px rgba(0, 0, 0, 0.28));
+      }
+
+      .brand-title {
+        font-size: 0.9rem;
+        line-height: 1.15;
+        letter-spacing: 0.08em;
+        color: #ffffff;
+      }
+
+      .page-title {
+        margin: 0 0 8px;
+        color: #ffffff;
+        font-size: 1.45rem;
+        line-height: 1.15;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      .page-subtitle {
+        max-width: none;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+
+      .page-subtitle strong {
+        color: #ffffff;
+      }
+
+      .toolbar {
+        margin: 0;
+        padding: 16px 16px 14px;
+        background: #ffffff;
+        border: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .summary-card {
+        min-height: 78px;
+        padding: 10px 8px;
+        border: 0;
+        border-radius: 18px;
+        background: #f4f5f5;
+        box-shadow: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .summary-card span {
+        min-height: auto;
+        margin: 0 0 6px;
+        color: #6b7376;
+        font-size: 0.66rem;
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      .summary-card strong {
+        color: var(--mobile-dark);
+        font-size: 1.12rem;
+        font-weight: 900;
+      }
+
+      .filter-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .form-control,
+      .form-select,
+      .btn-reset {
+        min-height: 48px;
+        border-radius: 18px;
+        font-size: 0.9rem;
+      }
+
+      .form-control,
+      .form-select {
+        border: 0;
+        background-color: #f2f4f4;
+        color: var(--mobile-dark);
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+      }
+
+      .btn-reset {
+        width: 100%;
+        background: var(--mobile-dark);
+        border-color: var(--mobile-dark);
+        color: #ffffff;
+        box-shadow: none;
+      }
+
+      .content {
+        padding: 16px 16px 92px;
+        background: var(--mobile-shell);
+      }
+
+      .division-card {
+        margin-bottom: 14px;
+        border: 0;
+        border-radius: 24px;
+        background: #ffffff;
+        box-shadow: 0 12px 24px rgba(31, 41, 51, 0.08);
+        overflow: hidden;
+      }
+
+      .division-header {
+        padding: 16px;
+        background: #ffffff;
+        border: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .division-header::before {
+        display: none;
+      }
+
+      .division-card.open .division-header {
+        background: #ffffff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .division-header h2 {
+        color: var(--mobile-dark);
+        font-size: 1rem;
+        line-height: 1.25;
+        font-weight: 900;
+        letter-spacing: -0.01em;
+      }
+
+      .division-header p {
+        color: #7b8286;
+        font-size: 0.82rem;
+      }
+
+      .view-btn {
+        width: 100%;
+        min-height: 48px;
+        border: 0;
+        border-radius: 18px;
+        background: var(--dod-action-green);
+        color: #ffffff;
+        font-size: 0.92rem;
+        font-weight: 900;
+        box-shadow: 0 10px 22px rgba(25, 135, 84, 0.22);
+      }
+
+      .division-panel {
+        padding: 12px;
+        background: #f5f6f6;
+        border-top: 0;
+      }
+
+      .division-panel .table-responsive {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        overflow: visible;
+      }
+
+      .vacancy-table,
+      .vacancy-table thead,
+      .vacancy-table tbody,
+      .vacancy-table th,
+      .vacancy-table td,
+      .vacancy-table tr {
+        display: block;
+        width: 100% !important;
+      }
+
+      .vacancy-table {
+        min-width: 0;
+        border: 0;
+        background: transparent;
+      }
+
+      .vacancy-table thead {
+        display: none;
+      }
+
+      .vacancy-table tbody tr {
+        position: relative;
+        margin: 0 0 12px;
+        padding: 14px;
+        border: 0;
+        border-radius: 22px;
+        background: #ffffff;
+        box-shadow: 0 10px 20px rgba(31, 41, 51, 0.07);
+        overflow: hidden;
+      }
+
+      .vacancy-table tbody tr::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--dod-action-green), var(--mobile-orange));
+      }
+
+      .vacancy-table td {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 8px 0;
+        border: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        color: var(--mobile-dark);
+        text-align: right !important;
+        font-size: 0.88rem;
+        line-height: 1.35;
+      }
+
+      .vacancy-table td::before {
+        content: attr(data-label);
+        flex: 0 0 112px;
+        color: #7b8286;
+        font-size: 0.68rem;
+        font-weight: 900;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .vacancy-table td:nth-child(1) {
+        justify-content: flex-start;
+        color: #7b8286;
+        font-size: 0.78rem;
+      }
+
+      .vacancy-table td:nth-child(1)::before {
+        flex: 0 0 auto;
+        content: "Serial";
+      }
+
+      .vacancy-table td:nth-child(4) {
+        display: block;
+        padding: 12px 13px;
+        margin: 4px 0 8px;
+        border: 0;
+        border-radius: 18px;
+        background: var(--mobile-dark);
+        color: #ffffff;
+        text-align: left !important;
+        font-size: 1rem;
+        font-weight: 900;
+        box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .vacancy-table td:nth-child(4)::before {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--mobile-orange);
+      }
+
+      .vacancy-table td:nth-child(6) {
+        display: block;
+        padding: 12px 0 0;
+        border-bottom: 0;
+        text-align: left !important;
+      }
+
+      .vacancy-table td:nth-child(6)::before {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .vacancy-table .small-code {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+      }
+
+      .action-cell {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .action-cell .btn-dod,
+      .action-cell .btn-job-desc {
+        min-height: 46px;
+        border-radius: 17px;
+        font-size: 0.86rem;
+        font-weight: 900;
+      }
+
+      .action-cell .btn-dod {
+        background: var(--dod-action-green);
+        border-color: var(--dod-action-green);
+        box-shadow: 0 8px 18px rgba(25, 135, 84, 0.22);
+      }
+
+      .action-cell .btn-job-desc {
+        background: #ffffff;
+        border-color: rgba(0, 0, 0, 0.10);
+        color: var(--mobile-dark);
+      }
+
+      .footer-actions {
+        position: sticky;
+        bottom: 0;
+        z-index: 50;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 12px 16px 16px;
+        background: rgba(243, 244, 245, 0.94);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .footer-actions .btn-home,
+      .footer-actions .btn-dod {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 18px;
+        font-size: 0.85rem;
+        box-shadow: none;
+      }
+
+      .footer-actions .btn-home {
+        background: #ffffff;
+        border-color: rgba(0, 0, 0, 0.08);
+        color: var(--mobile-dark);
+      }
+
+      .footer-actions .btn-dod {
+        background: var(--dod-action-green);
+        border-color: var(--dod-action-green);
+        color: #ffffff;
+      }
+
+      .empty-state {
+        margin: 0 16px 92px;
+        border: 0;
+        border-radius: 22px;
+        box-shadow: 0 10px 20px rgba(31, 41, 51, 0.07);
+      }
+
+      .job-description-modal {
+        padding: 14px;
+      }
+
+      .job-description-card {
+        border-radius: 24px;
+      }
+
+      .job-description-header {
+        background: var(--mobile-dark);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .summary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .summary-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 9px 5px;
+      }
+
+      .summary-card span {
+        font-size: 0.58rem;
+      }
+
+      .summary-card strong {
+        font-size: 0.98rem;
+      }
+
+      .vacancy-table td {
+        text-align: left !important;
+      }
+    }
+
+
+    /* Mobile refinement: keep original Department of Defence colours and reduce fonts for spacing */
+    @media (max-width: 768px) {
+      :root {
+        --mobile-shell: var(--dod-page);
+        --mobile-dark: var(--dod-green);
+        --mobile-dark-soft: var(--dod-green-dark);
+        --mobile-orange: var(--dod-gold);
+      }
+
+      body {
+        background: var(--dod-page);
+        padding: 10px 0;
+      }
+
+      .page-shell {
+        background: var(--dod-page);
+        box-shadow: 0 18px 40px rgba(7, 37, 28, 0.16);
+      }
+
+      .top-header {
+        background: var(--dod-action-green);
+        padding: 14px 16px 16px;
+      }
+
+      .brand-banner {
+        margin-bottom: 12px;
+        gap: 10px;
+      }
+
+      .brand-logo {
+        width: 52px;
+        height: 52px;
+        padding: 2px;
+        background: transparent;
+        border-radius: 14px;
+      }
+
+      .brand-title {
+        font-size: 0.72rem;
+        line-height: 1.1;
+        letter-spacing: 0.07em;
+        color: #ffffff;
+      }
+
+      .page-title {
+        color: #ffffff;
+        font-size: 1.12rem;
+        line-height: 1.12;
+        margin-bottom: 6px;
+      }
+
+      .page-subtitle {
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 0.76rem;
+        line-height: 1.42;
+      }
+
+      .toolbar {
+        background: #ffffff;
+        padding: 12px 14px;
+      }
+
+      .summary-grid {
+        gap: 7px;
+        margin-bottom: 12px;
+      }
+
+      .summary-card {
+        min-height: 66px;
+        padding: 8px 5px;
+        border-radius: 15px;
+        background: var(--dod-soft);
+      }
+
+      .summary-card span {
+        color: var(--dod-muted);
+        font-size: 0.54rem;
+        line-height: 1.1;
+        margin-bottom: 4px;
+      }
+
+      .summary-card strong {
+        color: var(--dod-green);
+        font-size: 0.92rem;
+      }
+
+      .form-control,
+      .form-select,
+      .btn-reset {
+        min-height: 42px;
+        border-radius: 14px;
+        font-size: 0.8rem;
+      }
+
+      .form-control,
+      .form-select {
+        background-color: var(--dod-soft);
+        color: var(--dod-text);
+      }
+
+      .btn-reset {
+        background: var(--dod-green);
+        border-color: var(--dod-green);
+      }
+
+      .content {
+        padding: 13px 14px 82px;
+        background: var(--dod-page);
+      }
+
+      .division-card {
+        margin-bottom: 11px;
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 0 10px 22px rgba(7, 37, 28, 0.08);
+      }
+
+      .division-header {
+        padding: 13px 14px;
+        gap: 9px;
+      }
+
+      .division-card.open .division-header {
+        background: #ffffff;
+      }
+
+      .division-header h2 {
+        color: var(--dod-green);
+        font-size: 0.84rem;
+        line-height: 1.2;
+        margin-bottom: 3px;
+      }
+
+      .division-header p {
+        color: var(--dod-muted);
+        font-size: 0.7rem;
+        line-height: 1.25;
+      }
+
+      .view-btn {
+        min-height: 42px;
+        border-radius: 14px;
+        background: var(--dod-action-green);
+        border-color: var(--dod-action-green);
+        font-size: 0.78rem;
+        box-shadow: 0 8px 18px rgba(25, 135, 84, 0.18);
+      }
+
+      .division-panel {
+        padding: 10px;
+        background: var(--dod-soft);
+      }
+
+      .vacancy-table tbody tr {
+        padding: 11px 12px;
+        border-radius: 18px;
+        box-shadow: 0 8px 18px rgba(7, 37, 28, 0.07);
+      }
+
+      .vacancy-table tbody tr::before {
+        background: linear-gradient(90deg, var(--dod-action-green), var(--dod-gold));
+      }
+
+      .vacancy-table td {
+        gap: 9px;
+        padding: 6px 0;
+        color: var(--dod-text);
+        font-size: 0.76rem;
+        line-height: 1.28;
+      }
+
+      .vacancy-table td::before {
+        flex: 0 0 96px;
+        color: var(--dod-muted);
+        font-size: 0.57rem;
+        letter-spacing: 0.04em;
+      }
+
+      .vacancy-table td:nth-child(1) {
+        color: var(--dod-muted);
+        font-size: 0.68rem;
+      }
+
+      .vacancy-table td:nth-child(4) {
+        background: var(--dod-green);
+        color: #ffffff;
+        font-size: 0.84rem;
+        line-height: 1.25;
+        padding: 9px 10px;
+        border-radius: 14px;
+        margin: 3px 0 7px;
+      }
+
+      .vacancy-table td:nth-child(4)::before {
+        color: var(--dod-gold);
+        font-size: 0.56rem;
+        margin-bottom: 3px;
+      }
+
+      .action-cell {
+        gap: 7px;
+      }
+
+      .action-cell .btn-dod,
+      .action-cell .btn-job-desc {
+        min-height: 40px;
+        border-radius: 14px;
+        font-size: 0.75rem;
+        padding: 7px 9px;
+      }
+
+      .action-cell .btn-dod {
+        background: var(--dod-action-green);
+        border-color: var(--dod-action-green);
+      }
+
+      .action-cell .btn-job-desc {
+        color: var(--dod-green);
+        border-color: var(--dod-border-strong);
+      }
+
+      .footer-actions {
+        background: rgba(244, 246, 245, 0.95);
+        gap: 8px;
+        padding: 10px 14px 13px;
+      }
+
+      .footer-actions .btn-home,
+      .footer-actions .btn-dod {
+        min-height: 42px;
+        border-radius: 14px;
+        font-size: 0.74rem;
+        padding: 7px 8px;
+      }
+
+      .footer-actions .btn-home {
+        color: var(--dod-green);
+      }
+
+      .job-description-header {
+        background: var(--dod-green);
+      }
+
+      .job-description-header h3 {
+        font-size: 0.94rem;
+      }
+
+      .job-description-body {
+        font-size: 0.82rem;
+        padding: 17px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page-title {
+        font-size: 1.02rem;
+      }
+
+      .page-subtitle {
+        font-size: 0.72rem;
+      }
+
+      .summary-card span {
+        font-size: 0.5rem;
+      }
+
+      .summary-card strong {
+        font-size: 0.86rem;
+      }
+
+      .division-header h2 {
+        font-size: 0.8rem;
+      }
+
+      .vacancy-table td {
+        font-size: 0.73rem;
+      }
+
+      .vacancy-table td::before {
+        flex-basis: auto;
+        font-size: 0.54rem;
+      }
+
+      .vacancy-table td:nth-child(4) {
+        font-size: 0.8rem;
+      }
+    }
+
+
+  
+
+    /* Final mobile header/logo alignment: logo centered on top, text centered below */
+    @media (max-width: 768px) {
+      .top-header {
+        text-align: center;
+      }
+
+      .brand-banner {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 7px;
+        margin-bottom: 14px;
+      }
+
+      .brand-logo {
+        width: 92px;
+        height: 92px;
+        margin: 0 auto;
+      }
+
+      .brand-title {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.15;
+        letter-spacing: 0.08em;
+      }
+
+      .page-title,
+      .page-subtitle {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand-logo {
+        width: 86px;
+        height: 86px;
+      }
+
+      .brand-title {
+        font-size: 0.92rem;
+      }
+    }
+
+</style>
 </head>
 <body>
   <div class="page-shell">
