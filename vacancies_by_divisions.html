@@ -808,51 +808,96 @@
     const visibleDivisions = document.getElementById('visibleDivisions');
 
 
-    const JOB_DESCRIPTION_LINKS = [
-      "https://drive.google.com/open?id=1ZictQ1-9aoVsCYq6uMCul4MZhTNWjMUM&usp=drive_copy",
-      "https://drive.google.com/open?id=1kPQPBcqtsPUOPf-_Vtq63qPCCkZGAFbH&usp=drive_copy",
-      "https://drive.google.com/open?id=1QHw3LgjH-q2_h4Ox_XBvkJ5Dxsu_nQCO&usp=drive_copy",
-      "https://drive.google.com/open?id=15b8S41YqdgjuSjshVgqrdkE7l3zUR6-N&usp=drive_copy",
-      "https://drive.google.com/open?id=1At2uc1cVWF1WbvEzpKL0-v5FuURi_wRo&usp=drive_copy",
-      "https://drive.google.com/open?id=1qwi2er0AIsg5z_9pAWSDymYBkiMyBW1i&usp=drive_copy",
-      "https://drive.google.com/open?id=1s_8ZGOo8cjZ8h6iGmw7obRWa2PxUmHQS&usp=drive_copy",
-      "https://drive.google.com/open?id=1GTiH0GmBDadmSmHcoYdH-sgfGv3GV3Lr&usp=drive_copy",
-      "https://drive.google.com/open?id=1oKi449KqZmQACTZLuOdy4PHClHnvrlkk&usp=drive_copy",
-      "https://drive.google.com/open?id=1iHcpiX0IbFtOpViqulXoFv1O2zgRJYo5&usp=drive_copy",
-      "https://drive.google.com/open?id=1HCE-7N8g4xsb2CAEspV9NVi2CrV8lauu&usp=drive_copy",
-      "https://drive.google.com/open?id=1pFcTfhcbBsd3IWCqMkBIeFzW_XE95Gmz&usp=drive_copy",
-      "https://drive.google.com/open?id=1_k2wYNUulSfgSKXdbwh1cendKiklCTbA&usp=drive_copy",
-      "https://drive.google.com/open?id=1Vf--4y3kOxsfj--WOqt7rokoKGxsDkkC&usp=drive_copy",
-      "https://drive.google.com/open?id=17HWtHyPqUCGNK6ifo-dvv27LqDtqlmTP&usp=drive_copy",
-      "https://drive.google.com/open?id=1Pv5viQ1Nd7NQQ7EOi6dAiuqrIWVuSTSu&usp=drive_copy",
-      "https://drive.google.com/open?id=1wDEUJgJuFQLjwzmcgcHP29VobqZp9AoL&usp=drive_copy",
-      "https://drive.google.com/open?id=1M_faQifFuhyYAmO1uvrGPMO9Y8g5MjaF&usp=drive_copy",
-      "https://drive.google.com/open?id=119fP27PqlilKHOCboVKScPwxPmS2Wr9Q&usp=drive_copy",
-      "https://drive.google.com/open?id=1P7rmliyqgK3gGK3T39xyMEkCDqg9EUJP&usp=drive_copy",
-      "https://drive.google.com/open?id=1rwcU_u10Q_fMnOrYL6NBAuLGj-Jx4b1d&usp=drive_copy",
-      "https://drive.google.com/open?id=1ZkkGetadr8YN7s_MYpALmZGE2gMkGN1y&usp=drive_copy",
-      "https://drive.google.com/open?id=1rpDNx2mCt65SRNYEOczLPIDqxUlI_wyF&usp=drive_copy",
-      "https://drive.google.com/open?id=1M2JTdRLgMihuLDAtl0j_mB8LqFYcHQkH&usp=drive_copy",
-      "https://drive.google.com/open?id=1Jvdga47ftWuZ7Cvgmvl0wY3d4yI389KZ&usp=drive_copy",
-      "https://drive.google.com/open?id=1iz4NajmJd08OXUq0ktTVpTFd_IzlmrWT&usp=drive_copy",
-      "https://drive.google.com/open?id=1YI_GuKgoiMuY9k_WZ1g2VyV7Tieq8ISH&usp=drive_copy",
-      "https://drive.google.com/open?id=1mHQo2DwAGrdHfjNXVOHW6SqWaJOrgdH9&usp=drive_copy",
-      "https://drive.google.com/open?id=1R8-CqrXKhOws_XcGpriEN2bLYSBurGjs&usp=drive_copy",
-      "https://drive.google.com/open?id=1L9w7k53h9fWTJkUnouXEE65pmbFleLiO&usp=drive_copy",
-      "https://drive.google.com/open?id=19OJ8qhP5Mo1SyC9cEev_E9VIMvm5KaJo&usp=drive_copy",
-      "https://drive.google.com/open?id=1EsYrEufZ6PuS-k9DuNPxZTAUwiRFcn6R&usp=drive_copy",
-      "https://drive.google.com/open?id=1AGwHa1JJZXSxriq-NRwZepoRnJIA6ySe&usp=drive_copy",
-      "https://drive.google.com/open?id=1LQx9fVjWfQDk6nktoh4tu6GklXGg8I6p&usp=drive_copy",
-      "https://drive.google.com/open?id=1GtjfND305-HvwIf1tVcXIxxNQcBpPFR0&usp=drive_copy",
-      "https://drive.google.com/open?id=1agy2S8_7sTePFl_nv9yca942qtfnkp6l&usp=drive_copy",
-      "https://drive.google.com/open?id=1eX0RvuCMx61P0g9QnFxVIzwRz3FMJINu&usp=drive_copy",
-      "https://drive.google.com/open?id=1WPR2sWuEZqNczu-sRiwhUpvSv3sMSCgL&usp=drive_copy",
-      "https://drive.google.com/open?id=1LR8zhWcoA6gOF079uYokSHm7Hau5oRuo&usp=drive_copy"
-    ];
+    const JOB_DESCRIPTION_LINK_MAP = {
+      "DCAS.002": ["https://drive.google.com/open?id=1MYNyXEUFQZRH2LwWYJ0Rlz5IW_awGXYa&usp=drive_copy"],
+      "DCAS.004": ["https://drive.google.com/open?id=1nopwvp3iodoUc-S7uPYNiawTGlGxphvK&usp=drive_copy"],
+      "DCAS.005": ["https://drive.google.com/open?id=1kmTYxFbSe-BM95nZoeuw5A3g9KfDL6JH&usp=drive_copy"],
+      "DCAS.008": ["https://drive.google.com/open?id=1Fb-tb_JMm4M7L92Z-a7Wl9dpbsRGkAWV&usp=drive_copy"],
+      "DCAS.009": ["https://drive.google.com/open?id=12rxgRSP50dgKJuNZv6Oxp4B7j7ZK73m1&usp=drive_copy"],
+      "DCAS.011": ["https://drive.google.com/open?id=1WOM-MINydaVJnz6rb3_bgtwMrCc-w9d-&usp=drive_copy"],
+      "DCAS.012": ["https://drive.google.com/open?id=1mk8X-VilLj98_59WdqYsxooX_0n6l51O&usp=drive_copy"],
+      "DCAS.013": ["https://drive.google.com/open?id=1xL7EHNzPtDGdGXpbrDB0M91avcA7SNRX&usp=drive_copy"],
+      "DCAS.014": ["https://drive.google.com/open?id=11U8EJU_tVZA01Lf2vXpJMY44_Y3vVBFd&usp=drive_copy"],
+      "DCAS.015": ["https://drive.google.com/open?id=143u5Hf_k4SyLarDYHFTmeCoUk3L3q_YW&usp=drive_copy"],
+      "DEX.002": ["https://drive.google.com/open?id=1ZictQ1-9aoVsCYq6uMCul4MZhTNWjMUM&usp=drive_copy"],
+      "DEX.003": ["https://drive.google.com/open?id=1kPQPBcqtsPUOPf-_Vtq63qPCCkZGAFbH&usp=drive_copy"],
+      "DEX.004": ["https://drive.google.com/open?id=1QHw3LgjH-q2_h4Ox_XBvkJ5Dxsu_nQCO&usp=drive_copy"],
+      "DEX.005": ["https://drive.google.com/open?id=15b8S41YqdgjuSjshVgqrdkE7l3zUR6-N&usp=drive_copy"],
+      "DEX.007": ["https://drive.google.com/open?id=1At2uc1cVWF1WbvEzpKL0-v5FuURi_wRo&usp=drive_copy"],
+      "DEX.008": ["https://drive.google.com/open?id=1qwi2er0AIsg5z_9pAWSDymYBkiMyBW1i&usp=drive_copy"],
+      "DEX.010": ["https://drive.google.com/open?id=1s_8ZGOo8cjZ8h6iGmw7obRWa2PxUmHQS&usp=drive_copy"],
+      "DEX.011": ["https://drive.google.com/open?id=1GTiH0GmBDadmSmHcoYdH-sgfGv3GV3Lr&usp=drive_copy"],
+      "DEX.012": ["https://drive.google.com/open?id=1oKi449KqZmQACTZLuOdy4PHClHnvrlkk&usp=drive_copy"],
+      "DEX.013": ["https://drive.google.com/open?id=1iHcpiX0IbFtOpViqulXoFv1O2zgRJYo5&usp=drive_copy"],
+      "DEX.014": ["https://drive.google.com/open?id=1HCE-7N8g4xsb2CAEspV9NVi2CrV8lauu&usp=drive_copy"],
+      "DEX.015": ["https://drive.google.com/open?id=1pFcTfhcbBsd3IWCqMkBIeFzW_XE95Gmz&usp=drive_copy"],
+      "DEX.016": ["https://drive.google.com/open?id=1_k2wYNUulSfgSKXdbwh1cendKiklCTbA&usp=drive_copy"],
+      "DEX.017": ["https://drive.google.com/open?id=1Vf--4y3kOxsfj--WOqt7rokoKGxsDkkC&usp=drive_copy"],
+      "DEX.018": ["https://drive.google.com/open?id=17HWtHyPqUCGNK6ifo-dvv27LqDtqlmTP&usp=drive_copy"],
+      "DEX.019": ["https://drive.google.com/open?id=1Pv5viQ1Nd7NQQ7EOi6dAiuqrIWVuSTSu&usp=drive_copy"],
+      "DEX.020": ["https://drive.google.com/open?id=1wDEUJgJuFQLjwzmcgcHP29VobqZp9AoL&usp=drive_copy"],
+      "DEX.021": ["https://drive.google.com/open?id=1M_faQifFuhyYAmO1uvrGPMO9Y8g5MjaF&usp=drive_copy"],
+      "DEX.022": ["https://drive.google.com/open?id=119fP27PqlilKHOCboVKScPwxPmS2Wr9Q&usp=drive_copy"],
+      "DEX.023": ["https://drive.google.com/open?id=1P7rmliyqgK3gGK3T39xyMEkCDqg9EUJP&usp=drive_copy"],
+      "DEX.024": ["https://drive.google.com/open?id=1rwcU_u10Q_fMnOrYL6NBAuLGj-Jx4b1d&usp=drive_copy"],
+      "DEX.025": ["https://drive.google.com/open?id=1ZkkGetadr8YN7s_MYpALmZGE2gMkGN1y&usp=drive_copy"],
+      "DEX.026": ["https://drive.google.com/open?id=1rpDNx2mCt65SRNYEOczLPIDqxUlI_wyF&usp=drive_copy"],
+      "DEX.029": ["https://drive.google.com/open?id=1M2JTdRLgMihuLDAtl0j_mB8LqFYcHQkH&usp=drive_copy"],
+      "DEX.033": ["https://drive.google.com/open?id=1Jvdga47ftWuZ7Cvgmvl0wY3d4yI389KZ&usp=drive_copy"],
+      "DEX.034": ["https://drive.google.com/open?id=1iz4NajmJd08OXUq0ktTVpTFd_IzlmrWT&usp=drive_copy"],
+      "DEX.035": ["https://drive.google.com/open?id=1YI_GuKgoiMuY9k_WZ1g2VyV7Tieq8ISH&usp=drive_copy"],
+      "DEX.036": ["https://drive.google.com/open?id=1mHQo2DwAGrdHfjNXVOHW6SqWaJOrgdH9&usp=drive_copy"],
+      "DEX.037": ["https://drive.google.com/open?id=1R8-CqrXKhOws_XcGpriEN2bLYSBurGjs&usp=drive_copy"],
+      "DICT.001": ["https://drive.google.com/open?id=19OJ8qhP5Mo1SyC9cEev_E9VIMvm5KaJo&usp=drive_copy"],
+      "DICT.003": ["https://drive.google.com/open?id=1EsYrEufZ6PuS-k9DuNPxZTAUwiRFcn6R&usp=drive_copy"],
+      "DICT.004": ["https://drive.google.com/open?id=1AGwHa1JJZXSxriq-NRwZepoRnJIA6ySe&usp=drive_copy"],
+      "DICT.006": ["https://drive.google.com/open?id=1LQx9fVjWfQDk6nktoh4tu6GklXGg8I6p&usp=drive_copy"],
+      "DICT.009": ["https://drive.google.com/open?id=1L9w7k53h9fWTJkUnouXEE65pmbFleLiO&usp=drive_copy"],
+      "DICT.013": ["https://drive.google.com/open?id=1GtjfND305-HvwIf1tVcXIxxNQcBpPFR0&usp=drive_copy"],
+      "DICT.014": ["https://drive.google.com/open?id=1agy2S8_7sTePFl_nv9yca942qtfnkp6l&usp=drive_copy"],
+      "DICT.015": ["https://drive.google.com/open?id=1eX0RvuCMx61P0g9QnFxVIzwRz3FMJINu&usp=drive_copy"],
+      "DICT.016": [
+        "https://drive.google.com/open?id=1WPR2sWuEZqNczu-sRiwhUpvSv3sMSCgL&usp=drive_copy",
+        "https://drive.google.com/open?id=1LR8zhWcoA6gOF079uYokSHm7Hau5oRuo&usp=drive_copy",
+      ],
+      "DSPRD.001": ["https://drive.google.com/open?id=1xfFORHCD5frGLIhXzDfcSRyOkoSQSSlj&usp=drive_copy"],
+      "DSPRD.004": ["https://drive.google.com/open?id=1pS0buEvJDMPjB0L9QNENDJnD8Pq25Igt&usp=drive_copy"],
+      "DSPRD.007": ["https://drive.google.com/open?id=1moh0ZbULrO1fzGQu_MfopKGMTEER8WFp&usp=drive_copy"],
+      "DSPRD.008": ["https://drive.google.com/open?id=1srK_n5TjIHQ_XEGeXXJBcyWqaeT1_zoY&usp=drive_copy"],
+      "DSPRD.009": ["https://drive.google.com/open?id=1qZpkpLz8SZKG-P-4MTEY6Kyc07yi5d-_&usp=drive_copy"],
+      "DSPRD.010": [
+        "https://drive.google.com/open?id=1J4ba1IrtB4QmMU8SMabP6yGlygKtI_lS&usp=drive_copy",
+        "https://drive.google.com/open?id=1gwqGfnBvcmQO9Ani9pjnVW8xtJ4tb7Ko&usp=drive_copy",
+      ],
+      "DSPRD.011": ["https://drive.google.com/open?id=1obUbrLtiA63PKh0dFEQ-sq4AAUwzalgZ&usp=drive_copy"],
+      "DSPRD.012": ["https://drive.google.com/open?id=1yR9kwAjKf3HolrdL1_1C35Jf-F3iYDGG&usp=drive_copy"],
+      "DSPRD.015": ["https://drive.google.com/open?id=1fWt7SUSj2r7NCLdK3v15V7Kle8k_1Zxe&usp=drive_copy"],
+      "DSPRD.016": ["https://drive.google.com/open?id=17rCksymboaNR5GVMgUDjO2Uf3c-yF2qX&usp=drive_copy"],
+      "DSPRD.017": ["https://drive.google.com/open?id=1QvrSfnZgqeYQ8J0-nfzYtz0zHkWb5Iki&usp=drive_copy"],
+      "DSPRD.018": ["https://drive.google.com/open?id=1EUI_GlhJwdwNplC0nWXD8OBusS310YpW&usp=drive_copy"],
+      "DSPRD.019": ["https://drive.google.com/open?id=1xyKeUNynkVm_ZR3-CrTj6a16ZzfSIiKG&usp=drive_copy"],
+      "DAPM.002": ["https://drive.google.com/open?id=1MYNyXEUFQZRH2LwWYJ0Rlz5IW_awGXYa&usp=drive_copy"],
+      "DAPM.003": ["https://drive.google.com/open?id=1nopwvp3iodoUc-S7uPYNiawTGlGxphvK&usp=drive_copy"],
+      "DAPM.004": ["https://drive.google.com/open?id=1kmTYxFbSe-BM95nZoeuw5A3g9KfDL6JH&usp=drive_copy"],
+      "DAPM.005": [
+        "https://drive.google.com/open?id=1Fb-tb_JMm4M7L92Z-a7Wl9dpbsRGkAWV&usp=drive_copy",
+        "https://drive.google.com/open?id=12rxgRSP50dgKJuNZv6Oxp4B7j7ZK73m1&usp=drive_copy",
+      ],
+      "DAPM.006": ["https://drive.google.com/open?id=1WOM-MINydaVJnz6rb3_bgtwMrCc-w9d-&usp=drive_copy"],
+      "DAPM.008": ["https://drive.google.com/open?id=1mk8X-VilLj98_59WdqYsxooX_0n6l51O&usp=drive_copy"],
+      "DAPM.009": ["https://drive.google.com/open?id=1xL7EHNzPtDGdGXpbrDB0M91avcA7SNRX&usp=drive_copy"],
+      "DAPM.010": ["https://drive.google.com/open?id=11U8EJU_tVZA01Lf2vXpJMY44_Y3vVBFd&usp=drive_copy"],
+      "DAPM.011": ["https://drive.google.com/open?id=143u5Hf_k4SyLarDYHFTmeCoUk3L3q_YW&usp=drive_copy"],
+    };
 
-    VACANCIES.forEach((item, index) => {
-      if (JOB_DESCRIPTION_LINKS[index]) {
-        item.jobDescriptionUrl = JOB_DESCRIPTION_LINKS[index];
+    function normalizeReferenceNumber(referenceNumber) {
+      return String(referenceNumber || '').replace(/\s+/g, '');
+    }
+
+    VACANCIES.forEach((item) => {
+      const key = normalizeReferenceNumber(item.referenceNumber);
+      if (JOB_DESCRIPTION_LINK_MAP[key]) {
+        item.jobDescriptionUrls = JOB_DESCRIPTION_LINK_MAP[key];
       }
     });
 
@@ -947,14 +992,14 @@
             <td data-label="Action">
               <div class="action-cell">
                 <a class="btn btn-sm btn-dod" href="${buildApplyUrl(item)}">Apply</a>
-                ${item.jobDescriptionUrl ? `
+                ${item.jobDescriptionUrls && item.jobDescriptionUrls.length ? item.jobDescriptionUrls.map((url, linkIndex) => `
                   <a
                     class="btn-job-desc"
-                    href="${escapeHtml(item.jobDescriptionUrl)}"
+                    href="${escapeHtml(url)}"
                     target="_blank"
                     rel="noopener"
-                  >Job Description</a>
-                ` : `
+                  >${item.jobDescriptionUrls.length > 1 ? `Job Description ${String.fromCharCode(65 + linkIndex)}` : 'Job Description'}</a>
+                `).join('') : `
                   <button
                     type="button"
                     class="btn-job-desc job-desc-btn"
