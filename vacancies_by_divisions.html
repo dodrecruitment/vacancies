@@ -10,26 +10,23 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
+
     :root {
       --dod-green: #0b3d2e;
-      --dod-green-dark: #08291f;
-      --dod-gold: #b8860b;
-      --dod-light: #f5f7f6;
+      --dod-green-dark: #07251c;
+      --dod-green-soft: #e8f0ec;
+      --dod-action-green: #198754;
+      --dod-action-green-dark: #146c43;
+      --dod-gold: #c49a2c;
+      --dod-gold-soft: #fff7df;
+      --dod-page: #f4f6f5;
       --dod-surface: #ffffff;
-      --dod-soft: #eef3f1;
-      --dod-border: rgba(8, 41, 31, 0.16);
-      --dod-border-strong: rgba(8, 41, 31, 0.28);
-      --dod-muted: #5f6f68;
-      --dod-text: #1d2b25;
-      --division-navy: #12324a;
-      --division-navy-dark: #0c2436;
-      --division-gold: #c9a227;
-      --division-header-light: #eaf3ef;
-      --division-header-mid: #d7e9e1;
-      --division-header-open: #dfeee7;
-      --panel-light-green: #eef8f0;
-      --panel-light-green-2: #e3f2e7;
-      --panel-border-green: #cfe4d5;
+      --dod-soft: #f8faf9;
+      --dod-border: rgba(11, 61, 46, 0.15);
+      --dod-border-strong: rgba(11, 61, 46, 0.28);
+      --dod-muted: #5f6b66;
+      --dod-text: #1f2933;
+      --dod-shadow: 0 22px 60px rgba(7, 37, 28, 0.24);
     }
 
     * {
@@ -40,25 +37,25 @@
       margin: 0;
       min-height: 100vh;
       background:
-        linear-gradient(120deg, rgba(8, 41, 31, 0.88), rgba(11, 61, 46, 0.70)),
+        linear-gradient(120deg, rgba(7, 37, 28, 0.88), rgba(11, 61, 46, 0.72)),
         url('background.jpg') center/cover fixed;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #18251e;
+      color: var(--dod-text);
     }
 
     .page-shell {
       width: min(1240px, calc(100% - 32px));
       margin: 28px auto;
-      background: rgba(244, 247, 245, 0.97);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-radius: 1.25rem;
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+      background: var(--dod-page);
+      border: 1px solid rgba(255, 255, 255, 0.44);
+      border-radius: 1.15rem;
+      box-shadow: var(--dod-shadow);
       overflow: hidden;
     }
 
     .top-header {
       padding: 24px 48px 22px;
-      background: rgba(255, 255, 255, 0.76);
+      background: #ffffff;
       text-align: center;
     }
 
@@ -71,15 +68,15 @@
       gap: 20px;
       padding: 18px 24px;
       margin-bottom: 22px;
-      border-radius: 1.15rem;
-      box-shadow: 0 10px 28px rgba(16, 32, 25, 0.12);
+      border-radius: 1rem;
+      box-shadow: 0 10px 26px rgba(7, 37, 28, 0.16);
     }
 
     .brand-logo {
       width: 105px;
       height: 105px;
       object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.34));
     }
 
     .brand-title {
@@ -100,13 +97,13 @@
     .page-subtitle {
       max-width: 900px;
       margin: 0 auto;
-      color: #48564e;
+      color: var(--dod-muted);
       line-height: 1.6;
     }
 
     .toolbar {
       padding: 24px 48px;
-      background: rgba(255, 255, 255, 0.70);
+      background: #f8faf9;
       border-top: 1px solid var(--dod-border);
       border-bottom: 1px solid var(--dod-border);
     }
@@ -120,10 +117,10 @@
 
     .summary-card {
       background: #fff;
-      border-radius: 0.9rem;
+      border-radius: 0.85rem;
       padding: 16px 18px;
       border: 1px solid var(--dod-border);
-      box-shadow: 0 6px 16px rgba(16, 32, 25, 0.05);
+      box-shadow: 0 6px 16px rgba(7, 37, 28, 0.05);
     }
 
     .summary-card span {
@@ -155,7 +152,7 @@
       background-color: #fff;
       color: var(--dod-text);
       font-weight: 600;
-      box-shadow: 0 1px 2px rgba(16, 32, 25, 0.04);
+      box-shadow: 0 1px 2px rgba(7, 37, 28, 0.04);
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -179,7 +176,7 @@
     }
 
     .form-select option {
-      color: #1d2b25;
+      color: var(--dod-text);
       background: #ffffff;
       font-weight: 500;
     }
@@ -198,15 +195,20 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      box-shadow: 0 6px 14px rgba(8, 41, 31, 0.10);
+      box-shadow: 0 6px 14px rgba(7, 37, 28, 0.10);
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
     .btn-dod:hover,
     .btn-reset:hover,
-    .btn-home:hover {
+    .btn-home:hover,
+    .btn-dod:focus,
+    .btn-reset:focus,
+    .btn-home:focus {
       background: var(--dod-green-dark);
       border-color: var(--dod-green-dark);
       color: #fff;
+      transform: translateY(-1px);
     }
 
     .content {
@@ -215,9 +217,9 @@
 
     .division-card {
       background: var(--dod-surface);
-      border-radius: 0.95rem;
-      border: 1px solid rgba(18, 50, 74, 0.18);
-      box-shadow: 0 10px 24px rgba(16, 32, 25, 0.08);
+      border-radius: 0.9rem;
+      border: 1px solid var(--dod-border);
+      box-shadow: 0 10px 24px rgba(7, 37, 28, 0.07);
       margin-bottom: 14px;
       overflow: hidden;
     }
@@ -233,8 +235,8 @@
       justify-content: space-between;
       gap: 18px;
       padding: 18px 20px 18px 24px;
-      background: linear-gradient(135deg, var(--division-header-light), var(--division-header-mid));
-      border-bottom: 1px solid rgba(15, 81, 50, 0.20);
+      background: #ffffff;
+      border-bottom: 1px solid var(--dod-border);
       color: var(--dod-text);
     }
 
@@ -242,13 +244,13 @@
       content: "";
       position: absolute;
       inset: 0 auto 0 0;
-      width: 7px;
-      background: var(--division-gold);
+      width: 6px;
+      background: var(--dod-gold);
     }
 
     .division-card.open .division-header {
-      background: linear-gradient(135deg, var(--division-header-light), var(--division-header-mid));
-      border-bottom-color: rgba(15, 81, 50, 0.20);
+      background: var(--dod-green-soft);
+      border-bottom-color: var(--dod-border-strong);
     }
 
     .division-header h2 {
@@ -261,14 +263,14 @@
 
     .division-header p {
       margin: 0;
-      color: #53655d;
+      color: var(--dod-muted);
       font-size: 0.92rem;
     }
 
     .view-btn {
-      background: var(--dod-green);
+      background: var(--dod-action-green);
       color: #ffffff;
-      border: 1px solid var(--dod-green);
+      border: 1px solid var(--dod-action-green);
       border-radius: 0.65rem;
       padding: 9px 15px;
       font-weight: 850;
@@ -276,29 +278,29 @@
       align-items: center;
       gap: 8px;
       white-space: normal;
-      box-shadow: 0 6px 14px rgba(15, 81, 50, 0.16);
-      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 6px 14px rgba(7, 37, 28, 0.14);
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
     .view-btn:hover,
     .view-btn:focus {
-      background: #0b3f27;
-      border-color: #0b3f27;
+      background: var(--dod-action-green-dark);
+      border-color: var(--dod-action-green-dark);
       color: #ffffff;
       transform: translateY(-1px);
     }
 
     .division-card.open .view-btn {
-      background: var(--dod-green);
-      border-color: var(--dod-green);
+      background: var(--dod-action-green);
+      border-color: var(--dod-action-green);
       color: #ffffff;
     }
 
     .division-panel {
       display: none;
       padding: 16px 20px 20px;
-      background: linear-gradient(180deg, var(--panel-light-green) 0%, var(--panel-light-green-2) 100%);
-      border-top: 1px solid var(--panel-border-green);
+      background: #f8faf9;
+      border-top: 1px solid var(--dod-border);
     }
 
     .division-card.open .division-panel {
@@ -306,11 +308,11 @@
     }
 
     .division-panel .table-responsive {
-      background: rgba(255, 255, 255, 0.94);
-      border: 1px solid rgba(15, 81, 50, 0.10);
-      border-radius: 0.9rem;
+      background: #ffffff;
+      border: 1px solid var(--dod-border);
+      border-radius: 0.85rem;
       padding: 8px;
-      box-shadow: 0 6px 16px rgba(16, 32, 25, 0.05);
+      box-shadow: 0 6px 16px rgba(7, 37, 28, 0.05);
     }
 
     .division-card.open .view-btn i {
@@ -318,24 +320,25 @@
     }
 
     .table {
-      border: 1px solid rgba(15, 81, 50, 0.10);
+      border: 1px solid var(--dod-border);
       border-radius: 0.85rem;
       overflow: hidden;
     }
 
     .table thead th {
-      background: #edf2f0;
-      color: var(--dod-green-dark);
+      background: var(--dod-green);
+      color: #ffffff;
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      border-bottom: 1px solid var(--dod-border-strong);
+      border-bottom: 1px solid var(--dod-green-dark);
       white-space: nowrap;
     }
 
     .table td {
       font-size: 0.9rem;
       vertical-align: middle;
+      color: var(--dod-text);
     }
 
     .table td:nth-child(5) {
@@ -351,7 +354,8 @@
       padding: 26px;
       text-align: center;
       color: var(--dod-muted);
-      border: 1px solid rgba(15, 81, 50, 0.12);
+      border: 1px solid var(--dod-border);
+      margin: 0 48px 28px;
     }
 
     .empty-state.show {
@@ -371,7 +375,6 @@
       font-size: 0.82rem;
       color: #29453a;
     }
-
 
     .vacancy-table {
       table-layout: fixed;
@@ -401,7 +404,7 @@
     .vacancy-table td:nth-child(6) { width: 175px; min-width: 175px; }
 
     .vacancy-table td {
-      border-color: rgba(15, 81, 50, 0.08);
+      border-color: rgba(11, 61, 46, 0.08);
       word-break: normal;
       overflow-wrap: anywhere;
     }
@@ -441,48 +444,9 @@
 
     .table-responsive {
       border-radius: 0.85rem;
-      border: 1px solid rgba(15, 81, 50, 0.10);
+      border: 1px solid var(--dod-border);
     }
 
-    @media (max-width: 768px) {
-      .page-shell {
-        width: min(100% - 18px, 1240px);
-        margin: 12px auto;
-      }
-
-      .top-header,
-      .toolbar,
-      .content,
-      .footer-actions {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      .brand-banner {
-        flex-direction: column;
-      }
-
-      .brand-logo {
-        width: 90px;
-        height: 90px;
-      }
-
-      .summary-grid,
-      .filter-row {
-        grid-template-columns: 1fr;
-      }
-
-      .division-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .view-btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  
     .btn-job-desc {
       background: #ffffff;
       color: var(--dod-green);
@@ -497,22 +461,14 @@
       gap: 8px;
       white-space: normal;
       overflow-wrap: anywhere;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
 
     .btn-job-desc:hover,
     .btn-job-desc:focus {
-      background: var(--dod-soft);
+      background: var(--dod-green-soft);
       color: var(--dod-green-dark);
       border-color: var(--dod-green);
-    }
-
-    .action-cell {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      align-items: stretch;
-      width: 100%;
-      min-width: 0;
     }
 
     .job-description-modal {
@@ -536,7 +492,7 @@
       border-radius: 1.1rem;
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
       overflow: hidden;
-      border: 1px solid rgba(15, 81, 50, 0.18);
+      border: 1px solid var(--dod-border);
     }
 
     .job-description-header {
@@ -586,7 +542,7 @@
     }
 
     .job-description-note {
-      background: #fff8e1;
+      background: var(--dod-gold-soft);
       border-left: 5px solid var(--dod-gold);
       border-radius: 0.85rem;
       padding: 14px 16px;
@@ -596,6 +552,50 @@
     @media (max-width: 900px) {
       .vacancy-table {
         min-width: 980px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-shell {
+        width: min(100% - 18px, 1240px);
+        margin: 12px auto;
+      }
+
+      .top-header,
+      .toolbar,
+      .content,
+      .footer-actions {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .empty-state {
+        margin-left: 18px;
+        margin-right: 18px;
+      }
+
+      .brand-banner {
+        flex-direction: column;
+      }
+
+      .brand-logo {
+        width: 90px;
+        height: 90px;
+      }
+
+      .summary-grid,
+      .filter-row {
+        grid-template-columns: 1fr;
+      }
+
+      .division-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .view-btn {
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -626,9 +626,9 @@
 
       .vacancy-table tbody tr {
         background: #fff;
-        border: 1px solid rgba(15, 81, 50, 0.14);
+        border: 1px solid var(--dod-border);
         border-radius: 0.95rem;
-        box-shadow: 0 8px 22px rgba(16, 32, 25, 0.06);
+        box-shadow: 0 8px 22px rgba(7, 37, 28, 0.06);
         margin-bottom: 14px;
         overflow: hidden;
       }
@@ -639,7 +639,7 @@
         gap: 12px;
         padding: 11px 14px;
         text-align: left !important;
-        border-bottom: 1px solid rgba(15, 81, 50, 0.08);
+        border-bottom: 1px solid rgba(11, 61, 46, 0.08);
       }
 
       .vacancy-table td::before {
