@@ -859,6 +859,37 @@
       }
     });
 
+
+    const JOB_DESCRIPTION_LINK_MAP = {
+      "DCAS.002": "https://drive.google.com/open?id=1XNRPQVsIpcHAxDP9K6Yk5w5pDthXRIEA&usp=drive_copy",
+      "DCAS.004": "https://drive.google.com/open?id=1tKequrpTZcnWOVhOr4r00wUaClnwxFaQ&usp=drive_copy",
+      "DCAS.005": "https://drive.google.com/open?id=1ktW2SQAc_TtI45F-jviATv2O8kl_hIgk&usp=drive_copy",
+      "DCAS.008": "https://drive.google.com/open?id=1Ytoxx6x9IrlmwJTtqdiTSu1LNMkb4wmM&usp=drive_copy",
+      "DCAS.009": "https://drive.google.com/open?id=1P3AVAgEeo0YE2dEd10BzT_3C2bh5oFQY&usp=drive_copy",
+      "DCAS.011": "https://drive.google.com/open?id=1OEq7Qz2U0zWnbKJWkTSj69iM8NAuLRkE&usp=drive_copy",
+      "DCAS.012": "https://drive.google.com/open?id=1kt5Nf_T120nY46sqpIu6ijszdx6IYAGL&usp=drive_copy",
+      "DCAS.013": "https://drive.google.com/open?id=1AN3wBlRKe4CoYwyomF-cDlRIIsT-D8n3&usp=drive_copy",
+      "DCAS.014": "https://drive.google.com/open?id=1cFYmqBKC8wQOf_6bpT6hVL3fmwYNJn8J&usp=drive_copy",
+      "DCAS.015": "https://drive.google.com/open?id=1x9yXepObhmwTCSjOP2dUWftC8fU4qzMe&usp=drive_copy",
+      "DCAS.017": "https://drive.google.com/open?id=1RDZN8uwAfYnDL2-v9yuABPfi7cOUd51w&usp=drive_copy"
+    };
+
+    function normalizeReferenceNumber(value) {
+      return String(value || '')
+        .toUpperCase()
+        .replace(/\s+/g, '')
+        .replace('DAS.', 'DAS.')
+        .replace('DAS', 'DAS.')
+        .replace('DCAS.', 'DCAS.')
+        .replace('DCAS', 'DCAS.');
+    }
+
+    VACANCIES.forEach((item) => {
+      const mappedJobDescription = JOB_DESCRIPTION_LINK_MAP[normalizeReferenceNumber(item.referenceNumber)];
+      if (mappedJobDescription) {
+        item.jobDescriptionUrl = mappedJobDescription;
+      }
+    });
     const divisions = [...new Set(VACANCIES.map(item => item.division))];
 
     function escapeHtml(value) {
