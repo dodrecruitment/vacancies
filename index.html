@@ -10,7 +10,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-
     :root {
       --dod-green: #0b3d2e;
       --dod-green-dark: #07251c;
@@ -93,7 +92,6 @@
       padding: 3rem;
       box-shadow: var(--dod-shadow);
     }
-
 
     .hero-identity {
       text-align: center;
@@ -235,6 +233,11 @@
       transform: translateY(-1px);
     }
 
+    .btn-closed {
+      pointer-events: none;
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
 
     .countdown-panel {
       max-width: 760px;
@@ -301,10 +304,30 @@
     }
 
     .countdown-expired {
-      margin-top: 0.7rem;
-      color: #f3d27a;
-      font-weight: 850;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 0.9rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(243, 210, 122, 0.45);
+      color: #ffffff;
       display: none;
+    }
+
+    .countdown-expired strong {
+      display: block;
+      color: #f3d27a;
+      font-size: 1.15rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+    }
+
+    .countdown-expired span {
+      display: block;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
     .footer {
@@ -489,7 +512,6 @@
         flex-direction: column;
       }
 
-
       .countdown-panel {
         margin: 24px 0 0;
         padding: 0.9rem;
@@ -524,6 +546,14 @@
         line-height: 1.35;
       }
 
+      .countdown-expired strong {
+        font-size: 0.95rem;
+      }
+
+      .countdown-expired span {
+        font-size: 0.76rem;
+      }
+
       .btn-dod-main,
       .btn-dod-secondary {
         width: 100%;
@@ -531,7 +561,6 @@
       }
     }
 
-  
     /* Mobile app-style layout inspired by the provided reference image */
     @media (max-width: 768px) {
       :root {
@@ -777,7 +806,6 @@
       }
     }
 
-
     /* Mobile refinement: keep original Department of Defence colours and reduce fonts for spacing */
     @media (max-width: 768px) {
       :root {
@@ -938,9 +966,6 @@
       }
     }
 
-
-  
-
     /* Final mobile header/logo alignment: logo centered on top, text centered below */
     @media (max-width: 768px) {
       .navbar .container {
@@ -1040,8 +1065,6 @@
       }
     }
 
-
-
     /* Emblem removed: tighten header spacing */
     .navbar-brand {
       min-height: 64px;
@@ -1063,7 +1086,6 @@
       }
     }
 
-
     /* Final title color update: make Department of Defence readable over the image */
     .hero h1.hero-identity-title {
       color: #ffffff !important;
@@ -1076,8 +1098,7 @@
         text-shadow: none;
       }
     }
-
-</style>
+  </style>
 </head>
 
 <body>
@@ -1105,7 +1126,7 @@
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="vacancies_by_divisions.html">View Position Vacancies</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://form.jotform.com/261105229819861" target="_blank" rel="noopener">Apply Online</a></li>
+          <li class="nav-item"><a class="nav-link apply-link" href="https://form.jotform.com/261105229819861" target="_blank" rel="noopener">Apply Online</a></li>
         </ul>
       </div>
     </div>
@@ -1147,14 +1168,14 @@
             <i class="bi bi-arrow-right"></i>
           </a>
 
-          <a href="https://form.jotform.com/261105229819861" target="_blank" rel="noopener" class="btn-dod-secondary">
+          <a href="https://form.jotform.com/261105229819861" target="_blank" rel="noopener" class="btn-dod-secondary apply-link">
             Apply Online
             <i class="bi bi-pencil-square"></i>
           </a>
         </div>
 
         <div class="countdown-panel" aria-live="polite">
-          <div class="countdown-label">
+          <div class="countdown-label" id="countdownLabel">
             <i class="bi bi-clock-history"></i>
             Countdown to 4:06 PM Today
           </div>
@@ -1178,11 +1199,13 @@
             </div>
           </div>
 
-          <div class="countdown-target">
+          <div class="countdown-target" id="countdownTargetText">
             Target time: Thursday, 21 May 2026 at 4:06 PM — Port Moresby, Papua New Guinea
           </div>
+
           <div class="countdown-expired" id="countdownExpired">
-            Countdown complete.
+            <strong>Application is Now Closed</strong>
+            <span>The application deadline has passed. Late submissions may not be accepted.</span>
           </div>
         </div>
 
@@ -1199,10 +1222,8 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-
     // Fixed deadline: 21 May 2026, 4:06 PM in Port Moresby, Papua New Guinea.
     // Port Moresby is UTC+10, so the exact deadline is 06:06 UTC.
-    // Correct reference: at 11:03 AM PNG time, the remaining time is 05 hours 03 minutes.
     const countdownTarget = new Date('2026-05-21T16:06:00+10:00').getTime();
 
     const countdownDays = document.getElementById('countdownDays');
@@ -1210,10 +1231,14 @@
     const countdownMinutes = document.getElementById('countdownMinutes');
     const countdownSeconds = document.getElementById('countdownSeconds');
     const countdownExpired = document.getElementById('countdownExpired');
+    const countdownLabel = document.getElementById('countdownLabel');
+    const countdownTargetText = document.getElementById('countdownTargetText');
+    const applyLinks = document.querySelectorAll('.apply-link');
 
     // If the visitor's computer clock is a few minutes wrong, the countdown can also be wrong.
     // This optional online sync corrects the timer using Port Moresby time, then falls back to the device clock if the sync is unavailable.
     let pngTimeOffset = 0;
+    let countdownClosed = false;
 
     async function syncPortMoresbyClock() {
       try {
@@ -1242,16 +1267,44 @@
       return String(value).padStart(2, '0');
     }
 
+    function closeApplications() {
+      if (countdownClosed) return;
+
+      countdownClosed = true;
+
+      countdownDays.textContent = '00';
+      countdownHours.textContent = '00';
+      countdownMinutes.textContent = '00';
+      countdownSeconds.textContent = '00';
+
+      if (countdownLabel) {
+        countdownLabel.innerHTML = '<i class="bi bi-lock-fill"></i> Applications Closed';
+      }
+
+      if (countdownTargetText) {
+        countdownTargetText.textContent = 'The deadline was Thursday, 21 May 2026 at 4:06 PM — Port Moresby, Papua New Guinea.';
+      }
+
+      if (countdownExpired) {
+        countdownExpired.style.display = 'block';
+      }
+
+      applyLinks.forEach(function (link) {
+        link.textContent = 'Applications Closed';
+        link.classList.add('btn-closed');
+        link.removeAttribute('href');
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+        link.setAttribute('aria-disabled', 'true');
+      });
+    }
+
     function updateCountdownTimer() {
       const now = getCorrectedNow();
       const distance = countdownTarget - now;
 
       if (distance <= 0) {
-        countdownDays.textContent = '00';
-        countdownHours.textContent = '00';
-        countdownMinutes.textContent = '00';
-        countdownSeconds.textContent = '00';
-        if (countdownExpired) countdownExpired.style.display = 'block';
+        closeApplications();
         return;
       }
 
