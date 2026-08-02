@@ -823,8 +823,9 @@
               <ol class="instruction-list">
                 <li>Submit one complete application for each position you wish to apply for.</li>
                 <li>Use the exact position title and reference number from the official vacancy register.</li>
-                <li>Compile your CV, qualification certificates, and any relevant training or award certificates into one clear, readable PDF.</li>
-                <li>The compiled application PDF must be 10 MB or less. Password-protected files cannot be processed.</li>
+                <li>Upload one clear identification document: National ID, passport, driver's licence, or birth certificate.</li>
+                <li>Compile your Expression of Interest or cover letter, CV, qualification certificates, and any relevant training or award certificates into one clear, readable PDF.</li>
+                <li>The identification document must be 5 MB or less. The compiled application PDF must be 10 MB or less. Password-protected PDFs cannot be processed.</li>
                 <li>Ensure your phone number and email address are accurate and remain active.</li>
                 <li>Providing false or misleading information may result in disqualification.</li>
                 <li>Only shortlisted applicants may be contacted for screening, interview, or assessment.</li>
@@ -848,6 +849,27 @@
                 <div class="field">
                   <label for="last-name">Last name <span class="required">*</span></label>
                   <input class="control" id="last-name" name="last_name" type="text" maxlength="80" autocomplete="family-name" required>
+                </div>
+                <div class="field">
+                  <label for="citizenship">Citizenship <span class="required">*</span></label>
+                  <input class="control" id="citizenship" name="citizenship" type="text" maxlength="100" value="Papua New Guinean" required>
+                </div>
+                <div class="field">
+                  <label for="province-of-residence">Province of residence <span class="required">*</span></label>
+                  <input class="control" id="province-of-residence" name="province_of_residence" type="text" maxlength="100" placeholder="For example: National Capital District" required>
+                </div>
+                <div class="field">
+                  <label for="employment-status">Current employment status <span class="required">*</span></label>
+                  <select class="control" id="employment-status" name="employment_status" required>
+                    <option value="">Select employment status</option>
+                    <option>Employed full-time</option>
+                    <option>Employed part-time</option>
+                    <option>Contract or temporary employment</option>
+                    <option>Self-employed</option>
+                    <option>Unemployed</option>
+                    <option>Student or recent graduate</option>
+                    <option>Retired</option>
+                  </select>
                 </div>
                 <div class="field field-full">
                   <span class="field-label">Gender <span class="required">*</span></span>
@@ -877,12 +899,11 @@
                   <textarea class="control" id="postal-address" name="postal_address" rows="3" maxlength="300" placeholder="P.O. Box or private mail bag, post office, town and province" required></textarea>
                 </div>
                 <div class="field field-full">
-                  <label for="passport-photo">Passport-style photograph <span class="optional">(optional)</span></label>
+                  <label for="identification-document">Identification document <span class="required">*</span></label>
                   <div class="upload-field">
-                    <input id="passport-photo" name="passport_photo" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
-                    <span class="hint">JPG or PNG only; maximum 5 MB.</span>
-                    <span class="file-status" data-file-status="passport-photo"></span>
-                    <img class="photo-preview" id="photo-preview" alt="Selected passport photograph preview">
+                    <input id="identification-document" name="identification_document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required>
+                    <span class="hint">Upload one National ID, passport, driver's licence, or birth certificate. PDF, JPG, or PNG only; maximum 5 MB.</span>
+                    <span class="file-status" data-file-status="identification-document"></span>
                   </div>
                 </div>
               </div>
@@ -959,10 +980,10 @@
                   </select>
                 </div>
                 <div class="field field-full">
-                  <label for="compiled-documents">Compiled application documents <span class="required">*</span></label>
+                  <label for="compiled-documents">Compiled application PDF <span class="required">*</span></label>
                   <div class="upload-field">
                     <input id="compiled-documents" type="file" accept=".pdf,application/pdf" required>
-                    <span class="hint">Upload one PDF containing, in order: your CV, qualification certificates, and any relevant training or award certificates. The final PDF must be 10 MB or less.</span>
+                    <span class="hint">Upload one PDF containing, in order: Expression of Interest or cover letter, CV, qualification certificates, and any relevant training or award certificates. The final PDF must be 10 MB or less.</span>
                     <span class="file-status" data-file-status="compiled-documents"></span>
                   </div>
                 </div>
@@ -978,6 +999,10 @@
               <label class="check-row">
                 <input id="declaration-confirm" type="checkbox" required>
                 <span>I declare that the information and documents supplied are true, complete, and accurate. <span class="required">*</span></span>
+              </label>
+              <label class="check-row" style="margin-top:0.75rem">
+                <input id="privacy-consent" type="checkbox" required>
+                <span>I consent to the Department of Defence collecting, verifying, storing, and using my information and documents for recruitment and employment assessment purposes. <span class="required">*</span></span>
               </label>
               <div class="notice submission-status" id="submission-status" role="status" aria-live="polite">
                 <span class="notice-dot" aria-hidden="true">i</span>
@@ -1038,7 +1063,7 @@
       });
     }
 
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzyZoUWAT7vH597WPWCp0AtGEj98poWDkxslWEY1KU0Rm4MjdHLkOkoWBhtKqZ569Q0/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzcC2vWYj5P5RHvRjqj07uQPrBbWINXHr_5G7xz3arI4eM3m_CEdd5yiM5dzlXaXd-Lsg/exec";
     const SUBMISSION_REQUEST_TIMEOUT_MS = 120000;
     const BACKEND_CONFIRMATION_TIMEOUT_MS = 60000;
     const BACKEND_STATUS_POLL_INTERVAL_MS = 2500;
@@ -1215,6 +1240,9 @@
         reviewItem("Reference number", selectedVacancy ? normalizeReference(selectedVacancy.referenceNumber) : ""),
         reviewItem("Division", selectedVacancy?.division),
         reviewItem("Applicant name", `${fieldValue("first-name")} ${fieldValue("last-name")}`.trim()),
+        reviewItem("Citizenship", fieldValue("citizenship")),
+        reviewItem("Province of residence", fieldValue("province-of-residence")),
+        reviewItem("Employment status", fieldValue("employment-status")),
         reviewItem("Gender", document.querySelector('input[name="gender"]:checked')?.value || ""),
         reviewItem("Date of birth", fieldValue("date-of-birth")),
         reviewItem("Phone", fieldValue("phone")),
@@ -1229,8 +1257,10 @@
         reviewItem("Relevant experience", `${fieldValue("relevant-experience")} year(s)`),
         reviewItem("Referees", fieldValue("references")),
         reviewItem("Qualification match", fieldValue("qualification-match")),
+        reviewItem("Identification document", fileName("identification-document"), true),
         reviewItem("Compiled application PDF", fileName("compiled-documents"), true),
-        reviewItem("Passport photograph", fileName("passport-photo"))
+        reviewItem("Accuracy declaration", document.getElementById("declaration-confirm").checked ? "Accepted" : "Not accepted"),
+        reviewItem("Privacy consent", document.getElementById("privacy-consent").checked ? "Accepted" : "Not accepted")
       );
     }
 
@@ -1239,9 +1269,11 @@
       showStep(currentStep + 1);
     });
     backButton.addEventListener("click", () => showStep(currentStep - 1));
+    document.getElementById("declaration-confirm").addEventListener("change", buildReview);
+    document.getElementById("privacy-consent").addEventListener("change", buildReview);
 
     const fileRules = {
-      "passport-photo": { maximum: 5 * 1024 * 1024, types: ["image/jpeg", "image/png"], label: "JPG or PNG" },
+      "identification-document": { maximum: 5 * 1024 * 1024, types: ["application/pdf", "image/jpeg", "image/png"], label: "PDF, JPG, or PNG" },
       "compiled-documents": { maximum: 10 * 1024 * 1024, types: ["application/pdf"], label: "PDF" }
     };
 
@@ -1253,13 +1285,14 @@
         const file = input.files?.[0];
         if (!file) {
           status.textContent = "";
-          if (id === "passport-photo") document.getElementById("photo-preview").style.display = "none";
           return;
         }
-        const validPdfExtension =
-          rule.types.includes("application/pdf") &&
-          file.name.toLowerCase().endsWith(".pdf");
-        if (!rule.types.includes(file.type) && !validPdfExtension) {
+        const lowerFileName = file.name.toLowerCase();
+        const validExtension =
+          (rule.types.includes("application/pdf") && lowerFileName.endsWith(".pdf")) ||
+          (rule.types.includes("image/jpeg") && (lowerFileName.endsWith(".jpg") || lowerFileName.endsWith(".jpeg"))) ||
+          (rule.types.includes("image/png") && lowerFileName.endsWith(".png"));
+        if (!rule.types.includes(file.type) && !validExtension) {
           input.setCustomValidity(`Upload a valid ${rule.label} file.`);
           status.textContent = `Invalid file type. Use ${rule.label}.`;
           input.reportValidity();
@@ -1271,12 +1304,7 @@
           input.reportValidity();
           return;
         }
-        status.textContent = `${id === "compiled-documents" ? "Compiled PDF" : "Selected"}: ${file.name} (${(file.size / 1024 / 1024).toFixed(1)} MB)`;
-        if (id === "passport-photo") {
-          const preview = document.getElementById("photo-preview");
-          preview.src = URL.createObjectURL(file);
-          preview.style.display = "block";
-        }
+        status.textContent = `${id === "compiled-documents" ? "Compiled PDF" : "Identification document"}: ${file.name} (${(file.size / 1024 / 1024).toFixed(1)} MB)`;
       });
     });
 
@@ -1459,9 +1487,9 @@
       try {
         submissionId = createSubmissionId();
 
-        const [compiledDocuments, passportPhoto] = await Promise.all([
+        const [identificationDocument, compiledDocuments] = await Promise.all([
+          fileToBase64("identification-document"),
           fileToBase64("compiled-documents"),
-          fileToBase64("passport-photo")
         ]);
 
         const selectedDivision = selectedVacancy.division;
@@ -1480,10 +1508,14 @@
           referenceNumber: selectedReference,
           reference_number: selectedReference,
           positionReferenceNumber: selectedReference,
+          positionCode: selectedVacancy.positionCode,
+          costAccount: selectedVacancy.costAccount,
+          positionClass: selectedVacancy.class,
           firstName: fieldValue("first-name"),
           lastName: fieldValue("last-name"),
           gender: document.querySelector('input[name="gender"]:checked')?.value || "",
           dateOfBirth: fieldValue("date-of-birth"),
+          citizenship: fieldValue("citizenship"),
           phone: fieldValue("phone"),
           email: fieldValue("email"),
           address: `Residential: ${residentialAddress} | Postal: ${postalAddress}`,
@@ -1491,6 +1523,8 @@
           residential_address: residentialAddress,
           postalAddress,
           postal_address: postalAddress,
+          provinceOfResidence: fieldValue("province-of-residence"),
+          employmentStatus: fieldValue("employment-status"),
           highestQualification: fieldValue("qualification"),
           fieldOfStudy: fieldValue("field-of-study"),
           qualificationObtained: fieldValue("graduation-year"),
@@ -1502,8 +1536,10 @@
           references: fieldValue("references"),
           qualificationMatch: fieldValue("qualification-match"),
           documentBundleType: "compiled_application_pdf",
+          identificationDocument,
           compiledDocuments,
-          passportPhoto,
+          accuracyDeclaration: document.getElementById("declaration-confirm").checked,
+          privacyConsent: document.getElementById("privacy-consent").checked,
           submissionId,
           submittedAt: new Date().toISOString(),
           website: fieldValue("website")
