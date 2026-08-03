@@ -457,6 +457,7 @@
     .receipt-shell { padding: 3rem 0 4rem; }
     .receipt-card { max-width: 900px; margin: 0 auto; overflow: hidden; }
     .receipt-banner { padding: 2rem; color: #fff; background: linear-gradient(110deg, var(--green-950), var(--green-700)); text-align: center; }
+    .receipt-banner.pending { background: linear-gradient(110deg, #6f5314, #a57a18); }
     .receipt-banner.unconfirmed { background: linear-gradient(110deg, #63262a, var(--red-700)); }
     .check-mark { display: grid; place-items: center; width: 76px; height: 76px; margin: 0 auto 1rem; border: 3px solid var(--gold-500); border-radius: 50%; color: var(--green-950); background: var(--gold-500); font-size: 2.2rem; font-weight: 900; }
     .receipt-banner h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.8rem,4vw,2.65rem); }
@@ -475,6 +476,7 @@
     .next-steps ul { margin: 0; padding-left: 1.2rem; }
     .next-steps li { margin-bottom: 0.4rem; }
     .receipt-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 1.3rem; }
+    .status-message { margin: 0.45rem 0 0; color: var(--ink-700); }
     .privacy-note { margin: 1rem 0 0; color: var(--ink-500); font-size: 0.76rem; text-align: center; }
     @media (max-width: 600px) {
       .receipt-shell { padding: 1.2rem 0 3rem; }
@@ -587,8 +589,8 @@
       <article class="card receipt-card">
         <div class="receipt-banner" id="receipt-banner">
           <div class="check-mark" id="receipt-icon" aria-hidden="true">✓</div>
-          <h1 id="receipt-title">Application Received</h1>
-          <p id="receipt-message">The recruitment backend confirmed that your application was recorded successfully. Save or print this page for your records.</p>
+          <h1 id="receipt-title">Application Submitted</h1>
+          <p id="receipt-message">Your application was recorded successfully. An acknowledgement email has been queued for the email address entered in your application.</p>
         </div>
         <div class="receipt-body">
           <div class="receipt-reference" id="receipt-reference-block">
@@ -609,16 +611,39 @@
             <h2>What happens next</h2>
             <ul>
               <li>Keep this submission reference and copies of your supporting documents.</li>
-              <li>An automatic acknowledgement has been sent to the email address entered in the application, subject to the recruitment mailbox's delivery service.</li>
+              <li>An automatic acknowledgement has been queued for the email address entered in the application.</li>
               <li>Keep your phone number and email active during the recruitment process.</li>
               <li>Only shortlisted applicants may be contacted for screening, interview, or assessment.</li>
               <li>Do not submit a duplicate unless instructed to correct an application.</li>
             </ul>
           </section>
 
+          <section class="next-steps" id="pending-next-steps" hidden>
+            <h2>Confirmation is still pending</h2>
+            <ul>
+              <li>Do not submit the application again while this reference is being checked.</li>
+              <li>Use the Check receipt status button below to check the recruitment register again.</li>
+              <li>The portal will reuse this Submission ID if the same application must be retried, preventing another spreadsheet entry.</li>
+              <li>Keep this page or record the Submission ID shown above.</li>
+            </ul>
+          </section>
+
           <div class="receipt-actions no-print" id="confirmed-actions">
-            <button class="btn btn-primary" id="print-button" type="button">Print or save receipt</button>
             <a class="btn btn-secondary" href="vacancies_by_divisions.html">View vacancy register</a>
+            <a class="btn btn-secondary" href="index.html">Return home</a>
+          </div>
+
+          <div class="notice" id="pending-notice" hidden>
+            <span class="notice-dot" aria-hidden="true">i</span>
+            <div>
+              <strong id="pending-notice-title">Waiting for backend confirmation</strong>
+              <p class="status-message" id="pending-status-message">The application request was sent, but the browser has not yet confirmed the spreadsheet entry.</p>
+            </div>
+          </div>
+
+          <div class="receipt-actions no-print" id="pending-actions" hidden>
+            <button class="btn btn-primary" id="check-status-button" type="button">Check receipt status</button>
+            <button class="btn btn-secondary" id="pending-print-button" type="button">Print pending reference</button>
             <a class="btn btn-secondary" href="index.html">Return home</a>
           </div>
 
@@ -635,7 +660,7 @@
             <a class="btn btn-secondary" href="index.html">Return home</a>
           </div>
 
-          <p class="privacy-note" id="privacy-note">For privacy, these receipt details remain only in this browser tab's session and are cleared when the tab or browser session closes.</p>
+          <p class="privacy-note" id="privacy-note">For privacy, these confirmation details remain only in this browser tab's session and are cleared when the tab or browser session closes.</p>
         </div>
       </article>
     </div>
@@ -681,10 +706,25 @@
       });
     }
 
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6UtKfJ_84KDS1xOtUZuVTr1pgj7vknBjJT7wq-rUSAzXBR4sEAiNlAS5kYA7Tst3A/exec";
+    const RECEIPT_STORAGE_KEY = "dodVacancyApplicationReceipt";
+    const PENDING_SUBMISSION_STORAGE_KEY = "dodVacancyPendingSubmission";
+    const STATUS_REQUEST_TIMEOUT_MS = 45000;
+
+    function isValidSubmissionId(value) {
+      return /^DOD-\d{8}(?:-\d{6})?-[A-Z0-9]{4,64}$/i.test(
+        String(value || "").trim()
+      );
+    }
+
     function readReceipt() {
       try {
-        const current = sessionStorage.getItem("dodVacancyApplicationReceipt");
-        const legacy = localStorage.getItem("dodVacancyApplication");
+        const current = sessionStorage.getItem(
+          RECEIPT_STORAGE_KEY
+        );
+        const legacy = localStorage.getItem(
+          "dodVacancyApplication"
+        );
         localStorage.removeItem("dodVacancyApplication");
         return JSON.parse(current || legacy || "{}");
       } catch (error) {
@@ -692,44 +732,71 @@
       }
     }
 
-    function setText(id, value) {
+    function storeReceipt(receipt) {
+      sessionStorage.setItem(
+        RECEIPT_STORAGE_KEY,
+        JSON.stringify(receipt)
+      );
+    }
+
+    function clearPendingSubmission(submissionId) {
+      try {
+        const pendingSubmission = JSON.parse(
+          localStorage.getItem(
+            PENDING_SUBMISSION_STORAGE_KEY
+          ) || "null"
+        );
+
+        if (
+          pendingSubmission?.submissionId === submissionId
+        ) {
+          localStorage.removeItem(
+            PENDING_SUBMISSION_STORAGE_KEY
+          );
+        }
+      } catch (error) {
+        localStorage.removeItem(PENDING_SUBMISSION_STORAGE_KEY);
+      }
+    }
+
+    function setText(id, value, fallback = "") {
       const element = document.getElementById(id);
       if (!element) return;
       const clean = String(value || "").trim();
-      element.textContent = clean || element.textContent;
+      element.textContent = clean || fallback || element.textContent;
     }
 
-    const receipt = readReceipt();
-    const confirmedReceipt =
-      receipt.backendConfirmed === true &&
-      /^DOD-[A-Za-z0-9_-]{6,80}$/.test(
-        String(receipt.submissionId || "")
-      );
+    function setHidden(id, hidden) {
+      const element = document.getElementById(id);
+      if (element) element.hidden = hidden;
+    }
 
-    if (confirmedReceipt) {
-      setText("receipt-id", receipt.submissionId);
+    function populateReceiptDetails(receipt) {
+      setText("receipt-id", receipt.submissionId, "Not available");
       setText(
         "receipt-name",
         [receipt.firstName, receipt.lastName]
           .filter(Boolean)
-          .join(" ")
+          .join(" "),
+        "Not provided"
       );
-      setText("receipt-email", receipt.email);
+      setText("receipt-email", receipt.email, "Not provided");
       setText(
         "receipt-reference",
         receipt.referenceNumber ||
-        receipt.positionReferenceNumber ||
-        receipt.positionRef
+          receipt.positionReferenceNumber ||
+          receipt.positionRef,
+        "Not provided"
       );
       setText(
         "receipt-position",
-        receipt.positionTitle ||
-        receipt.designation
+        receipt.positionTitle || receipt.designation,
+        "Not provided"
       );
       setText(
         "receipt-division",
-        receipt.division ||
-        receipt.divisionBranch
+        receipt.division || receipt.divisionBranch,
+        "Not provided"
       );
 
       if (receipt.submittedAt) {
@@ -746,47 +813,205 @@
           );
         }
       }
-    } else {
-      document.title =
-        "Receipt Not Confirmed | Department of Defence PNG";
+    }
 
+    function resetReceiptState() {
+      const banner = document.getElementById("receipt-banner");
+      banner.classList.remove("pending", "unconfirmed");
+
+      [
+        "confirmed-next-steps",
+        "confirmed-actions",
+        "pending-next-steps",
+        "pending-notice",
+        "pending-actions",
+        "unconfirmed-notice",
+        "unconfirmed-actions"
+      ].forEach((id) => setHidden(id, true));
+
+      setHidden("receipt-reference-block", false);
+      setHidden("receipt-details", false);
+      setHidden("privacy-note", false);
+    }
+
+    function showConfirmedReceipt(receipt) {
+      resetReceiptState();
+      document.title =
+        "Application Submitted | Department of Defence PNG";
+      setText("receipt-icon", "✓");
+      setText("receipt-title", "Application Submitted");
+      setText(
+        "receipt-message",
+        "Your application was recorded successfully. An acknowledgement email has been queued for the email address entered in your application."
+      );
+      populateReceiptDetails(receipt);
+      setHidden("confirmed-next-steps", false);
+      setHidden("confirmed-actions", false);
+    }
+
+    function showPendingReceipt(receipt) {
+      resetReceiptState();
+      document.title =
+        "Receipt Confirmation Pending | Department of Defence PNG";
+      document
+        .getElementById("receipt-banner")
+        .classList.add("pending");
+      setText("receipt-icon", "…");
+      setText("receipt-title", "Confirmation Pending");
+      setText(
+        "receipt-message",
+        "Your application request was sent, but the browser has not yet confirmed the spreadsheet entry. Do not submit it again."
+      );
+      populateReceiptDetails(receipt);
+      setText(
+        "pending-status-message",
+        receipt.confirmationMessage ||
+          "The portal is ready to check the recruitment register again."
+      );
+      setHidden("pending-next-steps", false);
+      setHidden("pending-notice", false);
+      setHidden("pending-actions", false);
+    }
+
+    function showUnconfirmedReceipt() {
+      resetReceiptState();
+      document.title =
+        "Receipt Not Available | Department of Defence PNG";
       document
         .getElementById("receipt-banner")
         .classList.add("unconfirmed");
-
       setText("receipt-icon", "!");
-      setText("receipt-title", "Receipt Not Confirmed");
+      setText("receipt-title", "Receipt Not Available");
       setText(
         "receipt-message",
-        "No backend-confirmed application receipt is available in this browser session."
+        "No application receipt is available in this browser session."
+      );
+      setHidden("receipt-reference-block", true);
+      setHidden("receipt-details", true);
+      setHidden("privacy-note", true);
+      setHidden("unconfirmed-notice", false);
+      setHidden("unconfirmed-actions", false);
+    }
+
+    async function requestBackendStatus(submissionId) {
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(
+        () => controller.abort(),
+        STATUS_REQUEST_TIMEOUT_MS
       );
 
-      document.getElementById(
-        "receipt-reference-block"
-      ).hidden = true;
-      document.getElementById(
-        "receipt-details"
-      ).hidden = true;
-      document.getElementById(
-        "confirmed-next-steps"
-      ).hidden = true;
-      document.getElementById(
-        "confirmed-actions"
-      ).hidden = true;
-      document.getElementById(
-        "unconfirmed-notice"
-      ).hidden = false;
-      document.getElementById(
-        "unconfirmed-actions"
-      ).hidden = false;
-      document.getElementById(
-        "privacy-note"
-      ).hidden = true;
+      try {
+        const statusUrl = new URL(GOOGLE_SCRIPT_URL);
+        statusUrl.searchParams.set("action", "status");
+        statusUrl.searchParams.set("submissionId", submissionId);
+        statusUrl.searchParams.set("requestTime", String(Date.now()));
+
+        const response = await fetch(statusUrl.toString(), {
+          method: "GET",
+          mode: "cors",
+          credentials: "omit",
+          cache: "no-store",
+          redirect: "follow",
+          signal: controller.signal
+        });
+
+        if (!response.ok) {
+          throw new Error(
+            `The confirmation service returned HTTP ${response.status}.`
+          );
+        }
+
+        return await response.json();
+      } finally {
+        window.clearTimeout(timeoutId);
+      }
+    }
+
+    let receipt = readReceipt();
+    let checkingStatus = false;
+
+    async function checkReceiptStatus() {
+      if (
+        checkingStatus ||
+        !isValidSubmissionId(receipt.submissionId)
+      ) {
+        return;
+      }
+
+      const checkButton = document.getElementById(
+        "check-status-button"
+      );
+      checkingStatus = true;
+      checkButton.disabled = true;
+      checkButton.textContent = "Checking status...";
+      setText(
+        "pending-status-message",
+        "Checking the recruitment register. Please keep this page open."
+      );
+
+      try {
+        const status = await requestBackendStatus(
+          receipt.submissionId
+        );
+
+        if (
+          status?.success === true &&
+          status?.recorded === true &&
+          status?.submissionId === receipt.submissionId
+        ) {
+          receipt = {
+            ...receipt,
+            backendConfirmed: true,
+            confirmationPending: false,
+            submittedAt:
+              status.submittedAt || receipt.submittedAt,
+            confirmationMessage: ""
+          };
+
+          storeReceipt(receipt);
+          clearPendingSubmission(receipt.submissionId);
+          showConfirmedReceipt(receipt);
+          return;
+        }
+
+        setText(
+          "pending-status-message",
+          "The entry is not visible yet. Please wait a few minutes and check again. Do not submit another application."
+        );
+      } catch (error) {
+        setText(
+          "pending-status-message",
+          error?.name === "AbortError"
+            ? "The status check timed out. Your Submission ID remains saved; wait and check again."
+            : "The status service could not be reached. Your Submission ID remains saved; wait and check again."
+        );
+      } finally {
+        checkingStatus = false;
+        checkButton.disabled = false;
+        checkButton.textContent = "Check receipt status";
+      }
+    }
+
+    if (
+      receipt.backendConfirmed === true &&
+      isValidSubmissionId(receipt.submissionId)
+    ) {
+      showConfirmedReceipt(receipt);
+    } else {
+      showUnconfirmedReceipt();
     }
 
     document
       .getElementById("print-button")
+      ?.addEventListener("click", () => window.print());
+
+    document
+      .getElementById("pending-print-button")
       .addEventListener("click", () => window.print());
+
+    document
+      .getElementById("check-status-button")
+      .addEventListener("click", checkReceiptStatus);
   </script>
 </body>
 </html>
