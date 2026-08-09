@@ -4,149 +4,796 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b4b38">
+  <meta name="color-scheme" content="light">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none';">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self';">
   <title>Application Confirmation | Department of Defence PNG</title>
   <meta name="description" content="Confirmed Department of Defence Papua New Guinea recruitment application submission.">
   <link rel="icon" href="logo.png" type="image/png">
+
   <style>
     :root {
-      --green-950:#05291f;
-      --green-900:#08392b;
-      --green-800:#0b4b38;
-      --green-700:#126447;
-      --green-100:#e8f2ed;
-      --gold-500:#c9a34d;
-      --ink-900:#17221d;
-      --ink-700:#405049;
-      --ink-500:#66756e;
-      --line:#d8e2dc;
-      --page:#eef3f0;
-      --danger:#a61f2b;
-      --shadow:0 18px 48px rgba(5,41,31,.14);
-      --radius:1rem;
-      --max-width:920px;
+      --green-950: #05291f;
+      --green-900: #08392b;
+      --green-800: #0b4b38;
+      --green-700: #126447;
+      --green-600: #187b55;
+      --green-100: #e8f2ed;
+      --green-50: #f4f8f6;
+      --gold-500: #c9a34d;
+      --gold-200: #ecdcae;
+      --red-700: #8f252b;
+      --ink-900: #17221d;
+      --ink-700: #405049;
+      --ink-500: #66756e;
+      --line: #d8e2dc;
+      --surface: #ffffff;
+      --page: #eef3f0;
+      --danger: #a61f2b;
+      --shadow: 0 18px 48px rgba(5, 41, 31, 0.14);
+      --radius-sm: 0.6rem;
+      --radius: 1rem;
+      --max-width: 960px;
     }
-    *,*::before,*::after{box-sizing:border-box}
-    body{margin:0;min-height:100vh;color:var(--ink-900);background:var(--page);font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
-    a{color:var(--green-700)}
-    :focus-visible{outline:3px solid #e3bd52;outline-offset:3px}
-    .container{width:min(var(--max-width),calc(100% - 2rem));margin-inline:auto}
-    .masthead{background:#fff;border-bottom:1px solid var(--line)}
-    .brand{display:flex;align-items:center;justify-content:center;gap:1rem;min-height:126px;padding:1rem 0;color:var(--green-950);text-decoration:none}
-    .brand img{width:94px;height:94px;object-fit:contain}
-    .brand-kicker{display:block;color:#8f252b;font-size:.74rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
-    .brand-name{display:block;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.45rem,4vw,2.2rem);font-weight:800;line-height:1.1}
-    .brand-subtitle{display:block;margin-top:.25rem;color:var(--ink-700);font-size:.9rem;font-weight:650}
-    .site-nav{color:#fff;background:var(--green-800);box-shadow:0 5px 18px rgba(5,41,31,.18)}
-    .nav-row{display:flex;align-items:center;justify-content:space-between;min-height:58px}
-    .nav-label{color:#fff;font-size:.86rem;font-weight:850;letter-spacing:.04em;text-decoration:none;text-transform:uppercase}
-    .nav-links{display:flex;gap:.3rem;margin:0;padding:0;list-style:none}
-    .nav-links a{display:inline-flex;align-items:center;min-height:40px;padding:.5rem .8rem;border-radius:.45rem;color:#fff;font-weight:720;text-decoration:none}
-    main{padding:clamp(2.5rem,7vw,5rem) 0}
-    .card{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
-    .status-band{height:8px;background:linear-gradient(90deg,var(--green-700),var(--gold-500))}
-    .content{padding:clamp(1.35rem,5vw,3rem)}
-    .icon{display:grid;place-items:center;width:66px;height:66px;margin:0 auto 1.1rem;border-radius:50%;color:#fff;background:var(--green-700);font-size:2rem;font-weight:900}
-    h1{margin:0;text-align:center;color:var(--green-950);font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.75rem,5vw,2.65rem);line-height:1.12}
-    .lead{max-width:650px;margin:.8rem auto 0;color:var(--ink-700);text-align:center}
-    .confirmation{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1.8rem 0}
-    .item{padding:.85rem;border:1px solid var(--line);border-radius:.55rem;background:#f9fbfa}
-    .item.full{grid-column:1/-1}
-    .label{color:var(--ink-500);font-size:.7rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
-    .value{margin-top:.2rem;overflow-wrap:anywhere;font-weight:750}
-    .notice{padding:1rem;border:1px solid #a9d2bd;border-left:5px solid var(--green-700);border-radius:.6rem;background:#edf8f2;color:var(--green-950)}
-    .notice.error{border-color:#e6a8ae;border-left-color:var(--danger);background:#fff2f3;color:#721c24}
-    .actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:1.5rem}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.7rem 1.05rem;border:1px solid transparent;border-radius:.5rem;font-weight:800;text-decoration:none;cursor:pointer}
-    .btn-primary{color:#fff;background:var(--green-700)}
-    .btn-secondary{color:var(--green-900);border-color:#9bb0a5;background:#fff}
-    .footer{padding:2rem 0;color:#d9e7e0;background:var(--green-950);text-align:center}
-    .footer p{margin:.3rem 0;font-size:.82rem}
-    [hidden]{display:none!important}
-    @media(max-width:640px){.brand{justify-content:flex-start}.brand img{width:76px;height:76px}.brand-subtitle{font-size:.78rem}.nav-links{display:none}.confirmation{grid-template-columns:1fr}.item.full{grid-column:auto}.content{padding:1.2rem}.actions{display:grid}.btn{width:100%}}
-    @media print{.site-nav,.actions,.footer{display:none}.card{box-shadow:none}main{padding:1rem 0}}
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink-900);
+      background: var(--page);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--green-700);
+    }
+
+    button {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid #e3bd52;
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      left: 1rem;
+      top: 1rem;
+      transform: translateY(-180%);
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-sm);
+      color: #fff;
+      background: var(--green-950);
+      font-weight: 800;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    .masthead {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      min-height: 126px;
+      padding: 1rem 0;
+      color: var(--green-950);
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 94px;
+      height: 94px;
+      object-fit: contain;
+      filter: drop-shadow(0 5px 10px rgba(5, 41, 31, 0.14));
+    }
+
+    .brand-kicker {
+      display: block;
+      color: var(--red-700);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 4vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink-700);
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    .site-nav {
+      color: #fff;
+      background: var(--green-800);
+      box-shadow: 0 5px 18px rgba(5, 41, 31, 0.18);
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 58px;
+    }
+
+    .nav-label {
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.3rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0.5rem 0.8rem;
+      border-radius: 0.45rem;
+      color: #fff;
+      font-weight: 720;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    main {
+      padding: clamp(2.5rem, 7vw, 5rem) 0;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .status-band {
+      height: 8px;
+      background: linear-gradient(
+        90deg,
+        var(--green-700),
+        var(--gold-500)
+      );
+    }
+
+    .content {
+      padding: clamp(1.35rem, 5vw, 3rem);
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 1.1rem;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--green-700);
+      font-size: 2rem;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(18, 100, 71, 0.22);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--green-950);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.75rem, 5vw, 2.65rem);
+      line-height: 1.12;
+      text-align: center;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 0.8rem auto 0;
+      color: var(--ink-700);
+      text-align: center;
+    }
+
+    .official-reference {
+      margin: 1.6rem 0 0;
+      padding: 1.2rem;
+      border: 1px solid #9fcdb6;
+      border-left: 6px solid var(--green-600);
+      border-radius: var(--radius-sm);
+      background: #edf8f2;
+      text-align: center;
+    }
+
+    .official-reference .label {
+      color: var(--green-900);
+    }
+
+    .official-reference .reference-value {
+      margin-top: 0.3rem;
+      color: var(--green-950);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      overflow-wrap: anywhere;
+    }
+
+    .confirmation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+
+    .item {
+      min-width: 0;
+      padding: 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 0.55rem;
+      background: #f9fbfa;
+    }
+
+    .item.full {
+      grid-column: 1 / -1;
+    }
+
+    .label {
+      color: var(--ink-500);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .value {
+      margin-top: 0.2rem;
+      overflow-wrap: anywhere;
+      font-weight: 750;
+    }
+
+    .notice {
+      padding: 1rem;
+      border: 1px solid #a9d2bd;
+      border-left: 5px solid var(--green-700);
+      border-radius: 0.6rem;
+      color: var(--green-950);
+      background: #edf8f2;
+    }
+
+    .notice strong {
+      display: inline-block;
+      margin-bottom: 0.25rem;
+    }
+
+    .notice.error {
+      border-color: #e6a8ae;
+      border-left-color: var(--danger);
+      color: #721c24;
+      background: #fff2f3;
+    }
+
+    .technical-details {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--green-50);
+    }
+
+    .technical-details summary {
+      padding: 0.85rem 1rem;
+      color: var(--green-900);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .technical-grid {
+      display: grid;
+      gap: 0.65rem;
+      padding: 0 1rem 1rem;
+    }
+
+    .technical-item {
+      padding: 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 0.45rem;
+      background: #fff;
+    }
+
+    .technical-value {
+      margin-top: 0.2rem;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.78rem;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.7rem 1.05rem;
+      border: 1px solid transparent;
+      border-radius: 0.5rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--green-700);
+    }
+
+    .btn-primary:hover {
+      color: #fff;
+      background: var(--green-800);
+    }
+
+    .btn-secondary {
+      color: var(--green-900);
+      border-color: #9bb0a5;
+      background: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: var(--green-50);
+    }
+
+    .footer {
+      padding: 2rem 0;
+      color: #d9e7e0;
+      background: var(--green-950);
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0.3rem 0;
+      font-size: 0.82rem;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 1rem, var(--max-width));
+      }
+
+      .brand {
+        min-height: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.35rem;
+        padding: 0.75rem 0;
+        text-align: center;
+      }
+
+      .brand img {
+        width: 76px;
+        height: 76px;
+      }
+
+      .brand-subtitle {
+        font-size: 0.78rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .confirmation {
+        grid-template-columns: 1fr;
+      }
+
+      .item.full {
+        grid-column: auto;
+      }
+
+      .content {
+        padding: 1.2rem;
+      }
+
+      .actions {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      @page {
+        margin: 14mm;
+      }
+
+      body {
+        color: #000;
+        background: #fff;
+      }
+
+      .site-nav,
+      .actions,
+      .footer,
+      .skip-link {
+        display: none !important;
+      }
+
+      .masthead {
+        border: 0;
+      }
+
+      main {
+        padding: 1rem 0;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .card {
+        border: 1px solid #999;
+        box-shadow: none;
+      }
+
+      .technical-details {
+        display: block;
+      }
+
+      .technical-details summary {
+        list-style: none;
+      }
+
+      .technical-details .technical-grid {
+        display: grid;
+      }
+    }
   </style>
 </head>
+
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header class="masthead">
     <div class="container">
-      <a class="brand" href="index.html" aria-label="Department of Defence recruitment portal home">
-        <img src="logo.png" alt="Department of Defence Papua New Guinea emblem" width="94" height="94" onerror="this.hidden=true">
-        <span><span class="brand-kicker">Papua New Guinea</span><span class="brand-name">Department of Defence</span><span class="brand-subtitle">Position Vacancies and Online Applications</span></span>
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Department of Defence recruitment portal home"
+      >
+        <img
+          src="logo.png"
+          alt="Department of Defence Papua New Guinea emblem"
+          width="94"
+          height="94"
+          onerror="this.hidden=true"
+        >
+        <span>
+          <span class="brand-kicker">Papua New Guinea</span>
+          <span class="brand-name">Department of Defence</span>
+          <span class="brand-subtitle">
+            Position Vacancies and Online Applications
+          </span>
+        </span>
       </a>
     </div>
   </header>
+
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="container nav-row">
       <a class="nav-label" href="index.html">Recruitment Portal</a>
-      <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="vacancies_by_divisions.html">Position Vacancies</a></li></ul>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="vacancies_by_divisions.html">Position Vacancies</a>
+        </li>
+      </ul>
     </div>
   </nav>
-  <main>
+
+  <main id="main-content">
     <div class="container">
       <section class="card" aria-labelledby="page-title">
         <div class="status-band"></div>
+
         <div class="content">
           <div class="icon" id="status-icon" aria-hidden="true">✓</div>
+
           <h1 id="page-title">Application received</h1>
-          <p class="lead" id="page-message">Your application was recorded by the Department of Defence recruitment service.</p>
-          <div class="confirmation" id="confirmation-details">
-            <div class="item full"><div class="label">Submission reference</div><div class="value" id="submission-id"></div></div>
-            <div class="item"><div class="label">Applicant</div><div class="value" id="applicant-name"></div></div>
-            <div class="item"><div class="label">Submitted</div><div class="value" id="submitted-at"></div></div>
-            <div class="item full"><div class="label">Position</div><div class="value" id="position"></div></div>
-            <div class="item"><div class="label">Reference number</div><div class="value" id="reference-number"></div></div>
-            <div class="item"><div class="label">Email</div><div class="value" id="email"></div></div>
+
+          <p class="lead" id="page-message">
+            Your application was recorded successfully by the Department of
+            Defence recruitment service.
+          </p>
+
+          <div class="official-reference" id="official-reference-panel">
+            <div class="label">Official application reference</div>
+            <div
+              class="reference-value"
+              id="application-reference"
+              aria-live="polite"
+            ></div>
           </div>
-          <div class="notice" id="confirmation-notice"><strong>What happens next</strong><br>An acknowledgement email has been queued. Keep the submission reference for any recruitment enquiry. Only shortlisted applicants may be contacted.</div>
-          <div class="actions"><a class="btn btn-primary" href="vacancies_by_divisions.html">View position vacancies</a><button class="btn btn-secondary" type="button" id="print-button">Print confirmation</button></div>
+
+          <div class="confirmation" id="confirmation-details">
+            <div class="item">
+              <div class="label">Applicant</div>
+              <div class="value" id="applicant-name"></div>
+            </div>
+
+            <div class="item">
+              <div class="label">Submitted</div>
+              <div class="value" id="submitted-at"></div>
+            </div>
+
+            <div class="item full">
+              <div class="label">Position</div>
+              <div class="value" id="position"></div>
+            </div>
+
+            <div class="item">
+              <div class="label">Position reference</div>
+              <div class="value" id="position-reference"></div>
+            </div>
+
+            <div class="item">
+              <div class="label">Division</div>
+              <div class="value" id="division"></div>
+            </div>
+
+            <div class="item full">
+              <div class="label">Applicant email</div>
+              <div class="value" id="email"></div>
+            </div>
+          </div>
+
+          <div class="notice" id="confirmation-notice">
+            <strong>What happens next</strong><br>
+            An acknowledgement email has been queued for the applicant email
+            address shown above. Keep the official application reference for
+            any recruitment enquiry. This confirmation acknowledges receipt
+            only and does not mean the application has been shortlisted.
+          </div>
+
+          <details class="technical-details" id="technical-details">
+            <summary>Technical receipt details</summary>
+            <div class="technical-grid">
+              <div class="technical-item">
+                <div class="label">Submission reference</div>
+                <div class="technical-value" id="submission-id"></div>
+              </div>
+
+              <div class="technical-item">
+                <div class="label">Application record ID</div>
+                <div class="technical-value" id="application-id"></div>
+              </div>
+
+              <div class="technical-item">
+                <div class="label">Receipt verification signature</div>
+                <div class="technical-value" id="receipt-signature"></div>
+              </div>
+            </div>
+          </details>
+
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="vacancies_by_divisions.html"
+            >
+              View position vacancies
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="application-form.html"
+            >
+              Submit another application
+            </a>
+
+            <button
+              class="btn btn-secondary"
+              type="button"
+              id="print-button"
+            >
+              Print confirmation
+            </button>
+          </div>
         </div>
       </section>
     </div>
   </main>
-  <footer class="footer"><div class="container"><strong>Department of Defence Papua New Guinea</strong><p>&copy; <span id="year"></span> Official Recruitment Portal</p></div></footer>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>Department of Defence Papua New Guinea</strong>
+      <p>
+        &copy; <span id="year"></span> Official Recruitment Portal
+      </p>
+    </div>
+  </footer>
+
   <script>
+    "use strict";
+
     const RECEIPT_STORAGE_KEY = "dodVacancyApplicationReceipt";
-    const year = document.getElementById("year");
-    year.textContent = new Date().getFullYear();
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
     function readConfirmedApplication() {
       try {
-        const value = JSON.parse(sessionStorage.getItem(RECEIPT_STORAGE_KEY) || "null");
-        return value && value.backendConfirmed === true && value.submissionId ? value : null;
+        const rawValue =
+          sessionStorage.getItem(RECEIPT_STORAGE_KEY) || "null";
+        const value = JSON.parse(rawValue);
+
+        if (
+          !value ||
+          value.backendConfirmed !== true ||
+          !value.submissionId ||
+          !value.applicationReference
+        ) {
+          return null;
+        }
+
+        return value;
       } catch (error) {
+        console.error("Unable to read the confirmed receipt.", error);
         return null;
       }
     }
 
     function formatDate(value) {
       const date = new Date(value);
-      if (Number.isNaN(date.getTime())) return value || "Not available";
-      return new Intl.DateTimeFormat("en-PG", {timeZone:"Pacific/Port_Moresby",day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",hour12:true,timeZoneName:"short"}).format(date);
+
+      if (Number.isNaN(date.getTime())) {
+        return value || "Not available";
+      }
+
+      return new Intl.DateTimeFormat("en-PG", {
+        timeZone: "Pacific/Port_Moresby",
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+        timeZoneName: "short"
+      }).format(date);
+    }
+
+    function setText(id, value, fallback = "Not available") {
+      const element = document.getElementById(id);
+
+      if (element) {
+        element.textContent =
+          String(value || "").trim() || fallback;
+      }
+    }
+
+    function displayConfirmedApplication(application) {
+      setText(
+        "application-reference",
+        application.applicationReference
+      );
+      setText(
+        "applicant-name",
+        `${application.firstName || ""} ${application.lastName || ""}`
+      );
+      setText(
+        "submitted-at",
+        formatDate(application.submittedAt)
+      );
+      setText("position", application.positionTitle);
+      setText("position-reference", application.referenceNumber);
+      setText("division", application.division);
+      setText("email", application.email);
+      setText("submission-id", application.submissionId);
+      setText("application-id", application.applicationId);
+      setText("receipt-signature", application.receiptSignature);
+
+      document.title =
+        `${application.applicationReference} | Application Confirmation`;
+    }
+
+    function displayMissingReceiptState() {
+      const statusIcon = document.getElementById("status-icon");
+      statusIcon.textContent = "!";
+      statusIcon.style.background = "var(--danger)";
+
+      document.getElementById("page-title").textContent =
+        "No confirmed submission found";
+
+      document.getElementById("page-message").textContent =
+        "This page only confirms an application after the recruitment " +
+        "backend records it successfully.";
+
+      document.getElementById(
+        "official-reference-panel"
+      ).hidden = true;
+
+      document.getElementById("confirmation-details").hidden = true;
+      document.getElementById("technical-details").hidden = true;
+
+      const notice =
+        document.getElementById("confirmation-notice");
+
+      notice.classList.add("error");
+      notice.innerHTML =
+        "<strong>Application not confirmed</strong><br>" +
+        "Return to the application form and submit again. " +
+        "Do not treat this page as evidence of a completed application.";
+
+      document.querySelector(".actions").innerHTML =
+        '<a class="btn btn-primary" href="application-form.html">' +
+        "Open application form</a>";
     }
 
     const application = readConfirmedApplication();
+
     if (application) {
-      document.getElementById("submission-id").textContent = application.submissionId;
-      document.getElementById("applicant-name").textContent = `${application.firstName || ""} ${application.lastName || ""}`.trim();
-      document.getElementById("submitted-at").textContent = formatDate(application.submittedAt);
-      document.getElementById("position").textContent = application.positionTitle || "Not available";
-      document.getElementById("reference-number").textContent = application.referenceNumber || "Not available";
-      document.getElementById("email").textContent = application.email || "Not available";
+      displayConfirmedApplication(application);
     } else {
-      document.getElementById("status-icon").textContent = "!";
-      document.getElementById("status-icon").style.background = "var(--danger)";
-      document.getElementById("page-title").textContent = "No confirmed submission found";
-      document.getElementById("page-message").textContent = "This page only confirms an application after the backend records it successfully.";
-      document.getElementById("confirmation-details").hidden = true;
-      const notice = document.getElementById("confirmation-notice");
-      notice.classList.add("error");
-      notice.innerHTML = "<strong>Application not confirmed</strong><br>Return to the application form and submit again. Do not treat this page as evidence of a completed application.";
-      document.querySelector(".actions").innerHTML = '<a class="btn btn-primary" href="application-form.html">Open application form</a>';
+      displayMissingReceiptState();
     }
 
-    document.getElementById("print-button")?.addEventListener("click", () => window.print());
+    document
+      .getElementById("print-button")
+      ?.addEventListener("click", () => window.print());
   </script>
 </body>
 </html>
