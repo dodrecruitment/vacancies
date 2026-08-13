@@ -708,6 +708,7 @@
       border-top: 1px solid var(--line);
     }
     .form-actions .spacer { flex: 1; }
+    #next-button[hidden] { display: none !important; }
     #submit-button { display: none; }
     #submit-button.is-visible { display: inline-flex; }
 
@@ -1013,8 +1014,6 @@
                   <div class="radio-row">
                     <label class="radio-option"><input type="radio" name="gender" value="Male" required> Male</label>
                     <label class="radio-option"><input type="radio" name="gender" value="Female" required> Female</label>
-                    <label class="radio-option"><input type="radio" name="gender" value="Other" required> Other</label>
-                    <label class="radio-option"><input type="radio" name="gender" value="Prefer not to say" required> Prefer not to say</label>
                   </div>
                 </div>
                 <div class="field">
@@ -1381,8 +1380,10 @@
       document.querySelector(".progress-track").setAttribute("aria-valuenow", String(stepNumber));
 
       backButton.hidden = currentStep === 0;
-      nextButton.hidden = currentStep === steps.length - 1;
       const reviewStepReached = currentStep === steps.length - 1;
+      nextButton.hidden = reviewStepReached;
+      nextButton.style.display = reviewStepReached ? "none" : "";
+      nextButton.setAttribute("aria-hidden", String(reviewStepReached));
       submitButton.hidden = !reviewStepReached;
       submitButton.classList.toggle("is-visible", reviewStepReached);
       submitButton.setAttribute("aria-hidden", String(!reviewStepReached));
