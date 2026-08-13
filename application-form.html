@@ -674,6 +674,109 @@
       font-weight: 800;
     }
 
+    .repeatable-section {
+      grid-column: 1 / -1;
+      margin-top: 0.25rem;
+    }
+
+    .repeatable-section + .repeatable-section {
+      margin-top: 1.35rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .repeatable-section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .repeatable-section-heading h3 {
+      margin: 0;
+      color: var(--green-950);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.16rem;
+    }
+
+    .repeatable-section-heading p {
+      margin: 0.2rem 0 0;
+      color: var(--ink-700);
+      font-size: 0.82rem;
+    }
+
+    .repeatable-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .repeatable-card {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--green-600);
+      border-radius: var(--radius-sm);
+      background: #f9fbfa;
+      box-shadow: 0 5px 14px rgba(5, 41, 31, 0.06);
+    }
+
+    .repeatable-card[hidden] { display: none !important; }
+
+    .repeatable-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .repeatable-card-header h4 {
+      margin: 0.12rem 0 0;
+      color: var(--green-950);
+      font-size: 1rem;
+    }
+
+    .repeatable-number {
+      color: var(--green-700);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .repeatable-badge {
+      flex: 0 0 auto;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      color: var(--green-900);
+      background: var(--green-100);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+
+    .repeatable-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid #a9d2bd;
+      border-radius: var(--radius-sm);
+      background: #edf8f2;
+    }
+
+    .repeatable-actions .repeatable-status {
+      flex: 1 1 240px;
+      color: var(--green-900);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .repeatable-actions .btn[hidden] { display: none !important; }
+
     .training-list {
       display: grid;
       gap: 1rem;
@@ -862,6 +965,12 @@
       .instruction-list, .check-row, .radio-option { font-size: 0.82rem; }
       .instruction-list { padding-left: 1.15rem; }
       .eoi-address { grid-template-columns: 1fr; gap: 0.18rem; }
+      .repeatable-section-heading { align-items: flex-start; flex-direction: column; gap: 0.3rem; }
+      .repeatable-card { padding: 0.78rem; }
+      .repeatable-card-header { flex-direction: column; gap: 0.45rem; }
+      .repeatable-badge { align-self: flex-start; }
+      .repeatable-actions { align-items: stretch; padding: 0.78rem; }
+      .repeatable-actions .btn { width: 100%; }
       .training-card { padding: 0.78rem; }
       .training-card-header { flex-direction: column; gap: 0.45rem; }
       .training-badge { align-self: flex-start; }
@@ -890,7 +999,241 @@
       legend { font-size: 1.15rem; }
     }
 
-  </style>
+  
+
+    /* Standardised form layout: cleaner hierarchy, fewer boxes, tighter spacing. */
+    .form-body {
+      padding: 1.35rem 1.5rem 1.5rem;
+    }
+
+    legend {
+      margin-bottom: 0.3rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .step-intro {
+      margin: 0 0 1.15rem;
+      max-width: 860px;
+      color: var(--ink-700);
+    }
+
+    .form-grid {
+      gap: 0.78rem 1rem;
+    }
+
+    .field label,
+    .field-label {
+      margin-bottom: 0.28rem;
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .control {
+      min-height: 44px;
+      padding: 0.58rem 0.68rem;
+      border-color: #b8c5bf;
+      border-radius: 0.35rem;
+    }
+
+    textarea.control {
+      min-height: 88px;
+    }
+
+    .hint {
+      margin-top: 0.24rem;
+    }
+
+    .subsection-heading {
+      margin: 0.75rem 0 0.15rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--line);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .repeatable-section {
+      margin-top: 0.15rem;
+    }
+
+    .repeatable-section + .repeatable-section {
+      margin-top: 1.35rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .repeatable-section-heading {
+      align-items: flex-start;
+      margin-bottom: 0.55rem;
+    }
+
+    .repeatable-section-heading h3 {
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .repeatable-section-heading p {
+      margin-top: 0.12rem;
+      font-size: 0.8rem;
+    }
+
+    .repeatable-list,
+    .training-list {
+      gap: 0;
+    }
+
+    .repeatable-card,
+    .training-card {
+      padding: 0.85rem 0 1rem;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .repeatable-card + .repeatable-card,
+    .training-card + .training-card {
+      margin-top: 0.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .repeatable-card-header,
+    .training-card-header {
+      align-items: center;
+      margin-bottom: 0.65rem;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .repeatable-card-header h4,
+    .training-card-header h3 {
+      margin: 0.05rem 0 0;
+      font-size: 0.94rem;
+      font-weight: 800;
+    }
+
+    .repeatable-number,
+    .training-number {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.045em;
+    }
+
+    .repeatable-badge,
+    .training-badge {
+      padding: 0;
+      border-radius: 0;
+      color: var(--ink-500);
+      background: transparent;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .repeatable-actions,
+    .training-actions {
+      align-items: center;
+      gap: 0.55rem;
+      margin-top: 0.55rem;
+      padding: 0.7rem 0 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .repeatable-actions .repeatable-status,
+    .training-actions .training-status {
+      color: var(--ink-500);
+      font-size: 0.76rem;
+      font-weight: 650;
+    }
+
+    .btn-small {
+      min-height: 36px;
+      padding: 0.46rem 0.72rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .referee-card {
+      padding: 0.9rem 0 1rem;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .referee-card:first-child {
+      border-top: 0;
+      padding-top: 0.35rem;
+    }
+
+    .referee-card h3 {
+      margin-bottom: 0.6rem;
+      color: var(--green-950);
+      font-weight: 800;
+    }
+
+    .review-grid {
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .review-item,
+    .review-item.full {
+      padding: 0.7rem 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .review-label {
+      font-weight: 800;
+    }
+
+    .review-value {
+      font-weight: 650;
+    }
+
+    .check-row {
+      padding: 0.75rem 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .upload-field {
+      padding: 0.7rem 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .selected-position {
+      padding: 0.8rem 0.9rem;
+      border-width: 1px 1px 1px 4px;
+      border-radius: 0.35rem;
+      box-shadow: none;
+    }
+
+    @media screen and (max-width: 700px) {
+      .form-body { padding: 0.9rem; }
+      .form-grid { gap: 0.7rem; }
+      .repeatable-card,
+      .training-card { padding: 0.7rem 0 0.85rem; }
+      .repeatable-card-header,
+      .training-card-header { flex-direction: row; align-items: center; gap: 0.5rem; }
+      .repeatable-actions,
+      .training-actions { padding-top: 0.65rem; }
+    }
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -1128,46 +1471,182 @@
           <section class="form-step" data-step="4">
             <fieldset>
               <legend>Work experience and qualifications</legend>
-              <p class="step-intro">Provide your current or most recent employment details, relevant experience, and highest qualification.</p>
+              <p class="step-intro">Enter your current or most recent employment first and your highest qualification first. Use the add buttons only when you have additional relevant employment or qualifications to declare.</p>
+
               <div class="form-grid">
-                <div class="field">
-                  <label for="position-title">Position applied for</label>
-                  <input class="control" id="position-title" type="text" readonly>
+                <div class="repeatable-section">
+                  <div class="repeatable-section-heading">
+                    <div>
+                      <h3>Employment history</h3>
+                      <p>One employment record is shown initially. Add earlier employment only when relevant.</p>
+                    </div>
+                  </div>
+
+                  <div class="repeatable-list" id="employment-list">
+                <div class="repeatable-card" data-employment-entry="1">
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Employment 1</span>
+                      <h4>Current or most recent employment</h4>
+                    </div>
+                    <span class="repeatable-badge">Most recent / current</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="current-previous-position">Position held <span class="required">*</span></label>
+                      <input class="control" id="current-previous-position" type="text" maxlength="180" required>
+                    </div>
+                    <div class="field">
+                      <label for="employer-organisation">Employer or organisation <span class="required">*</span></label>
+                      <input class="control" id="employer-organisation" type="text" maxlength="180" required>
+                    </div>
+                    <div class="field">
+                      <label for="employment-start-date">Employment start date <span class="optional">(optional)</span></label>
+                      <input class="control" id="employment-start-date" type="date">
+                    </div>
+                    <div class="field">
+                      <label for="employment-end-date">Employment end date <span class="optional">(leave blank if current)</span></label>
+                      <input class="control" id="employment-end-date" type="date">
+                    </div>
+                    <div class="field field-full">
+                      <label for="key-duties">Key duties and responsibilities <span class="required">*</span></label>
+                      <textarea class="control" id="key-duties" rows="3" maxlength="2000" required></textarea>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="reference-number">Reference number</label>
-                  <input class="control" id="reference-number" type="text" readonly>
+                <div class="repeatable-card" data-employment-entry="2" hidden>
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Employment 2</span>
+                      <h4>Previous employment details</h4>
+                    </div>
+                    <span class="repeatable-badge">2 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="employment2-position">Position held <span class="required">*</span></label>
+                      <input class="control" id="employment2-position" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="employment2-organisation">Employer or organisation <span class="required">*</span></label>
+                      <input class="control" id="employment2-organisation" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="employment2-start-date">Employment start date <span class="optional">(optional)</span></label>
+                      <input class="control" id="employment2-start-date" type="date">
+                    </div>
+                    <div class="field">
+                      <label for="employment2-end-date">Employment end date <span class="optional">(leave blank if current)</span></label>
+                      <input class="control" id="employment2-end-date" type="date">
+                    </div>
+                    <div class="field field-full">
+                      <label for="employment2-duties">Key duties and responsibilities <span class="required">*</span></label>
+                      <textarea class="control" id="employment2-duties" rows="3" maxlength="2000"></textarea>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="position-location">Advertised location</label>
-                  <input class="control" id="position-location" type="text" readonly>
+                <div class="repeatable-card" data-employment-entry="3" hidden>
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Employment 3</span>
+                      <h4>Previous employment details</h4>
+                    </div>
+                    <span class="repeatable-badge">3 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="employment3-position">Position held <span class="required">*</span></label>
+                      <input class="control" id="employment3-position" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="employment3-organisation">Employer or organisation <span class="required">*</span></label>
+                      <input class="control" id="employment3-organisation" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="employment3-start-date">Employment start date <span class="optional">(optional)</span></label>
+                      <input class="control" id="employment3-start-date" type="date">
+                    </div>
+                    <div class="field">
+                      <label for="employment3-end-date">Employment end date <span class="optional">(leave blank if current)</span></label>
+                      <input class="control" id="employment3-end-date" type="date">
+                    </div>
+                    <div class="field field-full">
+                      <label for="employment3-duties">Key duties and responsibilities <span class="required">*</span></label>
+                      <textarea class="control" id="employment3-duties" rows="3" maxlength="2000"></textarea>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="position-class">Classification / base salary</label>
-                  <input class="control" id="position-class" type="text" readonly>
+                <div class="repeatable-card" data-employment-entry="4" hidden>
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Employment 4</span>
+                      <h4>Previous employment details</h4>
+                    </div>
+                    <span class="repeatable-badge">4 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="employment4-position">Position held <span class="required">*</span></label>
+                      <input class="control" id="employment4-position" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="employment4-organisation">Employer or organisation <span class="required">*</span></label>
+                      <input class="control" id="employment4-organisation" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="employment4-start-date">Employment start date <span class="optional">(optional)</span></label>
+                      <input class="control" id="employment4-start-date" type="date">
+                    </div>
+                    <div class="field">
+                      <label for="employment4-end-date">Employment end date <span class="optional">(leave blank if current)</span></label>
+                      <input class="control" id="employment4-end-date" type="date">
+                    </div>
+                    <div class="field field-full">
+                      <label for="employment4-duties">Key duties and responsibilities <span class="required">*</span></label>
+                      <textarea class="control" id="employment4-duties" rows="3" maxlength="2000"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="repeatable-card" data-employment-entry="5" hidden>
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Employment 5</span>
+                      <h4>Previous employment details</h4>
+                    </div>
+                    <span class="repeatable-badge">5 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="employment5-position">Position held <span class="required">*</span></label>
+                      <input class="control" id="employment5-position" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="employment5-organisation">Employer or organisation <span class="required">*</span></label>
+                      <input class="control" id="employment5-organisation" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="employment5-start-date">Employment start date <span class="optional">(optional)</span></label>
+                      <input class="control" id="employment5-start-date" type="date">
+                    </div>
+                    <div class="field">
+                      <label for="employment5-end-date">Employment end date <span class="optional">(leave blank if current)</span></label>
+                      <input class="control" id="employment5-end-date" type="date">
+                    </div>
+                    <div class="field field-full">
+                      <label for="employment5-duties">Key duties and responsibilities <span class="required">*</span></label>
+                      <textarea class="control" id="employment5-duties" rows="3" maxlength="2000"></textarea>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+
+                  <div class="repeatable-actions" aria-label="Employment history controls">
+                    <span class="repeatable-status" id="employment-status-count" role="status" aria-live="polite">1 employment entry shown. You can add up to 4 more.</span>
+                    <button class="btn btn-secondary btn-small" id="remove-employment-button" type="button" hidden>Remove last employment</button>
+                    <button class="btn btn-primary btn-small" id="add-employment-button" type="button">+ Add another employment</button>
+                  </div>
                 </div>
 
-                <h3 class="subsection-heading">Employment history</h3>
-                <div class="field">
-                  <label for="current-previous-position">Current or previous position held <span class="required">*</span></label>
-                  <input class="control" id="current-previous-position" type="text" maxlength="180" required>
-                </div>
-                <div class="field">
-                  <label for="employer-organisation">Employer or organisation <span class="required">*</span></label>
-                  <input class="control" id="employer-organisation" type="text" maxlength="180" required>
-                </div>
-                <div class="field">
-                  <label for="employment-start-date">Employment start date <span class="optional">(optional)</span></label>
-                  <input class="control" id="employment-start-date" type="date">
-                </div>
-                <div class="field">
-                  <label for="employment-end-date">Employment end date <span class="optional">(leave blank if current)</span></label>
-                  <input class="control" id="employment-end-date" type="date">
-                </div>
-                <div class="field field-full">
-                  <label for="key-duties">Key duties and responsibilities <span class="required">*</span></label>
-                  <textarea class="control" id="key-duties" rows="4" maxlength="2000" required></textarea>
-                </div>
                 <div class="field">
                   <label for="work-experience">Total years of work experience <span class="required">*</span></label>
                   <input class="control" id="work-experience" type="number" min="0" max="60" step="0.5" required>
@@ -1177,41 +1656,252 @@
                   <input class="control" id="relevant-experience" type="number" min="0" max="60" step="0.5" required>
                 </div>
 
-                <h3 class="subsection-heading">Qualifications</h3>
-                <div class="field">
-                  <label for="qualification">Highest qualification <span class="required">*</span></label>
-                  <select class="control" id="qualification" required>
-                    <option value="">Select a qualification</option>
-                    <option>Grade 10 Certificate</option>
-                    <option>Grade 12 Certificate</option>
-                    <option>Certificate</option>
-                    <option>Diploma</option>
-                    <option>Bachelor Degree</option>
-                    <option>Postgraduate Diploma</option>
-                    <option>Master Degree</option>
-                    <option>PhD</option>
-                  </select>
+                <div class="repeatable-section">
+                  <div class="repeatable-section-heading">
+                    <div>
+                      <h3>Qualifications</h3>
+                      <p>Enter your highest or most relevant qualification first. Add additional qualifications only when applicable.</p>
+                    </div>
+                  </div>
+
+                  <div class="repeatable-list" id="qualification-list">
+                <div class="repeatable-card" data-qualification-entry="1">
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Qualification 1</span>
+                      <h4>Highest / primary qualification</h4>
+                    </div>
+                    <span class="repeatable-badge">Primary / highest</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="qualification">Qualification level <span class="required">*</span></label>
+                      <select class="control" id="qualification" required>
+                            <option value="">Select a qualification</option>
+                            <option>Grade 10 Certificate</option>
+                            <option>Grade 12 Certificate</option>
+                            <option>Certificate</option>
+                            <option>Diploma</option>
+                            <option>Bachelor Degree</option>
+                            <option>Postgraduate Diploma</option>
+                            <option>Master Degree</option>
+                            <option>PhD</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="field-of-study">Field of study <span class="required">*</span></label>
+                      <input class="control" id="field-of-study" type="text" maxlength="140" required>
+                    </div>
+                    <div class="field">
+                      <label for="graduation-year">Year qualification obtained <span class="required">*</span></label>
+                      <input class="control qualification-year" id="graduation-year" type="number" min="1950" max="2026" inputmode="numeric" required>
+                    </div>
+                    <div class="field">
+                      <label for="institution">Institution <span class="required">*</span></label>
+                      <input class="control" id="institution" type="text" maxlength="180" required>
+                    </div>
+                    <div class="field field-full">
+                      <label for="qualification-match">Does this qualification match the position? <span class="required">*</span></label>
+                      <select class="control" id="qualification-match" required>
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>Partially</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="field-of-study">Field of study <span class="required">*</span></label>
-                  <input class="control" id="field-of-study" type="text" maxlength="140" required>
+                <div class="repeatable-card" data-qualification-entry="2" hidden>
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Qualification 2</span>
+                      <h4>Additional qualification details</h4>
+                    </div>
+                    <span class="repeatable-badge">2 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="qualification2-level">Qualification level <span class="required">*</span></label>
+                      <select class="control" id="qualification2-level">
+                            <option value="">Select a qualification</option>
+                            <option>Grade 10 Certificate</option>
+                            <option>Grade 12 Certificate</option>
+                            <option>Certificate</option>
+                            <option>Diploma</option>
+                            <option>Bachelor Degree</option>
+                            <option>Postgraduate Diploma</option>
+                            <option>Master Degree</option>
+                            <option>PhD</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="qualification2-field">Field of study <span class="required">*</span></label>
+                      <input class="control" id="qualification2-field" type="text" maxlength="140">
+                    </div>
+                    <div class="field">
+                      <label for="qualification2-year">Year qualification obtained <span class="required">*</span></label>
+                      <input class="control qualification-year" id="qualification2-year" type="number" min="1950" max="2026" inputmode="numeric">
+                    </div>
+                    <div class="field">
+                      <label for="qualification2-institution">Institution <span class="required">*</span></label>
+                      <input class="control" id="qualification2-institution" type="text" maxlength="180">
+                    </div>
+                    <div class="field field-full">
+                      <label for="qualification2-match">Does this qualification match the position? <span class="required">*</span></label>
+                      <select class="control" id="qualification2-match">
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>Partially</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="graduation-year">Year qualification obtained <span class="required">*</span></label>
-                  <input class="control" id="graduation-year" type="number" min="1950" max="2026" inputmode="numeric" required>
+                <div class="repeatable-card" data-qualification-entry="3" hidden>
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Qualification 3</span>
+                      <h4>Additional qualification details</h4>
+                    </div>
+                    <span class="repeatable-badge">3 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="qualification3-level">Qualification level <span class="required">*</span></label>
+                      <select class="control" id="qualification3-level">
+                            <option value="">Select a qualification</option>
+                            <option>Grade 10 Certificate</option>
+                            <option>Grade 12 Certificate</option>
+                            <option>Certificate</option>
+                            <option>Diploma</option>
+                            <option>Bachelor Degree</option>
+                            <option>Postgraduate Diploma</option>
+                            <option>Master Degree</option>
+                            <option>PhD</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="qualification3-field">Field of study <span class="required">*</span></label>
+                      <input class="control" id="qualification3-field" type="text" maxlength="140">
+                    </div>
+                    <div class="field">
+                      <label for="qualification3-year">Year qualification obtained <span class="required">*</span></label>
+                      <input class="control qualification-year" id="qualification3-year" type="number" min="1950" max="2026" inputmode="numeric">
+                    </div>
+                    <div class="field">
+                      <label for="qualification3-institution">Institution <span class="required">*</span></label>
+                      <input class="control" id="qualification3-institution" type="text" maxlength="180">
+                    </div>
+                    <div class="field field-full">
+                      <label for="qualification3-match">Does this qualification match the position? <span class="required">*</span></label>
+                      <select class="control" id="qualification3-match">
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>Partially</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="institution">Institution <span class="required">*</span></label>
-                  <input class="control" id="institution" type="text" maxlength="180" required>
+                <div class="repeatable-card" data-qualification-entry="4" hidden>
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Qualification 4</span>
+                      <h4>Additional qualification details</h4>
+                    </div>
+                    <span class="repeatable-badge">4 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="qualification4-level">Qualification level <span class="required">*</span></label>
+                      <select class="control" id="qualification4-level">
+                            <option value="">Select a qualification</option>
+                            <option>Grade 10 Certificate</option>
+                            <option>Grade 12 Certificate</option>
+                            <option>Certificate</option>
+                            <option>Diploma</option>
+                            <option>Bachelor Degree</option>
+                            <option>Postgraduate Diploma</option>
+                            <option>Master Degree</option>
+                            <option>PhD</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="qualification4-field">Field of study <span class="required">*</span></label>
+                      <input class="control" id="qualification4-field" type="text" maxlength="140">
+                    </div>
+                    <div class="field">
+                      <label for="qualification4-year">Year qualification obtained <span class="required">*</span></label>
+                      <input class="control qualification-year" id="qualification4-year" type="number" min="1950" max="2026" inputmode="numeric">
+                    </div>
+                    <div class="field">
+                      <label for="qualification4-institution">Institution <span class="required">*</span></label>
+                      <input class="control" id="qualification4-institution" type="text" maxlength="180">
+                    </div>
+                    <div class="field field-full">
+                      <label for="qualification4-match">Does this qualification match the position? <span class="required">*</span></label>
+                      <select class="control" id="qualification4-match">
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>Partially</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="qualification-match">Does your qualification match the position? <span class="required">*</span></label>
-                  <select class="control" id="qualification-match" required>
-                    <option value="">Select</option>
-                    <option>Yes</option>
-                    <option>Partially</option>
-                    <option>No</option>
-                  </select>
+                <div class="repeatable-card" data-qualification-entry="5" hidden>
+                  <div class="repeatable-card-header">
+                    <div>
+                      <span class="repeatable-number">Qualification 5</span>
+                      <h4>Additional qualification details</h4>
+                    </div>
+                    <span class="repeatable-badge">5 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="qualification5-level">Qualification level <span class="required">*</span></label>
+                      <select class="control" id="qualification5-level">
+                            <option value="">Select a qualification</option>
+                            <option>Grade 10 Certificate</option>
+                            <option>Grade 12 Certificate</option>
+                            <option>Certificate</option>
+                            <option>Diploma</option>
+                            <option>Bachelor Degree</option>
+                            <option>Postgraduate Diploma</option>
+                            <option>Master Degree</option>
+                            <option>PhD</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="qualification5-field">Field of study <span class="required">*</span></label>
+                      <input class="control" id="qualification5-field" type="text" maxlength="140">
+                    </div>
+                    <div class="field">
+                      <label for="qualification5-year">Year qualification obtained <span class="required">*</span></label>
+                      <input class="control qualification-year" id="qualification5-year" type="number" min="1950" max="2026" inputmode="numeric">
+                    </div>
+                    <div class="field">
+                      <label for="qualification5-institution">Institution <span class="required">*</span></label>
+                      <input class="control" id="qualification5-institution" type="text" maxlength="180">
+                    </div>
+                    <div class="field field-full">
+                      <label for="qualification5-match">Does this qualification match the position? <span class="required">*</span></label>
+                      <select class="control" id="qualification5-match">
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>Partially</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+
+                  <div class="repeatable-actions" aria-label="Qualification controls">
+                    <span class="repeatable-status" id="qualification-status-count" role="status" aria-live="polite">1 qualification entry shown. You can add up to 4 more.</span>
+                    <button class="btn btn-secondary btn-small" id="remove-qualification-button" type="button" hidden>Remove last qualification</button>
+                    <button class="btn btn-primary btn-small" id="add-qualification-button" type="button">+ Add another qualification</button>
+                  </div>
                 </div>
               </div>
             </fieldset>
@@ -1664,6 +2354,16 @@
         submitButton.disabled = false;
       }
 
+      getEmploymentCards().forEach((card) => {
+        if (!card.hidden) setEmploymentCardState(card, true);
+      });
+      updateEmploymentControls();
+
+      getQualificationCards().forEach((card) => {
+        if (!card.hidden) setQualificationCardState(card, true);
+      });
+      updateQualificationControls();
+
       getTrainingCards().forEach((card) => {
         if (!card.hidden) setTrainingCardState(card, true);
       });
@@ -1720,10 +2420,6 @@
       selectedVacancy = null;
       positionSelect.value = "";
       document.getElementById("selected-position").classList.remove("show");
-      document.getElementById("position-title").value = "";
-      document.getElementById("reference-number").value = "";
-      document.getElementById("position-location").value = "";
-      document.getElementById("position-class").value = "";
     }
 
     function selectVacancy(item) {
@@ -1747,13 +2443,6 @@
 
       document.getElementById("selected-details").textContent = detailParts.join(" | ");
       document.getElementById("selected-position").classList.add("show");
-      document.getElementById("position-title").value = item.positionTitle;
-      document.getElementById("reference-number").value = normalizeReference(item.referenceNumber);
-      document.getElementById("position-location").value = item.location || "";
-      document.getElementById("position-class").value = [
-        item.positionClass || "",
-        item.baseSalary ? formatSalary(item.baseSalary) : ""
-      ].filter(Boolean).join(" | ");
     }
 
     divisionSelect.addEventListener("change", renderPositions);
@@ -1882,6 +2571,181 @@
       return document.getElementById(id)?.files?.[0]?.name || "Not uploaded";
     }
 
+    // Employment history: show one record first, then reveal additional records one at a time (maximum five).
+    function getEmploymentCards() {
+      return [...document.querySelectorAll("[data-employment-entry]")];
+    }
+
+    function getEmploymentCount() {
+      return getEmploymentCards().filter((card) => !card.hidden).length;
+    }
+
+    function setEmploymentCardState(card, active) {
+      card.hidden = !active;
+      card.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.disabled = !applicationServiceReady || !active;
+        const optionalDate = field.type === "date";
+        field.required = active && !optionalDate;
+        if (!active) field.setCustomValidity("");
+      });
+    }
+
+    function updateEmploymentControls() {
+      const count = getEmploymentCount();
+      const addButton = document.getElementById("add-employment-button");
+      const removeButton = document.getElementById("remove-employment-button");
+      const status = document.getElementById("employment-status-count");
+      if (!addButton || !removeButton || !status) return;
+
+      addButton.disabled = !applicationServiceReady || count >= 5;
+      addButton.hidden = count >= 5;
+      removeButton.disabled = !applicationServiceReady || count <= 1;
+      removeButton.hidden = count <= 1;
+      status.textContent = count >= 5
+        ? "5 employment entries shown — the maximum allowed."
+        : `${count} employment entr${count === 1 ? "y" : "ies"} shown. You can add up to ${5 - count} more.`;
+    }
+
+    function initializeEmploymentEntries() {
+      getEmploymentCards().forEach((card, index) => setEmploymentCardState(card, index === 0));
+      updateEmploymentControls();
+    }
+
+    function addEmploymentEntry() {
+      const cards = getEmploymentCards();
+      const count = getEmploymentCount();
+      if (count >= 5) return;
+      const nextCard = cards[count];
+      if (!nextCard) return;
+      setEmploymentCardState(nextCard, true);
+      updateEmploymentControls();
+      nextCard.querySelector("input, select, textarea")?.focus();
+      nextCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function removeLastEmploymentEntry() {
+      const cards = getEmploymentCards();
+      const count = getEmploymentCount();
+      if (count <= 1) return;
+      const lastCard = cards[count - 1];
+      lastCard.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.value = "";
+        field.setCustomValidity("");
+      });
+      setEmploymentCardState(lastCard, false);
+      updateEmploymentControls();
+    }
+
+    function getEmploymentEntries() {
+      const entries = [];
+      getEmploymentCards().forEach((card, index) => {
+        if (card.hidden) return;
+        const n = index + 1;
+        const first = n === 1;
+        entries.push({
+          position: fieldValue(first ? "current-previous-position" : `employment${n}-position`),
+          organisation: fieldValue(first ? "employer-organisation" : `employment${n}-organisation`),
+          startDate: fieldValue(first ? "employment-start-date" : `employment${n}-start-date`),
+          endDate: fieldValue(first ? "employment-end-date" : `employment${n}-end-date`),
+          duties: fieldValue(first ? "key-duties" : `employment${n}-duties`)
+        });
+      });
+      return entries;
+    }
+
+    function validateEmploymentCardDates(card) {
+      const index = Number(card.dataset.employmentEntry || 1);
+      const first = index === 1;
+      const start = document.getElementById(first ? "employment-start-date" : `employment${index}-start-date`);
+      const end = document.getElementById(first ? "employment-end-date" : `employment${index}-end-date`);
+      if (!start || !end) return;
+      end.setCustomValidity("");
+      if (start.value && end.value && end.value < start.value) {
+        end.setCustomValidity("Employment end date cannot be earlier than the start date.");
+      }
+    }
+
+    // Qualifications: show the highest/primary qualification first, then reveal additional records (maximum five).
+    function getQualificationCards() {
+      return [...document.querySelectorAll("[data-qualification-entry]")];
+    }
+
+    function getQualificationCount() {
+      return getQualificationCards().filter((card) => !card.hidden).length;
+    }
+
+    function setQualificationCardState(card, active) {
+      card.hidden = !active;
+      card.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.disabled = !applicationServiceReady || !active;
+        field.required = active;
+        if (!active) field.setCustomValidity("");
+      });
+    }
+
+    function updateQualificationControls() {
+      const count = getQualificationCount();
+      const addButton = document.getElementById("add-qualification-button");
+      const removeButton = document.getElementById("remove-qualification-button");
+      const status = document.getElementById("qualification-status-count");
+      if (!addButton || !removeButton || !status) return;
+
+      addButton.disabled = !applicationServiceReady || count >= 5;
+      addButton.hidden = count >= 5;
+      removeButton.disabled = !applicationServiceReady || count <= 1;
+      removeButton.hidden = count <= 1;
+      status.textContent = count >= 5
+        ? "5 qualification entries shown — the maximum allowed."
+        : `${count} qualification entr${count === 1 ? "y" : "ies"} shown. You can add up to ${5 - count} more.`;
+    }
+
+    function initializeQualificationEntries() {
+      getQualificationCards().forEach((card, index) => setQualificationCardState(card, index === 0));
+      updateQualificationControls();
+    }
+
+    function addQualificationEntry() {
+      const cards = getQualificationCards();
+      const count = getQualificationCount();
+      if (count >= 5) return;
+      const nextCard = cards[count];
+      if (!nextCard) return;
+      setQualificationCardState(nextCard, true);
+      updateQualificationControls();
+      nextCard.querySelector("input, select, textarea")?.focus();
+      nextCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function removeLastQualificationEntry() {
+      const cards = getQualificationCards();
+      const count = getQualificationCount();
+      if (count <= 1) return;
+      const lastCard = cards[count - 1];
+      lastCard.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.value = "";
+        field.setCustomValidity("");
+      });
+      setQualificationCardState(lastCard, false);
+      updateQualificationControls();
+    }
+
+    function getQualificationEntries() {
+      const entries = [];
+      getQualificationCards().forEach((card, index) => {
+        if (card.hidden) return;
+        const n = index + 1;
+        const first = n === 1;
+        entries.push({
+          level: fieldValue(first ? "qualification" : `qualification${n}-level`),
+          fieldOfStudy: fieldValue(first ? "field-of-study" : `qualification${n}-field`),
+          year: fieldValue(first ? "graduation-year" : `qualification${n}-year`),
+          institution: fieldValue(first ? "institution" : `qualification${n}-institution`),
+          match: fieldValue(first ? "qualification-match" : `qualification${n}-match`)
+        });
+      });
+      return entries;
+    }
+
     // Relevant training: show one entry first, then reveal one additional entry at a time (maximum five).
     function getTrainingCards() {
       return [...document.querySelectorAll("[data-training-entry]")];
@@ -1997,6 +2861,8 @@
 
     function buildReview() {
       const grid = document.getElementById("review-grid");
+      const employmentEntries = getEmploymentEntries();
+      const qualificationEntries = getQualificationEntries();
       const trainingEntries = getTrainingEntries();
       const reviewItems = [
         reviewItem("Position", selectedVacancy?.positionTitle, true),
@@ -2017,32 +2883,40 @@
         reviewItem("Email", fieldValue("email")),
         reviewItem("Residential address", fieldValue("residential-address"), true),
         reviewItem("Postal address", fieldValue("postal-address"), true),
-        reviewItem("Current or previous position", fieldValue("current-previous-position")),
-        reviewItem("Employer or organisation", fieldValue("employer-organisation")),
-        reviewItem("Employment start", fieldValue("employment-start-date")),
-        reviewItem("Employment end", fieldValue("employment-end-date") || "Current"),
-        reviewItem("Key duties", fieldValue("key-duties"), true),
+        reviewItem("Employment records declared", `${employmentEntries.length} record(s)`),
         reviewItem("Total work experience", `${fieldValue("work-experience")} year(s)`),
-        reviewItem("Relevant experience", `${fieldValue("relevant-experience")} year(s)`),
-        reviewItem("Highest qualification", fieldValue("qualification")),
-        reviewItem("Field of study", fieldValue("field-of-study")),
-        reviewItem("Year obtained", fieldValue("graduation-year")),
-        reviewItem("Institution", fieldValue("institution")),
-        reviewItem("Relevant training declared", trainingEntries.length ? `${trainingEntries.length} training course(s)` : "None")
+        reviewItem("Relevant experience", `${fieldValue("relevant-experience")} year(s)`)
       ];
 
-      trainingEntries.forEach((entry, index) => {
+      employmentEntries.forEach((entry, index) => {
+        const period = [entry.startDate || "Start not provided", entry.endDate || "Current"].join(" to ");
+        reviewItems.push(
+          reviewItem(`Employment ${index + 1}`, `${entry.position} | ${entry.organisation} | ${period}`, true),
+          reviewItem(`Employment ${index + 1} duties`, entry.duties, true)
+        );
+      });
+
+      reviewItems.push(reviewItem("Qualifications declared", `${qualificationEntries.length} qualification(s)`));
+      qualificationEntries.forEach((entry, index) => {
         reviewItems.push(
           reviewItem(
-            `Training ${index + 1}`,
-            `${entry.name} | ${entry.organisation} | ${entry.period}`,
+            `Qualification ${index + 1}`,
+            `${entry.level} | ${entry.fieldOfStudy} | ${entry.institution} | ${entry.year} | Match: ${entry.match}`,
             true
           )
         );
       });
 
       reviewItems.push(
-        reviewItem("Qualification match", fieldValue("qualification-match")),
+        reviewItem("Relevant training declared", trainingEntries.length ? `${trainingEntries.length} training course(s)` : "None")
+      );
+      trainingEntries.forEach((entry, index) => {
+        reviewItems.push(
+          reviewItem(`Training ${index + 1}`, `${entry.name} | ${entry.organisation} | ${entry.period}`, true)
+        );
+      });
+
+      reviewItems.push(
         reviewItem("Referee 1", `${fieldValue("referee1-name")} | ${fieldValue("referee1-phone")}`, true),
         reviewItem("Referee 2", `${fieldValue("referee2-name")} | ${fieldValue("referee2-phone")}`, true),
         reviewItem("Referee 3", `${fieldValue("referee3-name")} | ${fieldValue("referee3-phone")}`, true),
@@ -2117,26 +2991,18 @@
       }
     }
 
-    function validateEmploymentDates() {
-      const startDate = document.getElementById("employment-start-date");
-      const endDate = document.getElementById("employment-end-date");
-      endDate.setCustomValidity("");
-
-      if (
-        startDate.value &&
-        endDate.value &&
-        endDate.value < startDate.value
-      ) {
-        endDate.setCustomValidity(
-          "Employment end date cannot be earlier than the start date."
-        );
-      }
-    }
+    getEmploymentCards().forEach((card) => {
+      card.querySelectorAll('input[type="date"]').forEach((field) => {
+        field.addEventListener("change", () => validateEmploymentCardDates(card));
+      });
+    });
 
     document.getElementById("work-experience").addEventListener("input", validateExperienceValues);
     document.getElementById("relevant-experience").addEventListener("input", validateExperienceValues);
-    document.getElementById("employment-start-date").addEventListener("change", validateEmploymentDates);
-    document.getElementById("employment-end-date").addEventListener("change", validateEmploymentDates);
+    document.getElementById("add-employment-button").addEventListener("click", addEmploymentEntry);
+    document.getElementById("remove-employment-button").addEventListener("click", removeLastEmploymentEntry);
+    document.getElementById("add-qualification-button").addEventListener("click", addQualificationEntry);
+    document.getElementById("remove-qualification-button").addEventListener("click", removeLastQualificationEntry);
     document.getElementById("add-training-button").addEventListener("click", addTrainingEntry);
     document.getElementById("remove-training-button").addEventListener("click", removeLastTrainingEntry);
 
@@ -2434,6 +3300,8 @@
         const selectedReference = normalizeReference(selectedVacancy.referenceNumber);
         const residentialAddress = fieldValue("residential-address");
         const postalAddress = fieldValue("postal-address");
+        const employmentEntries = getEmploymentEntries();
+        const qualificationEntries = getQualificationEntries();
         const trainingEntries = getTrainingEntries();
         const applicationData = {
           division: selectedDivision,
@@ -2468,16 +3336,63 @@
           postal_address: postalAddress,
           provinceOfResidence: fieldValue("province-of-residence"),
           employmentStatus: fieldValue("employment-status"),
-          currentPreviousPosition: fieldValue("current-previous-position"),
-          currentOrPreviousPosition: fieldValue("current-previous-position"),
-          employerOrganisation: fieldValue("employer-organisation"),
-          employmentStartDate: fieldValue("employment-start-date"),
-          employmentEndDate: fieldValue("employment-end-date"),
-          keyDuties: fieldValue("key-duties"),
-          highestQualification: fieldValue("qualification"),
-          fieldOfStudy: fieldValue("field-of-study"),
-          qualificationObtained: fieldValue("graduation-year"),
-          institution: fieldValue("institution"),
+          employmentHistory: employmentEntries,
+          employment_history: employmentEntries,
+          employmentRecordCount: employmentEntries.length,
+          currentPreviousPosition: employmentEntries[0]?.position || "",
+          currentOrPreviousPosition: employmentEntries[0]?.position || "",
+          employerOrganisation: employmentEntries[0]?.organisation || "",
+          employmentStartDate: employmentEntries[0]?.startDate || "",
+          employmentEndDate: employmentEntries[0]?.endDate || "",
+          keyDuties: employmentEntries[0]?.duties || "",
+          employment2Position: employmentEntries[1]?.position || "",
+          employment2Organisation: employmentEntries[1]?.organisation || "",
+          employment2StartDate: employmentEntries[1]?.startDate || "",
+          employment2EndDate: employmentEntries[1]?.endDate || "",
+          employment2Duties: employmentEntries[1]?.duties || "",
+          employment3Position: employmentEntries[2]?.position || "",
+          employment3Organisation: employmentEntries[2]?.organisation || "",
+          employment3StartDate: employmentEntries[2]?.startDate || "",
+          employment3EndDate: employmentEntries[2]?.endDate || "",
+          employment3Duties: employmentEntries[2]?.duties || "",
+          employment4Position: employmentEntries[3]?.position || "",
+          employment4Organisation: employmentEntries[3]?.organisation || "",
+          employment4StartDate: employmentEntries[3]?.startDate || "",
+          employment4EndDate: employmentEntries[3]?.endDate || "",
+          employment4Duties: employmentEntries[3]?.duties || "",
+          employment5Position: employmentEntries[4]?.position || "",
+          employment5Organisation: employmentEntries[4]?.organisation || "",
+          employment5StartDate: employmentEntries[4]?.startDate || "",
+          employment5EndDate: employmentEntries[4]?.endDate || "",
+          employment5Duties: employmentEntries[4]?.duties || "",
+          qualifications: qualificationEntries,
+          qualificationRecords: qualificationEntries,
+          qualification_record_count: qualificationEntries.length,
+          highestQualification: qualificationEntries[0]?.level || "",
+          fieldOfStudy: qualificationEntries[0]?.fieldOfStudy || "",
+          qualificationObtained: qualificationEntries[0]?.year || "",
+          institution: qualificationEntries[0]?.institution || "",
+          qualificationMatch: qualificationEntries[0]?.match || "",
+          qualification2Level: qualificationEntries[1]?.level || "",
+          qualification2FieldOfStudy: qualificationEntries[1]?.fieldOfStudy || "",
+          qualification2Year: qualificationEntries[1]?.year || "",
+          qualification2Institution: qualificationEntries[1]?.institution || "",
+          qualification2Match: qualificationEntries[1]?.match || "",
+          qualification3Level: qualificationEntries[2]?.level || "",
+          qualification3FieldOfStudy: qualificationEntries[2]?.fieldOfStudy || "",
+          qualification3Year: qualificationEntries[2]?.year || "",
+          qualification3Institution: qualificationEntries[2]?.institution || "",
+          qualification3Match: qualificationEntries[2]?.match || "",
+          qualification4Level: qualificationEntries[3]?.level || "",
+          qualification4FieldOfStudy: qualificationEntries[3]?.fieldOfStudy || "",
+          qualification4Year: qualificationEntries[3]?.year || "",
+          qualification4Institution: qualificationEntries[3]?.institution || "",
+          qualification4Match: qualificationEntries[3]?.match || "",
+          qualification5Level: qualificationEntries[4]?.level || "",
+          qualification5FieldOfStudy: qualificationEntries[4]?.fieldOfStudy || "",
+          qualification5Year: qualificationEntries[4]?.year || "",
+          qualification5Institution: qualificationEntries[4]?.institution || "",
+          qualification5Match: qualificationEntries[4]?.match || "",
           workExperience: fieldValue("work-experience"),
           relevantExperience: fieldValue("relevant-experience"),
           trainingAttended: String(trainingEntries.length),
@@ -2518,7 +3433,6 @@
           referee3Relationship: fieldValue("referee3-relationship"),
           referee3Phone: fieldValue("referee3-phone"),
           referee3Email: fieldValue("referee3-email"),
-          qualificationMatch: fieldValue("qualification-match"),
           documentBundleType: "compiled_application_pdf",
           identificationDocument,
           compiledDocuments,
@@ -2596,8 +3510,12 @@
     });
 
     const currentYear = new Date().getFullYear();
-    document.getElementById("graduation-year").max = String(currentYear);
+    document.querySelectorAll(".qualification-year").forEach((field) => {
+      field.max = String(currentYear);
+    });
 
+    initializeEmploymentEntries();
+    initializeQualificationEntries();
     initializeTrainingEntries();
     setFormAvailability(false);
     showStep(0);
