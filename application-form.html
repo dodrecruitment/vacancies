@@ -483,11 +483,11 @@
     }
 
     .progress-track { height: 8px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,0.2); }
-    .progress-fill { width: 16.67%; height: 100%; border-radius: inherit; background: var(--gold-500); transition: width 200ms ease; }
+    .progress-fill { width: 14.29%; height: 100%; border-radius: inherit; background: var(--gold-500); transition: width 200ms ease; }
 
     .step-tabs {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(7, 1fr);
       margin: 0;
       padding: 0;
       border-bottom: 1px solid var(--line);
@@ -674,6 +674,77 @@
       font-weight: 800;
     }
 
+    .training-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .training-card {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--green-600);
+      border-radius: var(--radius-sm);
+      background: #f9fbfa;
+      box-shadow: 0 5px 14px rgba(5, 41, 31, 0.06);
+    }
+
+    .training-card[hidden] { display: none !important; }
+
+    .training-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .training-card-header h3 {
+      margin: 0.12rem 0 0;
+      color: var(--green-950);
+      font-size: 1rem;
+    }
+
+    .training-number {
+      color: var(--green-700);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .training-badge {
+      flex: 0 0 auto;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      color: var(--green-900);
+      background: var(--green-100);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+
+    .training-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid #a9d2bd;
+      border-radius: var(--radius-sm);
+      background: #edf8f2;
+    }
+
+    .training-actions .training-status {
+      flex: 1 1 240px;
+      color: var(--green-900);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .training-actions .btn[hidden] { display: none !important; }
+
     .referee-card {
       grid-column: 1 / -1;
       padding: 1rem;
@@ -791,6 +862,11 @@
       .instruction-list, .check-row, .radio-option { font-size: 0.82rem; }
       .instruction-list { padding-left: 1.15rem; }
       .eoi-address { grid-template-columns: 1fr; gap: 0.18rem; }
+      .training-card { padding: 0.78rem; }
+      .training-card-header { flex-direction: column; gap: 0.45rem; }
+      .training-badge { align-self: flex-start; }
+      .training-actions { align-items: stretch; padding: 0.78rem; }
+      .training-actions .btn { width: 100%; }
       .eoi-address .address-attention { margin-top: 0.45rem; }
       .application-process-box, .contact-box, .approval-box { padding: 0.78rem; }
       .check-row, .upload-field { padding: 0.78rem; }
@@ -869,8 +945,8 @@
         </div>
 
         <div class="progress-wrap">
-          <div class="progress-meta"><span id="progress-label">Step 1 of 6</span><span id="progress-percent">17% complete</span></div>
-          <div class="progress-track" role="progressbar" aria-label="Application progress" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+          <div class="progress-meta"><span id="progress-label">Step 1 of 7</span><span id="progress-percent">14% complete</span></div>
+          <div class="progress-track" role="progressbar" aria-label="Application progress" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1">
             <div class="progress-fill" id="progress-fill"></div>
           </div>
         </div>
@@ -880,8 +956,9 @@
           <li>2. Instructions</li>
           <li>3. Personal</li>
           <li>4. Experience</li>
-          <li>5. Referees &amp; Documents</li>
-          <li>6. Review</li>
+          <li>5. Relevant Training</li>
+          <li>6. Referees &amp; Documents</li>
+          <li>7. Review</li>
         </ol>
 
         <div class="form-body">
@@ -1100,7 +1177,7 @@
                   <input class="control" id="relevant-experience" type="number" min="0" max="60" step="0.5" required>
                 </div>
 
-                <h3 class="subsection-heading">Qualification and training</h3>
+                <h3 class="subsection-heading">Qualifications</h3>
                 <div class="field">
                   <label for="qualification">Highest qualification <span class="required">*</span></label>
                   <select class="control" id="qualification" required>
@@ -1128,14 +1205,6 @@
                   <input class="control" id="institution" type="text" maxlength="180" required>
                 </div>
                 <div class="field">
-                  <label for="training-attended">Number of relevant training courses <span class="required">*</span></label>
-                  <input class="control" id="training-attended" type="number" min="0" max="100" step="1" value="0" inputmode="numeric" required>
-                </div>
-                <div class="field">
-                  <label for="training-year">Most recent training year <span class="optional">(required when training count is above zero)</span></label>
-                  <input class="control" id="training-year" type="number" min="1950" max="2026" inputmode="numeric">
-                </div>
-                <div class="field">
                   <label for="qualification-match">Does your qualification match the position? <span class="required">*</span></label>
                   <select class="control" id="qualification-match" required>
                     <option value="">Select</option>
@@ -1149,6 +1218,137 @@
           </section>
 
           <section class="form-step" data-step="5">
+            <fieldset>
+              <legend>Relevant training</legend>
+              <p class="step-intro">Enter your most relevant professional, technical, vocational or other training first. If you have completed additional relevant training, select <strong>Add more training</strong>. You may add up to five training records in total.</p>
+
+              <div class="training-list" id="training-list">
+                <div class="training-card" data-training-entry="1">
+                  <div class="training-card-header">
+                    <div>
+                      <span class="training-number">Training 1</span>
+                      <h3>Relevant training details</h3>
+                    </div>
+                    <span class="training-badge">1 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field field-full">
+                      <label for="training1-name">Name of training <span class="required">*</span></label>
+                      <input class="control" id="training1-name" name="training1_name" type="text" maxlength="180" placeholder="Enter the official name of the training course or programme" required>
+                    </div>
+                    <div class="field">
+                      <label for="training1-organisation">Institution / organisation that facilitated the training <span class="required">*</span></label>
+                      <input class="control" id="training1-organisation" name="training1_organisation" type="text" maxlength="180" placeholder="Institution, employer, training provider or organisation" required>
+                    </div>
+                    <div class="field">
+                      <label for="training1-period">Year / period the training was conducted <span class="required">*</span></label>
+                      <input class="control" id="training1-period" name="training1_period" type="text" maxlength="80" placeholder="For example: 2025 or 12–16 May 2025" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="training-card" data-training-entry="2" hidden>
+                  <div class="training-card-header">
+                    <div>
+                      <span class="training-number">Training 2</span>
+                      <h3>Relevant training details</h3>
+                    </div>
+                    <span class="training-badge">2 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field field-full">
+                      <label for="training2-name">Name of training <span class="required">*</span></label>
+                      <input class="control" id="training2-name" name="training2_name" type="text" maxlength="180" placeholder="Enter the official name of the training course or programme">
+                    </div>
+                    <div class="field">
+                      <label for="training2-organisation">Institution / organisation that facilitated the training <span class="required">*</span></label>
+                      <input class="control" id="training2-organisation" name="training2_organisation" type="text" maxlength="180" placeholder="Institution, employer, training provider or organisation">
+                    </div>
+                    <div class="field">
+                      <label for="training2-period">Year / period the training was conducted <span class="required">*</span></label>
+                      <input class="control" id="training2-period" name="training2_period" type="text" maxlength="80" placeholder="For example: 2025 or 12–16 May 2025">
+                    </div>
+                  </div>
+                </div>
+                <div class="training-card" data-training-entry="3" hidden>
+                  <div class="training-card-header">
+                    <div>
+                      <span class="training-number">Training 3</span>
+                      <h3>Relevant training details</h3>
+                    </div>
+                    <span class="training-badge">3 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field field-full">
+                      <label for="training3-name">Name of training <span class="required">*</span></label>
+                      <input class="control" id="training3-name" name="training3_name" type="text" maxlength="180" placeholder="Enter the official name of the training course or programme">
+                    </div>
+                    <div class="field">
+                      <label for="training3-organisation">Institution / organisation that facilitated the training <span class="required">*</span></label>
+                      <input class="control" id="training3-organisation" name="training3_organisation" type="text" maxlength="180" placeholder="Institution, employer, training provider or organisation">
+                    </div>
+                    <div class="field">
+                      <label for="training3-period">Year / period the training was conducted <span class="required">*</span></label>
+                      <input class="control" id="training3-period" name="training3_period" type="text" maxlength="80" placeholder="For example: 2025 or 12–16 May 2025">
+                    </div>
+                  </div>
+                </div>
+                <div class="training-card" data-training-entry="4" hidden>
+                  <div class="training-card-header">
+                    <div>
+                      <span class="training-number">Training 4</span>
+                      <h3>Relevant training details</h3>
+                    </div>
+                    <span class="training-badge">4 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field field-full">
+                      <label for="training4-name">Name of training <span class="required">*</span></label>
+                      <input class="control" id="training4-name" name="training4_name" type="text" maxlength="180" placeholder="Enter the official name of the training course or programme">
+                    </div>
+                    <div class="field">
+                      <label for="training4-organisation">Institution / organisation that facilitated the training <span class="required">*</span></label>
+                      <input class="control" id="training4-organisation" name="training4_organisation" type="text" maxlength="180" placeholder="Institution, employer, training provider or organisation">
+                    </div>
+                    <div class="field">
+                      <label for="training4-period">Year / period the training was conducted <span class="required">*</span></label>
+                      <input class="control" id="training4-period" name="training4_period" type="text" maxlength="80" placeholder="For example: 2025 or 12–16 May 2025">
+                    </div>
+                  </div>
+                </div>
+                <div class="training-card" data-training-entry="5" hidden>
+                  <div class="training-card-header">
+                    <div>
+                      <span class="training-number">Training 5</span>
+                      <h3>Relevant training details</h3>
+                    </div>
+                    <span class="training-badge">5 of 5 maximum</span>
+                  </div>
+                  <div class="form-grid">
+                    <div class="field field-full">
+                      <label for="training5-name">Name of training <span class="required">*</span></label>
+                      <input class="control" id="training5-name" name="training5_name" type="text" maxlength="180" placeholder="Enter the official name of the training course or programme">
+                    </div>
+                    <div class="field">
+                      <label for="training5-organisation">Institution / organisation that facilitated the training <span class="required">*</span></label>
+                      <input class="control" id="training5-organisation" name="training5_organisation" type="text" maxlength="180" placeholder="Institution, employer, training provider or organisation">
+                    </div>
+                    <div class="field">
+                      <label for="training5-period">Year / period the training was conducted <span class="required">*</span></label>
+                      <input class="control" id="training5-period" name="training5_period" type="text" maxlength="80" placeholder="For example: 2025 or 12–16 May 2025">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="training-actions" aria-label="Relevant training controls">
+                <span class="training-status" id="training-status" role="status" aria-live="polite">1 training entry shown. You can add up to 4 more.</span>
+                <button class="btn btn-secondary btn-small" id="remove-training-button" type="button" hidden>Remove last training</button>
+                <button class="btn btn-primary btn-small" id="add-training-button" type="button">+ Add more training</button>
+              </div>
+            </fieldset>
+          </section>
+
+          <section class="form-step" data-step="6">
             <fieldset>
               <legend>Referees and supporting documents</legend>
               <p class="step-intro">Provide three professional referees and upload the compiled application documents.</p>
@@ -1255,7 +1455,7 @@
             </fieldset>
           </section>
 
-          <section class="form-step" data-step="6">
+          <section class="form-step" data-step="7">
             <fieldset>
               <legend>Review and declaration</legend>
               <p class="step-intro">Check the information below. Use Back to correct any details before submitting.</p>
@@ -1463,6 +1663,11 @@
         backButton.disabled = false;
         submitButton.disabled = false;
       }
+
+      getTrainingCards().forEach((card) => {
+        if (!card.hidden) setTrainingCardState(card, true);
+      });
+      updateTrainingControls();
     }
 
     function populateDivisions() {
@@ -1677,6 +1882,106 @@
       return document.getElementById(id)?.files?.[0]?.name || "Not uploaded";
     }
 
+    // Relevant training: show one entry first, then reveal one additional entry at a time (maximum five).
+    function getTrainingCards() {
+      return [...document.querySelectorAll("[data-training-entry]")];
+    }
+
+    function getTrainingCount() {
+      return getTrainingCards().filter((card) => !card.hidden).length;
+    }
+
+    function setTrainingCardState(card, active) {
+      card.hidden = !active;
+      card.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.disabled = !applicationServiceReady || !active;
+        field.required = active;
+        if (!active) field.setCustomValidity("");
+      });
+    }
+
+    function updateTrainingControls() {
+      const count = getTrainingCount();
+      const addButton = document.getElementById("add-training-button");
+      const removeButton = document.getElementById("remove-training-button");
+      const status = document.getElementById("training-status");
+
+      if (!addButton || !removeButton || !status) return;
+
+      addButton.disabled = !applicationServiceReady || count >= 5;
+      addButton.hidden = count >= 5;
+      removeButton.disabled = !applicationServiceReady || count <= 1;
+      removeButton.hidden = count <= 1;
+
+      if (count >= 5) {
+        status.textContent = "5 training entries shown — the maximum allowed.";
+      } else {
+        const remaining = 5 - count;
+        status.textContent = `${count} training entr${count === 1 ? "y" : "ies"} shown. You can add up to ${remaining} more.`;
+      }
+    }
+
+    function initializeTrainingEntries() {
+      getTrainingCards().forEach((card, index) => {
+        setTrainingCardState(card, index === 0);
+      });
+      updateTrainingControls();
+    }
+
+    function addTrainingEntry() {
+      const cards = getTrainingCards();
+      const count = getTrainingCount();
+      if (count >= 5) return;
+
+      const nextCard = cards[count];
+      if (!nextCard) return;
+
+      setTrainingCardState(nextCard, true);
+      updateTrainingControls();
+
+      const firstField = nextCard.querySelector("input, select, textarea");
+      firstField?.focus();
+      nextCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function removeLastTrainingEntry() {
+      const cards = getTrainingCards();
+      const count = getTrainingCount();
+      if (count <= 1) return;
+
+      const lastCard = cards[count - 1];
+      lastCard.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.value = "";
+        field.setCustomValidity("");
+      });
+      setTrainingCardState(lastCard, false);
+      updateTrainingControls();
+    }
+
+    function getTrainingEntries() {
+      const entries = [];
+
+      getTrainingCards().forEach((card, index) => {
+        if (card.hidden) return;
+        const number = index + 1;
+        entries.push({
+          name: fieldValue(`training${number}-name`),
+          organisation: fieldValue(`training${number}-organisation`),
+          period: fieldValue(`training${number}-period`)
+        });
+      });
+
+      return entries;
+    }
+
+    function latestTrainingYear(entries) {
+      const years = entries.flatMap((entry) =>
+        String(entry.period || "").match(/\b(?:19|20)\d{2}\b/g) || []
+      );
+      if (!years.length) return "";
+      return String(Math.max(...years.map(Number)));
+    }
+
     function reviewItem(label, value, full = false) {
       const item = document.createElement("div");
       item.className = `review-item${full ? " full" : ""}`;
@@ -1692,7 +1997,8 @@
 
     function buildReview() {
       const grid = document.getElementById("review-grid");
-      grid.replaceChildren(
+      const trainingEntries = getTrainingEntries();
+      const reviewItems = [
         reviewItem("Position", selectedVacancy?.positionTitle, true),
         reviewItem("Reference", normalizeReference(selectedVacancy?.referenceNumber)),
         reviewItem("Division", selectedVacancy?.division),
@@ -1722,8 +2028,20 @@
         reviewItem("Field of study", fieldValue("field-of-study")),
         reviewItem("Year obtained", fieldValue("graduation-year")),
         reviewItem("Institution", fieldValue("institution")),
-        reviewItem("Relevant training courses", fieldValue("training-attended")),
-        reviewItem("Most recent training year", fieldValue("training-year")),
+        reviewItem("Relevant training declared", trainingEntries.length ? `${trainingEntries.length} training course(s)` : "None")
+      ];
+
+      trainingEntries.forEach((entry, index) => {
+        reviewItems.push(
+          reviewItem(
+            `Training ${index + 1}`,
+            `${entry.name} | ${entry.organisation} | ${entry.period}`,
+            true
+          )
+        );
+      });
+
+      reviewItems.push(
         reviewItem("Qualification match", fieldValue("qualification-match")),
         reviewItem("Referee 1", `${fieldValue("referee1-name")} | ${fieldValue("referee1-phone")}`, true),
         reviewItem("Referee 2", `${fieldValue("referee2-name")} | ${fieldValue("referee2-phone")}`, true),
@@ -1733,6 +2051,8 @@
         reviewItem("Accuracy declaration", document.getElementById("declaration-confirm").checked ? "Accepted" : "Not accepted"),
         reviewItem("Privacy consent", document.getElementById("privacy-consent").checked ? "Accepted" : "Not accepted")
       );
+
+      grid.replaceChildren(...reviewItems);
     }
 
     nextButton.addEventListener("click", () => {
@@ -1813,25 +2133,12 @@
       }
     }
 
-    function updateTrainingYearRequirement() {
-      const count = Number(fieldValue("training-attended") || 0);
-      const year = document.getElementById("training-year");
-      year.required = count > 0;
-      year.setCustomValidity("");
-
-      if (count > 0 && !year.value) {
-        year.setCustomValidity(
-          "Enter the year of the most recent relevant training."
-        );
-      }
-    }
-
     document.getElementById("work-experience").addEventListener("input", validateExperienceValues);
     document.getElementById("relevant-experience").addEventListener("input", validateExperienceValues);
     document.getElementById("employment-start-date").addEventListener("change", validateEmploymentDates);
     document.getElementById("employment-end-date").addEventListener("change", validateEmploymentDates);
-    document.getElementById("training-attended").addEventListener("input", updateTrainingYearRequirement);
-    document.getElementById("training-year").addEventListener("input", updateTrainingYearRequirement);
+    document.getElementById("add-training-button").addEventListener("click", addTrainingEntry);
+    document.getElementById("remove-training-button").addEventListener("click", removeLastTrainingEntry);
 
     function fileToBase64(id) {
       return new Promise((resolve, reject) => {
@@ -2127,6 +2434,7 @@
         const selectedReference = normalizeReference(selectedVacancy.referenceNumber);
         const residentialAddress = fieldValue("residential-address");
         const postalAddress = fieldValue("postal-address");
+        const trainingEntries = getTrainingEntries();
         const applicationData = {
           division: selectedDivision,
           division_branch: selectedDivision,
@@ -2172,8 +2480,25 @@
           institution: fieldValue("institution"),
           workExperience: fieldValue("work-experience"),
           relevantExperience: fieldValue("relevant-experience"),
-          trainingAttended: fieldValue("training-attended"),
-          trainingYear: fieldValue("training-year"),
+          trainingAttended: String(trainingEntries.length),
+          trainingYear: latestTrainingYear(trainingEntries),
+          relevantTraining: trainingEntries,
+          relevant_training: trainingEntries,
+          training1Name: trainingEntries[0]?.name || "",
+          training1Organisation: trainingEntries[0]?.organisation || "",
+          training1Period: trainingEntries[0]?.period || "",
+          training2Name: trainingEntries[1]?.name || "",
+          training2Organisation: trainingEntries[1]?.organisation || "",
+          training2Period: trainingEntries[1]?.period || "",
+          training3Name: trainingEntries[2]?.name || "",
+          training3Organisation: trainingEntries[2]?.organisation || "",
+          training3Period: trainingEntries[2]?.period || "",
+          training4Name: trainingEntries[3]?.name || "",
+          training4Organisation: trainingEntries[3]?.organisation || "",
+          training4Period: trainingEntries[3]?.period || "",
+          training5Name: trainingEntries[4]?.name || "",
+          training5Organisation: trainingEntries[4]?.organisation || "",
+          training5Period: trainingEntries[4]?.period || "",
           references: "3",
           referee1Name: fieldValue("referee1-name"),
           referee1Position: fieldValue("referee1-position"),
@@ -2272,11 +2597,10 @@
 
     const currentYear = new Date().getFullYear();
     document.getElementById("graduation-year").max = String(currentYear);
-    document.getElementById("training-year").max = String(currentYear);
 
+    initializeTrainingEntries();
     setFormAvailability(false);
     showStep(0);
-    updateTrainingYearRequirement();
     initializeApplicationService();
   </script>
 </body>
