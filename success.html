@@ -597,6 +597,21 @@
             </div>
 
             <div class="item full">
+              <div class="label">Advertised location</div>
+              <div class="value" id="position-location"></div>
+            </div>
+
+            <div class="item">
+              <div class="label">Classification</div>
+              <div class="value" id="position-class"></div>
+            </div>
+
+            <div class="item">
+              <div class="label">Base salary</div>
+              <div class="value" id="base-salary"></div>
+            </div>
+
+            <div class="item full">
               <div class="label">Applicant email</div>
               <div class="value" id="email"></div>
             </div>
@@ -716,6 +731,11 @@
       }).format(date);
     }
 
+    function formatSalary(value) {
+      const amount = Number(value);
+      return Number.isFinite(amount) ? `K${amount.toLocaleString("en-PG")}` : String(value || "");
+    }
+
     function setText(id, value, fallback = "Not available") {
       const element = document.getElementById(id);
 
@@ -741,6 +761,9 @@
       setText("position", application.positionTitle);
       setText("position-reference", application.referenceNumber);
       setText("division", application.division);
+      setText("position-location", application.positionLocation);
+      setText("position-class", application.positionClass);
+      setText("base-salary", application.baseSalary ? formatSalary(application.baseSalary) : "");
       setText("email", application.email);
       setText("submission-id", application.submissionId);
       setText("application-id", application.applicationId);
