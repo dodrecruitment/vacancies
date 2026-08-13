@@ -2230,8 +2230,11 @@
     }
 
     const API_BASE_URL = "https://api.dodcareers.link";
+    const STATUS_API_URL = `${API_BASE_URL}/v1/status`;
     const SUBMISSION_API_URL = `${API_BASE_URL}/v1/applications`;
     const VACANCIES_API_URL = `${API_BASE_URL}/v1/vacancies`;
+    const FORM_VERSION = "external-cloudrun-v2-2026-08-14";
+    const EXPECTED_VACANCY_COUNT = 195;
     const SUBMISSION_REQUEST_TIMEOUT_MS = 300000;
     const PENDING_SUBMISSION_STORAGE_KEY = "dodVacancyPendingSubmission";
     const RECEIPT_STORAGE_KEY = "dodVacancyApplicationReceipt";
@@ -2483,7 +2486,7 @@
       setApplicationNotice(
         "warning",
         "Checking application service",
-        "Please wait while the authoritative vacancy register and campaign status are loaded."
+        "Please wait while the Cloud SQL-backed vacancy register and campaign status are loaded."
       );
 
       try {
@@ -2527,9 +2530,9 @@
             referenceNumber: normalizeReference(excelItem.referenceNumber),
             positionTitle: excelItem.positionTitle,
             designation: excelItem.positionTitle,
-            location: excelItem.location,
-            positionClass: excelItem.class,
-            baseSalary: excelItem.baseSalary,
+            location: backendItem.location || backendItem.branchName || excelItem.location,
+            positionClass: backendItem.positionClass || excelItem.class,
+            baseSalary: Number(backendItem.baseSalary || excelItem.baseSalary || 0),
             positionCode: backendItem.positionCode || excelItem.positionCode || "",
             costAccount: backendItem.costAccount || excelItem.costAccount || "",
             numberOfPositions: 1,
@@ -2540,6 +2543,21 @@
 
         if (!VACANCIES.length) {
           throw new Error("The approved Excel vacancy register is currently empty.");
+        }
+
+        const missingDatabaseReferences = VACANCIES
+          .filter((item) => !item.backendVacancyAvailable)
+          .map((item) => normalizeReference(item.referenceNumber));
+
+        if (missingDatabaseReferences.length) {
+          throw new Error(
+            `The database vacancy register is not synchronized with the approved ${EXPECTED_VACANCY_COUNT}-position register. ` +
+            `Missing database reference(s): ${missingDatabaseReferences.join(", ")}.`
+          );
+        }
+
+        if (backendVacancies.length !== EXPECTED_VACANCY_COUNT) {
+          console.warn(`Database vacancy count is ${backendVacancies.length}; expected ${EXPECTED_VACANCY_COUNT}.`);
         }
 
         populateDivisions();
@@ -3426,6 +3444,12 @@
           training5Name: trainingEntries[4]?.name || "",
           training5Organisation: trainingEntries[4]?.organisation || "",
           training5Period: trainingEntries[4]?.period || "",
+          trainingCourses: trainingEntries,
+          training_courses: trainingEntries,
+          qualificationEntries: qualificationEntries,
+          qualification_entries: qualificationEntries,
+          employmentEntries: employmentEntries,
+          employment_entries: employmentEntries,
           references: "3",
           referee1Name: fieldValue("referee1-name"),
           referee1Position: fieldValue("referee1-position"),
@@ -3446,6 +3470,9 @@
           referee3Phone: fieldValue("referee3-phone"),
           referee3Email: fieldValue("referee3-email"),
           documentBundleType: "compiled_application_pdf",
+          formVersion: FORM_VERSION,
+          frontendVersion: FORM_VERSION,
+          backendVacancyId: selectedVacancy?.id || "",
           identificationDocument,
           compiledDocuments,
           accuracyDeclaration: document.getElementById("declaration-confirm").checked,
