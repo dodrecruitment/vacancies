@@ -566,7 +566,70 @@
     .selected-position span { color: var(--ink-700); }
 
     .instruction-list { margin: 1rem 0 1.4rem; padding-left: 1.3rem; }
-    .instruction-list li { margin-bottom: 0.7rem; }
+    .instruction-list > li { margin-bottom: 1rem; }
+    .instruction-list ul { margin: 0.65rem 0 0; padding-left: 1.25rem; }
+    .instruction-list ul li { margin-bottom: 0.42rem; }
+
+    .application-process-box {
+      margin: 0 0 1.2rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid #a9d2bd;
+      border-left: 5px solid var(--green-600);
+      border-radius: var(--radius-sm);
+      background: #edf8f2;
+    }
+    .application-process-box h3 {
+      margin: 0 0 0.35rem;
+      color: var(--green-950);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+    }
+    .application-process-box p { margin: 0; color: var(--ink-700); }
+    .application-process-box a { font-weight: 850; }
+
+    .eoi-address {
+      display: grid;
+      grid-template-columns: minmax(120px, 190px) 1fr;
+      gap: 0.35rem 0.9rem;
+      margin: 0.75rem 0;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #f9fbfa;
+    }
+    .eoi-address .address-label { color: var(--green-900); font-weight: 850; }
+    .eoi-address .address-value { color: var(--ink-900); }
+    .eoi-address .address-attention { margin-top: 0.25rem; }
+
+    .instruction-example {
+      display: block;
+      margin-top: 0.45rem;
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--gold-500);
+      border-radius: 0.35rem;
+      color: var(--ink-700);
+      background: #fffaf0;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-box {
+      margin-top: 0.6rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--green-50);
+    }
+    .contact-box a { font-weight: 800; }
+
+    .approval-box {
+      margin: 1.25rem 0;
+      padding: 0.9rem 1rem;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-700);
+      background: #fbfcfb;
+    }
+    .approval-box strong { display: block; margin-top: 0.3rem; color: var(--green-950); }
 
     .check-row {
       display: flex;
@@ -726,6 +789,9 @@
       .selected-position { padding: 0.8rem; font-size: 0.8rem; }
       .instruction-list, .check-row, .radio-option { font-size: 0.82rem; }
       .instruction-list { padding-left: 1.15rem; }
+      .eoi-address { grid-template-columns: 1fr; gap: 0.18rem; }
+      .eoi-address .address-attention { margin-top: 0.45rem; }
+      .application-process-box, .contact-box, .approval-box { padding: 0.78rem; }
       .check-row, .upload-field { padding: 0.78rem; }
       .radio-row { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
       .radio-option { width: 100%; min-height: 44px; padding: 0.52rem 0.72rem; }
@@ -848,20 +914,58 @@
           <section class="form-step" data-step="2">
             <fieldset>
               <legend>Application instructions</legend>
-              <p class="step-intro">Read each instruction carefully before proceeding.</p>
+              <p class="step-intro">Read the official application process and instructions carefully before proceeding.</p>
+
+              <div class="application-process-box">
+                <h3>Application Process</h3>
+                <p>All interested applicants are required to submit their applications strictly through the online portal at <a href="https://dodcareers.link">https://dodcareers.link</a>.</p>
+              </div>
+
+              <h3 class="subsection-heading" style="margin-top:0">Instructions for Applicants</h3>
               <ol class="instruction-list">
-                <li>Submit one complete application for each position you wish to apply for.</li>
-                <li>Use the exact position title, reference number, and advertised location from the official vacancy register.</li>
-                <li>Upload one clear identification document: National ID, passport, driver's licence, or birth certificate.</li>
-                <li>Compile your Expression of Interest or cover letter, CV, qualification certificates, and any relevant training or award certificates into one clear, readable PDF.</li>
-                <li>The identification document must be 5 MB or less. The compiled application PDF must be 10 MB or less. Password-protected PDFs cannot be processed.</li>
-                <li>Ensure your phone number and email address are accurate and remain active.</li>
-                <li>Providing false or misleading information may result in disqualification.</li>
-                <li>Only shortlisted applicants may be contacted for screening, interview, or assessment.</li>
+                <li>
+                  All applicants are required to submit the following documents:
+                  <ul>
+                    <li>
+                      <strong>Expression of Interest (EOI)</strong> addressed to:
+                      <div class="eoi-address" aria-label="Expression of Interest addressing details">
+                        <div class="address-label">Addressed to</div>
+                        <div class="address-value"><strong>Secretary</strong><br>Department of Defence<br>Free Mail Bag, Boroko,<br>Port Moresby, N.C.D</div>
+                        <div class="address-label address-attention">Attention</div>
+                        <div class="address-value address-attention">First Assistant Secretary<br>Human Resource Management</div>
+                      </div>
+                    </li>
+                    <li><strong>Completed Form RS 3.2</strong></li>
+                    <li><strong>Curriculum Vitae (CV)</strong></li>
+                    <li><strong>Certificates of Educational Qualifications</strong></li>
+                    <li><strong>References</strong></li>
+                    <li><strong>Other relevant supporting documents</strong>, including a copy of one (1) valid form of identification (for example: Passport, PNG Driver's Licence, NID, Work or Student ID).</li>
+                  </ul>
+                </li>
+                <li>
+                  The subject line of your EOI must state the <strong>Position Reference Number</strong> and <strong>Designation/Position Title</strong>.
+                  <span class="instruction-example"><strong>Example:</strong> Subject: DEX.008 Deputy Secretary - Policy Wing</span>
+                </li>
+                <li>All application documents must be compiled into <strong>one (1) PDF file</strong> not exceeding <strong>10 MB</strong>.</li>
+                <li>
+                  The PDF file must be named in the following format: <strong>Reference Number_Position Title_Your Surname</strong>.
+                  <span class="instruction-example"><strong>Example:</strong> DEX.008_Deputy Secretary - Policy Wing_Tauraka</span>
+                </li>
+                <li>
+                  For queries and clarification, please contact the Department of Defence Recruitment Team:
+                  <div class="contact-box"><strong>Email:</strong> <a href="mailto:dodrecruitment@defence.gov.pg">dodrecruitment@defence.gov.pg</a><br><strong>Phone:</strong> <a href="tel:+6753242198">324 2198</a></div>
+                </li>
               </ol>
+
+              <div class="approval-box">
+                Approved by
+                <strong>Hari John Akipe</strong>
+                Secretary of Defence
+              </div>
+
               <label class="check-row">
                 <input id="instructions-confirm" type="checkbox" required>
-                <span>I have read and understood the application instructions. <span class="required">*</span></span>
+                <span>I have read and understood the application process and instructions above. <span class="required">*</span></span>
               </label>
             </fieldset>
           </section>
@@ -1144,7 +1248,7 @@
                   <label for="compiled-documents">Compiled application PDF <span class="required">*</span></label>
                   <div class="upload-field">
                     <input id="compiled-documents" type="file" accept=".pdf,application/pdf" required>
-                    <span class="hint">Upload one PDF containing, in order: Expression of Interest or cover letter, CV, qualification certificates, and any relevant training or award certificates. The final PDF must be 10 MB or less.</span>
+                    <span class="hint">Upload one compiled PDF containing the required application documents: Expression of Interest (EOI), completed Form RS 3.2, Curriculum Vitae (CV), certificates of educational qualifications, references, and other relevant supporting documents. The final PDF must be 10 MB or less and should follow the required filename format: Reference Number_Position Title_Your Surname.</span>
                     <span class="file-status" data-file-status="compiled-documents"></span>
                   </div>
                 </div>
