@@ -753,27 +753,27 @@
     <section class="home-hero">
       <div class="container hero-layout">
         <div class="hero-copy">
-          <p class="eyebrow">Serve Papua New Guinea</p>
-          <h1>Position Vacancies</h1>
-          <p>Review advertised civilian positions across the Department of Defence and access the official vacancy register, job descriptions, and online application process.</p>
+          <p class="eyebrow">External Advertisement – Phase 1</p>
+          <h1>External Advertisement – Phase 1</h1>
+          <p>Review the 41 Phase 1 civilian position vacancies across three Department of Defence divisions. Applications open on 24 August 2026 at 8:00 AM and close on 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="vacancies_by_divisions.html">View all vacancies <span aria-hidden="true">→</span></a>
-            <a class="btn btn-secondary" href="application-form.html">Apply Now</a>
+            <a class="btn btn-gold" href="vacancies_by_divisions.html">View Phase 1 vacancies <span aria-hidden="true">→</span></a>
+            <a class="btn btn-secondary" id="home-apply-button" href="application-form.html">Apply from 24 August</a>
           </div>
         </div>
 
         <aside class="status-card" aria-labelledby="application-status-title">
-          <div class="status-badge" id="application-status-badge">Applications open</div>
+          <div class="status-badge" id="application-status-badge">Applications not yet open</div>
           <h2 id="application-status-title">Current application period</h2>
-          <p id="application-status-message">Online applications are currently being accepted for the advertised positions.</p>
-          <div class="status-date">Select a position from the vacancy register and submit a complete online application.</div>
+          <p id="application-status-message">Phase 1 opens on 24 August 2026 at 8:00 AM (Papua New Guinea time).</p>
+          <div class="status-date" id="application-status-countdown">Opening countdown will appear here.</div>
         </aside>
       </div>
     </section>
 
     <div class="container stats" aria-label="Vacancy register summary">
-      <div class="card stat"><strong>195</strong><span>advertised positions</span></div>
-      <div class="card stat"><strong>9</strong><span>divisions and directorates</span></div>
+      <div class="card stat"><strong>41</strong><span>Phase 1 advertised positions</span></div>
+      <div class="card stat"><strong>3</strong><span>Phase 1 divisions</span></div>
       <div class="card stat"><strong>Online</strong><span>searchable vacancy register</span></div>
     </div>
 
@@ -816,7 +816,7 @@
             <li>Compile your current CV and qualification certificates into one readable PDF</li>
             <li>Add relevant training or award certificates to the same PDF, where available</li>
             <li>Keep the final compiled PDF at 10 MB or less</li>
-            <li>A recent passport-style photograph in JPG or PNG format</li>
+            <li>One valid identification document (for example NID, passport, driver’s licence, work ID or student ID)</li>
             <li>Accurate contact information and referee details</li>
           </ul>
         </div>
@@ -824,9 +824,9 @@
         <aside class="card support-card">
           <h3>Important applicant notice</h3>
           <p>Only applications submitted during an advertised application period should be considered. Shortlisted applicants may be contacted using the phone number or email supplied.</p>
-          <div class="notice" style="border-color:#a9d2bd;border-left-color:var(--green-600);background:#edf8f2;color:var(--green-950)">
+          <div class="notice" id="home-application-notice" style="border-color:#d8c37a;border-left-color:#b78918;background:#fff8df;color:#503e0c">
             <span class="notice-dot" aria-hidden="true">✓</span>
-            <div><strong>Applications are open</strong><p>Review the position requirements and submit one compiled supporting-document PDF with your online application.</p></div>
+            <div><strong id="home-notice-title">Applications open 24 August 2026</strong><p id="home-notice-message">Phase 1 opens at 8:00 AM and closes on 7 September 2026 at 4:06 PM (Papua New Guinea time).</p></div>
           </div>
         </aside>
       </div>
@@ -872,6 +872,86 @@
         menuButton.setAttribute("aria-expanded", "false");
       });
     }
+
+
+    const PHASE1_OPEN_AT = new Date("2026-08-24T08:00:00+10:00");
+    const PHASE1_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
+
+    function formatCountdown(milliseconds) {
+      const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      const parts = [];
+      if (days) parts.push(`${days}d`);
+      parts.push(`${String(hours).padStart(2, "0")}h`);
+      parts.push(`${String(minutes).padStart(2, "0")}m`);
+      parts.push(`${String(seconds).padStart(2, "0")}s`);
+      return parts.join(" ");
+    }
+
+    function updatePhase1Status() {
+      const now = new Date();
+      const badge = document.getElementById("application-status-badge");
+      const message = document.getElementById("application-status-message");
+      const countdown = document.getElementById("application-status-countdown");
+      const applyButton = document.getElementById("home-apply-button");
+      const notice = document.getElementById("home-application-notice");
+      const noticeTitle = document.getElementById("home-notice-title");
+      const noticeMessage = document.getElementById("home-notice-message");
+
+      if (now < PHASE1_OPEN_AT) {
+        badge.textContent = "Applications not yet open";
+        message.textContent = "External Advertisement Phase 1 opens on 24 August 2026 at 8:00 AM (Papua New Guinea time).";
+        countdown.textContent = `Opens in ${formatCountdown(PHASE1_OPEN_AT - now)}`;
+        applyButton.textContent = "Apply from 24 August";
+        applyButton.removeAttribute("href");
+        applyButton.setAttribute("aria-disabled", "true");
+        applyButton.classList.add("disabled");
+        notice.style.borderColor = "#d8c37a";
+        notice.style.borderLeftColor = "#b78918";
+        notice.style.background = "#fff8df";
+        notice.style.color = "#503e0c";
+        noticeTitle.textContent = "Applications open 24 August 2026";
+        noticeMessage.textContent = "Opening time: 8:00 AM. Closing time: 4:06 PM on 7 September 2026 (Papua New Guinea time).";
+        return;
+      }
+
+      if (now <= PHASE1_CLOSE_AT) {
+        badge.textContent = "Applications open";
+        message.textContent = "External Advertisement Phase 1 is accepting applications.";
+        countdown.textContent = `Closes in ${formatCountdown(PHASE1_CLOSE_AT - now)}`;
+        applyButton.textContent = "Apply Now";
+        applyButton.href = "application-form.html";
+        applyButton.removeAttribute("aria-disabled");
+        applyButton.classList.remove("disabled");
+        notice.style.borderColor = "#a9d2bd";
+        notice.style.borderLeftColor = "var(--green-600)";
+        notice.style.background = "#edf8f2";
+        notice.style.color = "var(--green-950)";
+        noticeTitle.textContent = "Applications are open";
+        noticeMessage.textContent = "Phase 1 closes on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+        return;
+      }
+
+      badge.textContent = "Applications closed";
+      message.textContent = "External Advertisement Phase 1 has closed.";
+      countdown.textContent = "Closed on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+      applyButton.textContent = "Applications Closed";
+      applyButton.removeAttribute("href");
+      applyButton.setAttribute("aria-disabled", "true");
+      applyButton.classList.add("disabled");
+      notice.style.borderColor = "#e6a8ae";
+      notice.style.borderLeftColor = "var(--danger)";
+      notice.style.background = "#fff2f3";
+      notice.style.color = "#721c24";
+      noticeTitle.textContent = "Applications are closed";
+      noticeMessage.textContent = "Phase 1 closed on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+    }
+
+    updatePhase1Status();
+    setInterval(updatePhase1Status, 1000);
 
   </script>
 </body>
