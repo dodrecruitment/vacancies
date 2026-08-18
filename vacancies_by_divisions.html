@@ -758,16 +758,16 @@
     <header class="page-title">
       <div class="container">
         <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Position Vacancies</li></ol>
-        <p class="eyebrow">Position Vacancies</p>
+        <p class="eyebrow">Vacancy Register</p>
         <h1>Position Vacancies</h1>
-        <p>View the 41 vacant positions listed in the uploaded Position Vacancies annexure. Position Vacancies covers the Executive Division, Strategic Policy Research & Development Division, and Capability Acquisition & Sustainability Division.</p>
+        <p>The approved register contains 41 vacancies across the Executive Division, Strategic Policy Research & Development Division, and Capability Acquisition & Sustainability Division.</p>
       </div>
     </header>
 
     <div class="container summary-bar" aria-label="Vacancy summary">
       <div class="card summary-item"><span>Total positions</span><strong>41</strong></div>
       <div class="card summary-item"><span>Divisions</span><strong>3</strong></div>
-      <div class="card summary-item"><span>Application status</span><strong id="phase-status-summary">Not yet open</strong></div>
+      <div class="card summary-item"><span>Application method</span><strong>Online</strong></div>
     </div>
 
     <section class="section-tight">
@@ -790,7 +790,7 @@
               <button class="btn btn-primary" id="reset-button" type="button">Reset</button>
             </div>
           </div>
-          <p class="results-note" id="results-note" role="status" aria-live="polite">Showing all 41 positions in 3 divisions.</p>
+          <p class="results-note" id="results-note" role="status" aria-live="polite">Showing all positions across 3 divisions.</p>
         </div>
 
         <div class="division-list" id="division-list"></div>
@@ -875,14 +875,11 @@
     function updatePhaseScheduleUI() {
       const now = new Date();
       const phase = getApplicationPhase();
-      const summary = document.getElementById("phase-status-summary");
       const notice = document.getElementById("phase-notice");
       const title = document.getElementById("phase-notice-title");
       const message = document.getElementById("phase-notice-message");
 
       if (phase === "before") {
-        summary.textContent = "Opens 24 Aug";
-        summary.style.color = "#8a6512";
         notice.style.borderColor = "#d8c37a";
         notice.style.borderLeftColor = "#b78918";
         notice.style.background = "#fff8df";
@@ -890,8 +887,6 @@
         title.textContent = "Applications open 24 August 2026 at 8:00 AM";
         message.textContent = `Opens in ${formatCountdown(VACANCY_OPEN_AT - now)}. Applications close on 7 September 2026 at 4:06 PM (Papua New Guinea time).`;
       } else if (phase === "open") {
-        summary.textContent = "Open";
-        summary.style.color = "var(--success)";
         notice.style.borderColor = "#a9d2bd";
         notice.style.borderLeftColor = "var(--green-600)";
         notice.style.background = "#edf8f2";
@@ -899,14 +894,12 @@
         title.textContent = "Online applications are open";
         message.textContent = `Applications close in ${formatCountdown(VACANCY_CLOSE_AT - now)} — 7 September 2026 at 4:06 PM (Papua New Guinea time).`;
       } else {
-        summary.textContent = "Closed";
-        summary.style.color = "var(--danger)";
         notice.style.borderColor = "#e6a8ae";
         notice.style.borderLeftColor = "var(--danger)";
         notice.style.background = "#fff2f3";
         notice.style.color = "#721c24";
         title.textContent = "Online applications are closed";
-        message.textContent = "Position Vacancies closed on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+        message.textContent = "Applications closed on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
       }
 
       if (phase !== currentApplicationPhase) {
