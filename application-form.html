@@ -2819,7 +2819,8 @@
 
 
 /* ============================================================
-       REVIEW HEADER LOGO + APPLICANT ENTRY COLOUR
+       REVIEW HEADER LOGO + CONDITIONAL APPLICANT ENTRY COLOUR
+       Empty/unselected fields = black. Entered/selected values = blue.
        ============================================================ */
     .rs32-official-logo {
       display: block;
@@ -2829,7 +2830,7 @@
       object-fit: contain;
     }
 
-    /* Applicant-entered values use blue throughout the online form. */
+    /* Default value colour: black when no real entry has been made. */
     .control,
     input[type="text"],
     input[type="email"],
@@ -2838,31 +2839,45 @@
     input[type="number"],
     select,
     textarea {
+      color: #111111 !important;
+    }
+
+    /* A field becomes blue only after it contains or selects a real value. */
+    .control.has-entry,
+    input.has-entry,
+    select.has-entry,
+    textarea.has-entry {
       color: #0057b8 !important;
+      font-weight: 650;
     }
 
-    .control[readonly] {
-      color: #0057b8 !important;
+    /* Radio option labels remain black until that option is selected. */
+    .radio-option {
+      color: #111111 !important;
     }
 
-    input::placeholder,
-    textarea::placeholder {
-      color: #7a8791 !important;
-      opacity: 1;
-    }
-
-    /* Values carried into the Review & Declaration form are also blue. */
-    .rs32-review-form .review-table-value {
+    .radio-option:has(input:checked) {
       color: #0057b8 !important;
       font-weight: 700;
     }
 
-    .rs32-review-form .control,
-    .rs32-review-form input,
-    .rs32-review-form select,
-    .rs32-review-form textarea {
-      color: #0057b8 !important;
+    /* Placeholder text is not an applicant entry. */
+    input::placeholder,
+    textarea::placeholder {
+      color: #7a8791 !important;
+      opacity: 1;
+      font-weight: 400;
+    }
+
+    /* Review values: "Not provided" stays black; real values are blue. */
+    .rs32-review-form .review-table-value {
+      color: #111111 !important;
       font-weight: 650;
+    }
+
+    .rs32-review-form .review-table-value.has-entry {
+      color: #0057b8 !important;
+      font-weight: 700;
     }
 
     @media screen and (max-width: 460px) {
@@ -4591,6 +4606,29 @@
     let selectedVacancy = null;
     let submitting = false;
 
+    function updateEntryColour(control) {
+      if (!control) return;
+
+      const hasValue =
+        control.matches('input[type="radio"], input[type="checkbox"]')
+          ? control.checked
+          : String(control.value || "").trim() !== "";
+
+      control.classList.toggle("has-entry", hasValue);
+    }
+
+    function initializeEntryColours() {
+      const controls = document.querySelectorAll(
+        '.control, input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"], select, textarea, input[type="radio"]'
+      );
+
+      controls.forEach((control) => {
+        updateEntryColour(control);
+        control.addEventListener("input", () => updateEntryColour(control));
+        control.addEventListener("change", () => updateEntryColour(control));
+      });
+    }
+
     function organizeEmploymentApplicationReview() {
       const moveField = (id, targetId) => {
         const field = document.getElementById(id)?.closest(".field");
@@ -4679,6 +4717,7 @@
     }
 
     organizeEmploymentApplicationReview();
+    initializeEntryColours();
 
     function normalizeReference(value) {
       return String(value || "").replace(/\s+/g, "");
@@ -5029,7 +5068,9 @@
     }
 
     function fieldValue(id) {
-      return document.getElementById(id)?.value.trim() || "";
+      const element = document.getElementById(id);
+      if (element) updateEntryColour(element);
+      return element?.value.trim() || "";
     }
 
     function fileName(id) {
@@ -5335,8 +5376,9 @@
       name.textContent = label;
 
       const content = document.createElement("div");
-      content.className = "review-table-value";
-      content.textContent = reviewValue(value);
+      const cleanedValue = String(value ?? "").trim();
+      content.className = `review-table-value${cleanedValue ? " has-entry" : ""}`;
+      content.textContent = cleanedValue || "Not provided";
 
       item.append(name, content);
       return item;
