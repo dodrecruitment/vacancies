@@ -2141,6 +2141,111 @@
         grid-template-columns: 72px minmax(0, 1fr);
       }
     }
+
+
+/* RS 3.2 supplementary online recruitment fields */
+    .supplement-section {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #d7ddda;
+    }
+
+    .supplement-section .standard-section-label h3::after {
+      display: inline-block;
+      margin-left: 0.42rem;
+      padding: 0.1rem 0.36rem;
+      border: 1px solid #c7d7cf;
+      border-radius: 999px;
+      color: var(--green-800);
+      background: #f2f7f4;
+      content: "Online supplement";
+      font-size: 0.56rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      vertical-align: middle;
+    }
+
+
+/* ============================================================
+       FORM RS 3.2 — INTEGRATED APPLICANT SECTIONS
+       ============================================================ */
+    .rs32-integrated-section .standard-section-label h3::after {
+      display: inline-block;
+      margin-left: 0.42rem;
+      padding: 0.1rem 0.36rem;
+      border: 1px solid #c7d7cf;
+      border-radius: 999px;
+      color: var(--green-800);
+      background: #f2f7f4;
+      content: "RS 3.2";
+      font-size: 0.56rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      vertical-align: middle;
+    }
+
+    .rs32-digital-note {
+      display: grid;
+      gap: 0.18rem;
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid #bad2c5;
+      border-left: 4px solid var(--green-600);
+      border-radius: 0.25rem;
+      background: #f3f8f5;
+      color: #2d3c34;
+      font-size: 0.78rem;
+    }
+
+    .rs32-digital-note strong {
+      color: var(--green-900);
+    }
+
+    .rs32-relative-grid {
+      display: grid;
+      grid-template-columns: 90px 1.1fr 160px 1.5fr;
+      gap: 0.6rem;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e2e7e4;
+    }
+
+    .rs32-relative-grid:last-child {
+      border-bottom: 0;
+    }
+
+    .rs32-relative-grid > strong {
+      color: #46534c;
+      font-size: 0.75rem;
+    }
+
+    .rs32-relative-head {
+      color: #6c7871;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.035em;
+      text-transform: uppercase;
+    }
+
+    .rs32-after-repeatable {
+      margin-top: 1.35rem;
+    }
+
+    @media screen and (max-width: 760px) {
+      .rs32-relative-head {
+        display: none;
+      }
+
+      .rs32-relative-grid {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+        padding: 0.8rem 0;
+      }
+
+      .rs32-relative-grid > strong {
+        font-size: 0.8rem;
+      }
+    }
 </style>
 </head>
 <body>
@@ -2207,8 +2312,8 @@
           <li>2. Instructions</li>
           <li>3. Personal</li>
           <li>4. Employment</li>
-          <li>5. Qualifications</li>
-          <li>6. Relevant Training</li>
+          <li>5. Education &amp; Qualifications</li>
+          <li>6. Training &amp; Activities</li>
           <li>7. Referees &amp; Documents</li>
           <li>8. Review</li>
         </ol>
@@ -2276,9 +2381,12 @@
                   </div>
                   <div class="instruction-standard-content">
                     <p class="instruction-primary-text">Your application must include:</p>
+                    <div class="rs32-digital-note">
+                      <strong>Form RS 3.2 is completed electronically in this online application.</strong>
+                      <span>You do not need to complete and upload a separate RS 3.2 form unless the Department specifically requests it.</span>
+                    </div>
                     <ul class="instruction-document-list">
                       <li><strong>Expression of Interest (EOI)</strong></li>
-                      <li><strong>Completed Form RS 3.2</strong></li>
                       <li><strong>Curriculum Vitae (CV)</strong></li>
                       <li><strong>Certificates of Educational Qualifications</strong></li>
                       <li><strong>References</strong></li>
@@ -2419,12 +2527,14 @@
           <section class="form-step" data-step="3">
             <fieldset>
               <legend>Personal and contact details</legend>
-              <p class="step-intro">Enter your details exactly as they appear on your official identification documents.</p>
+              <p class="step-intro">Complete the applicant information required for the online recruitment process and Form RS 3.2.</p>
+
               <div class="standard-sections">
-                <div class="standard-section">
+
+                <div class="standard-section rs32-integrated-section">
                   <div class="standard-section-label">
                     <h3>Identity</h3>
-                    <p>Official personal details.</p>
+                    <p>RS 3.2 personal particulars.</p>
                   </div>
                   <div class="standard-section-fields form-grid">
                     <div class="field">
@@ -2436,13 +2546,18 @@
                       <input class="control" id="middle-name" name="middle_name" type="text" maxlength="80" autocomplete="additional-name">
                     </div>
                     <div class="field">
-                      <label for="last-name">Last name <span class="required">*</span></label>
+                      <label for="last-name">Surname / last name <span class="required">*</span></label>
                       <input class="control" id="last-name" name="last_name" type="text" maxlength="80" autocomplete="family-name" required>
                     </div>
                     <div class="field">
-                      <label for="citizenship">Citizenship <span class="required">*</span></label>
-                      <input class="control" id="citizenship" name="citizenship" type="text" maxlength="100" value="Papua New Guinean" required>
+                      <label for="name-at-birth">Name at birth <span class="optional">(if different)</span></label>
+                      <input class="control" id="name-at-birth" name="name_at_birth" type="text" maxlength="180">
                     </div>
+                    <div class="field field-full">
+                      <label for="other-names-used">Any other names used <span class="optional">(optional)</span></label>
+                      <input class="control" id="other-names-used" name="other_names_used" type="text" maxlength="240" placeholder="Previous, customary, married or other names, if applicable">
+                    </div>
+
                     <div class="field field-full">
                       <span class="field-label">Gender <span class="required">*</span></span>
                       <div class="radio-row">
@@ -2450,17 +2565,83 @@
                         <label class="radio-option"><input type="radio" name="gender" value="Female" required> Female</label>
                       </div>
                     </div>
+
                     <div class="field">
                       <label for="date-of-birth">Date of birth <span class="required">*</span></label>
                       <input class="control" id="date-of-birth" name="date_of_birth" type="date" autocomplete="bday" required>
                     </div>
+                    <div class="field">
+                      <label for="birth-city-district">Place of birth — district / city <span class="required">*</span></label>
+                      <input class="control" id="birth-city-district" name="birth_city_district" type="text" maxlength="120" required>
+                    </div>
+                    <div class="field">
+                      <label for="birth-province-state">Place of birth — province / state <span class="required">*</span></label>
+                      <input class="control" id="birth-province-state" name="birth_province_state" type="text" maxlength="120" required>
+                    </div>
+                    <div class="field">
+                      <label for="birth-country">Place of birth — country <span class="required">*</span></label>
+                      <input class="control" id="birth-country" name="birth_country" type="text" maxlength="120" value="Papua New Guinea" required>
+                    </div>
+
+                    <div class="field">
+                      <label for="citizenship">Citizenship <span class="required">*</span></label>
+                      <input class="control" id="citizenship" name="citizenship" type="text" maxlength="100" value="Papua New Guinean" required>
+                    </div>
+                    <div class="field">
+                      <label for="nationality-at-birth">Nationality at birth <span class="optional">(if naturalised)</span></label>
+                      <input class="control" id="nationality-at-birth" name="nationality_at_birth" type="text" maxlength="100">
+                    </div>
                   </div>
                 </div>
 
-                <div class="standard-section">
+                <div class="standard-section rs32-integrated-section">
                   <div class="standard-section-label">
-                    <h3>Contact &amp; residence</h3>
-                    <p>Current contact and address information.</p>
+                    <h3>Marital &amp; family details</h3>
+                    <p>Complete where applicable.</p>
+                  </div>
+                  <div class="standard-section-fields form-grid">
+                    <div class="field">
+                      <label for="marital-status">Marital status <span class="required">*</span></label>
+                      <select class="control" id="marital-status" name="marital_status" required>
+                        <option value="">Select marital status</option>
+                        <option>Married</option>
+                        <option>Separated</option>
+                        <option>Widowed</option>
+                        <option>Single</option>
+                        <option>Divorced</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="date-of-marriage">Date of marriage <span class="optional">(if married)</span></label>
+                      <input class="control" id="date-of-marriage" name="date_of_marriage" type="date">
+                    </div>
+                    <div class="field">
+                      <label for="spouse-employer">Spouse's employer <span class="optional">(if applicable)</span></label>
+                      <input class="control" id="spouse-employer" name="spouse_employer" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="spouse-file-number">Spouse's file number <span class="optional">(if Government employed)</span></label>
+                      <input class="control" id="spouse-file-number" name="spouse_file_number" type="text" maxlength="80">
+                    </div>
+                    <div class="field">
+                      <label for="has-children">Do you have children? <span class="required">*</span></label>
+                      <select class="control" id="has-children" name="has_children" required>
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                    <div class="field field-full">
+                      <label for="children-details">Children details <span class="optional">(if yes)</span></label>
+                      <textarea class="control" id="children-details" name="children_details" rows="4" maxlength="1000" placeholder="One child per line: Full name | Male/Female | Date of birth"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="standard-section rs32-integrated-section">
+                  <div class="standard-section-label">
+                    <h3>Contact &amp; addresses</h3>
+                    <p>Permanent, present and postal details.</p>
                   </div>
                   <div class="standard-section-fields form-grid">
                     <div class="field">
@@ -2488,13 +2669,56 @@
                         <option>Retired</option>
                       </select>
                     </div>
-                    <div class="field">
-                      <label for="residential-address">Residential address <span class="required">*</span></label>
-                      <textarea class="control" id="residential-address" name="residential_address" rows="3" maxlength="300" autocomplete="street-address" placeholder="House or section number, street, suburb, district and province" required></textarea>
+
+                    <div class="field field-full">
+                      <label for="permanent-address">Permanent address <span class="required">*</span></label>
+                      <textarea class="control" id="permanent-address" name="permanent_address" rows="3" maxlength="400" required></textarea>
+                    </div>
+                    <div class="field field-full">
+                      <label for="residential-address">Present residential address <span class="required">*</span></label>
+                      <textarea class="control" id="residential-address" name="residential_address" rows="3" maxlength="400" autocomplete="street-address" placeholder="Complete if different from permanent address" required></textarea>
                     </div>
                     <div class="field">
-                      <label for="postal-address">Postal address <span class="required">*</span></label>
-                      <textarea class="control" id="postal-address" name="postal_address" rows="3" maxlength="300" placeholder="P.O. Box or private mail bag, post office, town and province" required></textarea>
+                      <label for="present-address-until">Present address valid until <span class="optional">(if temporary)</span></label>
+                      <input class="control" id="present-address-until" name="present_address_until" type="date">
+                    </div>
+                    <div class="field field-full">
+                      <label for="postal-address">Full postal address <span class="required">*</span></label>
+                      <textarea class="control" id="postal-address" name="postal_address" rows="3" maxlength="400" placeholder="P.O. Box or private mail bag, post office, town and province" required></textarea>
+                    </div>
+                    <div class="field field-full">
+                      <label for="residence-history-five-years">Places of residence during the last five years <span class="required">*</span></label>
+                      <textarea class="control" id="residence-history-five-years" name="residence_history_five_years" rows="5" maxlength="1400" placeholder="List each place and period of residence, excluding vacations." required></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="standard-section rs32-integrated-section">
+                  <div class="standard-section-label">
+                    <h3>Close relatives</h3>
+                    <p>Father, mother and spouse details from RS 3.2.</p>
+                  </div>
+                  <div class="standard-section-fields">
+                    <div class="rs32-relative-grid rs32-relative-head">
+                      <span>Relationship</span><span>Full name</span><span>Date of birth</span><span>Address</span>
+                    </div>
+                    <div class="rs32-relative-grid">
+                      <strong>Father</strong>
+                      <input class="control" id="father-full-name" type="text" maxlength="180">
+                      <input class="control" id="father-date-of-birth" type="date">
+                      <input class="control" id="father-address" type="text" maxlength="300">
+                    </div>
+                    <div class="rs32-relative-grid">
+                      <strong>Mother</strong>
+                      <input class="control" id="mother-full-name" type="text" maxlength="180">
+                      <input class="control" id="mother-date-of-birth" type="date">
+                      <input class="control" id="mother-address" type="text" maxlength="300">
+                    </div>
+                    <div class="rs32-relative-grid">
+                      <strong>Spouse</strong>
+                      <input class="control" id="spouse-full-name" type="text" maxlength="180">
+                      <input class="control" id="spouse-date-of-birth" type="date">
+                      <input class="control" id="spouse-address" type="text" maxlength="300">
                     </div>
                   </div>
                 </div>
@@ -2505,16 +2729,71 @@
                     <p>Provide one valid identity document.</p>
                   </div>
                   <div class="standard-section-fields form-grid">
+                    <div class="field">
+                      <label for="identification-type">Identification type <span class="required">*</span></label>
+                      <select class="control" id="identification-type" name="identification_type" required>
+                        <option value="">Select identification type</option>
+                        <option>National ID (NID)</option>
+                        <option>Passport</option>
+                        <option>PNG Driver's Licence</option>
+                        <option>Work ID</option>
+                        <option>Student ID</option>
+                        <option>Birth Certificate</option>
+                        <option>Other Government-issued ID</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="identification-number">Identification number <span class="required">*</span></label>
+                      <input class="control" id="identification-number" name="identification_number" type="text" maxlength="80" placeholder="Enter the number shown on the selected ID" required>
+                    </div>
                     <div class="field field-full">
                       <label for="identification-document">Identification document <span class="required">*</span></label>
                       <div class="upload-field">
                         <input id="identification-document" name="identification_document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required>
-                        <span class="hint">Upload one National ID, passport, driver's licence, or birth certificate. PDF, JPG, or PNG only; maximum 5 MB.</span>
+                        <span class="hint">Upload the same identification document selected above. PDF, JPG, or PNG only; maximum 5 MB.</span>
                         <span class="file-status" data-file-status="identification-document"></span>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                <div class="standard-section supplement-section">
+                  <div class="standard-section-label">
+                    <h3>Supplementary recruitment details</h3>
+                    <p>Additional digital recruitment information.</p>
+                  </div>
+                  <div class="standard-section-fields form-grid">
+                    <div class="field">
+                      <label for="public-service-employee">Currently employed in the PNG Public Service? <span class="required">*</span></label>
+                      <select class="control" id="public-service-employee" name="public_service_employee" required>
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="availability-notice">Availability / notice period <span class="required">*</span></label>
+                      <select class="control" id="availability-notice" name="availability_notice" required>
+                        <option value="">Select availability</option>
+                        <option>Available immediately</option>
+                        <option>1 week notice</option>
+                        <option>2 weeks notice</option>
+                        <option>4 weeks notice</option>
+                        <option>More than 4 weeks</option>
+                        <option>To be discussed</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="public-service-agency">Current department / agency <span class="optional">(if applicable)</span></label>
+                      <input class="control" id="public-service-agency" name="public_service_agency" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="public-service-file-number">Public Service file / payroll number <span class="optional">(if applicable)</span></label>
+                      <input class="control" id="public-service-file-number" name="public_service_file_number" type="text" maxlength="80">
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </fieldset>
           </section>
@@ -2551,6 +2830,10 @@
                       <label for="employer-organisation">Employer or organisation <span class="required">*</span></label>
                       <input class="control" id="employer-organisation" type="text" maxlength="180" required>
                     </div>
+                    <div class="field field-full">
+                      <label for="employer-address">Employer address <span class="required">*</span></label>
+                      <textarea class="control" id="employer-address" rows="2" maxlength="400" required></textarea>
+                    </div>
                     <div class="field">
                       <label for="employment-start-date">Employment start date <span class="optional">(optional)</span></label>
                       <input class="control" id="employment-start-date" type="date">
@@ -2559,9 +2842,17 @@
                       <label for="employment-end-date">Employment end date <span class="optional">(leave blank if current)</span></label>
                       <input class="control" id="employment-end-date" type="date">
                     </div>
+                    <div class="field">
+                      <label for="present-salary">Present salary <span class="optional">(optional)</span></label>
+                      <input class="control" id="present-salary" type="text" maxlength="80" placeholder="For example: K52,000 per annum">
+                    </div>
+                    <div class="field">
+                      <label for="salary-range">Salary range <span class="optional">(if applicable)</span></label>
+                      <input class="control" id="salary-range" type="text" maxlength="100">
+                    </div>
                     <div class="field field-full">
-                      <label for="key-duties">Key duties and responsibilities <span class="required">*</span></label>
-                      <textarea class="control" id="key-duties" rows="3" maxlength="2000" required></textarea>
+                      <label for="key-duties">Description of work, including supervisory duties <span class="required">*</span></label>
+                      <textarea class="control" id="key-duties" rows="4" maxlength="2000" required></textarea>
                     </div>
                   </div>
                 </div>
@@ -2581,6 +2872,10 @@
                     <div class="field">
                       <label for="employment2-organisation">Employer or organisation <span class="required">*</span></label>
                       <input class="control" id="employment2-organisation" type="text" maxlength="180">
+                    </div>
+                    <div class="field field-full">
+                      <label for="employment2-address">Employer address <span class="optional">(optional)</span></label>
+                      <textarea class="control" id="employment2-address" rows="2" maxlength="400"></textarea>
                     </div>
                     <div class="field">
                       <label for="employment2-start-date">Employment start date <span class="optional">(optional)</span></label>
@@ -2613,6 +2908,10 @@
                       <label for="employment3-organisation">Employer or organisation <span class="required">*</span></label>
                       <input class="control" id="employment3-organisation" type="text" maxlength="180">
                     </div>
+                    <div class="field field-full">
+                      <label for="employment3-address">Employer address <span class="optional">(optional)</span></label>
+                      <textarea class="control" id="employment3-address" rows="2" maxlength="400"></textarea>
+                    </div>
                     <div class="field">
                       <label for="employment3-start-date">Employment start date <span class="optional">(optional)</span></label>
                       <input class="control" id="employment3-start-date" type="date">
@@ -2644,6 +2943,10 @@
                       <label for="employment4-organisation">Employer or organisation <span class="required">*</span></label>
                       <input class="control" id="employment4-organisation" type="text" maxlength="180">
                     </div>
+                    <div class="field field-full">
+                      <label for="employment4-address">Employer address <span class="optional">(optional)</span></label>
+                      <textarea class="control" id="employment4-address" rows="2" maxlength="400"></textarea>
+                    </div>
                     <div class="field">
                       <label for="employment4-start-date">Employment start date <span class="optional">(optional)</span></label>
                       <input class="control" id="employment4-start-date" type="date">
@@ -2674,6 +2977,10 @@
                     <div class="field">
                       <label for="employment5-organisation">Employer or organisation <span class="required">*</span></label>
                       <input class="control" id="employment5-organisation" type="text" maxlength="180">
+                    </div>
+                    <div class="field field-full">
+                      <label for="employment5-address">Employer address <span class="optional">(optional)</span></label>
+                      <textarea class="control" id="employment5-address" rows="2" maxlength="400"></textarea>
                     </div>
                     <div class="field">
                       <label for="employment5-start-date">Employment start date <span class="optional">(optional)</span></label>
@@ -2717,13 +3024,126 @@
 
                 
               </div>
-            </fieldset>
+            
+              <div class="standard-section rs32-integrated-section rs32-after-repeatable">
+                <div class="standard-section-label">
+                  <h3>Armed forces service</h3>
+                  <p>Complete if you have served.</p>
+                </div>
+                <div class="standard-section-fields form-grid">
+                  <div class="field">
+                    <label for="armed-forces-service">Have you served in the Armed Forces? <span class="required">*</span></label>
+                    <select class="control" id="armed-forces-service" required>
+                      <option value="">Select</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="service-branch">Branch of service <span class="optional">(if yes)</span></label>
+                    <input class="control" id="service-branch" type="text" maxlength="160">
+                  </div>
+                  <div class="field">
+                    <label for="service-rank">Rank <span class="optional">(if yes)</span></label>
+                    <input class="control" id="service-rank" type="text" maxlength="100">
+                  </div>
+                  <div class="field">
+                    <label for="service-enlistment-date">Date of enlistment <span class="optional">(if yes)</span></label>
+                    <input class="control" id="service-enlistment-date" type="date">
+                  </div>
+                  <div class="field">
+                    <label for="service-discharge-date">Date discharged <span class="optional">(if applicable)</span></label>
+                    <input class="control" id="service-discharge-date" type="date">
+                  </div>
+                  <div class="field">
+                    <label for="service-discharge-reason">Reason for discharge <span class="optional">(if applicable)</span></label>
+                    <input class="control" id="service-discharge-reason" type="text" maxlength="240">
+                  </div>
+                </div>
+              </div>
+
+              <div class="standard-section rs32-integrated-section">
+                <div class="standard-section-label">
+                  <h3>Conviction disclosure</h3>
+                  <p>RS 3.2 applicant declaration.</p>
+                </div>
+                <div class="standard-section-fields form-grid">
+                  <div class="field">
+                    <label for="convicted-offence">Have you been convicted of an offence? <span class="required">*</span></label>
+                    <select class="control" id="convicted-offence" required>
+                      <option value="">Select</option>
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="field field-full">
+                    <label for="conviction-details">Details <span class="optional">(if yes)</span></label>
+                    <textarea class="control" id="conviction-details" rows="4" maxlength="1600" placeholder="Provide relevant details if you selected Yes."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="standard-section rs32-integrated-section">
+                <div class="standard-section-label">
+                  <h3>Previous applications in Papua New Guinea</h3>
+                  <p>Previous applications for positions, if any.</p>
+                </div>
+                <div class="standard-section-fields">
+                  <label for="previous-png-applications" class="field-label">Position | Authority | Date <span class="optional">(optional)</span></label>
+                  <textarea class="control" id="previous-png-applications" rows="5" maxlength="1600" placeholder="One previous application per line. Enter NIL if none."></textarea>
+                </div>
+              </div>
+
+</fieldset>
           </section>
 
                     <section class="form-step" data-step="5">
             <fieldset>
-              <legend>Qualifications</legend>
+              <legend>Education and qualifications</legend>
               <p class="step-intro">Enter your highest or most relevant qualification first. Use <strong>Add another qualification</strong> only when you have additional relevant qualifications to declare.</p>
+
+              <div class="standard-section rs32-integrated-section" style="margin-bottom:1.2rem">
+                <div class="standard-section-label">
+                  <h3>Secondary education</h3>
+                  <p>School, examination, year passed and subject results.</p>
+                </div>
+                <div class="standard-section-fields form-grid">
+                  <div class="field">
+                    <label for="secondary-school-1">School 1 <span class="required">*</span></label>
+                    <input class="control" id="secondary-school-1" type="text" maxlength="180" required>
+                  </div>
+                  <div class="field">
+                    <label for="secondary-exam-1">Examination <span class="required">*</span></label>
+                    <input class="control" id="secondary-exam-1" type="text" maxlength="140" placeholder="For example: Grade 12 / HSC" required>
+                  </div>
+                  <div class="field">
+                    <label for="secondary-year-1">Year passed <span class="required">*</span></label>
+                    <input class="control qualification-year" id="secondary-year-1" type="number" min="1950" max="2026" required>
+                  </div>
+                  <div class="field field-full">
+                    <label for="secondary-results-1">Subjects and results <span class="required">*</span></label>
+                    <textarea class="control" id="secondary-results-1" rows="4" maxlength="1600" placeholder="List subject and result, one per line." required></textarea>
+                  </div>
+
+                  <div class="field">
+                    <label for="secondary-school-2">School 2 <span class="optional">(optional)</span></label>
+                    <input class="control" id="secondary-school-2" type="text" maxlength="180">
+                  </div>
+                  <div class="field">
+                    <label for="secondary-exam-2">Examination <span class="optional">(optional)</span></label>
+                    <input class="control" id="secondary-exam-2" type="text" maxlength="140">
+                  </div>
+                  <div class="field">
+                    <label for="secondary-year-2">Year passed <span class="optional">(optional)</span></label>
+                    <input class="control qualification-year" id="secondary-year-2" type="number" min="1950" max="2026">
+                  </div>
+                  <div class="field field-full">
+                    <label for="secondary-results-2">Subjects and results <span class="optional">(optional)</span></label>
+                    <textarea class="control" id="secondary-results-2" rows="4" maxlength="1600"></textarea>
+                  </div>
+                </div>
+              </div>
+
 
               <div class="form-grid">
                 <div class="repeatable-section">
@@ -2973,13 +3393,57 @@
                     <button class="btn btn-primary btn-small" id="add-qualification-button" type="button">+ Add another qualification</button>
                   </div>
                 </div>
+
+              <div class="standard-section rs32-integrated-section" style="margin-top:1.25rem">
+                <div class="standard-section-label">
+                  <h3>Additional academic information</h3>
+                  <p>Further study, research, publications, awards and memberships.</p>
+                </div>
+                <div class="standard-section-fields form-grid">
+                  <div class="field field-full">
+                    <label for="additional-study-research">Additional qualifications, further study or research <span class="optional">(optional)</span></label>
+                    <textarea class="control" id="additional-study-research" rows="4" maxlength="1800"></textarea>
+                  </div>
+                  <div class="field field-full">
+                    <label for="publications">Publications <span class="optional">(optional)</span></label>
+                    <textarea class="control" id="publications" rows="3" maxlength="1400"></textarea>
+                  </div>
+                  <div class="field field-full">
+                    <label for="prizes-scholarships">Prizes, scholarships or academic awards <span class="optional">(optional)</span></label>
+                    <textarea class="control" id="prizes-scholarships" rows="3" maxlength="1400"></textarea>
+                  </div>
+                  <div class="field field-full">
+                    <label for="learned-societies">Membership of learned societies or institutes <span class="optional">(optional)</span></label>
+                    <textarea class="control" id="learned-societies" rows="3" maxlength="1400" placeholder="Include date of admission and level of membership where applicable."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="standard-section supplement-section" style="margin-top:1.25rem">
+                <div class="standard-section-label">
+                  <h3>Skills &amp; professional registration</h3>
+                  <p>Additional information to support recruitment screening and assessment.</p>
+                </div>
+                <div class="standard-section-fields form-grid">
+                  <div class="field field-full">
+                    <label for="relevant-skills">Key relevant skills / competencies <span class="required">*</span></label>
+                    <textarea class="control" id="relevant-skills" name="relevant_skills" rows="5" maxlength="1200" placeholder="Summarise the main skills and competencies that directly relate to the advertised position." required></textarea>
+                    <span class="hint">Focus on job-related technical, professional, supervisory, administrative or digital competencies.</span>
+                  </div>
+
+                  <div class="field field-full">
+                    <label for="professional-registration">Professional registration / licence <span class="optional">(optional)</span></label>
+                    <input class="control" id="professional-registration" name="professional_registration" type="text" maxlength="240" placeholder="Professional body, licence or registration number, if applicable">
+                  </div>
+                </div>
+              </div>
               </div>
             </fieldset>
           </section>
 
 <section class="form-step" data-step="6">
             <fieldset>
-              <legend>Relevant training</legend>
+              <legend>Relevant training and activities</legend>
               <p class="step-intro">Enter your most relevant professional, technical, vocational or other training first. If you have completed additional relevant training, select <strong>Add more training</strong>. You may add up to five training records in total.</p>
 
               <div class="training-list" id="training-list">
@@ -3105,13 +3569,34 @@
                 <button class="btn btn-secondary btn-small" id="remove-training-button" type="button" hidden>Remove last training</button>
                 <button class="btn btn-primary btn-small" id="add-training-button" type="button">+ Add more training</button>
               </div>
-            </fieldset>
+            
+              <div class="standard-section rs32-integrated-section rs32-after-repeatable">
+                <div class="standard-section-label">
+                  <h3>Civic activities, clubs &amp; societies</h3>
+                  <p>Community and organisational involvement.</p>
+                </div>
+                <div class="standard-section-fields">
+                  <textarea class="control" id="civic-activities" rows="4" maxlength="1600" placeholder="List relevant civic activities, clubs, societies or community roles."></textarea>
+                </div>
+              </div>
+
+              <div class="standard-section rs32-integrated-section">
+                <div class="standard-section-label">
+                  <h3>Interests, sports &amp; recreation</h3>
+                  <p>Optional applicant background information.</p>
+                </div>
+                <div class="standard-section-fields">
+                  <textarea class="control" id="interests-sports-recreation" rows="4" maxlength="1600"></textarea>
+                </div>
+              </div>
+
+</fieldset>
           </section>
 
           <section class="form-step" data-step="7">
             <fieldset>
               <legend>Referees and supporting documents</legend>
-              <p class="step-intro">Provide three professional referees, then upload the required application documents.</p>
+              <p class="step-intro">Provide four persons who can comment on your academic work or professional experience, then upload the required supporting documents.</p>
               <div class="form-grid">
                 <div class="referee-card">
                   <h3>Referee 1</h3>
@@ -3139,6 +3624,18 @@
                     <div class="field">
                       <label for="referee1-email">Email address <span class="optional">(optional)</span></label>
                       <input class="control" id="referee1-email" type="email" maxlength="120">
+                    </div>
+                    <div class="field field-full">
+                      <label for="referee1-address">Address <span class="optional">(optional)</span></label>
+                      <textarea class="control" id="referee1-address" rows="2" maxlength="400"></textarea>
+                    </div>
+                    <div class="field">
+                      <label for="referee1-approach">May the Department approach this referee now? <span class="required">*</span></label>
+                      <select class="control" id="referee1-approach" required>
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No — inconvenient at present</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -3170,6 +3667,18 @@
                       <label for="referee2-email">Email address <span class="optional">(optional)</span></label>
                       <input class="control" id="referee2-email" type="email" maxlength="120">
                     </div>
+                    <div class="field field-full">
+                      <label for="referee2-address">Address <span class="optional">(optional)</span></label>
+                      <textarea class="control" id="referee2-address" rows="2" maxlength="400"></textarea>
+                    </div>
+                    <div class="field">
+                      <label for="referee2-approach">May the Department approach this referee now? <span class="required">*</span></label>
+                      <select class="control" id="referee2-approach" required>
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No — inconvenient at present</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
 
@@ -3200,6 +3709,60 @@
                       <label for="referee3-email">Email address <span class="optional">(optional)</span></label>
                       <input class="control" id="referee3-email" type="email" maxlength="120">
                     </div>
+                    <div class="field field-full">
+                      <label for="referee3-address">Address <span class="optional">(optional)</span></label>
+                      <textarea class="control" id="referee3-address" rows="2" maxlength="400"></textarea>
+                    </div>
+                    <div class="field">
+                      <label for="referee3-approach">May the Department approach this referee now? <span class="required">*</span></label>
+                      <select class="control" id="referee3-approach" required>
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No — inconvenient at present</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="referee-card">
+                  <h3>Referee 4</h3>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="referee4-name">Full name <span class="required">*</span></label>
+                      <input class="control" id="referee4-name" type="text" maxlength="180" required>
+                    </div>
+                    <div class="field">
+                      <label for="referee4-position">Position title <span class="optional">(optional)</span></label>
+                      <input class="control" id="referee4-position" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="referee4-organisation">Organisation <span class="optional">(optional)</span></label>
+                      <input class="control" id="referee4-organisation" type="text" maxlength="180">
+                    </div>
+                    <div class="field">
+                      <label for="referee4-relationship">Relationship <span class="optional">(optional)</span></label>
+                      <input class="control" id="referee4-relationship" type="text" maxlength="120">
+                    </div>
+                    <div class="field">
+                      <label for="referee4-phone">Phone number <span class="required">*</span></label>
+                      <input class="control" id="referee4-phone" type="tel" maxlength="25" required>
+                    </div>
+                    <div class="field">
+                      <label for="referee4-email">Email address <span class="optional">(optional)</span></label>
+                      <input class="control" id="referee4-email" type="email" maxlength="120">
+                    </div>
+                    <div class="field field-full">
+                      <label for="referee4-address">Address <span class="optional">(optional)</span></label>
+                      <textarea class="control" id="referee4-address" rows="2" maxlength="400"></textarea>
+                    </div>
+                    <div class="field">
+                      <label for="referee4-approach">May the Department approach this referee now? <span class="required">*</span></label>
+                      <select class="control" id="referee4-approach" required>
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No — inconvenient at present</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
 
@@ -3213,7 +3776,7 @@
                       <label for="compiled-documents">Compiled application PDF <span class="required">*</span></label>
                       <div class="upload-field">
                         <input id="compiled-documents" type="file" accept=".pdf,application/pdf" required>
-                        <span class="hint">Upload one compiled PDF containing the required application documents: Expression of Interest (EOI), completed Form RS 3.2, Curriculum Vitae (CV), certificates of educational qualifications, references, and other relevant supporting documents. The final PDF must be 10 MB or less and should follow the required filename format: Reference Number_Position Title_Your Surname.</span>
+                        <span class="hint">Upload one compiled PDF containing the required supporting documents: Expression of Interest (EOI), Curriculum Vitae (CV), certificates of educational qualifications, references, and other relevant supporting documents. Form RS 3.2 applicant information is captured directly in this online form. The final PDF must be 10 MB or less and should follow the required filename format: Reference Number_Position Title_Your Surname.</span>
                         <span class="file-status" data-file-status="compiled-documents"></span>
                       </div>
                     </div>
@@ -3227,11 +3790,21 @@
             <fieldset>
               <legend>Review and declaration</legend>
               <p class="step-intro">Check the information below. Use Back to correct any details before submitting.</p>
+              <div class="rs32-digital-note">
+                <strong>Electronic Form RS 3.2 declaration</strong>
+                <span>The discovery of an incorrect or misleading statement or deliberate omission may affect any employment or contractual agreement.</span>
+              </div>
+
               <div class="review-grid" id="review-grid"></div>
               <label class="check-row">
                 <input id="declaration-confirm" type="checkbox" required>
                 <span>I declare that the information and documents supplied are true, complete, and accurate. <span class="required">*</span></span>
               </label>
+              <div class="field" style="margin-top:0.85rem">
+                <label for="digital-declaration-name">Electronic declaration name <span class="required">*</span></label>
+                <input class="control" id="digital-declaration-name" name="digital_declaration_name" type="text" maxlength="180" placeholder="Type your full legal name" required>
+                <span class="hint">Typing your full name records the applicant's electronic declaration for this online submission.</span>
+              </div>
               <label class="check-row" style="margin-top:0.75rem">
                 <input id="privacy-consent" type="checkbox" required>
                 <span>I consent to the Department of Defence collecting, verifying, storing, and using my information and documents for recruitment and employment assessment purposes. <span class="required">*</span></span>
@@ -3299,7 +3872,7 @@
     const STATUS_API_URL = `${API_BASE_URL}/v1/status`;
     const SUBMISSION_API_URL = `${API_BASE_URL}/v1/applications`;
     const VACANCIES_API_URL = `${API_BASE_URL}/v1/vacancies`;
-    const FORM_VERSION = "external-cloudrun-v2-2026-08-14";
+    const FORM_VERSION = "external-rs32-integrated-preview-2026-08-18";
     const EXPECTED_VACANCY_COUNT = 41;
     const VACANCY_OPEN_AT = new Date("2026-08-24T08:00:00+10:00");
     const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
@@ -3759,8 +4332,11 @@
         entries.push({
           position: fieldValue(first ? "current-previous-position" : `employment${n}-position`),
           organisation: fieldValue(first ? "employer-organisation" : `employment${n}-organisation`),
+          employerAddress: fieldValue(first ? "employer-address" : `employment${n}-address`),
           startDate: fieldValue(first ? "employment-start-date" : `employment${n}-start-date`),
           endDate: fieldValue(first ? "employment-end-date" : `employment${n}-end-date`),
+          presentSalary: first ? fieldValue("present-salary") : "",
+          salaryRange: first ? fieldValue("salary-range") : "",
           duties: fieldValue(first ? "key-duties" : `employment${n}-duties`)
         });
       });
@@ -3988,15 +4564,39 @@
         reviewItem("First name", fieldValue("first-name")),
         reviewItem("Middle name", fieldValue("middle-name")),
         reviewItem("Last name", fieldValue("last-name")),
+        reviewItem("Name at birth", fieldValue("name-at-birth")),
+        reviewItem("Other names used", fieldValue("other-names-used"), true),
+        reviewItem("Birth district / city", fieldValue("birth-city-district")),
+        reviewItem("Birth province / state", fieldValue("birth-province-state")),
+        reviewItem("Birth country", fieldValue("birth-country")),
         reviewItem("Citizenship", fieldValue("citizenship")),
+        reviewItem("Nationality at birth", fieldValue("nationality-at-birth")),
+        reviewItem("Marital status", fieldValue("marital-status")),
+        reviewItem("Date of marriage", fieldValue("date-of-marriage")),
+        reviewItem("Spouse's employer", fieldValue("spouse-employer")),
+        reviewItem("Spouse's file number", fieldValue("spouse-file-number")),
+        reviewItem("Children", fieldValue("has-children")),
+        reviewItem("Children details", fieldValue("children-details"), true),
         reviewItem("Province of residence", fieldValue("province-of-residence")),
         reviewItem("Employment status", fieldValue("employment-status")),
         reviewItem("Gender", document.querySelector('input[name="gender"]:checked')?.value || ""),
         reviewItem("Date of birth", fieldValue("date-of-birth")),
         reviewItem("Phone", fieldValue("phone")),
         reviewItem("Email", fieldValue("email")),
-        reviewItem("Residential address", fieldValue("residential-address"), true),
+        reviewItem("Permanent address", fieldValue("permanent-address"), true),
+        reviewItem("Present residential address", fieldValue("residential-address"), true),
+        reviewItem("Present address valid until", fieldValue("present-address-until")),
         reviewItem("Postal address", fieldValue("postal-address"), true),
+        reviewItem("Residence history — last five years", fieldValue("residence-history-five-years"), true),
+        reviewItem("Father", `${fieldValue("father-full-name")} | ${fieldValue("father-date-of-birth")} | ${fieldValue("father-address")}`, true),
+        reviewItem("Mother", `${fieldValue("mother-full-name")} | ${fieldValue("mother-date-of-birth")} | ${fieldValue("mother-address")}`, true),
+        reviewItem("Spouse", `${fieldValue("spouse-full-name")} | ${fieldValue("spouse-date-of-birth")} | ${fieldValue("spouse-address")}`, true),
+        reviewItem("Identification type", fieldValue("identification-type")),
+        reviewItem("Identification number", fieldValue("identification-number")),
+        reviewItem("PNG Public Service employee", fieldValue("public-service-employee")),
+        reviewItem("Current department / agency", fieldValue("public-service-agency")),
+        reviewItem("Public Service file / payroll number", fieldValue("public-service-file-number")),
+        reviewItem("Availability / notice period", fieldValue("availability-notice")),
         reviewItem("Employment records declared", `${employmentEntries.length} record(s)`),
         reviewItem("Total work experience", `${fieldValue("work-experience")} year(s)`),
         reviewItem("Relevant experience", `${fieldValue("relevant-experience")} year(s)`)
@@ -4006,9 +4606,28 @@
         const period = [entry.startDate || "Start not provided", entry.endDate || "Current"].join(" to ");
         reviewItems.push(
           reviewItem(`Employment ${index + 1}`, `${entry.position} | ${entry.organisation} | ${period}`, true),
+          reviewItem(`Employment ${index + 1} employer address`, entry.employerAddress, true),
+          ...(index === 0 ? [
+            reviewItem("Present salary", entry.presentSalary),
+            reviewItem("Salary range", entry.salaryRange)
+          ] : []),
           reviewItem(`Employment ${index + 1} duties`, entry.duties, true)
         );
       });
+
+      reviewItems.push(
+        reviewItem("Armed forces service", fieldValue("armed-forces-service")),
+        reviewItem("Branch / rank", `${fieldValue("service-branch")} | ${fieldValue("service-rank")}`, true),
+        reviewItem("Service dates", `${fieldValue("service-enlistment-date")} to ${fieldValue("service-discharge-date")}`, true),
+        reviewItem("Reason for discharge", fieldValue("service-discharge-reason"), true),
+        reviewItem("Convicted of an offence", fieldValue("convicted-offence")),
+        reviewItem("Conviction details", fieldValue("conviction-details"), true),
+        reviewItem("Previous PNG applications", fieldValue("previous-png-applications"), true),
+        reviewItem("Secondary school 1", `${fieldValue("secondary-school-1")} | ${fieldValue("secondary-exam-1")} | ${fieldValue("secondary-year-1")}`, true),
+        reviewItem("Secondary school 1 subjects/results", fieldValue("secondary-results-1"), true),
+        reviewItem("Secondary school 2", `${fieldValue("secondary-school-2")} | ${fieldValue("secondary-exam-2")} | ${fieldValue("secondary-year-2")}`, true),
+        reviewItem("Secondary school 2 subjects/results", fieldValue("secondary-results-2"), true)
+      );
 
       reviewItems.push(reviewItem("Qualifications declared", `${qualificationEntries.length} qualification(s)`));
       qualificationEntries.forEach((entry, index) => {
@@ -4022,6 +4641,12 @@
       });
 
       reviewItems.push(
+        reviewItem("Additional qualifications / study / research", fieldValue("additional-study-research"), true),
+        reviewItem("Publications", fieldValue("publications"), true),
+        reviewItem("Prizes / scholarships", fieldValue("prizes-scholarships"), true),
+        reviewItem("Learned societies / institutes", fieldValue("learned-societies"), true),
+        reviewItem("Key relevant skills / competencies", fieldValue("relevant-skills"), true),
+        reviewItem("Professional registration / licence", fieldValue("professional-registration"), true),
         reviewItem("Relevant training declared", trainingEntries.length ? `${trainingEntries.length} training course(s)` : "None")
       );
       trainingEntries.forEach((entry, index) => {
@@ -4031,12 +4656,19 @@
       });
 
       reviewItems.push(
-        reviewItem("Referee 1", `${fieldValue("referee1-name")} | ${fieldValue("referee1-phone")}`, true),
-        reviewItem("Referee 2", `${fieldValue("referee2-name")} | ${fieldValue("referee2-phone")}`, true),
-        reviewItem("Referee 3", `${fieldValue("referee3-name")} | ${fieldValue("referee3-phone")}`, true),
+        reviewItem("Civic activities / clubs / societies", fieldValue("civic-activities"), true),
+        reviewItem("Interests / sports / recreation", fieldValue("interests-sports-recreation"), true)
+      );
+
+      reviewItems.push(
+        reviewItem("Referee 1", `${fieldValue("referee1-name")} | ${fieldValue("referee1-phone")} | Approach now: ${fieldValue("referee1-approach")}`, true),
+        reviewItem("Referee 2", `${fieldValue("referee2-name")} | ${fieldValue("referee2-phone")} | Approach now: ${fieldValue("referee2-approach")}`, true),
+        reviewItem("Referee 3", `${fieldValue("referee3-name")} | ${fieldValue("referee3-phone")} | Approach now: ${fieldValue("referee3-approach")}`, true),
+        reviewItem("Referee 4", `${fieldValue("referee4-name")} | ${fieldValue("referee4-phone")} | Approach now: ${fieldValue("referee4-approach")}`, true),
         reviewItem("Identification document", fileName("identification-document"), true),
         reviewItem("Compiled application PDF", fileName("compiled-documents"), true),
         reviewItem("Accuracy declaration", document.getElementById("declaration-confirm").checked ? "Accepted" : "Not accepted"),
+        reviewItem("Electronic declaration name", fieldValue("digital-declaration-name"), true),
         reviewItem("Privacy consent", document.getElementById("privacy-consent").checked ? "Accepted" : "Not accepted")
       );
 
@@ -4441,41 +5073,131 @@
           gender: document.querySelector('input[name="gender"]:checked')?.value || "",
           dateOfBirth: fieldValue("date-of-birth"),
           citizenship: fieldValue("citizenship"),
+          rs32ApplicantDetails: {
+            nameAtBirth: fieldValue("name-at-birth"),
+            otherNamesUsed: fieldValue("other-names-used"),
+            birthCityDistrict: fieldValue("birth-city-district"),
+            birthProvinceState: fieldValue("birth-province-state"),
+            birthCountry: fieldValue("birth-country"),
+            nationalityAtBirth: fieldValue("nationality-at-birth"),
+            maritalStatus: fieldValue("marital-status"),
+            dateOfMarriage: fieldValue("date-of-marriage"),
+            spouseEmployer: fieldValue("spouse-employer"),
+            spouseFileNumber: fieldValue("spouse-file-number"),
+            hasChildren: fieldValue("has-children"),
+            childrenDetails: fieldValue("children-details"),
+            permanentAddress: fieldValue("permanent-address"),
+            presentAddressUntil: fieldValue("present-address-until"),
+            residenceHistoryFiveYears: fieldValue("residence-history-five-years"),
+            father: {
+              fullName: fieldValue("father-full-name"),
+              dateOfBirth: fieldValue("father-date-of-birth"),
+              address: fieldValue("father-address")
+            },
+            mother: {
+              fullName: fieldValue("mother-full-name"),
+              dateOfBirth: fieldValue("mother-date-of-birth"),
+              address: fieldValue("mother-address")
+            },
+            spouse: {
+              fullName: fieldValue("spouse-full-name"),
+              dateOfBirth: fieldValue("spouse-date-of-birth"),
+              address: fieldValue("spouse-address")
+            },
+            armedForces: {
+              served: fieldValue("armed-forces-service"),
+              branch: fieldValue("service-branch"),
+              rank: fieldValue("service-rank"),
+              enlistmentDate: fieldValue("service-enlistment-date"),
+              dischargeDate: fieldValue("service-discharge-date"),
+              dischargeReason: fieldValue("service-discharge-reason")
+            },
+            convictedOffence: fieldValue("convicted-offence"),
+            convictionDetails: fieldValue("conviction-details"),
+            previousPngApplications: fieldValue("previous-png-applications"),
+            secondaryEducation: [
+              {
+                school: fieldValue("secondary-school-1"),
+                examination: fieldValue("secondary-exam-1"),
+                yearPassed: fieldValue("secondary-year-1"),
+                subjectsResults: fieldValue("secondary-results-1")
+              },
+              {
+                school: fieldValue("secondary-school-2"),
+                examination: fieldValue("secondary-exam-2"),
+                yearPassed: fieldValue("secondary-year-2"),
+                subjectsResults: fieldValue("secondary-results-2")
+              }
+            ],
+            additionalStudyResearch: fieldValue("additional-study-research"),
+            publications: fieldValue("publications"),
+            prizesScholarships: fieldValue("prizes-scholarships"),
+            learnedSocieties: fieldValue("learned-societies"),
+            civicActivities: fieldValue("civic-activities"),
+            interestsSportsRecreation: fieldValue("interests-sports-recreation"),
+            electronicDeclarationName: fieldValue("digital-declaration-name")
+          },
           phone: fieldValue("phone"),
           email: fieldValue("email"),
           address: `Residential: ${residentialAddress} | Postal: ${postalAddress}`,
+          permanentAddress: fieldValue("permanent-address"),
           residentialAddress,
           residential_address: residentialAddress,
           postalAddress,
           postal_address: postalAddress,
           provinceOfResidence: fieldValue("province-of-residence"),
           employmentStatus: fieldValue("employment-status"),
+          identificationType: fieldValue("identification-type"),
+          identificationNumber: fieldValue("identification-number"),
+          publicServiceEmployee: fieldValue("public-service-employee"),
+          publicServiceAgency: fieldValue("public-service-agency"),
+          publicServiceFileNumber: fieldValue("public-service-file-number"),
+          availabilityNoticePeriod: fieldValue("availability-notice"),
+          relevantSkills: fieldValue("relevant-skills"),
+          professionalRegistration: fieldValue("professional-registration"),
+          supplementaryRecruitmentInformation: {
+            identificationType: fieldValue("identification-type"),
+            identificationNumber: fieldValue("identification-number"),
+            publicServiceEmployee: fieldValue("public-service-employee"),
+            publicServiceAgency: fieldValue("public-service-agency"),
+            publicServiceFileNumber: fieldValue("public-service-file-number"),
+            availabilityNoticePeriod: fieldValue("availability-notice"),
+            relevantSkills: fieldValue("relevant-skills"),
+            professionalRegistration: fieldValue("professional-registration")
+          },
           employmentHistory: employmentEntries,
           employment_history: employmentEntries,
           employmentRecordCount: employmentEntries.length,
           currentPreviousPosition: employmentEntries[0]?.position || "",
           currentOrPreviousPosition: employmentEntries[0]?.position || "",
           employerOrganisation: employmentEntries[0]?.organisation || "",
+          employerAddress: employmentEntries[0]?.employerAddress || "",
+          presentSalary: employmentEntries[0]?.presentSalary || "",
+          salaryRange: employmentEntries[0]?.salaryRange || "",
           employmentStartDate: employmentEntries[0]?.startDate || "",
           employmentEndDate: employmentEntries[0]?.endDate || "",
           keyDuties: employmentEntries[0]?.duties || "",
           employment2Position: employmentEntries[1]?.position || "",
           employment2Organisation: employmentEntries[1]?.organisation || "",
+          employment2Address: employmentEntries[1]?.employerAddress || "",
           employment2StartDate: employmentEntries[1]?.startDate || "",
           employment2EndDate: employmentEntries[1]?.endDate || "",
           employment2Duties: employmentEntries[1]?.duties || "",
           employment3Position: employmentEntries[2]?.position || "",
           employment3Organisation: employmentEntries[2]?.organisation || "",
+          employment3Address: employmentEntries[2]?.employerAddress || "",
           employment3StartDate: employmentEntries[2]?.startDate || "",
           employment3EndDate: employmentEntries[2]?.endDate || "",
           employment3Duties: employmentEntries[2]?.duties || "",
           employment4Position: employmentEntries[3]?.position || "",
           employment4Organisation: employmentEntries[3]?.organisation || "",
+          employment4Address: employmentEntries[3]?.employerAddress || "",
           employment4StartDate: employmentEntries[3]?.startDate || "",
           employment4EndDate: employmentEntries[3]?.endDate || "",
           employment4Duties: employmentEntries[3]?.duties || "",
           employment5Position: employmentEntries[4]?.position || "",
           employment5Organisation: employmentEntries[4]?.organisation || "",
+          employment5Address: employmentEntries[4]?.employerAddress || "",
           employment5StartDate: employmentEntries[4]?.startDate || "",
           employment5EndDate: employmentEntries[4]?.endDate || "",
           employment5Duties: employmentEntries[4]?.duties || "",
@@ -4534,25 +5256,39 @@
           qualification_entries: qualificationEntries,
           employmentEntries: employmentEntries,
           employment_entries: employmentEntries,
-          references: "3",
+          references: "4",
           referee1Name: fieldValue("referee1-name"),
           referee1Position: fieldValue("referee1-position"),
           referee1Organisation: fieldValue("referee1-organisation"),
           referee1Relationship: fieldValue("referee1-relationship"),
           referee1Phone: fieldValue("referee1-phone"),
           referee1Email: fieldValue("referee1-email"),
+          referee1Address: fieldValue("referee1-address"),
+          referee1ApproachNow: fieldValue("referee1-approach"),
           referee2Name: fieldValue("referee2-name"),
           referee2Position: fieldValue("referee2-position"),
           referee2Organisation: fieldValue("referee2-organisation"),
           referee2Relationship: fieldValue("referee2-relationship"),
           referee2Phone: fieldValue("referee2-phone"),
           referee2Email: fieldValue("referee2-email"),
+          referee2Address: fieldValue("referee2-address"),
+          referee2ApproachNow: fieldValue("referee2-approach"),
           referee3Name: fieldValue("referee3-name"),
           referee3Position: fieldValue("referee3-position"),
           referee3Organisation: fieldValue("referee3-organisation"),
           referee3Relationship: fieldValue("referee3-relationship"),
           referee3Phone: fieldValue("referee3-phone"),
           referee3Email: fieldValue("referee3-email"),
+          referee3Address: fieldValue("referee3-address"),
+          referee3ApproachNow: fieldValue("referee3-approach"),
+          referee4Name: fieldValue("referee4-name"),
+          referee4Position: fieldValue("referee4-position"),
+          referee4Organisation: fieldValue("referee4-organisation"),
+          referee4Relationship: fieldValue("referee4-relationship"),
+          referee4Phone: fieldValue("referee4-phone"),
+          referee4Email: fieldValue("referee4-email"),
+          referee4Address: fieldValue("referee4-address"),
+          referee4ApproachNow: fieldValue("referee4-approach"),
           documentBundleType: "compiled_application_pdf",
           formVersion: FORM_VERSION,
           frontendVersion: FORM_VERSION,
