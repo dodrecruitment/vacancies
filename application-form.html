@@ -1233,6 +1233,602 @@
       .repeatable-actions,
       .training-actions { padding-top: 0.65rem; }
     }
+
+
+    /* ================================================================
+       2026 STANDARDISED APPLICATION FORM LAYOUT
+       Reference-inspired: flat white form, strong section hierarchy,
+       aligned labels/controls, thin dividers, restrained colour.
+       ================================================================ */
+
+    :root {
+      --form-border: #d7ded9;
+      --form-border-strong: #c6cfca;
+      --form-muted: #f5f7f6;
+      --form-muted-2: #fafbfa;
+      --form-label: #26342e;
+    }
+
+    .application-shell {
+      width: min(1080px, calc(100% - 2rem));
+      margin-inline: auto;
+      padding: 2rem 0 4rem;
+    }
+
+    .application-shell > .notice {
+      border-radius: 0.35rem;
+      box-shadow: none;
+    }
+
+    .form-card {
+      overflow: hidden;
+      border: 1px solid var(--form-border);
+      border-radius: 0.35rem;
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(5, 41, 31, 0.08);
+    }
+
+    .progress-wrap {
+      padding: 1rem 1.55rem 0.9rem;
+      color: var(--ink-900);
+      background: #fff;
+      border-bottom: 1px solid var(--form-border);
+    }
+
+    .progress-meta {
+      margin-bottom: 0.55rem;
+      color: var(--ink-700);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .progress-track {
+      height: 4px;
+      background: #e5eae7;
+    }
+
+    .progress-fill {
+      background: var(--green-700);
+      box-shadow: none;
+    }
+
+    .step-tabs {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(112px, 1fr));
+      overflow-x: auto;
+      scrollbar-width: thin;
+      padding: 0 1rem;
+      border-bottom: 1px solid var(--form-border);
+      background: #fff;
+    }
+
+    .step-tabs li {
+      min-width: 0;
+      padding: 0.78rem 0.55rem 0.72rem;
+      border-right: 0;
+      border-bottom: 3px solid transparent;
+      color: #6b7771;
+      background: transparent;
+      font-size: 0.7rem;
+      font-weight: 750;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .step-tabs li.active {
+      color: var(--green-900);
+      border-bottom-color: var(--green-700);
+      background: transparent;
+    }
+
+    .step-tabs li.complete {
+      color: var(--success);
+      background: transparent;
+    }
+
+    .form-body {
+      padding: 1.45rem 1.55rem 1.35rem;
+    }
+
+    .form-step fieldset {
+      min-width: 0;
+    }
+
+    .form-step legend {
+      margin: 0;
+      padding: 0 0 0.75rem;
+      border-bottom: 1px solid var(--form-border-strong);
+      color: #17221d;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+
+    .step-intro {
+      max-width: 900px;
+      margin: 0.7rem 0 1.25rem;
+      color: #596861;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem 1rem;
+    }
+
+    .field label,
+    .field-label {
+      margin-bottom: 0.27rem;
+      color: var(--form-label);
+      font-size: 0.74rem;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    .optional {
+      color: #7a8680;
+      font-weight: 500;
+    }
+
+    .control {
+      min-height: 40px;
+      padding: 0.52rem 0.64rem;
+      border: 1px solid var(--form-border-strong);
+      border-radius: 0.2rem;
+      color: #17221d;
+      background: var(--form-muted);
+      box-shadow: inset 0 1px 1px rgba(23, 34, 29, 0.025);
+    }
+
+    .control:hover:not(:disabled):not([readonly]) {
+      border-color: #aeb9b3;
+      background: #fff;
+    }
+
+    .control:focus {
+      border-color: var(--green-700);
+      background: #fff;
+      box-shadow: 0 0 0 2px rgba(18, 100, 71, 0.12);
+    }
+
+    textarea.control {
+      min-height: 82px;
+    }
+
+    .hint,
+    .file-status {
+      margin-top: 0.28rem;
+      color: #748078;
+      font-size: 0.7rem;
+      line-height: 1.4;
+    }
+
+    .subsection-heading {
+      margin: 1.05rem 0 0.5rem;
+      padding: 0 0 0.45rem;
+      border-bottom: 1px solid var(--form-border);
+      color: #26342e;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.015em;
+      text-transform: none;
+    }
+
+    .selected-position {
+      margin-top: 1rem;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--form-border-strong);
+      border-left: 3px solid var(--green-700);
+      border-radius: 0.2rem;
+      background: var(--form-muted-2);
+      box-shadow: none;
+    }
+
+    /* Repeatable records use a left label rail and right data area,
+       matching the reference form's standard section structure. */
+    .repeatable-section {
+      margin-top: 0;
+    }
+
+    .repeatable-section-heading {
+      display: grid;
+      grid-template-columns: 165px minmax(0, 1fr);
+      align-items: start;
+      gap: 1.15rem;
+      margin: 0;
+      padding: 0.8rem 0 0.75rem;
+      border-top: 1px solid var(--form-border);
+      border-bottom: 1px solid var(--form-border);
+    }
+
+    .repeatable-section-heading h3 {
+      margin: 0;
+      color: #24332d;
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .repeatable-section-heading p {
+      margin: 0;
+      color: #6d7973;
+      font-size: 0.74rem;
+      line-height: 1.45;
+    }
+
+    .repeatable-list,
+    .training-list {
+      gap: 0;
+    }
+
+    .repeatable-card,
+    .training-card {
+      display: grid;
+      grid-template-columns: 165px minmax(0, 1fr);
+      gap: 1.15rem;
+      margin: 0;
+      padding: 1rem 0;
+      border: 0;
+      border-bottom: 1px solid var(--form-border);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .repeatable-card + .repeatable-card,
+    .training-card + .training-card {
+      margin: 0;
+      padding-top: 1rem;
+      border-top: 0;
+    }
+
+    .repeatable-card-header,
+    .training-card-header {
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .repeatable-card-header h4,
+    .training-card-header h3 {
+      margin: 0.15rem 0 0;
+      color: #26342e;
+      font-size: 0.78rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .repeatable-number,
+    .training-number {
+      color: #6f7b75;
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.035em;
+    }
+
+    .repeatable-badge,
+    .training-badge {
+      display: inline-block;
+      margin-top: 0.32rem;
+      padding: 0;
+      border-radius: 0;
+      color: #8a948f;
+      background: transparent;
+      font-size: 0.63rem;
+      font-weight: 600;
+    }
+
+    .repeatable-card > .form-grid,
+    .training-card > .form-grid {
+      grid-column: 2;
+    }
+
+    .repeatable-actions,
+    .training-actions {
+      margin: 0;
+      padding: 0.75rem 0 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .repeatable-actions .repeatable-status,
+    .training-actions .training-status {
+      color: #6d7973;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    /* Referees follow the same left-section-label / right-fields pattern. */
+    .referee-card {
+      display: grid;
+      grid-template-columns: 165px minmax(0, 1fr);
+      gap: 1.15rem;
+      padding: 1rem 0;
+      border: 0;
+      border-bottom: 1px solid var(--form-border);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .referee-card:first-child {
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--form-border);
+    }
+
+    .referee-card h3 {
+      grid-column: 1;
+      margin: 0;
+      color: #26342e;
+      font-size: 0.76rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .referee-card > .form-grid {
+      grid-column: 2;
+    }
+
+    .upload-field {
+      padding: 0.62rem 0.7rem;
+      border: 1px solid var(--form-border-strong);
+      border-radius: 0.2rem;
+      background: var(--form-muted-2);
+    }
+
+    .upload-field input[type="file"] {
+      font-size: 0.77rem;
+    }
+
+    .radio-row {
+      gap: 0.55rem;
+    }
+
+    .radio-option {
+      min-height: 40px;
+      padding: 0.48rem 0.75rem;
+      border: 1px solid var(--form-border-strong);
+      border-radius: 0.2rem;
+      background: var(--form-muted-2);
+      font-size: 0.78rem;
+    }
+
+    .check-row {
+      padding: 0.8rem 0;
+      border: 0;
+      border-bottom: 1px solid var(--form-border);
+      border-radius: 0;
+      background: transparent;
+      font-size: 0.8rem;
+    }
+
+    .review-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 0.8rem;
+      border-top: 1px solid var(--form-border);
+    }
+
+    .review-item,
+    .review-item.full {
+      padding: 0.65rem 0.75rem 0.7rem 0;
+      border: 0;
+      border-bottom: 1px solid var(--form-border);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .review-item:nth-child(even):not(.full) {
+      padding-left: 0.75rem;
+      border-left: 1px solid var(--form-border);
+    }
+
+    .review-label {
+      color: #6d7973;
+      font-size: 0.62rem;
+      font-weight: 800;
+    }
+
+    .review-value {
+      margin-top: 0.15rem;
+      font-size: 0.8rem;
+      font-weight: 650;
+    }
+
+    .application-process-box,
+    .contact-box,
+    .approval-box,
+    .eoi-address {
+      border-color: var(--form-border);
+      border-radius: 0.2rem;
+      background: var(--form-muted-2);
+      box-shadow: none;
+    }
+
+    .application-process-box {
+      border-left: 3px solid var(--green-700);
+    }
+
+    .form-actions {
+      margin-top: 1.25rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--form-border-strong);
+    }
+
+    .btn {
+      min-height: 40px;
+      padding: 0.58rem 0.92rem;
+      border-radius: 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      box-shadow: none;
+    }
+
+    .btn:hover {
+      transform: none;
+    }
+
+    .btn-primary {
+      background: var(--green-700);
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      border-color: var(--green-700);
+      background: #fff;
+    }
+
+    .notice.submission-status {
+      border-radius: 0.25rem;
+    }
+
+    @media screen and (max-width: 900px) {
+      .step-tabs {
+        grid-template-columns: repeat(8, 132px);
+      }
+
+      .repeatable-section-heading,
+      .repeatable-card,
+      .training-card,
+      .referee-card {
+        grid-template-columns: 135px minmax(0, 1fr);
+        gap: 0.9rem;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .application-shell {
+        width: min(100% - 1rem, 1080px);
+        padding: 1rem 0 2.5rem;
+      }
+
+      .form-card {
+        border-radius: 0.25rem;
+      }
+
+      .progress-wrap {
+        padding: 0.8rem 0.9rem;
+      }
+
+      .form-body {
+        padding: 0.85rem;
+      }
+
+      .form-step legend {
+        font-size: 1.25rem;
+      }
+
+      .step-intro {
+        margin-bottom: 1rem;
+        font-size: 0.78rem;
+      }
+
+      .form-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .repeatable-section-heading,
+      .repeatable-card,
+      .training-card,
+      .referee-card {
+        display: block;
+        padding: 0.85rem 0;
+      }
+
+      .repeatable-section-heading h3,
+      .repeatable-card-header,
+      .training-card-header,
+      .referee-card h3 {
+        margin-bottom: 0.55rem;
+      }
+
+      .repeatable-card > .form-grid,
+      .training-card > .form-grid,
+      .referee-card > .form-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .review-item:nth-child(even):not(.full) {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .control {
+        min-height: 44px;
+        font-size: 1rem;
+      }
+
+      .form-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+
+    .standard-sections {
+      border-top: 1px solid var(--form-border);
+    }
+
+    .standard-section {
+      display: grid;
+      grid-template-columns: 165px minmax(0, 1fr);
+      gap: 1.15rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--form-border);
+    }
+
+    .standard-section.field-full {
+      grid-column: 1 / -1;
+    }
+
+    .standard-section-label h3 {
+      margin: 0;
+      color: #26342e;
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .standard-section-label p {
+      margin: 0.2rem 0 0;
+      color: #7a8580;
+      font-size: 0.68rem;
+      line-height: 1.4;
+    }
+
+    .standard-section-fields {
+      min-width: 0;
+    }
+
+    .standard-section-fields.form-grid {
+      align-content: start;
+    }
+
+    @media screen and (max-width: 900px) {
+      .standard-section {
+        grid-template-columns: 135px minmax(0, 1fr);
+        gap: 0.9rem;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .standard-section {
+        display: block;
+        padding: 0.85rem 0;
+      }
+
+      .standard-section-label {
+        margin-bottom: 0.6rem;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -1310,25 +1906,33 @@
             <fieldset>
               <legend>Select the position</legend>
               <p class="step-intro">Choose the division first, then select the exact position using its official reference number. The advertised location shown is taken directly from the approved Excel annexure.</p>
-              <div class="form-grid">
-                <div class="field field-full">
-                  <label for="division">Division or directorate <span class="required">*</span></label>
-                  <select class="control" id="division" required disabled>
-                    <option value="">Select a division</option>
-                  </select>
+              <div class="standard-section">
+                <div class="standard-section-label">
+                  <h3>Vacancy</h3>
+                  <p>Select the advertised position you are applying for.</p>
                 </div>
-                <div class="field field-full">
-                  <label for="position-select">Advertised position <span class="required">*</span></label>
-                  <select class="control" id="position-select" required disabled>
-                    <option value="">Select a division first</option>
-                  </select>
-                  <span class="hint" id="position-count">Loading the authoritative vacancy register...</span>
-                </div>
-              </div>
+                <div class="standard-section-fields">
+                  <div class="form-grid">
+                    <div class="field field-full">
+                      <label for="division">Division or directorate <span class="required">*</span></label>
+                      <select class="control" id="division" required disabled>
+                        <option value="">Select a division</option>
+                      </select>
+                    </div>
+                    <div class="field field-full">
+                      <label for="position-select">Advertised position <span class="required">*</span></label>
+                      <select class="control" id="position-select" required disabled>
+                        <option value="">Select a division first</option>
+                      </select>
+                      <span class="hint" id="position-count">Loading the authoritative vacancy register...</span>
+                    </div>
+                  </div>
 
-              <div class="selected-position" id="selected-position" aria-live="polite">
-                <strong id="selected-title"></strong>
-                <span id="selected-details"></span>
+                  <div class="selected-position" id="selected-position" aria-live="polite">
+                    <strong id="selected-title"></strong>
+                    <span id="selected-details"></span>
+                  </div>
+                </div>
               </div>
             </fieldset>
           </section>
@@ -1396,73 +2000,99 @@
             <fieldset>
               <legend>Personal and contact details</legend>
               <p class="step-intro">Enter your details exactly as they appear on your official identification documents.</p>
-              <div class="form-grid">
-                <div class="field">
-                  <label for="first-name">First name <span class="required">*</span></label>
-                  <input class="control" id="first-name" name="first_name" type="text" maxlength="80" autocomplete="given-name" required>
-                </div>
-                <div class="field">
-                  <label for="middle-name">Middle name <span class="optional">(optional)</span></label>
-                  <input class="control" id="middle-name" name="middle_name" type="text" maxlength="80" autocomplete="additional-name">
-                </div>
-                <div class="field">
-                  <label for="last-name">Last name <span class="required">*</span></label>
-                  <input class="control" id="last-name" name="last_name" type="text" maxlength="80" autocomplete="family-name" required>
-                </div>
-                <div class="field">
-                  <label for="citizenship">Citizenship <span class="required">*</span></label>
-                  <input class="control" id="citizenship" name="citizenship" type="text" maxlength="100" value="Papua New Guinean" required>
-                </div>
-                <div class="field">
-                  <label for="province-of-residence">Province of residence <span class="required">*</span></label>
-                  <input class="control" id="province-of-residence" name="province_of_residence" type="text" maxlength="100" placeholder="For example: National Capital District" required>
-                </div>
-                <div class="field">
-                  <label for="employment-status">Current employment status <span class="required">*</span></label>
-                  <select class="control" id="employment-status" name="employment_status" required>
-                    <option value="">Select employment status</option>
-                    <option>Employed full-time</option>
-                    <option>Employed part-time</option>
-                    <option>Contract or temporary employment</option>
-                    <option>Self-employed</option>
-                    <option>Unemployed</option>
-                    <option>Student or recent graduate</option>
-                    <option>Retired</option>
-                  </select>
-                </div>
-                <div class="field field-full">
-                  <span class="field-label">Gender <span class="required">*</span></span>
-                  <div class="radio-row">
-                    <label class="radio-option"><input type="radio" name="gender" value="Male" required> Male</label>
-                    <label class="radio-option"><input type="radio" name="gender" value="Female" required> Female</label>
+              <div class="standard-sections">
+                <div class="standard-section">
+                  <div class="standard-section-label">
+                    <h3>Identity</h3>
+                    <p>Official personal details.</p>
+                  </div>
+                  <div class="standard-section-fields form-grid">
+                    <div class="field">
+                      <label for="first-name">First name <span class="required">*</span></label>
+                      <input class="control" id="first-name" name="first_name" type="text" maxlength="80" autocomplete="given-name" required>
+                    </div>
+                    <div class="field">
+                      <label for="middle-name">Middle name <span class="optional">(optional)</span></label>
+                      <input class="control" id="middle-name" name="middle_name" type="text" maxlength="80" autocomplete="additional-name">
+                    </div>
+                    <div class="field">
+                      <label for="last-name">Last name <span class="required">*</span></label>
+                      <input class="control" id="last-name" name="last_name" type="text" maxlength="80" autocomplete="family-name" required>
+                    </div>
+                    <div class="field">
+                      <label for="citizenship">Citizenship <span class="required">*</span></label>
+                      <input class="control" id="citizenship" name="citizenship" type="text" maxlength="100" value="Papua New Guinean" required>
+                    </div>
+                    <div class="field field-full">
+                      <span class="field-label">Gender <span class="required">*</span></span>
+                      <div class="radio-row">
+                        <label class="radio-option"><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label class="radio-option"><input type="radio" name="gender" value="Female" required> Female</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label for="date-of-birth">Date of birth <span class="required">*</span></label>
+                      <input class="control" id="date-of-birth" name="date_of_birth" type="date" autocomplete="bday" required>
+                    </div>
                   </div>
                 </div>
-                <div class="field">
-                  <label for="date-of-birth">Date of birth <span class="required">*</span></label>
-                  <input class="control" id="date-of-birth" name="date_of_birth" type="date" autocomplete="bday" required>
+
+                <div class="standard-section">
+                  <div class="standard-section-label">
+                    <h3>Contact &amp; residence</h3>
+                    <p>Current contact and address information.</p>
+                  </div>
+                  <div class="standard-section-fields form-grid">
+                    <div class="field">
+                      <label for="phone">Phone number <span class="required">*</span></label>
+                      <input class="control" id="phone" name="phone" type="tel" maxlength="25" placeholder="+675 7XX XXXXX" autocomplete="tel" required>
+                    </div>
+                    <div class="field">
+                      <label for="email">Email address <span class="required">*</span></label>
+                      <input class="control" id="email" name="email" type="email" maxlength="120" autocomplete="email" required>
+                    </div>
+                    <div class="field">
+                      <label for="province-of-residence">Province of residence <span class="required">*</span></label>
+                      <input class="control" id="province-of-residence" name="province_of_residence" type="text" maxlength="100" placeholder="For example: National Capital District" required>
+                    </div>
+                    <div class="field">
+                      <label for="employment-status">Current employment status <span class="required">*</span></label>
+                      <select class="control" id="employment-status" name="employment_status" required>
+                        <option value="">Select employment status</option>
+                        <option>Employed full-time</option>
+                        <option>Employed part-time</option>
+                        <option>Contract or temporary employment</option>
+                        <option>Self-employed</option>
+                        <option>Unemployed</option>
+                        <option>Student or recent graduate</option>
+                        <option>Retired</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="residential-address">Residential address <span class="required">*</span></label>
+                      <textarea class="control" id="residential-address" name="residential_address" rows="3" maxlength="300" autocomplete="street-address" placeholder="House or section number, street, suburb, district and province" required></textarea>
+                    </div>
+                    <div class="field">
+                      <label for="postal-address">Postal address <span class="required">*</span></label>
+                      <textarea class="control" id="postal-address" name="postal_address" rows="3" maxlength="300" placeholder="P.O. Box or private mail bag, post office, town and province" required></textarea>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="phone">Phone number <span class="required">*</span></label>
-                  <input class="control" id="phone" name="phone" type="tel" maxlength="25" placeholder="+675 7XX XXXXX" autocomplete="tel" required>
-                </div>
-                <div class="field">
-                  <label for="email">Email address <span class="required">*</span></label>
-                  <input class="control" id="email" name="email" type="email" maxlength="120" autocomplete="email" required>
-                </div>
-                <div class="field">
-                  <label for="residential-address">Residential address <span class="required">*</span></label>
-                  <textarea class="control" id="residential-address" name="residential_address" rows="3" maxlength="300" autocomplete="street-address" placeholder="House or section number, street, suburb, district and province" required></textarea>
-                </div>
-                <div class="field">
-                  <label for="postal-address">Postal address <span class="required">*</span></label>
-                  <textarea class="control" id="postal-address" name="postal_address" rows="3" maxlength="300" placeholder="P.O. Box or private mail bag, post office, town and province" required></textarea>
-                </div>
-                <div class="field field-full">
-                  <label for="identification-document">Identification document <span class="required">*</span></label>
-                  <div class="upload-field">
-                    <input id="identification-document" name="identification_document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required>
-                    <span class="hint">Upload one National ID, passport, driver's licence, or birth certificate. PDF, JPG, or PNG only; maximum 5 MB.</span>
-                    <span class="file-status" data-file-status="identification-document"></span>
+
+                <div class="standard-section">
+                  <div class="standard-section-label">
+                    <h3>Identification</h3>
+                    <p>Provide one valid identity document.</p>
+                  </div>
+                  <div class="standard-section-fields form-grid">
+                    <div class="field field-full">
+                      <label for="identification-document">Identification document <span class="required">*</span></label>
+                      <div class="upload-field">
+                        <input id="identification-document" name="identification_document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required>
+                        <span class="hint">Upload one National ID, passport, driver's licence, or birth certificate. PDF, JPG, or PNG only; maximum 5 MB.</span>
+                        <span class="file-status" data-file-status="identification-document"></span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1648,13 +2278,21 @@
                   </div>
                 </div>
 
-                <div class="field">
-                  <label for="work-experience">Total years of work experience <span class="required">*</span></label>
-                  <input class="control" id="work-experience" type="number" min="0" max="60" step="0.5" required>
-                </div>
-                <div class="field">
-                  <label for="relevant-experience">Years of relevant experience <span class="required">*</span></label>
-                  <input class="control" id="relevant-experience" type="number" min="0" max="60" step="0.5" required>
+                <div class="standard-section field-full">
+                  <div class="standard-section-label">
+                    <h3>Experience summary</h3>
+                    <p>Overall and position-relevant experience.</p>
+                  </div>
+                  <div class="standard-section-fields form-grid">
+                    <div class="field">
+                      <label for="work-experience">Total years of work experience <span class="required">*</span></label>
+                      <input class="control" id="work-experience" type="number" min="0" max="60" step="0.5" required>
+                    </div>
+                    <div class="field">
+                      <label for="relevant-experience">Years of relevant experience <span class="required">*</span></label>
+                      <input class="control" id="relevant-experience" type="number" min="0" max="60" step="0.5" required>
+                    </div>
+                  </div>
                 </div>
 
                 
@@ -2145,12 +2783,20 @@
                   </div>
                 </div>
 
-                <div class="field field-full">
-                  <label for="compiled-documents">Compiled application PDF <span class="required">*</span></label>
-                  <div class="upload-field">
-                    <input id="compiled-documents" type="file" accept=".pdf,application/pdf" required>
-                    <span class="hint">Upload one compiled PDF containing the required application documents: Expression of Interest (EOI), completed Form RS 3.2, Curriculum Vitae (CV), certificates of educational qualifications, references, and other relevant supporting documents. The final PDF must be 10 MB or less and should follow the required filename format: Reference Number_Position Title_Your Surname.</span>
-                    <span class="file-status" data-file-status="compiled-documents"></span>
+                <div class="standard-section field-full">
+                  <div class="standard-section-label">
+                    <h3>Documents</h3>
+                    <p>Final compiled application package.</p>
+                  </div>
+                  <div class="standard-section-fields form-grid">
+                    <div class="field field-full">
+                      <label for="compiled-documents">Compiled application PDF <span class="required">*</span></label>
+                      <div class="upload-field">
+                        <input id="compiled-documents" type="file" accept=".pdf,application/pdf" required>
+                        <span class="hint">Upload one compiled PDF containing the required application documents: Expression of Interest (EOI), completed Form RS 3.2, Curriculum Vitae (CV), certificates of educational qualifications, references, and other relevant supporting documents. The final PDF must be 10 MB or less and should follow the required filename format: Reference Number_Position Title_Your Surname.</span>
+                        <span class="file-status" data-file-status="compiled-documents"></span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
