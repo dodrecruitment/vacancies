@@ -766,7 +766,7 @@
           <div class="status-badge" id="application-status-badge">Applications not yet open</div>
           <h2 id="application-status-title">Current application period</h2>
           <p id="application-status-message">Applications open on 24 August 2026 at 8:00 AM (Papua New Guinea time).</p>
-          <div class="status-date" id="application-status-countdown">Opening countdown will appear here.</div>
+          <div class="status-date">Opens 24 August 2026, 8:00 AM · Closes 7 September 2026, 4:06 PM</div>
         </aside>
       </div>
     </section>
@@ -876,32 +876,15 @@
 
     const VACANCY_OPEN_AT = new Date("2026-08-24T08:00:00+10:00");
     const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
-
-    function formatCountdown(milliseconds) {
-      const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
-      const days = Math.floor(totalSeconds / 86400);
-      const hours = Math.floor((totalSeconds % 86400) / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-      const parts = [];
-      if (days) parts.push(`${days}d`);
-      parts.push(`${String(hours).padStart(2, "0")}h`);
-      parts.push(`${String(minutes).padStart(2, "0")}m`);
-      parts.push(`${String(seconds).padStart(2, "0")}s`);
-      return parts.join(" ");
-    }
-
     function updateVacancyStatus() {
       const now = new Date();
       const badge = document.getElementById("application-status-badge");
       const message = document.getElementById("application-status-message");
-      const countdown = document.getElementById("application-status-countdown");
       const applyButton = document.getElementById("home-apply-button");
 
       if (now < VACANCY_OPEN_AT) {
         badge.textContent = "Applications not yet open";
         message.textContent = "Opening: 24 August 2026 at 8:00 AM (Papua New Guinea time).";
-        countdown.textContent = `Opens in ${formatCountdown(VACANCY_OPEN_AT - now)}`;
         applyButton.textContent = "Apply from 24 August";
         applyButton.removeAttribute("href");
         applyButton.setAttribute("aria-disabled", "true");
@@ -912,7 +895,6 @@
       if (now <= VACANCY_CLOSE_AT) {
         badge.textContent = "Applications open";
         message.textContent = "Online applications are being accepted.";
-        countdown.textContent = `Closes in ${formatCountdown(VACANCY_CLOSE_AT - now)}`;
         applyButton.textContent = "Apply Now";
         applyButton.href = "application-form.html";
         applyButton.removeAttribute("aria-disabled");
@@ -922,7 +904,6 @@
 
       badge.textContent = "Applications closed";
       message.textContent = "The application period has ended.";
-      countdown.textContent = "Closed on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
       applyButton.textContent = "Applications Closed";
       applyButton.removeAttribute("href");
       applyButton.setAttribute("aria-disabled", "true");
@@ -930,7 +911,6 @@
     }
 
     updateVacancyStatus();
-    setInterval(updateVacancyStatus, 1000);
 
   </script>
 </body>
