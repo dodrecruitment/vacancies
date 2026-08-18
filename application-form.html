@@ -4246,7 +4246,7 @@
           <section class="form-step" data-step="7">
             <fieldset>
               <legend>Referees and supporting documents</legend>
-              <p class="step-intro">Provide three primary referees and upload the required supporting documents. The fourth referee required for the employment application form is completed on the Review & Declaration page.</p>
+              <p class="step-intro">Provide three referees and upload the required supporting documents.</p>
               <div class="form-grid">
                 <div class="referee-card">
                   <h3>Referee 1</h3>
@@ -4374,47 +4374,7 @@
                   </div>
                 </div>
 
-                <div class="referee-card">
-                  <h3>Referee 4</h3>
-                  <div class="form-grid">
-                    <div class="field">
-                      <label for="referee4-name">Full name <span class="required">*</span></label>
-                      <input class="control" id="referee4-name" type="text" maxlength="180" required>
-                    </div>
-                    <div class="field">
-                      <label for="referee4-position">Position title <span class="optional">(optional)</span></label>
-                      <input class="control" id="referee4-position" type="text" maxlength="180">
-                    </div>
-                    <div class="field">
-                      <label for="referee4-organisation">Organisation <span class="optional">(optional)</span></label>
-                      <input class="control" id="referee4-organisation" type="text" maxlength="180">
-                    </div>
-                    <div class="field">
-                      <label for="referee4-relationship">Relationship <span class="optional">(optional)</span></label>
-                      <input class="control" id="referee4-relationship" type="text" maxlength="120">
-                    </div>
-                    <div class="field">
-                      <label for="referee4-phone">Phone number <span class="required">*</span></label>
-                      <input class="control" id="referee4-phone" type="tel" maxlength="25" required>
-                    </div>
-                    <div class="field">
-                      <label for="referee4-email">Email address <span class="optional">(optional)</span></label>
-                      <input class="control" id="referee4-email" type="email" maxlength="120">
-                    </div>
-                    <div class="field field-full">
-                      <label for="referee4-address">Address <span class="optional">(optional)</span></label>
-                      <textarea class="control" id="referee4-address" rows="2" maxlength="400"></textarea>
-                    </div>
-                    <div class="field">
-                      <label for="referee4-approach">May the Department approach this referee now? <span class="required">*</span></label>
-                      <select class="control" id="referee4-approach" required>
-                        <option value="">Select</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No — inconvenient at present</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
+                
 
                 <div class="standard-section field-full">
                   <div class="standard-section-label">
@@ -4709,10 +4669,6 @@
           if (group.children.length > 1) refereeTarget.appendChild(group);
         }
 
-        const referee4Heading = [...document.querySelectorAll(".referee-card h3")]
-          .find((item) => item.textContent.trim() === "Referee 4");
-        const referee4Card = referee4Heading?.closest(".referee-card");
-        if (referee4Card) refereeTarget.appendChild(referee4Card);
       }
     }
 
@@ -6121,7 +6077,7 @@
           qualification_entries: qualificationEntries,
           employmentEntries: employmentEntries,
           employment_entries: employmentEntries,
-          references: "4",
+          references: "3",
           referee1Name: fieldValue("referee1-name"),
           referee1Position: fieldValue("referee1-position"),
           referee1Organisation: fieldValue("referee1-organisation"),
@@ -6146,14 +6102,6 @@
           referee3Email: fieldValue("referee3-email"),
           referee3Address: fieldValue("referee3-address"),
           referee3ApproachNow: fieldValue("referee3-approach"),
-          referee4Name: fieldValue("referee4-name"),
-          referee4Position: fieldValue("referee4-position"),
-          referee4Organisation: fieldValue("referee4-organisation"),
-          referee4Relationship: fieldValue("referee4-relationship"),
-          referee4Phone: fieldValue("referee4-phone"),
-          referee4Email: fieldValue("referee4-email"),
-          referee4Address: fieldValue("referee4-address"),
-          referee4ApproachNow: fieldValue("referee4-approach"),
           documentBundleType: "compiled_application_pdf",
           formVersion: FORM_VERSION,
           frontendVersion: FORM_VERSION,
