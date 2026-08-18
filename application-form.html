@@ -7,8 +7,8 @@
   <meta name="color-scheme" content="light">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.dodcareers.link; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests;">
-  <title>External Advertisement Phase 1 Application | Department of Defence PNG</title>
-  <meta name="description" content="Official External Advertisement Phase 1 online application form for 41 Department of Defence Papua New Guinea vacancies.">
+  <title>Online Application | Department of Defence PNG</title>
+  <meta name="description" content="Official online application form for 41 Department of Defence Papua New Guinea position vacancies.">
   <link rel="icon" href="logo.png" type="image/png">
   <style>
 
@@ -1865,9 +1865,9 @@
     <header class="page-title">
       <div class="container">
         <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Online Application</li></ol>
-        <p class="eyebrow">External Advertisement – Phase 1</p>
-        <h1>Phase 1 Online Application</h1>
-        <p>Select one of the 41 External Advertisement Phase 1 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 24 August 2026 at 8:00 AM and close 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
+        <p class="eyebrow">Position Vacancies</p>
+        <h1>Online Application</h1>
+        <p>Select one of the 41 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 24 August 2026 at 8:00 AM and close 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
       </div>
     </header>
 
@@ -1905,7 +1905,7 @@
           <section class="form-step active" data-step="1">
             <fieldset>
               <legend>Select the position</legend>
-              <p class="step-intro">Choose one of the three Phase 1 divisions, then select the exact position using its official reference number. Only the 41 positions listed in the uploaded External Advertisement Phase 1 workbook are available in this form.</p>
+              <p class="step-intro">Choose one of the three Divisions, then select the exact position using its official reference number. Only the 41 positions listed in the uploaded Position Vacancies workbook are available in this form.</p>
               <div class="standard-section">
                 <div class="standard-section-label">
                   <h3>Vacancy</h3>
@@ -2881,10 +2881,10 @@
     const VACANCIES_API_URL = `${API_BASE_URL}/v1/vacancies`;
     const FORM_VERSION = "external-cloudrun-v2-2026-08-14";
     const EXPECTED_VACANCY_COUNT = 41;
-    const PHASE1_OPEN_AT = new Date("2026-08-24T08:00:00+10:00");
-    const PHASE1_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
-    const PHASE1_OPEN_LABEL = "24 August 2026 at 8:00 AM";
-    const PHASE1_CLOSE_LABEL = "7 September 2026 at 4:06 PM";
+    const VACANCY_OPEN_AT = new Date("2026-08-24T08:00:00+10:00");
+    const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
+    const VACANCY_OPEN_LABEL = "24 August 2026 at 8:00 AM";
+    const VACANCY_CLOSE_LABEL = "7 September 2026 at 4:06 PM";
     const SUBMISSION_REQUEST_TIMEOUT_MS = 300000;
     const PENDING_SUBMISSION_STORAGE_KEY = "dodVacancyPendingSubmission";
     const RECEIPT_STORAGE_KEY = "dodVacancyApplicationReceipt";
@@ -3205,16 +3205,16 @@
           );
         }
 
-        const phase1ReferenceSet = new Set(
+        const vacancyReferenceSet = new Set(
           EXCEL_VACANCIES.map((item) => normalizeReference(item.referenceNumber))
         );
-        const backendPhase1Count = backendVacancies.filter((item) =>
-          phase1ReferenceSet.has(normalizeReference(item.referenceNumber))
+        const backendVacancyCount = backendVacancies.filter((item) =>
+          vacancyReferenceSet.has(normalizeReference(item.referenceNumber))
         ).length;
 
-        if (backendPhase1Count !== EXPECTED_VACANCY_COUNT) {
+        if (backendVacancyCount !== EXPECTED_VACANCY_COUNT) {
           console.warn(
-            `Database Phase 1 vacancy count is ${backendPhase1Count}; expected ${EXPECTED_VACANCY_COUNT}.`
+            `Database vacancy count is ${backendVacancyCount}; expected ${EXPECTED_VACANCY_COUNT}.`
           );
         }
 
@@ -3223,14 +3223,14 @@
 
         if (payload.applicationsOpen !== true) {
           const now = new Date();
-          const scheduledMessage = now < PHASE1_OPEN_AT
-            ? `External Advertisement Phase 1 opens on ${PHASE1_OPEN_LABEL} and closes on ${PHASE1_CLOSE_LABEL} (Papua New Guinea time).`
-            : now > PHASE1_CLOSE_AT
-              ? `External Advertisement Phase 1 closed on ${PHASE1_CLOSE_LABEL} (Papua New Guinea time).`
+          const scheduledMessage = now < VACANCY_OPEN_AT
+            ? `Position Vacancies opens on ${VACANCY_OPEN_LABEL} and closes on ${VACANCY_CLOSE_LABEL} (Papua New Guinea time).`
+            : now > VACANCY_CLOSE_AT
+              ? `Position Vacancies closed on ${VACANCY_CLOSE_LABEL} (Papua New Guinea time).`
               : (payload.message || "The Department of Defence is not accepting online applications at this time.");
           setApplicationNotice(
             "warning",
-            now < PHASE1_OPEN_AT ? "Phase 1 applications are not yet open" : "Online applications are currently closed",
+            now < VACANCY_OPEN_AT ? "Online applications are not yet open" : "Online applications are currently closed",
             scheduledMessage
           );
           document.getElementById("position-count").textContent =
@@ -3241,8 +3241,8 @@
         setFormAvailability(true);
         setApplicationNotice(
           "success",
-          "External Advertisement Phase 1 applications are open",
-          `Select one of the 41 Phase 1 positions and complete all required sections. Applications close on ${PHASE1_CLOSE_LABEL} (Papua New Guinea time).`
+          "applications are open",
+          `Select one of the 41 positions and complete all required sections. Applications close on ${VACANCY_CLOSE_LABEL} (Papua New Guinea time).`
         );
         preselectFromUrl();
       } catch (error) {
