@@ -2246,6 +2246,60 @@
         font-size: 0.8rem;
       }
     }
+
+
+/* ============================================================
+       FORM ACTION BUTTONS — HORIZONTAL ALIGNMENT
+       Keeps all visible navigation buttons on one row.
+       ============================================================ */
+    @media screen and (max-width: 700px) {
+      .form-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch;
+        gap: 0.55rem;
+      }
+
+      .form-actions .spacer {
+        display: none !important;
+      }
+
+      .form-actions .btn,
+      .form-actions #exit-button {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        min-width: 0;
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      #exit-button {
+        order: 1 !important;
+      }
+
+      #back-button {
+        order: 2 !important;
+      }
+
+      #next-button,
+      #submit-button {
+        order: 3 !important;
+      }
+    }
+
+    @media screen and (max-width: 420px) {
+      .form-actions {
+        gap: 0.4rem;
+      }
+
+      .form-actions .btn,
+      .form-actions #exit-button {
+        min-height: 42px;
+        padding: 0.55rem 0.35rem;
+        font-size: 0.74rem;
+      }
+    }
 </style>
 </head>
 <body>
@@ -2571,15 +2625,19 @@
                       <input class="control" id="date-of-birth" name="date_of_birth" type="date" autocomplete="bday" required>
                     </div>
                     <div class="field">
-                      <label for="birth-city-district">Place of birth — district / city <span class="required">*</span></label>
-                      <input class="control" id="birth-city-district" name="birth_city_district" type="text" maxlength="120" required>
+                      <label for="place-of-birth">Place of birth <span class="required">*</span></label>
+                      <input class="control" id="place-of-birth" name="place_of_birth" type="text" maxlength="160" placeholder="Village, town or city" required>
                     </div>
                     <div class="field">
-                      <label for="birth-province-state">Place of birth — province / state <span class="required">*</span></label>
-                      <input class="control" id="birth-province-state" name="birth_province_state" type="text" maxlength="120" required>
+                      <label for="district-of-origin">District of origin <span class="required">*</span></label>
+                      <input class="control" id="district-of-origin" name="district_of_origin" type="text" maxlength="120" placeholder="For example: Rigo District" required>
                     </div>
                     <div class="field">
-                      <label for="birth-country">Place of birth — country <span class="required">*</span></label>
+                      <label for="province-of-origin">Province of origin <span class="required">*</span></label>
+                      <input class="control" id="province-of-origin" name="province_of_origin" type="text" maxlength="120" placeholder="For example: Central Province" required>
+                    </div>
+                    <div class="field">
+                      <label for="birth-country">Country of birth <span class="required">*</span></label>
                       <input class="control" id="birth-country" name="birth_country" type="text" maxlength="120" value="Papua New Guinea" required>
                     </div>
 
@@ -2596,8 +2654,8 @@
 
                 <div class="standard-section rs32-integrated-section">
                   <div class="standard-section-label">
-                    <h3>Marital &amp; family details</h3>
-                    <p>Complete where applicable.</p>
+                    <h3>Marital status &amp; dependants</h3>
+                    <p>Marital status, spouse details, children and other dependants.</p>
                   </div>
                   <div class="standard-section-fields form-grid">
                     <div class="field">
@@ -2631,9 +2689,15 @@
                         <option value="No">No</option>
                       </select>
                     </div>
+                    <div class="field">
+                      <label for="number-of-dependants">Number of dependants <span class="required">*</span></label>
+                      <input class="control" id="number-of-dependants" name="number_of_dependants" type="number" min="0" max="30" value="0" required>
+                      <span class="hint">Include children and any other persons who are financially dependent on you.</span>
+                    </div>
                     <div class="field field-full">
-                      <label for="children-details">Children details <span class="optional">(if yes)</span></label>
-                      <textarea class="control" id="children-details" name="children_details" rows="4" maxlength="1000" placeholder="One child per line: Full name | Male/Female | Date of birth"></textarea>
+                      <label for="dependants-details">Children / dependants details <span class="optional">(if applicable)</span></label>
+                      <textarea class="control" id="dependants-details" name="dependants_details" rows="5" maxlength="1600" placeholder="One person per line: Full name | Relationship | Male/Female | Date of birth"></textarea>
+                      <span class="hint">For children, include the information requested by Form RS 3.2. For other dependants, state the relationship.</span>
                     </div>
                   </div>
                 </div>
@@ -4566,9 +4630,10 @@
         reviewItem("Last name", fieldValue("last-name")),
         reviewItem("Name at birth", fieldValue("name-at-birth")),
         reviewItem("Other names used", fieldValue("other-names-used"), true),
-        reviewItem("Birth district / city", fieldValue("birth-city-district")),
-        reviewItem("Birth province / state", fieldValue("birth-province-state")),
-        reviewItem("Birth country", fieldValue("birth-country")),
+        reviewItem("Place of birth", fieldValue("place-of-birth")),
+        reviewItem("District of origin", fieldValue("district-of-origin")),
+        reviewItem("Province of origin", fieldValue("province-of-origin")),
+        reviewItem("Country of birth", fieldValue("birth-country")),
         reviewItem("Citizenship", fieldValue("citizenship")),
         reviewItem("Nationality at birth", fieldValue("nationality-at-birth")),
         reviewItem("Marital status", fieldValue("marital-status")),
@@ -4576,7 +4641,8 @@
         reviewItem("Spouse's employer", fieldValue("spouse-employer")),
         reviewItem("Spouse's file number", fieldValue("spouse-file-number")),
         reviewItem("Children", fieldValue("has-children")),
-        reviewItem("Children details", fieldValue("children-details"), true),
+        reviewItem("Number of dependants", fieldValue("number-of-dependants")),
+        reviewItem("Children / dependants details", fieldValue("dependants-details"), true),
         reviewItem("Province of residence", fieldValue("province-of-residence")),
         reviewItem("Employment status", fieldValue("employment-status")),
         reviewItem("Gender", document.querySelector('input[name="gender"]:checked')?.value || ""),
@@ -5073,11 +5139,17 @@
           gender: document.querySelector('input[name="gender"]:checked')?.value || "",
           dateOfBirth: fieldValue("date-of-birth"),
           citizenship: fieldValue("citizenship"),
+          placeOfBirth: fieldValue("place-of-birth"),
+          districtOfOrigin: fieldValue("district-of-origin"),
+          provinceOfOrigin: fieldValue("province-of-origin"),
+          maritalStatus: fieldValue("marital-status"),
+          numberOfDependants: fieldValue("number-of-dependants"),
           rs32ApplicantDetails: {
             nameAtBirth: fieldValue("name-at-birth"),
             otherNamesUsed: fieldValue("other-names-used"),
-            birthCityDistrict: fieldValue("birth-city-district"),
-            birthProvinceState: fieldValue("birth-province-state"),
+            placeOfBirth: fieldValue("place-of-birth"),
+            districtOfOrigin: fieldValue("district-of-origin"),
+            provinceOfOrigin: fieldValue("province-of-origin"),
             birthCountry: fieldValue("birth-country"),
             nationalityAtBirth: fieldValue("nationality-at-birth"),
             maritalStatus: fieldValue("marital-status"),
@@ -5085,7 +5157,8 @@
             spouseEmployer: fieldValue("spouse-employer"),
             spouseFileNumber: fieldValue("spouse-file-number"),
             hasChildren: fieldValue("has-children"),
-            childrenDetails: fieldValue("children-details"),
+            numberOfDependants: fieldValue("number-of-dependants"),
+            dependantsDetails: fieldValue("dependants-details"),
             permanentAddress: fieldValue("permanent-address"),
             presentAddressUntil: fieldValue("present-address-until"),
             residenceHistoryFiveYears: fieldValue("residence-history-five-years"),
