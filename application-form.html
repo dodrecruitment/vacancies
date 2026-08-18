@@ -2164,27 +2164,7 @@
       letter-spacing: 0.03em;
       vertical-align: middle;
     }
-
-
-/* ============================================================
-       FORM RS 3.2 — INTEGRATED APPLICANT SECTIONS
-       ============================================================ */
-    .rs32-integrated-section .standard-section-label h3::after {
-      display: inline-block;
-      margin-left: 0.42rem;
-      padding: 0.1rem 0.36rem;
-      border: 1px solid #c7d7cf;
-      border-radius: 999px;
-      color: var(--green-800);
-      background: #f2f7f4;
-      content: "RS 3.2";
-      font-size: 0.56rem;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      vertical-align: middle;
-    }
-
-    .rs32-digital-note {
+.rs32-digital-note {
       display: grid;
       gap: 0.18rem;
       margin: 0 0 1rem;
@@ -2298,6 +2278,202 @@
         min-height: 42px;
         padding: 0.55rem 0.35rem;
         font-size: 0.74rem;
+      }
+    }
+
+
+/* ============================================================
+       REVIEW TAB — OFFICIAL FORM-STYLE LAYOUT
+       Structured to resemble the RS 3.2 paper form while remaining
+       responsive and readable online.
+       ============================================================ */
+    .review-paper-header {
+      display: grid;
+      gap: 0.16rem;
+      margin: 0.85rem 0 0;
+      padding: 0.85rem 1rem;
+      border: 1px solid #8e9993;
+      border-bottom: 0;
+      color: #18231d;
+      background: #fff;
+      text-align: center;
+    }
+
+    .review-paper-header span {
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.045em;
+    }
+
+    .review-paper-header strong {
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .review-paper-header small {
+      color: #637068;
+      font-size: 0.68rem;
+      font-weight: 650;
+    }
+
+    .review-sheet {
+      margin: 0 0 1rem;
+      border: 1px solid #8e9993;
+      background: #fff;
+    }
+
+    .review-paper-section + .review-paper-section {
+      border-top: 1px solid #8e9993;
+    }
+
+    .review-section-title {
+      padding: 0.44rem 0.62rem;
+      border-bottom: 1px solid #aeb7b2;
+      color: #16211b;
+      background: #edf1ef;
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+    }
+
+    .review-paper-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      background: #fff;
+    }
+
+    .review-table-item {
+      display: grid;
+      grid-template-columns: minmax(118px, 38%) minmax(0, 1fr);
+      min-width: 0;
+      border-right: 1px solid #c6cec9;
+      border-bottom: 1px solid #c6cec9;
+      background: #fff;
+    }
+
+    .review-table-item:nth-child(even) {
+      border-right: 0;
+    }
+
+    .review-table-item.full {
+      grid-column: 1 / -1;
+      border-right: 0;
+    }
+
+    .review-table-label,
+    .review-table-value {
+      min-width: 0;
+      padding: 0.55rem 0.6rem;
+      line-height: 1.45;
+    }
+
+    .review-table-label {
+      border-right: 1px solid #d5dcd8;
+      color: #46534c;
+      background: #f7f8f7;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.015em;
+      text-transform: uppercase;
+    }
+
+    .review-table-value {
+      color: #202a25;
+      background: #fff;
+      font-size: 0.78rem;
+      font-weight: 650;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+
+    .review-declaration-section {
+      margin-top: 1rem;
+      border: 1px solid #8e9993;
+      background: #fff;
+    }
+
+    .review-declaration-body {
+      padding: 0.85rem;
+    }
+
+    .review-warning-text {
+      margin: 0 0 0.85rem;
+      padding: 0.7rem 0.75rem;
+      border-left: 4px solid #b08a25;
+      color: #51451e;
+      background: #fffaf0;
+      font-size: 0.76rem;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+
+    .review-check-row {
+      margin: 0;
+      border: 0;
+      border-top: 1px solid #d7ddda;
+      border-radius: 0;
+      background: #fff;
+    }
+
+    .review-signature-field {
+      padding: 0.85rem 0;
+      border-top: 1px solid #d7ddda;
+    }
+
+    /* Disable the old card-style Review layout in favour of the form table. */
+    .review-sheet .review-item,
+    .review-sheet .review-label,
+    .review-sheet .review-value {
+      all: unset;
+    }
+
+    @media screen and (max-width: 760px) {
+      .review-paper-header {
+        padding: 0.72rem 0.65rem;
+      }
+
+      .review-paper-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .review-table-item,
+      .review-table-item:nth-child(even),
+      .review-table-item.full {
+        grid-column: auto;
+        border-right: 0;
+      }
+
+      .review-table-item {
+        grid-template-columns: minmax(105px, 37%) minmax(0, 1fr);
+      }
+
+      .review-table-label,
+      .review-table-value {
+        padding: 0.48rem 0.5rem;
+      }
+
+      .review-table-label {
+        font-size: 0.61rem;
+      }
+
+      .review-table-value {
+        font-size: 0.73rem;
+      }
+    }
+
+    @media screen and (max-width: 460px) {
+      .review-table-item {
+        grid-template-columns: 1fr;
+      }
+
+      .review-table-label {
+        border-right: 0;
+        border-bottom: 1px solid #e0e5e2;
+      }
+
+      .review-paper-header strong {
+        font-size: 0.88rem;
       }
     }
 </style>
@@ -3853,26 +4029,39 @@
           <section class="form-step" data-step="8">
             <fieldset>
               <legend>Review and declaration</legend>
-              <p class="step-intro">Check the information below. Use Back to correct any details before submitting.</p>
-              <div class="rs32-digital-note">
-                <strong>Electronic Form RS 3.2 declaration</strong>
-                <span>The discovery of an incorrect or misleading statement or deliberate omission may affect any employment or contractual agreement.</span>
+              <p class="step-intro">Review the completed application below. The layout follows the structure of the official employment application form so information can be checked quickly before submission.</p>
+
+              <div class="review-paper-header" aria-hidden="true">
+                <span>PUBLIC SERVICE OF PAPUA NEW GUINEA</span>
+                <strong>APPLICATION FOR EMPLOYMENT — REVIEW</strong>
+                <small>Department of Defence Online Recruitment</small>
               </div>
 
-              <div class="review-grid" id="review-grid"></div>
-              <label class="check-row">
-                <input id="declaration-confirm" type="checkbox" required>
-                <span>I declare that the information and documents supplied are true, complete, and accurate. <span class="required">*</span></span>
-              </label>
-              <div class="field" style="margin-top:0.85rem">
-                <label for="digital-declaration-name">Electronic declaration name <span class="required">*</span></label>
-                <input class="control" id="digital-declaration-name" name="digital_declaration_name" type="text" maxlength="180" placeholder="Type your full legal name" required>
-                <span class="hint">Typing your full name records the applicant's electronic declaration for this online submission.</span>
+              <div class="review-sheet" id="review-grid"></div>
+
+              <div class="review-declaration-section">
+                <div class="review-section-title">APPLICANT DECLARATION</div>
+                <div class="review-declaration-body">
+                  <p class="review-warning-text">The discovery of any incorrect or misleading statement or deliberate omission may affect any employment or contractual agreement.</p>
+
+                  <label class="check-row review-check-row">
+                    <input id="declaration-confirm" type="checkbox" required>
+                    <span>I declare that the information and documents supplied are true, complete, and accurate. <span class="required">*</span></span>
+                  </label>
+
+                  <div class="field review-signature-field">
+                    <label for="digital-declaration-name">Electronic declaration name <span class="required">*</span></label>
+                    <input class="control" id="digital-declaration-name" name="digital_declaration_name" type="text" maxlength="180" placeholder="Type your full legal name" required>
+                    <span class="hint">Typing your full name records your electronic declaration for this application.</span>
+                  </div>
+
+                  <label class="check-row review-check-row">
+                    <input id="privacy-consent" type="checkbox" required>
+                    <span>I consent to the Department of Defence collecting, verifying, storing, and using my information and documents for recruitment and employment assessment purposes. <span class="required">*</span></span>
+                  </label>
+                </div>
               </div>
-              <label class="check-row" style="margin-top:0.75rem">
-                <input id="privacy-consent" type="checkbox" required>
-                <span>I consent to the Department of Defence collecting, verifying, storing, and using my information and documents for recruitment and employment assessment purposes. <span class="required">*</span></span>
-              </label>
+
               <div class="notice submission-status" id="submission-status" role="status" aria-live="polite">
                 <span class="notice-dot" aria-hidden="true">i</span>
                 <div><strong id="submission-title">Preparing your application</strong><p id="submission-message">Please keep this page open.</p></div>
@@ -4600,17 +4789,48 @@
       return String(Math.max(...years.map(Number)));
     }
 
+    function reviewValue(value) {
+      const cleaned = String(value ?? "").trim();
+      return cleaned || "Not provided";
+    }
+
+    function joinReviewValues(values, separator = " | ") {
+      const cleaned = values
+        .map((value) => String(value ?? "").trim())
+        .filter(Boolean);
+      return cleaned.length ? cleaned.join(separator) : "Not provided";
+    }
+
     function reviewItem(label, value, full = false) {
       const item = document.createElement("div");
-      item.className = `review-item${full ? " full" : ""}`;
+      item.className = `review-table-item${full ? " full" : ""}`;
+
       const name = document.createElement("div");
-      name.className = "review-label";
+      name.className = "review-table-label";
       name.textContent = label;
+
       const content = document.createElement("div");
-      content.className = "review-value";
-      content.textContent = value || "Not provided";
+      content.className = "review-table-value";
+      content.textContent = reviewValue(value);
+
       item.append(name, content);
       return item;
+    }
+
+    function reviewSection(title, items) {
+      const section = document.createElement("section");
+      section.className = "review-paper-section";
+
+      const heading = document.createElement("div");
+      heading.className = "review-section-title";
+      heading.textContent = title;
+
+      const body = document.createElement("div");
+      body.className = "review-paper-grid";
+
+      items.forEach((item) => body.appendChild(item));
+      section.append(heading, body);
+      return section;
     }
 
     function buildReview() {
@@ -4618,127 +4838,279 @@
       const employmentEntries = getEmploymentEntries();
       const qualificationEntries = getQualificationEntries();
       const trainingEntries = getTrainingEntries();
-      const reviewItems = [
-        reviewItem("Position", selectedVacancy?.positionTitle, true),
-        reviewItem("Reference", normalizeReference(selectedVacancy?.referenceNumber)),
-        reviewItem("Division", selectedVacancy?.division),
-        reviewItem("Advertised location", selectedVacancy?.location, true),
-        reviewItem("Classification", selectedVacancy?.positionClass),
-        reviewItem("Base salary", selectedVacancy?.baseSalary ? formatSalary(selectedVacancy.baseSalary) : ""),
-        reviewItem("First name", fieldValue("first-name")),
-        reviewItem("Middle name", fieldValue("middle-name")),
-        reviewItem("Last name", fieldValue("last-name")),
-        reviewItem("Name at birth", fieldValue("name-at-birth")),
-        reviewItem("Other names used", fieldValue("other-names-used"), true),
-        reviewItem("Place of birth", fieldValue("place-of-birth")),
-        reviewItem("District of origin", fieldValue("district-of-origin")),
-        reviewItem("Province of origin", fieldValue("province-of-origin")),
-        reviewItem("Country of birth", fieldValue("birth-country")),
-        reviewItem("Citizenship", fieldValue("citizenship")),
-        reviewItem("Nationality at birth", fieldValue("nationality-at-birth")),
-        reviewItem("Marital status", fieldValue("marital-status")),
-        reviewItem("Date of marriage", fieldValue("date-of-marriage")),
-        reviewItem("Spouse's employer", fieldValue("spouse-employer")),
-        reviewItem("Spouse's file number", fieldValue("spouse-file-number")),
-        reviewItem("Children", fieldValue("has-children")),
-        reviewItem("Number of dependants", fieldValue("number-of-dependants")),
-        reviewItem("Children / dependants details", fieldValue("dependants-details"), true),
-        reviewItem("Province of residence", fieldValue("province-of-residence")),
-        reviewItem("Employment status", fieldValue("employment-status")),
-        reviewItem("Gender", document.querySelector('input[name="gender"]:checked')?.value || ""),
-        reviewItem("Date of birth", fieldValue("date-of-birth")),
-        reviewItem("Phone", fieldValue("phone")),
-        reviewItem("Email", fieldValue("email")),
-        reviewItem("Permanent address", fieldValue("permanent-address"), true),
-        reviewItem("Present residential address", fieldValue("residential-address"), true),
-        reviewItem("Present address valid until", fieldValue("present-address-until")),
-        reviewItem("Postal address", fieldValue("postal-address"), true),
-        reviewItem("Residence history — last five years", fieldValue("residence-history-five-years"), true),
-        reviewItem("Father", `${fieldValue("father-full-name")} | ${fieldValue("father-date-of-birth")} | ${fieldValue("father-address")}`, true),
-        reviewItem("Mother", `${fieldValue("mother-full-name")} | ${fieldValue("mother-date-of-birth")} | ${fieldValue("mother-address")}`, true),
-        reviewItem("Spouse", `${fieldValue("spouse-full-name")} | ${fieldValue("spouse-date-of-birth")} | ${fieldValue("spouse-address")}`, true),
-        reviewItem("Identification type", fieldValue("identification-type")),
-        reviewItem("Identification number", fieldValue("identification-number")),
-        reviewItem("PNG Public Service employee", fieldValue("public-service-employee")),
-        reviewItem("Current department / agency", fieldValue("public-service-agency")),
-        reviewItem("Public Service file / payroll number", fieldValue("public-service-file-number")),
-        reviewItem("Availability / notice period", fieldValue("availability-notice")),
+      const sections = [];
+
+      sections.push(
+        reviewSection("POSITION APPLIED FOR", [
+          reviewItem("Position", selectedVacancy?.positionTitle, true),
+          reviewItem("Position number / reference", normalizeReference(selectedVacancy?.referenceNumber)),
+          reviewItem("Division", selectedVacancy?.division),
+          reviewItem("Advertised location", selectedVacancy?.location, true),
+          reviewItem("Classification", selectedVacancy?.positionClass),
+          reviewItem("Base salary", selectedVacancy?.baseSalary ? formatSalary(selectedVacancy.baseSalary) : "")
+        ])
+      );
+
+      sections.push(
+        reviewSection("PERSONAL PARTICULARS", [
+          reviewItem("Surname / last name", fieldValue("last-name")),
+          reviewItem("Given name(s)", joinReviewValues([fieldValue("first-name"), fieldValue("middle-name")], " ")),
+          reviewItem("Name at birth", fieldValue("name-at-birth")),
+          reviewItem("Other names used", fieldValue("other-names-used")),
+          reviewItem("Gender", document.querySelector('input[name="gender"]:checked')?.value || ""),
+          reviewItem("Date of birth", fieldValue("date-of-birth")),
+          reviewItem("Place of birth", fieldValue("place-of-birth")),
+          reviewItem("District of origin", fieldValue("district-of-origin")),
+          reviewItem("Province of origin", fieldValue("province-of-origin")),
+          reviewItem("Country of birth", fieldValue("birth-country")),
+          reviewItem("Citizenship", fieldValue("citizenship")),
+          reviewItem("Nationality at birth", fieldValue("nationality-at-birth"))
+        ])
+      );
+
+      sections.push(
+        reviewSection("MARITAL STATUS & DEPENDANTS", [
+          reviewItem("Marital status", fieldValue("marital-status")),
+          reviewItem("Date of marriage", fieldValue("date-of-marriage")),
+          reviewItem("Spouse's employer", fieldValue("spouse-employer")),
+          reviewItem("Spouse's file number", fieldValue("spouse-file-number")),
+          reviewItem("Children", fieldValue("has-children")),
+          reviewItem("Number of dependants", fieldValue("number-of-dependants")),
+          reviewItem("Children / dependants details", fieldValue("dependants-details"), true)
+        ])
+      );
+
+      sections.push(
+        reviewSection("CONTACT & ADDRESS DETAILS", [
+          reviewItem("Phone number", fieldValue("phone")),
+          reviewItem("Email address", fieldValue("email")),
+          reviewItem("Province of residence", fieldValue("province-of-residence")),
+          reviewItem("Employment status", fieldValue("employment-status")),
+          reviewItem("Permanent address", fieldValue("permanent-address"), true),
+          reviewItem("Present residential address", fieldValue("residential-address"), true),
+          reviewItem("Present address valid until", fieldValue("present-address-until")),
+          reviewItem("Full postal address", fieldValue("postal-address"), true),
+          reviewItem("Residence history — last five years", fieldValue("residence-history-five-years"), true)
+        ])
+      );
+
+      sections.push(
+        reviewSection("CLOSE RELATIVES", [
+          reviewItem(
+            "Father",
+            joinReviewValues([
+              fieldValue("father-full-name"),
+              fieldValue("father-date-of-birth"),
+              fieldValue("father-address")
+            ]),
+            true
+          ),
+          reviewItem(
+            "Mother",
+            joinReviewValues([
+              fieldValue("mother-full-name"),
+              fieldValue("mother-date-of-birth"),
+              fieldValue("mother-address")
+            ]),
+            true
+          ),
+          reviewItem(
+            "Spouse",
+            joinReviewValues([
+              fieldValue("spouse-full-name"),
+              fieldValue("spouse-date-of-birth"),
+              fieldValue("spouse-address")
+            ]),
+            true
+          )
+        ])
+      );
+
+      sections.push(
+        reviewSection("IDENTIFICATION & RECRUITMENT DETAILS", [
+          reviewItem("Identification type", fieldValue("identification-type")),
+          reviewItem("Identification number", fieldValue("identification-number")),
+          reviewItem("PNG Public Service employee", fieldValue("public-service-employee")),
+          reviewItem("Current department / agency", fieldValue("public-service-agency")),
+          reviewItem("Public Service file / payroll number", fieldValue("public-service-file-number")),
+          reviewItem("Availability / notice period", fieldValue("availability-notice"))
+        ])
+      );
+
+      const employmentItems = [
         reviewItem("Employment records declared", `${employmentEntries.length} record(s)`),
         reviewItem("Total work experience", `${fieldValue("work-experience")} year(s)`),
         reviewItem("Relevant experience", `${fieldValue("relevant-experience")} year(s)`)
       ];
 
       employmentEntries.forEach((entry, index) => {
-        const period = [entry.startDate || "Start not provided", entry.endDate || "Current"].join(" to ");
-        reviewItems.push(
-          reviewItem(`Employment ${index + 1}`, `${entry.position} | ${entry.organisation} | ${period}`, true),
-          reviewItem(`Employment ${index + 1} employer address`, entry.employerAddress, true),
-          ...(index === 0 ? [
+        const period = joinReviewValues([entry.startDate, entry.endDate || "Current"], " to ");
+        employmentItems.push(
+          reviewItem(
+            `Employment ${index + 1} — position / employer / period`,
+            joinReviewValues([entry.position, entry.organisation, period]),
+            true
+          ),
+          reviewItem(`Employment ${index + 1} — employer address`, entry.employerAddress, true)
+        );
+
+        if (index === 0) {
+          employmentItems.push(
             reviewItem("Present salary", entry.presentSalary),
             reviewItem("Salary range", entry.salaryRange)
-          ] : []),
-          reviewItem(`Employment ${index + 1} duties`, entry.duties, true)
+          );
+        }
+
+        employmentItems.push(
+          reviewItem(`Employment ${index + 1} — description of work / duties`, entry.duties, true)
         );
       });
 
-      reviewItems.push(
-        reviewItem("Armed forces service", fieldValue("armed-forces-service")),
-        reviewItem("Branch / rank", `${fieldValue("service-branch")} | ${fieldValue("service-rank")}`, true),
-        reviewItem("Service dates", `${fieldValue("service-enlistment-date")} to ${fieldValue("service-discharge-date")}`, true),
-        reviewItem("Reason for discharge", fieldValue("service-discharge-reason"), true),
-        reviewItem("Convicted of an offence", fieldValue("convicted-offence")),
-        reviewItem("Conviction details", fieldValue("conviction-details"), true),
-        reviewItem("Previous PNG applications", fieldValue("previous-png-applications"), true),
-        reviewItem("Secondary school 1", `${fieldValue("secondary-school-1")} | ${fieldValue("secondary-exam-1")} | ${fieldValue("secondary-year-1")}`, true),
-        reviewItem("Secondary school 1 subjects/results", fieldValue("secondary-results-1"), true),
-        reviewItem("Secondary school 2", `${fieldValue("secondary-school-2")} | ${fieldValue("secondary-exam-2")} | ${fieldValue("secondary-year-2")}`, true),
-        reviewItem("Secondary school 2 subjects/results", fieldValue("secondary-results-2"), true)
+      sections.push(reviewSection("EMPLOYMENT RECORD", employmentItems));
+
+      sections.push(
+        reviewSection("SERVICE, CONVICTION & PREVIOUS APPLICATIONS", [
+          reviewItem("Armed Forces service", fieldValue("armed-forces-service")),
+          reviewItem("Branch / rank", joinReviewValues([fieldValue("service-branch"), fieldValue("service-rank")])),
+          reviewItem(
+            "Service dates",
+            joinReviewValues([fieldValue("service-enlistment-date"), fieldValue("service-discharge-date")], " to ")
+          ),
+          reviewItem("Reason for discharge", fieldValue("service-discharge-reason"), true),
+          reviewItem("Convicted of an offence", fieldValue("convicted-offence")),
+          reviewItem("Conviction details", fieldValue("conviction-details"), true),
+          reviewItem("Previous applications for positions in PNG", fieldValue("previous-png-applications"), true)
+        ])
       );
 
-      reviewItems.push(reviewItem("Qualifications declared", `${qualificationEntries.length} qualification(s)`));
+      const educationItems = [
+        reviewItem(
+          "Secondary school 1",
+          joinReviewValues([
+            fieldValue("secondary-school-1"),
+            fieldValue("secondary-exam-1"),
+            fieldValue("secondary-year-1")
+          ]),
+          true
+        ),
+        reviewItem("Secondary school 1 — subjects / results", fieldValue("secondary-results-1"), true),
+        reviewItem(
+          "Secondary school 2",
+          joinReviewValues([
+            fieldValue("secondary-school-2"),
+            fieldValue("secondary-exam-2"),
+            fieldValue("secondary-year-2")
+          ]),
+          true
+        ),
+        reviewItem("Secondary school 2 — subjects / results", fieldValue("secondary-results-2"), true),
+        reviewItem("Qualifications declared", `${qualificationEntries.length} qualification(s)`)
+      ];
+
       qualificationEntries.forEach((entry, index) => {
-        reviewItems.push(
+        educationItems.push(
           reviewItem(
             `Qualification ${index + 1}`,
-            `${entry.level} | ${entry.fieldOfStudy} | ${entry.institution} | ${entry.year} | Match: ${entry.match}`,
+            joinReviewValues([
+              entry.level,
+              entry.fieldOfStudy,
+              entry.institution,
+              entry.year,
+              entry.match ? `Match: ${entry.match}` : ""
+            ]),
             true
           )
         );
       });
 
-      reviewItems.push(
-        reviewItem("Additional qualifications / study / research", fieldValue("additional-study-research"), true),
+      educationItems.push(
+        reviewItem("Additional qualifications / further study / research", fieldValue("additional-study-research"), true),
         reviewItem("Publications", fieldValue("publications"), true),
         reviewItem("Prizes / scholarships", fieldValue("prizes-scholarships"), true),
         reviewItem("Learned societies / institutes", fieldValue("learned-societies"), true),
         reviewItem("Key relevant skills / competencies", fieldValue("relevant-skills"), true),
-        reviewItem("Professional registration / licence", fieldValue("professional-registration"), true),
-        reviewItem("Relevant training declared", trainingEntries.length ? `${trainingEntries.length} training course(s)` : "None")
+        reviewItem("Professional registration / licence", fieldValue("professional-registration"), true)
       );
+
+      sections.push(reviewSection("EDUCATION & QUALIFICATIONS", educationItems));
+
+      const trainingItems = [
+        reviewItem(
+          "Relevant training declared",
+          trainingEntries.length ? `${trainingEntries.length} training course(s)` : "None"
+        )
+      ];
+
       trainingEntries.forEach((entry, index) => {
-        reviewItems.push(
-          reviewItem(`Training ${index + 1}`, `${entry.name} | ${entry.organisation} | ${entry.period}`, true)
+        trainingItems.push(
+          reviewItem(
+            `Training ${index + 1}`,
+            joinReviewValues([entry.name, entry.organisation, entry.period]),
+            true
+          )
         );
       });
 
-      reviewItems.push(
+      trainingItems.push(
         reviewItem("Civic activities / clubs / societies", fieldValue("civic-activities"), true),
         reviewItem("Interests / sports / recreation", fieldValue("interests-sports-recreation"), true)
       );
 
-      reviewItems.push(
-        reviewItem("Referee 1", `${fieldValue("referee1-name")} | ${fieldValue("referee1-phone")} | Approach now: ${fieldValue("referee1-approach")}`, true),
-        reviewItem("Referee 2", `${fieldValue("referee2-name")} | ${fieldValue("referee2-phone")} | Approach now: ${fieldValue("referee2-approach")}`, true),
-        reviewItem("Referee 3", `${fieldValue("referee3-name")} | ${fieldValue("referee3-phone")} | Approach now: ${fieldValue("referee3-approach")}`, true),
-        reviewItem("Referee 4", `${fieldValue("referee4-name")} | ${fieldValue("referee4-phone")} | Approach now: ${fieldValue("referee4-approach")}`, true),
-        reviewItem("Identification document", fileName("identification-document"), true),
-        reviewItem("Compiled application PDF", fileName("compiled-documents"), true),
-        reviewItem("Accuracy declaration", document.getElementById("declaration-confirm").checked ? "Accepted" : "Not accepted"),
-        reviewItem("Electronic declaration name", fieldValue("digital-declaration-name"), true),
-        reviewItem("Privacy consent", document.getElementById("privacy-consent").checked ? "Accepted" : "Not accepted")
+      sections.push(reviewSection("TRAINING, ACTIVITIES & INTERESTS", trainingItems));
+
+      const refereeItems = [];
+      for (let number = 1; number <= 4; number += 1) {
+        refereeItems.push(
+          reviewItem(
+            `Referee ${number}`,
+            joinReviewValues([
+              fieldValue(`referee${number}-name`),
+              fieldValue(`referee${number}-position`),
+              fieldValue(`referee${number}-organisation`),
+              fieldValue(`referee${number}-relationship`)
+            ]),
+            true
+          ),
+          reviewItem(
+            `Referee ${number} — contact`,
+            joinReviewValues([
+              fieldValue(`referee${number}-phone`),
+              fieldValue(`referee${number}-email`),
+              fieldValue(`referee${number}-address`)
+            ]),
+            true
+          ),
+          reviewItem(
+            `Referee ${number} — may be approached now`,
+            fieldValue(`referee${number}-approach`)
+          )
+        );
+      }
+
+      sections.push(reviewSection("REFERENCES", refereeItems));
+
+      sections.push(
+        reviewSection("SUPPORTING DOCUMENTS", [
+          reviewItem("Identification document", fileName("identification-document"), true),
+          reviewItem("Compiled application PDF", fileName("compiled-documents"), true)
+        ])
       );
 
-      grid.replaceChildren(...reviewItems);
+      sections.push(
+        reviewSection("DECLARATION STATUS", [
+          reviewItem(
+            "Accuracy declaration",
+            document.getElementById("declaration-confirm").checked ? "Accepted" : "Not yet accepted"
+          ),
+          reviewItem("Electronic declaration name", fieldValue("digital-declaration-name"), true),
+          reviewItem(
+            "Privacy consent",
+            document.getElementById("privacy-consent").checked ? "Accepted" : "Not yet accepted"
+          )
+        ])
+      );
+
+      grid.replaceChildren(...sections);
     }
 
     nextButton.addEventListener("click", () => {
