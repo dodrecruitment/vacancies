@@ -4071,14 +4071,20 @@
 
               <div class="standard-section supplement-section" style="margin-top:1.25rem">
                 <div class="standard-section-label">
-                  <h3>Skills &amp; professional registration</h3>
-                  <p>Additional information to support recruitment screening and assessment.</p>
+                  <h3>Skills, knowledge &amp; professional registration</h3>
+                  <p>Additional information used for recruitment screening and Form RS 3.7 assessment.</p>
                 </div>
                 <div class="standard-section-fields form-grid">
                   <div class="field field-full">
                     <label for="relevant-skills">Key relevant skills / competencies <span class="required">*</span></label>
                     <textarea class="control" id="relevant-skills" name="relevant_skills" rows="5" maxlength="1200" placeholder="Summarise the main skills and competencies that directly relate to the advertised position." required></textarea>
                     <span class="hint">Focus on job-related technical, professional, supervisory, administrative or digital competencies.</span>
+                  </div>
+
+                  <div class="field field-full">
+                    <label for="relevant-knowledge">Relevant knowledge <span class="required">*</span></label>
+                    <textarea class="control" id="relevant-knowledge" name="relevant_knowledge" rows="5" maxlength="1600" placeholder="Describe the knowledge you have that directly relates to the advertised position, including relevant functions, technical or professional requirements, legislation, policies, procedures, systems or subject matter." required></textarea>
+                    <span class="hint">Provide job-related knowledge that can be assessed separately from your practical skills and work experience.</span>
                   </div>
 
                   <div class="field field-full">
@@ -5433,6 +5439,7 @@
 
       qualificationItems.push(
         reviewItem("Key relevant skills / competencies", fieldValue("relevant-skills"), true),
+        reviewItem("Relevant knowledge", fieldValue("relevant-knowledge"), true),
         reviewItem("Professional registration / licence", fieldValue("professional-registration"), true)
       );
 
@@ -5975,6 +5982,7 @@
           publicServiceFileNumber: fieldValue("public-service-file-number"),
           availabilityNoticePeriod: fieldValue("availability-notice"),
           relevantSkills: fieldValue("relevant-skills"),
+          relevantKnowledge: fieldValue("relevant-knowledge"),
           professionalRegistration: fieldValue("professional-registration"),
           supplementaryRecruitmentInformation: {
             identificationType: fieldValue("identification-type"),
@@ -5984,6 +5992,7 @@
             publicServiceFileNumber: fieldValue("public-service-file-number"),
             availabilityNoticePeriod: fieldValue("availability-notice"),
             relevantSkills: fieldValue("relevant-skills"),
+            relevantKnowledge: fieldValue("relevant-knowledge"),
             professionalRegistration: fieldValue("professional-registration")
           },
           employmentHistory: employmentEntries,
