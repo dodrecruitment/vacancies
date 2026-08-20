@@ -3957,6 +3957,99 @@
       }
     }
 
+  
+
+    /* FINAL SECONDARY EDUCATION UNIFORM LAYOUT — 2026-08-20 */
+    .secondary-school-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .secondary-school-card {
+      min-width: 0;
+      padding: 1rem 0 1.15rem;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    .secondary-school-card + .secondary-school-card:not([hidden]) {
+      margin-top: 0.2rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--line) !important;
+    }
+
+    .secondary-school-header {
+      margin: 0 0 0.85rem;
+      padding: 0 0 0.65rem;
+      border-bottom: 1px solid var(--line);
+      background: transparent !important;
+    }
+
+    .secondary-school-header h4 {
+      margin: 0.1rem 0 0;
+      font-size: 1rem;
+    }
+
+    .secondary-school-fields,
+    .secondary-school-card .secondary-subjects {
+      background: transparent !important;
+    }
+
+    .secondary-school-card .control,
+    .secondary-school-card input,
+    .secondary-school-card select,
+    .secondary-school-card textarea {
+      background: #fff !important;
+      box-shadow: none;
+    }
+
+    .secondary-school-card input:-webkit-autofill,
+    .secondary-school-card input:-webkit-autofill:hover,
+    .secondary-school-card input:-webkit-autofill:focus,
+    .secondary-school-card textarea:-webkit-autofill,
+    .secondary-school-card select:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+      -webkit-text-fill-color: var(--ink-900) !important;
+      transition: background-color 9999s ease-out 0s;
+    }
+
+    .secondary-school-actions {
+      margin-top: 0.35rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--line);
+      background: transparent !important;
+    }
+
+    @media screen and (max-width: 700px) {
+      .secondary-school-card {
+        padding: 0.85rem 0 1rem !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+      }
+
+      .secondary-school-card + .secondary-school-card:not([hidden]) {
+        padding-top: 1rem !important;
+        border-top: 1px solid var(--line) !important;
+      }
+
+      .secondary-school-header {
+        display: block !important;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.55rem;
+      }
+
+      .secondary-school-fields {
+        gap: 0.7rem !important;
+      }
+
+      .secondary-school-card .subject-row {
+        background: #fff !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -4818,252 +4911,6 @@
               <legend>Education and qualifications</legend>
               <p class="step-intro">Enter your highest or most relevant qualification first. Use <strong>Add another qualification</strong> only when you have additional relevant qualifications to declare.</p>
 
-              <div class="standard-section rs32-integrated-section secondary-education-section" style="margin-bottom:1.2rem">
-                <div class="standard-section-label">
-                  <h3>Secondary education</h3>
-                  <p>School, examination, year passed, core subjects and results.</p>
-                </div>
-                <div class="standard-section-fields">
-                  <div class="secondary-school-list" id="secondary-school-list">
-                  <article class="secondary-school-card" data-secondary-school="1">
-                    <div class="secondary-school-header">
-                      <div><span class="repeatable-number">School 1</span><h4>Secondary education record</h4></div>
-                    </div>
-                    <div class="secondary-school-fields">
-                      <label class="field"><span class="field-label">School name <span class="required">*</span></span><input class="control" id="secondary-school-1" type="text" maxlength="180"></label>
-                      <label class="field"><span class="field-label">Examination <span class="required">*</span></span><input class="control" id="secondary-exam-1" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
-                      <label class="field"><span class="field-label">Year passed <span class="required">*</span></span><input class="control qualification-year" id="secondary-year-1" type="number" min="1950" max="2026"></label>
-                    </div>
-                    <div class="secondary-subjects">
-                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
-                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
-                      <div class="structured-list" id="secondary1-subject-list">
-                        <div class="structured-row subject-row" data-secondary-subject="1-1">
-                          <span class="structured-number" aria-hidden="true">1</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject1" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="1-2" hidden>
-                          <span class="structured-number" aria-hidden="true">2</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject2" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="1-3" hidden>
-                          <span class="structured-number" aria-hidden="true">3</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject3" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="1-4" hidden>
-                          <span class="structured-number" aria-hidden="true">4</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject4" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="1-5" hidden>
-                          <span class="structured-number" aria-hidden="true">5</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject5" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                      </div>
-                      <div class="structured-actions compact-actions">
-                        <span class="structured-status" id="secondary1-subject-status">1 subject shown. You can add up to 4 more.</span>
-                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="1">+ Add more subject</button>
-                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="1" hidden>Remove last</button>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="secondary-school-card" data-secondary-school="2" hidden>
-                    <div class="secondary-school-header">
-                      <div><span class="repeatable-number">School 2</span><h4>Secondary education record</h4></div>
-                    </div>
-                    <div class="secondary-school-fields">
-                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-2" type="text" maxlength="180"></label>
-                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-2" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
-                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-2" type="number" min="1950" max="2026"></label>
-                    </div>
-                    <div class="secondary-subjects">
-                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
-                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
-                      <div class="structured-list" id="secondary2-subject-list">
-                        <div class="structured-row subject-row" data-secondary-subject="2-1">
-                          <span class="structured-number" aria-hidden="true">1</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject1" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="2-2" hidden>
-                          <span class="structured-number" aria-hidden="true">2</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject2" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="2-3" hidden>
-                          <span class="structured-number" aria-hidden="true">3</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject3" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="2-4" hidden>
-                          <span class="structured-number" aria-hidden="true">4</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject4" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="2-5" hidden>
-                          <span class="structured-number" aria-hidden="true">5</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject5" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                      </div>
-                      <div class="structured-actions compact-actions">
-                        <span class="structured-status" id="secondary2-subject-status">1 subject shown. You can add up to 4 more.</span>
-                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="2">+ Add more subject</button>
-                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="2" hidden>Remove last</button>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="secondary-school-card" data-secondary-school="3" hidden>
-                    <div class="secondary-school-header">
-                      <div><span class="repeatable-number">School 3</span><h4>Secondary education record</h4></div>
-                    </div>
-                    <div class="secondary-school-fields">
-                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-3" type="text" maxlength="180"></label>
-                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-3" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
-                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-3" type="number" min="1950" max="2026"></label>
-                    </div>
-                    <div class="secondary-subjects">
-                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
-                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
-                      <div class="structured-list" id="secondary3-subject-list">
-                        <div class="structured-row subject-row" data-secondary-subject="3-1">
-                          <span class="structured-number" aria-hidden="true">1</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject1" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="3-2" hidden>
-                          <span class="structured-number" aria-hidden="true">2</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject2" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="3-3" hidden>
-                          <span class="structured-number" aria-hidden="true">3</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject3" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="3-4" hidden>
-                          <span class="structured-number" aria-hidden="true">4</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject4" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="3-5" hidden>
-                          <span class="structured-number" aria-hidden="true">5</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject5" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                      </div>
-                      <div class="structured-actions compact-actions">
-                        <span class="structured-status" id="secondary3-subject-status">1 subject shown. You can add up to 4 more.</span>
-                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="3">+ Add more subject</button>
-                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="3" hidden>Remove last</button>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="secondary-school-card" data-secondary-school="4" hidden>
-                    <div class="secondary-school-header">
-                      <div><span class="repeatable-number">School 4</span><h4>Secondary education record</h4></div>
-                    </div>
-                    <div class="secondary-school-fields">
-                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-4" type="text" maxlength="180"></label>
-                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-4" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
-                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-4" type="number" min="1950" max="2026"></label>
-                    </div>
-                    <div class="secondary-subjects">
-                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
-                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
-                      <div class="structured-list" id="secondary4-subject-list">
-                        <div class="structured-row subject-row" data-secondary-subject="4-1">
-                          <span class="structured-number" aria-hidden="true">1</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject1" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="4-2" hidden>
-                          <span class="structured-number" aria-hidden="true">2</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject2" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="4-3" hidden>
-                          <span class="structured-number" aria-hidden="true">3</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject3" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="4-4" hidden>
-                          <span class="structured-number" aria-hidden="true">4</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject4" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="4-5" hidden>
-                          <span class="structured-number" aria-hidden="true">5</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject5" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                      </div>
-                      <div class="structured-actions compact-actions">
-                        <span class="structured-status" id="secondary4-subject-status">1 subject shown. You can add up to 4 more.</span>
-                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="4">+ Add more subject</button>
-                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="4" hidden>Remove last</button>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="secondary-school-card" data-secondary-school="5" hidden>
-                    <div class="secondary-school-header">
-                      <div><span class="repeatable-number">School 5</span><h4>Secondary education record</h4></div>
-                    </div>
-                    <div class="secondary-school-fields">
-                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-5" type="text" maxlength="180"></label>
-                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-5" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
-                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-5" type="number" min="1950" max="2026"></label>
-                    </div>
-                    <div class="secondary-subjects">
-                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
-                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
-                      <div class="structured-list" id="secondary5-subject-list">
-                        <div class="structured-row subject-row" data-secondary-subject="5-1">
-                          <span class="structured-number" aria-hidden="true">1</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject1" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="5-2" hidden>
-                          <span class="structured-number" aria-hidden="true">2</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject2" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="5-3" hidden>
-                          <span class="structured-number" aria-hidden="true">3</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject3" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="5-4" hidden>
-                          <span class="structured-number" aria-hidden="true">4</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject4" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                        <div class="structured-row subject-row" data-secondary-subject="5-5" hidden>
-                          <span class="structured-number" aria-hidden="true">5</span>
-                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject5" type="text" maxlength="140"></label>
-                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
-                        </div>
-                      </div>
-                      <div class="structured-actions compact-actions">
-                        <span class="structured-status" id="secondary5-subject-status">1 subject shown. You can add up to 4 more.</span>
-                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="5">+ Add more subject</button>
-                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="5" hidden>Remove last</button>
-                      </div>
-                    </div>
-                  </article>
-                  </div>
-                  <div class="structured-actions secondary-school-actions">
-                    <span class="structured-status" id="secondary-school-status">1 school entry shown. You can add up to 4 more.</span>
-                    <button class="btn btn-primary btn-small" id="add-secondary-school-button" type="button">+ Add another school</button>
-                    <button class="btn btn-secondary btn-small" id="remove-secondary-school-button" type="button" hidden>Remove last school</button>
-                  </div>
-                </div>
-              </div>
-
 
               <div class="form-grid">
                 <div class="repeatable-section">
@@ -5313,6 +5160,252 @@
                     <button class="btn btn-primary btn-small" id="add-qualification-button" type="button">+ Add another qualification</button>
                   </div>
                 </div>
+
+              <div class="standard-section field-full rs32-integrated-section secondary-education-section" style="margin-top:1.25rem; margin-bottom:1.2rem">
+                <div class="standard-section-label">
+                  <h3>Secondary education</h3>
+                  <p>School, examination, year passed, core subjects and results.</p>
+                </div>
+                <div class="standard-section-fields">
+                  <div class="secondary-school-list" id="secondary-school-list">
+                  <article class="secondary-school-card" data-secondary-school="1">
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 1</span><h4>Secondary education record</h4></div>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name <span class="required">*</span></span><input class="control" id="secondary-school-1" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination <span class="required">*</span></span><input class="control" id="secondary-exam-1" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed <span class="required">*</span></span><input class="control qualification-year" id="secondary-year-1" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary1-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="1-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="1-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="1-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="1-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="1-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary1-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="1">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="1" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="secondary-school-card" data-secondary-school="2" hidden>
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 2</span><h4>Secondary education record</h4></div>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-2" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-2" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-2" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary2-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="2-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="2-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="2-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="2-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="2-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary2-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="2">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="2" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="secondary-school-card" data-secondary-school="3" hidden>
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 3</span><h4>Secondary education record</h4></div>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-3" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-3" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-3" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary3-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="3-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="3-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="3-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="3-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="3-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary3-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="3">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="3" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="secondary-school-card" data-secondary-school="4" hidden>
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 4</span><h4>Secondary education record</h4></div>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-4" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-4" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-4" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary4-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="4-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="4-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="4-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="4-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="4-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary4-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="4">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="4" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="secondary-school-card" data-secondary-school="5" hidden>
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 5</span><h4>Secondary education record</h4></div>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-5" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-5" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-5" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary5-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="5-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="5-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="5-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="5-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="5-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary5-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="5">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="5" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  </div>
+                  <div class="structured-actions secondary-school-actions">
+                    <span class="structured-status" id="secondary-school-status">1 school entry shown. You can add up to 4 more.</span>
+                    <button class="btn btn-primary btn-small" id="add-secondary-school-button" type="button">+ Add another school</button>
+                    <button class="btn btn-secondary btn-small" id="remove-secondary-school-button" type="button" hidden>Remove last school</button>
+                  </div>
+                </div>
+              </div>
 
               <div class="standard-section field-full rs32-integrated-section academic-highlight-section" style="margin-top:1.25rem">
                 <div class="standard-section-label">
