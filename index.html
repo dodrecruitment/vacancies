@@ -801,6 +801,101 @@
       }
     }
 
+  
+
+    /* ============================================================
+       FINAL MOBILE HARDENING — 21 AUGUST 2026 RELEASE
+       Prevents page-level horizontal overflow and keeps all portal
+       content within 320px+ mobile screens.
+       ============================================================ */
+    @media screen and (max-width: 700px) {
+      html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .brand {
+        min-width: 0;
+        min-height: 0 !important;
+        padding: 0.75rem 0 !important;
+        gap: 0.4rem !important;
+      }
+
+      .brand > span,
+      .brand-name,
+      .brand-subtitle,
+      .page-title p,
+      .footer p,
+      .footer a,
+      .nav-links a {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .nav-row {
+        position: relative;
+        min-width: 0;
+      }
+
+      .nav-label {
+        min-width: 0;
+        max-width: calc(100% - 58px);
+        overflow-wrap: anywhere;
+      }
+
+      .nav-links {
+        left: 0.75rem !important;
+        right: 0.75rem !important;
+        width: auto !important;
+        max-width: calc(100% - 1.5rem) !important;
+      }
+
+      .page-title {
+        overflow: hidden;
+      }
+
+      .page-title h1 {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+
+      .footer-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .footer-links {
+        justify-content: flex-start !important;
+      }
+
+      .card,
+      .notice,
+      .contact-card,
+      main,
+      section,
+      article {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        max-width: 100%;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -815,14 +910,6 @@
           <span class="brand-subtitle">Position Vacancies and Online Applications</span>
         </span>
       </a>
-
-      <div class="header-social" aria-label="Department of Defence social media">
-        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/>
-          </svg>
-        </a>
-      </div>
     </div>
   </header>
 
@@ -851,15 +938,15 @@
           <p>Review 40 approved civilian vacancies across three Department of Defence divisions and select a position that matches your qualifications and experience.</p>
           <div class="hero-actions">
             <a class="btn btn-gold" href="vacancies_by_divisions.html">View Position Vacancies <span aria-hidden="true">→</span></a>
-            <a class="btn btn-secondary" id="home-apply-button" href="application-form.html">Apply from 24 August</a>
+            <a class="btn btn-secondary" id="home-apply-button" href="application-form.html">Apply from 21 August</a>
           </div>
         </div>
 
         <aside class="status-card" aria-labelledby="application-status-title">
           <div class="status-badge" id="application-status-badge">Applications not yet open</div>
           <h2 id="application-status-title">Current application period</h2>
-          <p id="application-status-message">Applications open on 24 August 2026 at 8:00 AM (Papua New Guinea time).</p>
-          <div class="status-date">Opens 24 August 2026, 8:00 AM · Closes 7 September 2026, 4:06 PM</div>
+          <p id="application-status-message">Applications open on 21 August 2026 at 6:00 AM (Papua New Guinea time).</p>
+          <div class="status-date">Opens 21 August 2026, 6:00 AM · Closes 7 September 2026, 4:06 PM</div>
         </aside>
       </div>
     </section>
@@ -973,7 +1060,7 @@
     }
 
 
-    const VACANCY_OPEN_AT = new Date("2026-08-24T08:00:00+10:00");
+    const VACANCY_OPEN_AT = new Date("2026-08-21T06:00:00+10:00");
     const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
     function updateVacancyStatus() {
       const now = new Date();
@@ -983,8 +1070,8 @@
 
       if (now < VACANCY_OPEN_AT) {
         badge.textContent = "Applications not yet open";
-        message.textContent = "Opening: 24 August 2026 at 8:00 AM (Papua New Guinea time).";
-        applyButton.textContent = "Apply from 24 August";
+        message.textContent = "Opening: 21 August 2026 at 6:00 AM (Papua New Guinea time).";
+        applyButton.textContent = "Apply from 21 August";
         applyButton.removeAttribute("href");
         applyButton.setAttribute("aria-disabled", "true");
         applyButton.classList.add("disabled");
