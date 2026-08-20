@@ -717,6 +717,90 @@
       .hero-copy h1 { font-size: 1.8rem; }
     }
 
+  
+
+    /* Official social media link in the masthead. */
+    .masthead .container { position: relative; }
+
+    .header-social {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: flex;
+      align-items: center;
+      transform: translateY(-50%);
+    }
+
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: #fff;
+      background: #0a66c2;
+      text-decoration: none;
+      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.24);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .linkedin-link:hover {
+      color: #fff;
+      background: #084f96;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(10, 102, 194, 0.3);
+    }
+
+    .linkedin-link svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 760px) {
+      .header-social {
+        position: static;
+        justify-content: center;
+        transform: none;
+        margin: -0.25rem 0 0.75rem;
+      }
+    }
+
+
+    /* LinkedIn placement: top-right of the portal header and top of the footer. */
+    .header-social {
+      top: 1rem;
+      right: 0;
+      transform: none;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-social .linkedin-link {
+      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.3);
+    }
+
+    @media (max-width: 760px) {
+      .header-social {
+        position: absolute;
+        top: 0.65rem;
+        right: 0;
+        margin: 0;
+        transform: none;
+      }
+
+      .footer-social {
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -731,6 +815,14 @@
           <span class="brand-subtitle">Position Vacancies and Online Applications</span>
         </span>
       </a>
+
+      <div class="header-social" aria-label="Department of Defence social media">
+        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -744,7 +836,8 @@
       <ul class="nav-links" id="primary-menu">
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="vacancies_by_divisions.html">Position Vacancies</a></li>
-        <li><a class="nav-action" href="application-form.html">Apply Now</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+<li><a class="nav-action" href="application-form.html">Apply Now</a></li>
       </ul>
     </div>
   </nav>
@@ -755,7 +848,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Department of Defence Recruitment</p>
           <h1>Position Vacancies</h1>
-          <p>Review 41 approved civilian vacancies across three Department of Defence divisions and select a position that matches your qualifications and experience.</p>
+          <p>Review 40 approved civilian vacancies across three Department of Defence divisions and select a position that matches your qualifications and experience.</p>
           <div class="hero-actions">
             <a class="btn btn-gold" href="vacancies_by_divisions.html">View Position Vacancies <span aria-hidden="true">→</span></a>
             <a class="btn btn-secondary" id="home-apply-button" href="application-form.html">Apply from 24 August</a>
@@ -772,7 +865,7 @@
     </section>
 
     <div class="container stats" aria-label="Vacancy register summary">
-      <div class="card stat"><strong>41</strong><span>Advertised positions</span></div>
+      <div class="card stat"><strong>40</strong><span>Advertised positions</span></div>
       <div class="card stat"><strong>3</strong><span>Divisions</span></div>
       <div class="card stat"><strong>Online</strong><span>searchable vacancy register</span></div>
     </div>
@@ -835,7 +928,12 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
+            <div class="footer-social" aria-label="Department of Defence social media">
+        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/></svg>
+        </a>
+      </div>
+<div class="footer-grid">
         <div>
           <h2>Department of Defence Papua New Guinea</h2>
           <p>Official online portal for advertised civilian position vacancies and applications.</p>
@@ -844,7 +942,8 @@
           <a href="index.html">Home</a>
           <a href="vacancies_by_divisions.html">View Position Vacancies</a>
           <a href="application-form.html">Application Form</a>
-        </nav>
+                  <a href="contact-us.html">Contact Us</a>
+</nav>
       </div>
       <div class="copyright">&copy; <span data-current-year></span> Department of Defence Papua New Guinea. All rights reserved.</div>
     </div>
