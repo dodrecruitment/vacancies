@@ -2904,8 +2904,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       color: #fff;
       background: #0a66c2;
@@ -2922,8 +2922,8 @@
     }
 
     .linkedin-link svg {
-      width: 21px;
-      height: 21px;
+      width: 18px;
+      height: 18px;
       fill: currentColor;
     }
 
@@ -3260,7 +3260,7 @@
           <section class="form-step" data-step="3">
             <fieldset>
               <legend>Personal and contact details</legend>
-              <p class="step-intro">Enter your core personal and contact details. The remaining employment-application particulars are completed on the Review & Declaration page.</p>
+              <p class="step-intro">Enter your personal, family, contact and related Form RS 3.2 particulars in this step. Additional RS 3.2 information is collected in the relevant Employment, Education, Training and Referee steps.</p>
 
               <div class="standard-sections">
 
@@ -3373,7 +3373,7 @@
                       <input class="control" id="number-of-dependants" name="number_of_dependants" type="number" min="0" max="30" value="0" required>
                       <span class="hint">Include children and any other persons who are financially dependent on you.</span>
                     </div>
-                    <div class="field field-full">
+                    <div class="field field-full" data-conditional-for="has-children" hidden>
                       <label for="dependants-details">Children / dependants details <span class="optional">(if applicable)</span></label>
                       <textarea class="control" id="dependants-details" name="dependants_details" rows="5" maxlength="1600" placeholder="One person per line: Full name | Relationship | Male/Female | Date of birth"></textarea>
                       <span class="hint">For children, include the information requested by Form RS 3.2. For other dependants, state the relationship.</span>
@@ -3526,11 +3526,11 @@
                         <option>To be discussed</option>
                       </select>
                     </div>
-                    <div class="field">
+                    <div class="field" data-conditional-for="public-service-employee" hidden>
                       <label for="public-service-agency">Current department / agency <span class="optional">(if applicable)</span></label>
                       <input class="control" id="public-service-agency" name="public_service_agency" type="text" maxlength="180">
                     </div>
-                    <div class="field">
+                    <div class="field" data-conditional-for="public-service-employee" hidden>
                       <label for="public-service-file-number">Public Service file / payroll number <span class="optional">(if applicable)</span></label>
                       <input class="control" id="public-service-file-number" name="public_service_file_number" type="text" maxlength="80">
                     </div>
@@ -3782,23 +3782,23 @@
                       <option value="No">No</option>
                     </select>
                   </div>
-                  <div class="field">
+                  <div class="field" data-conditional-for="armed-forces-service" hidden>
                     <label for="service-branch">Branch of service <span class="optional">(if yes)</span></label>
                     <input class="control" id="service-branch" type="text" maxlength="160">
                   </div>
-                  <div class="field">
+                  <div class="field" data-conditional-for="armed-forces-service" hidden>
                     <label for="service-rank">Rank <span class="optional">(if yes)</span></label>
                     <input class="control" id="service-rank" type="text" maxlength="100">
                   </div>
-                  <div class="field">
+                  <div class="field" data-conditional-for="armed-forces-service" hidden>
                     <label for="service-enlistment-date">Date of enlistment <span class="optional">(if yes)</span></label>
                     <input class="control" id="service-enlistment-date" type="date">
                   </div>
-                  <div class="field">
+                  <div class="field" data-conditional-for="armed-forces-service" hidden>
                     <label for="service-discharge-date">Date discharged <span class="optional">(if applicable)</span></label>
                     <input class="control" id="service-discharge-date" type="date">
                   </div>
-                  <div class="field">
+                  <div class="field" data-conditional-for="armed-forces-service" hidden>
                     <label for="service-discharge-reason">Reason for discharge <span class="optional">(if applicable)</span></label>
                     <input class="control" id="service-discharge-reason" type="text" maxlength="240">
                   </div>
@@ -3819,7 +3819,7 @@
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  <div class="field field-full">
+                  <div class="field field-full" data-conditional-for="convicted-offence" hidden>
                     <label for="conviction-details">Details <span class="optional">(if yes)</span></label>
                     <textarea class="control" id="conviction-details" rows="4" maxlength="1600" placeholder="Provide relevant details if you selected Yes."></textarea>
                   </div>
@@ -4513,38 +4513,10 @@
 
                 <div class="rs32-review-note">
                   <strong>Information already entered is carried forward automatically.</strong>
-                  <span>Complete only the additional fields shown on this page, review the full application, then make the declaration at the bottom.</span>
+                  <span>Review the information carried forward from the relevant application steps, then make the declaration at the bottom.</span>
                 </div>
 
                 <div class="review-sheet" id="review-grid"></div>
-
-                <section class="rs32-manual-section">
-                  <div class="review-section-title">PLACE OF BIRTH, ORIGIN &amp; OTHER NAMES</div>
-                  <div class="rs32-review-input-grid" id="rs32-slot-origin"></div>
-                </section>
-
-                <div id="rs32-slot-marital"></div>
-
-                <section class="rs32-manual-section">
-                  <div class="review-section-title">ADDITIONAL ADDRESS DETAILS</div>
-                  <div class="rs32-review-input-grid" id="rs32-slot-address"></div>
-                </section>
-
-                <div id="rs32-slot-relatives"></div>
-
-                <section class="rs32-manual-section">
-                  <div class="review-section-title">PRESENT SALARY DETAILS</div>
-                  <div class="rs32-review-input-grid" id="rs32-slot-employment"></div>
-                </section>
-
-                <div id="rs32-slot-background"></div>
-                <div id="rs32-slot-education"></div>
-                <div id="rs32-slot-activities"></div>
-
-                <section class="rs32-manual-section">
-                  <div class="review-section-title">REFERENCE DETAILS TO COMPLETE</div>
-                  <div id="rs32-slot-referees"></div>
-                </section>
 
                 <div class="review-declaration-section">
                   <div class="review-section-title">APPLICANT DECLARATION</div>
@@ -4694,91 +4666,56 @@
       });
     }
 
-    function organizeEmploymentApplicationReview() {
-      const moveField = (id, targetId) => {
-        const field = document.getElementById(id)?.closest(".field");
-        const target = document.getElementById(targetId);
-        if (field && target) target.appendChild(field);
-      };
+    const yesNoConditionalRules = [
+      { controllerId: "has-children", targetIds: ["dependants-details"] },
+      { controllerId: "public-service-employee", targetIds: ["public-service-agency", "public-service-file-number"] },
+      { controllerId: "armed-forces-service", targetIds: ["service-branch", "service-rank", "service-enlistment-date", "service-discharge-date", "service-discharge-reason"] },
+      { controllerId: "convicted-offence", targetIds: ["conviction-details"] }
+    ];
 
-      const moveSection = (headingText, targetId) => {
-        const target = document.getElementById(targetId);
-        if (!target) return;
+    function setConditionalFields(rule, clearWhenHidden = false) {
+      const controller = document.getElementById(rule.controllerId);
+      if (!controller) return;
 
-        const heading = [...document.querySelectorAll(".standard-section h3")]
-          .find((item) => item.textContent.trim() === headingText);
+      const shouldShow = String(controller.value || "").trim().toLowerCase() === "yes";
 
-        const section = heading?.closest(".standard-section");
-        if (section) target.appendChild(section);
-      };
+      rule.targetIds.forEach((targetId) => {
+        const control = document.getElementById(targetId);
+        const field = control?.closest(".field");
+        if (!control || !field) return;
 
-      [
-        "name-at-birth",
-        "other-names-used",
-        "place-of-birth",
-        "district-of-origin",
-        "province-of-origin",
-        "birth-country",
-        "nationality-at-birth"
-      ].forEach((id) => moveField(id, "rs32-slot-origin"));
+        field.hidden = !shouldShow;
+        control.disabled = !applicationServiceReady || !shouldShow;
 
-      moveSection("Marital status & dependants", "rs32-slot-marital");
-
-      [
-        "permanent-address",
-        "present-address-until",
-        "residence-history-five-years"
-      ].forEach((id) => moveField(id, "rs32-slot-address"));
-
-      moveSection("Close relatives", "rs32-slot-relatives");
-
-      [
-        "present-salary",
-        "salary-range"
-      ].forEach((id) => moveField(id, "rs32-slot-employment"));
-
-      [
-        "Armed forces service",
-        "Conviction disclosure",
-        "Previous applications in Papua New Guinea"
-      ].forEach((heading) => moveSection(heading, "rs32-slot-background"));
-
-      [
-        "Secondary education",
-        "Additional academic information"
-      ].forEach((heading) => moveSection(heading, "rs32-slot-education"));
-
-      [
-        "Civic activities, clubs & societies",
-        "Interests, sports & recreation"
-      ].forEach((heading) => moveSection(heading, "rs32-slot-activities"));
-
-      const refereeTarget = document.getElementById("rs32-slot-referees");
-      if (refereeTarget) {
-        for (let number = 1; number <= 3; number += 1) {
-          const group = document.createElement("div");
-          group.className = "rs32-referee-supplement";
-
-          const heading = document.createElement("h4");
-          heading.textContent = `Referee ${number} — additional details`;
-          group.appendChild(heading);
-
-          const addressField =
-            document.getElementById(`referee${number}-address`)?.closest(".field");
-          const approachField =
-            document.getElementById(`referee${number}-approach`)?.closest(".field");
-
-          if (addressField) group.appendChild(addressField);
-          if (approachField) group.appendChild(approachField);
-
-          if (group.children.length > 1) refereeTarget.appendChild(group);
+        if (!shouldShow) {
+          control.setCustomValidity("");
+          if (clearWhenHidden) {
+            if (control.matches('input[type="checkbox"], input[type="radio"]')) {
+              control.checked = false;
+            } else {
+              control.value = "";
+            }
+            updateEntryColour(control);
+          }
         }
-
-      }
+      });
     }
 
-    organizeEmploymentApplicationReview();
+    function refreshConditionalFields(clearWhenHidden = false) {
+      yesNoConditionalRules.forEach((rule) => setConditionalFields(rule, clearWhenHidden));
+    }
+
+    function initializeConditionalFields() {
+      yesNoConditionalRules.forEach((rule) => {
+        const controller = document.getElementById(rule.controllerId);
+        if (!controller) return;
+        controller.addEventListener("change", () => setConditionalFields(rule, true));
+      });
+      refreshConditionalFields(false);
+    }
+
     initializeEntryColours();
+    initializeConditionalFields();
 
     function normalizeReference(value) {
       return String(value || "").replace(/\s+/g, "");
@@ -4903,6 +4840,8 @@
         if (!card.hidden) setTrainingCardState(card, true);
       });
       updateTrainingControls();
+
+      refreshConditionalFields(false);
     }
 
     function populateDivisions() {
