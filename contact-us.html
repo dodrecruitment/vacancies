@@ -8,7 +8,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:;">
   <title>Contact Us | Department of Defence PNG</title>
-  <meta name="description" content="Contact the Department of Defence Papua New Guinea recruitment team for position vacancy and online application enquiries.">
+  <meta name="description" content="Official Department of Defence Papua New Guinea recruitment contact details, EOI addressing information, and online application submission guidance.">
   <link rel="icon" href="logo.png" type="image/png">
   <style>
     :root {
@@ -88,6 +88,30 @@
     .footer a { color:#fff; }
     .copyright { margin-top:2rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,.13); color:#adc2b8; font-size:.83rem; }
     .sr-only { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+
+    .contact-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .contact-detail { margin-top:.7rem; color:var(--green-950); font-size:1rem; font-weight:850; }
+    .contact-detail a { text-decoration-thickness:1px; text-underline-offset:3px; }
+    .guidance-section { margin-top:2.2rem; }
+    .guidance-section h2 { margin:0 0 .55rem; color:var(--green-950); font-family:Georgia,"Times New Roman",serif; font-size:clamp(1.45rem,3vw,2rem); }
+    .guidance-section > p { max-width:820px; margin:0 0 1.2rem; color:var(--ink-700); }
+    .guidance-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .guidance-card { padding:1.35rem; }
+    .guidance-card h3 { margin:0 0 .6rem; color:var(--green-950); font-family:Georgia,"Times New Roman",serif; font-size:1.2rem; }
+    .guidance-card p { margin:.35rem 0; color:var(--ink-700); }
+    .guidance-card ul, .guidance-card ol { margin:.75rem 0 0; padding-left:1.25rem; color:var(--ink-700); }
+    .guidance-card li { margin:.42rem 0; }
+    .address-block { margin-top:.65rem; color:var(--ink-900); line-height:1.6; }
+    .address-block strong { color:var(--green-950); }
+    .submission-list { margin-top:1rem; }
+    .submission-list li { margin-bottom:.65rem; }
+    .application-link { display:inline-flex; margin-top:.75rem; font-weight:850; }
+    .contact-note { margin-top:1.25rem; }
+    @media (max-width:900px) {
+      .contact-grid { grid-template-columns:1fr 1fr; }
+      .contact-grid .contact-card:last-child { grid-column:1 / -1; }
+    }
+
     @media (max-width:760px) {
       .brand { min-height:0; flex-direction:column; gap:.35rem; padding:.75rem 0 .2rem; text-align:center; }
       .brand img { width:76px; height:76px; }
@@ -98,7 +122,8 @@
       .nav-links.open { display:grid; }
       .nav-links a { padding:.75rem 1rem; }
       .nav-links .nav-action { margin:.3rem 0 0; }
-      .contact-grid, .footer-grid { grid-template-columns:1fr; }
+      .contact-grid, .guidance-grid, .footer-grid { grid-template-columns:1fr; }
+      .contact-grid .contact-card:last-child { grid-column:auto; }
       .footer-links { justify-content:flex-start; }
     }
   
@@ -176,30 +201,91 @@
         <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Contact Us</li></ol>
         <p class="eyebrow">Recruitment Enquiries</p>
         <h1>Contact Us</h1>
-        <p>Contact the Department of Defence recruitment team for enquiries about advertised civilian positions, the online application process, or application-related technical issues.</p>
+        <p>Official recruitment contact details, Expression of Interest addressing information, and online application submission guidance for Department of Defence civilian vacancies.</p>
       </div>
     </header>
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <h2>Department of Defence Recruitment</h2>
-          <p>Please include the relevant position reference number in your message whenever your enquiry concerns a specific advertised vacancy.</p>
+          <h2>Recruitment Contact</h2>
+          <p>For queries or clarification about advertised positions and the online application process, use the official recruitment contact details below. Include the relevant position reference number when your enquiry concerns a specific vacancy.</p>
         </div>
+
         <div class="contact-grid">
           <article class="card contact-card">
             <div class="contact-icon" aria-hidden="true">@</div>
-            <h3>Recruitment enquiries</h3>
-            <p>Email the recruitment team for vacancy and application enquiries.</p>
-            <p><a href="mailto:recruitment@defence.gov.pg">recruitment@defence.gov.pg</a></p>
+            <h3>Email</h3>
+            <p>Recruitment enquiries and clarification.</p>
+            <p class="contact-detail"><a href="mailto:dodrecruitment@defence.gov.pg">dodrecruitment@defence.gov.pg</a></p>
           </article>
+
+          <article class="card contact-card">
+            <div class="contact-icon" aria-hidden="true">☎</div>
+            <h3>Phone</h3>
+            <p>Department of Defence recruitment contact.</p>
+            <p class="contact-detail"><a href="tel:+6753242198">324 2198</a></p>
+          </article>
+
           <article class="card contact-card">
             <div class="contact-icon" aria-hidden="true">in</div>
             <h3>LinkedIn</h3>
             <p>Visit the Department of Defence Papua New Guinea LinkedIn profile for official professional updates.</p>
-            <p><a href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">Open Department of Defence LinkedIn</a></p>
+            <p class="contact-detail"><a href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">Open LinkedIn profile</a></p>
           </article>
         </div>
-        <div class="contact-note"><strong>When reporting a portal issue:</strong> include your name, the position reference number, the page where the issue occurred, and a screenshot if available. Do not email passwords or other account credentials.</div>
+
+        <section class="guidance-section" aria-labelledby="application-guidance-title">
+          <h2 id="application-guidance-title">Application and EOI Guidance</h2>
+          <p>The information below matches the instructions provided in the online application form.</p>
+
+          <div class="guidance-grid">
+            <article class="card guidance-card">
+              <h3>Online application process</h3>
+              <p>All interested applicants are required to submit their applications strictly through the official online recruitment portal.</p>
+              <p><strong>Form RS 3.2 is completed electronically in the online application.</strong> A separate RS 3.2 form does not need to be completed and uploaded unless the Department specifically requests it.</p>
+              <a class="application-link" href="application-form.html">Open the online application form</a>
+            </article>
+
+            <article class="card guidance-card">
+              <h3>EOI address</h3>
+              <div class="address-block">
+                <strong>Addressed to:</strong><br>
+                Secretary<br>
+                Department of Defence<br>
+                Free Mail Bag, Boroko<br>
+                Port Moresby, N.C.D
+              </div>
+              <div class="address-block">
+                <strong>Attention:</strong><br>
+                First Assistant Secretary<br>
+                Human Resource Management
+              </div>
+            </article>
+
+            <article class="card guidance-card">
+              <h3>Required documents</h3>
+              <p>Your compiled application should contain:</p>
+              <ul>
+                <li><strong>Expression of Interest (EOI)</strong></li>
+                <li><strong>Curriculum Vitae (CV)</strong></li>
+                <li><strong>Certificates of Educational Qualifications</strong></li>
+                <li><strong>References</strong></li>
+                <li><strong>Other relevant supporting documents</strong>, including one valid form of identification such as a Passport, PNG Driver's Licence, NID, Work ID or Student ID.</li>
+              </ul>
+            </article>
+
+            <article class="card guidance-card">
+              <h3>Submission format</h3>
+              <ol class="submission-list">
+                <li><strong>EOI subject line:</strong> state the Position Reference Number and Designation/Position Title.</li>
+                <li><strong>Compiled application:</strong> combine all application documents into one (1) PDF file not exceeding <strong>10 MB</strong>.</li>
+                <li><strong>PDF filename:</strong> use <strong>Reference Number_Position Title_Your Surname</strong>.</li>
+              </ol>
+            </article>
+          </div>
+        </section>
+
+        <div class="contact-note"><strong>When reporting an online portal issue:</strong> include your name, the position reference number, the page where the issue occurred, and a screenshot if available. Do not send passwords or other account credentials.</div>
       </div>
     </section>
   </main>
