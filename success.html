@@ -6,19 +6,16 @@
   <meta name="theme-color" content="#0b4b38">
   <meta name="color-scheme" content="light">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self';">
-  <title>Application Confirmation | Department of Defence PNG</title>
-  <meta name="description" content="Confirmed Department of Defence Papua New Guinea position vacancy application submission.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:;">
+  <title>Contact Us | Department of Defence PNG</title>
+  <meta name="description" content="Contact the Department of Defence Papua New Guinea recruitment team for position vacancy and online application enquiries.">
   <link rel="icon" href="logo.png" type="image/png">
-
   <style>
     :root {
       --green-950: #05291f;
       --green-900: #08392b;
       --green-800: #0b4b38;
       --green-700: #126447;
-      --green-600: #187b55;
       --green-100: #e8f2ed;
       --green-50: #f4f8f6;
       --gold-500: #c9a34d;
@@ -30,530 +27,81 @@
       --line: #d8e2dc;
       --surface: #ffffff;
       --page: #eef3f0;
-      --danger: #a61f2b;
-      --shadow: 0 18px 48px rgba(5, 41, 31, 0.14);
-      --radius-sm: 0.6rem;
-      --radius: 1rem;
-      --max-width: 960px;
+      --shadow-sm: 0 8px 24px rgba(5, 41, 31, 0.09);
+      --radius-sm: 0.55rem;
+      --radius: 0.9rem;
+      --max-width: 1200px;
     }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink-900);
-      background: var(--page);
-      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--green-700);
-    }
-
-    button {
-      font: inherit;
-    }
-
-    :focus-visible {
-      outline: 3px solid #e3bd52;
-      outline-offset: 3px;
-    }
-
-    .skip-link {
-      position: fixed;
-      z-index: 1000;
-      left: 1rem;
-      top: 1rem;
-      transform: translateY(-180%);
-      padding: 0.7rem 1rem;
-      border-radius: var(--radius-sm);
-      color: #fff;
-      background: var(--green-950);
-      font-weight: 800;
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 2rem));
-      margin-inline: auto;
-    }
-
-    .masthead {
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      min-height: 126px;
-      padding: 1rem 0;
-      color: var(--green-950);
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 94px;
-      height: 94px;
-      object-fit: contain;
-      filter: drop-shadow(0 5px 10px rgba(5, 41, 31, 0.14));
-    }
-
-    .brand-kicker {
-      display: block;
-      color: var(--red-700);
-      font-size: 0.74rem;
-      font-weight: 850;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .brand-name {
-      display: block;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.45rem, 4vw, 2.2rem);
-      font-weight: 800;
-      line-height: 1.1;
-    }
-
-    .brand-subtitle {
-      display: block;
-      margin-top: 0.25rem;
-      color: var(--ink-700);
-      font-size: 0.9rem;
-      font-weight: 650;
-    }
-
-    .site-nav {
-      color: #fff;
-      background: var(--green-800);
-      box-shadow: 0 5px 18px rgba(5, 41, 31, 0.18);
-    }
-
-    .nav-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 58px;
-    }
-
-    .nav-label {
-      color: #fff;
-      font-size: 0.86rem;
-      font-weight: 850;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 0.3rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nav-links a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 40px;
-      padding: 0.5rem 0.8rem;
-      border-radius: 0.45rem;
-      color: #fff;
-      font-weight: 720;
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.13);
-    }
-
-    main {
-      padding: clamp(2.5rem, 7vw, 5rem) 0;
-    }
-
-    .card {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .status-band {
-      height: 8px;
-      background: linear-gradient(
-        90deg,
-        var(--green-700),
-        var(--gold-500)
-      );
-    }
-
-    .content {
-      padding: clamp(1.35rem, 5vw, 3rem);
-    }
-
-    .icon {
-      display: grid;
-      place-items: center;
-      width: 68px;
-      height: 68px;
-      margin: 0 auto 1.1rem;
-      border-radius: 50%;
-      color: #fff;
-      background: var(--green-700);
-      font-size: 2rem;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(18, 100, 71, 0.22);
-    }
-
-    h1 {
-      margin: 0;
-      color: var(--green-950);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.75rem, 5vw, 2.65rem);
-      line-height: 1.12;
-      text-align: center;
-    }
-
-    .lead {
-      max-width: 690px;
-      margin: 0.8rem auto 0;
-      color: var(--ink-700);
-      text-align: center;
-    }
-
-    .official-reference {
-      margin: 1.6rem 0 0;
-      padding: 1.2rem;
-      border: 1px solid #9fcdb6;
-      border-left: 6px solid var(--green-600);
-      border-radius: var(--radius-sm);
-      background: #edf8f2;
-      text-align: center;
-    }
-
-    .official-reference .label {
-      color: var(--green-900);
-    }
-
-    .official-reference .reference-value {
-      margin-top: 0.3rem;
-      color: var(--green-950);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.3rem, 4vw, 1.9rem);
-      font-weight: 900;
-      letter-spacing: 0.02em;
-      overflow-wrap: anywhere;
-    }
-
-    .confirmation {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin: 1.2rem 0 1.5rem;
-    }
-
-    .item {
-      min-width: 0;
-      padding: 0.85rem;
-      border: 1px solid var(--line);
-      border-radius: 0.55rem;
-      background: #f9fbfa;
-    }
-
-    .item.full {
-      grid-column: 1 / -1;
-    }
-
-    .label {
-      color: var(--ink-500);
-      font-size: 0.7rem;
-      font-weight: 850;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .value {
-      margin-top: 0.2rem;
-      overflow-wrap: anywhere;
-      font-weight: 750;
-    }
-
-    .notice {
-      padding: 1rem;
-      border: 1px solid #a9d2bd;
-      border-left: 5px solid var(--green-700);
-      border-radius: 0.6rem;
-      color: var(--green-950);
-      background: #edf8f2;
-    }
-
-    .notice strong {
-      display: inline-block;
-      margin-bottom: 0.25rem;
-    }
-
-    .notice.error {
-      border-color: #e6a8ae;
-      border-left-color: var(--danger);
-      color: #721c24;
-      background: #fff2f3;
-    }
-
-    .technical-details {
-      margin-top: 1rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      background: var(--green-50);
-    }
-
-    .technical-details summary {
-      padding: 0.85rem 1rem;
-      color: var(--green-900);
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .technical-grid {
-      display: grid;
-      gap: 0.65rem;
-      padding: 0 1rem 1rem;
-    }
-
-    .technical-item {
-      padding: 0.7rem;
-      border: 1px solid var(--line);
-      border-radius: 0.45rem;
-      background: #fff;
-    }
-
-    .technical-value {
-      margin-top: 0.2rem;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 0.78rem;
-      overflow-wrap: anywhere;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0.7rem 1.05rem;
-      border: 1px solid transparent;
-      border-radius: 0.5rem;
-      font-weight: 800;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      color: #fff;
-      background: var(--green-700);
-    }
-
-    .btn-primary:hover {
-      color: #fff;
-      background: var(--green-800);
-    }
-
-    .btn-secondary {
-      color: var(--green-900);
-      border-color: #9bb0a5;
-      background: #fff;
-    }
-
-    .btn-secondary:hover {
-      background: var(--green-50);
-    }
-
-    .footer {
-      padding: 2rem 0;
-      color: #d9e7e0;
-      background: var(--green-950);
-      text-align: center;
-    }
-
-    .footer p {
-      margin: 0.3rem 0;
-      font-size: 0.82rem;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(100% - 1rem, var(--max-width));
-      }
-
-      .brand {
-        min-height: 0;
-        flex-direction: column;
-        justify-content: center;
-        gap: 0.35rem;
-        padding: 0.75rem 0;
-        text-align: center;
-      }
-
-      .brand img {
-        width: 76px;
-        height: 76px;
-      }
-
-      .brand-subtitle {
-        font-size: 0.78rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .confirmation {
-        grid-template-columns: 1fr;
-      }
-
-      .item.full {
-        grid-column: auto;
-      }
-
-      .content {
-        padding: 1.2rem;
-      }
-
-      .actions {
-        display: grid;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-
-    @media print {
-      @page {
-        margin: 14mm;
-      }
-
-      body {
-        color: #000;
-        background: #fff;
-      }
-
-      .site-nav,
-      .actions,
-      .footer,
-      .skip-link {
-        display: none !important;
-      }
-
-      .masthead {
-        border: 0;
-      }
-
-      main {
-        padding: 1rem 0;
-      }
-
-      .container {
-        width: 100%;
-      }
-
-      .card {
-        border: 1px solid #999;
-        box-shadow: none;
-      }
-
-      .technical-details {
-        display: block;
-      }
-
-      .technical-details summary {
-        list-style: none;
-      }
-
-      .technical-details .technical-grid {
-        display: grid;
-      }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; min-height:100vh; color:var(--ink-900); background:var(--page); font-family:Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+    a { color:var(--green-700); }
+    :focus-visible { outline:3px solid #e3bd52; outline-offset:3px; }
+    .container { width:min(var(--max-width), calc(100% - 2rem)); margin-inline:auto; }
+    .skip-link { position:fixed; z-index:1000; left:1rem; top:1rem; transform:translateY(-180%); padding:.7rem 1rem; border-radius:var(--radius-sm); color:#fff; background:var(--green-950); font-weight:800; }
+    .skip-link:focus { transform:translateY(0); }
+    .masthead { background:#fff; border-bottom:1px solid var(--line); }
+    .masthead .container { position:relative; }
+    .brand { display:flex; align-items:center; justify-content:center; gap:1rem; min-height:132px; padding:1rem 0; color:var(--green-950); text-decoration:none; }
+    .brand img { width:104px; height:104px; object-fit:contain; filter:drop-shadow(0 5px 10px rgba(5,41,31,.16)); }
+    .brand-kicker { display:block; color:var(--red-700); font-size:.76rem; font-weight:850; letter-spacing:.15em; text-transform:uppercase; }
+    .brand-name { display:block; margin-top:.15rem; font-family:Georgia,"Times New Roman",serif; font-size:clamp(1.55rem,3vw,2.35rem); font-weight:800; line-height:1.08; }
+    .brand-subtitle { display:block; margin-top:.32rem; color:var(--ink-700); font-size:.92rem; font-weight:650; }
+    .header-social { position:absolute; top:50%; right:0; display:flex; align-items:center; transform:translateY(-50%); }
+    .linkedin-link { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; color:#fff; background:#0a66c2; text-decoration:none; box-shadow:0 7px 18px rgba(10,102,194,.24); transition:transform 160ms ease, background 160ms ease; }
+    .linkedin-link:hover { color:#fff; background:#084f96; transform:translateY(-1px); }
+    .linkedin-link svg { width:18px; height:18px; fill:currentColor; }
+    .site-nav { position:sticky; z-index:100; top:0; color:#fff; background:var(--green-800); box-shadow:0 5px 18px rgba(5,41,31,.18); }
+    .nav-row { display:flex; align-items:center; justify-content:space-between; min-height:62px; }
+    .nav-label { color:#fff; font-size:.9rem; font-weight:850; letter-spacing:.04em; text-decoration:none; text-transform:uppercase; }
+    .nav-links { display:flex; align-items:center; gap:.25rem; margin:0; padding:0; list-style:none; }
+    .nav-links a { display:inline-flex; align-items:center; min-height:42px; padding:.55rem .85rem; border-radius:.45rem; color:#fff; font-weight:720; text-decoration:none; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { background:rgba(255,255,255,.13); }
+    .nav-links .nav-action { margin-left:.4rem; color:var(--green-950); background:var(--gold-500); }
+    .menu-button { display:none; align-items:center; justify-content:center; width:44px; height:44px; border:1px solid rgba(255,255,255,.35); border-radius:.5rem; color:#fff; background:transparent; cursor:pointer; }
+    .menu-icon, .menu-icon::before, .menu-icon::after { display:block; width:21px; height:2px; background:currentColor; content:""; }
+    .menu-icon { position:relative; } .menu-icon::before { position:absolute; top:-7px; } .menu-icon::after { position:absolute; top:7px; }
+    .page-title { padding:3.2rem 0; color:#fff; background:linear-gradient(112deg,rgba(5,41,31,.96),rgba(11,75,56,.86)), url("background.jpg") center 45% / cover; }
+    .breadcrumb { display:flex; flex-wrap:wrap; gap:.45rem; margin:0 0 1rem; padding:0; color:#d9e8e0; font-size:.85rem; list-style:none; }
+    .breadcrumb a { color:#fff; }
+    .eyebrow { margin:0 0 .65rem; color:var(--gold-200); font-size:.78rem; font-weight:850; letter-spacing:.15em; text-transform:uppercase; }
+    h1,h2,h3 { line-height:1.18; }
+    .page-title h1 { margin:0; font-family:Georgia,"Times New Roman",serif; font-size:clamp(2.1rem,5vw,3.75rem); letter-spacing:-.035em; }
+    .page-title p { max-width:760px; margin:1rem 0 0; color:#e9f1ed; font-size:clamp(1rem,2vw,1.18rem); }
+    .section { padding:4rem 0; }
+    .section-heading { max-width:760px; margin-bottom:1.8rem; }
+    .section-heading h2 { margin:0; color:var(--green-950); font-family:Georgia,"Times New Roman",serif; font-size:clamp(1.65rem,3vw,2.35rem); }
+    .section-heading p { margin:.65rem 0 0; color:var(--ink-700); }
+    .contact-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .card { border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow-sm); }
+    .contact-card { padding:1.35rem; }
+    .contact-card h3 { margin:0 0 .45rem; color:var(--green-950); font-family:Georgia,"Times New Roman",serif; font-size:1.35rem; }
+    .contact-card p { margin:.35rem 0; color:var(--ink-700); }
+    .contact-card a { font-weight:800; overflow-wrap:anywhere; }
+    .contact-icon { display:grid; place-items:center; width:44px; height:44px; margin-bottom:.9rem; border-radius:50%; color:#fff; background:var(--green-700); font-weight:900; }
+    .contact-note { margin-top:1rem; padding:1rem 1.1rem; border:1px solid #a9d2bd; border-left:5px solid var(--green-700); border-radius:var(--radius-sm); color:var(--green-950); background:#edf8f2; }
+    .footer { padding:2.6rem 0 1.6rem; color:#dbe7e1; background:var(--green-950); }
+    .footer-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:2rem; }
+    .footer h2 { margin:0 0 .6rem; color:#fff; font-family:Georgia,"Times New Roman",serif; font-size:1.25rem; }
+    .footer p { max-width:680px; margin:0; color:#c8d8d0; }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.8rem 1.2rem; }
+    .footer a { color:#fff; }
+    .copyright { margin-top:2rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,.13); color:#adc2b8; font-size:.83rem; }
+    .sr-only { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+    @media (max-width:760px) {
+      .brand { min-height:0; flex-direction:column; gap:.35rem; padding:.75rem 0 .2rem; text-align:center; }
+      .brand img { width:76px; height:76px; }
+      .brand-subtitle { font-size:.78rem; }
+      .header-social { position:static; justify-content:center; transform:none; margin:.25rem 0 .75rem; }
+      .menu-button { display:inline-flex; }
+      .nav-links { display:none; position:absolute; left:1rem; right:1rem; top:calc(100% + .45rem); padding:.55rem; border-radius:.7rem; background:var(--green-900); box-shadow:0 14px 25px rgba(5,41,31,.25); }
+      .nav-links.open { display:grid; }
+      .nav-links a { padding:.75rem 1rem; }
+      .nav-links .nav-action { margin:.3rem 0 0; }
+      .contact-grid, .footer-grid { grid-template-columns:1fr; }
+      .footer-links { justify-content:flex-start; }
     }
   
-
-    /* Official social media link in the masthead. */
-    .masthead .container { position: relative; }
-
-    .header-social {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      display: flex;
-      align-items: center;
-      transform: translateY(-50%);
-    }
-
-    .linkedin-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      color: #fff;
-      background: #0a66c2;
-      text-decoration: none;
-      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.24);
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    }
-
-    .linkedin-link:hover {
-      color: #fff;
-      background: #084f96;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(10, 102, 194, 0.3);
-    }
-
-    .linkedin-link svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-    }
-
-    @media (max-width: 760px) {
-      .header-social {
-        position: static;
-        justify-content: center;
-        transform: none;
-        margin: -0.25rem 0 0.75rem;
-      }
-    }
-
-
     /* LinkedIn placement: top-right of the portal header and top of the footer. */
     .header-social {
       top: 1rem;
@@ -589,181 +137,72 @@
 
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
   <header class="masthead">
     <div class="container">
-      <a
-        class="brand"
-        href="index.html"
-        aria-label="Department of Defence recruitment portal home"
-      >
-        <img
-          src="logo.png"
-          alt="Department of Defence Papua New Guinea emblem"
-          width="94"
-          height="94"
-          onerror="this.hidden=true"
-        >
+      <a class="brand" href="index.html" aria-label="Department of Defence recruitment portal home">
+        <img src="logo.png" alt="Department of Defence Papua New Guinea emblem" width="104" height="104">
         <span>
           <span class="brand-kicker">Papua New Guinea</span>
           <span class="brand-name">Department of Defence</span>
-          <span class="brand-subtitle">
-            Position Vacancies and Online Applications
-          </span>
+          <span class="brand-subtitle">Position Vacancies and Online Applications</span>
         </span>
       </a>
-
       <div class="header-social" aria-label="Department of Defence social media">
         <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/></svg>
         </a>
       </div>
     </div>
   </header>
-
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="container nav-row">
       <a class="nav-label" href="index.html">Recruitment Portal</a>
-      <ul class="nav-links">
+      <button class="menu-button" type="button" aria-controls="primary-menu" aria-expanded="false">
+        <span class="sr-only">Open navigation menu</span><span class="menu-icon" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="primary-menu">
         <li><a href="index.html">Home</a></li>
-        <li>
-          <a href="vacancies_by_divisions.html">Position Vacancies</a>
-        </li>
-              <li><a href="contact-us.html">Contact Us</a></li>
-</ul>
+        <li><a href="vacancies_by_divisions.html">Position Vacancies</a></li>
+        <li><a href="contact-us.html" aria-current="page">Contact Us</a></li>
+        <li><a class="nav-action" href="application-form.html">Apply Online</a></li>
+      </ul>
     </div>
   </nav>
-
   <main id="main-content">
-    <div class="container">
-      <section class="card" aria-labelledby="page-title">
-        <div class="status-band"></div>
-
-        <div class="content">
-          <div class="icon" id="status-icon" aria-hidden="true">✓</div>
-
-          <h1 id="page-title">Application received</h1>
-
-          <p class="lead" id="page-message">
-            Your submission has been recorded successfully by the Department of Defence.
-          </p>
-
-          <div class="official-reference" id="official-reference-panel">
-            <div class="label">Official application reference</div>
-            <div
-              class="reference-value"
-              id="application-reference"
-              aria-live="polite"
-            ></div>
-          </div>
-
-          <div class="confirmation" id="confirmation-details">
-            <div class="item">
-              <div class="label">Applicant</div>
-              <div class="value" id="applicant-name"></div>
-            </div>
-
-            <div class="item">
-              <div class="label">Submitted</div>
-              <div class="value" id="submitted-at"></div>
-            </div>
-
-            <div class="item full">
-              <div class="label">Position</div>
-              <div class="value" id="position"></div>
-            </div>
-
-            <div class="item">
-              <div class="label">Position reference</div>
-              <div class="value" id="position-reference"></div>
-            </div>
-
-            <div class="item">
-              <div class="label">Division</div>
-              <div class="value" id="division"></div>
-            </div>
-
-            <div class="item full">
-              <div class="label">Advertised location</div>
-              <div class="value" id="position-location"></div>
-            </div>
-
-            <div class="item">
-              <div class="label">Classification</div>
-              <div class="value" id="position-class"></div>
-            </div>
-
-            <div class="item">
-              <div class="label">Base salary</div>
-              <div class="value" id="base-salary"></div>
-            </div>
-
-            <div class="item full">
-              <div class="label">Applicant email</div>
-              <div class="value" id="email"></div>
-            </div>
-          </div>
-
-          <div class="notice" id="confirmation-notice">
-            <strong>What happens next</strong><br>
-            An acknowledgement email has been queued to the address shown above.
-            Keep the official reference for recruitment enquiries. Receipt of this
-            confirmation does not mean the application has been shortlisted.
-          </div>
-
-          <details class="technical-details" id="technical-details">
-            <summary>Technical receipt details</summary>
-            <div class="technical-grid">
-              <div class="technical-item">
-                <div class="label">Submission reference</div>
-                <div class="technical-value" id="submission-id"></div>
-              </div>
-
-              <div class="technical-item">
-                <div class="label">Application record ID</div>
-                <div class="technical-value" id="application-id"></div>
-              </div>
-
-              <div class="technical-item">
-                <div class="label">Receipt verification signature</div>
-                <div class="technical-value" id="receipt-signature"></div>
-              </div>
-            </div>
-          </details>
-
-          <div class="actions">
-            <a
-              class="btn btn-primary"
-              href="vacancies_by_divisions.html"
-            >
-              View Position Vacancies
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="application-form.html"
-            >
-              Submit another application
-            </a>
-
-            <button
-              class="btn btn-secondary"
-              type="button"
-              id="print-button"
-            >
-              Print confirmation
-            </button>
-          </div>
+    <header class="page-title">
+      <div class="container">
+        <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Contact Us</li></ol>
+        <p class="eyebrow">Recruitment Enquiries</p>
+        <h1>Contact Us</h1>
+        <p>Contact the Department of Defence recruitment team for enquiries about advertised civilian positions, the online application process, or application-related technical issues.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Department of Defence Recruitment</h2>
+          <p>Please include the relevant position reference number in your message whenever your enquiry concerns a specific advertised vacancy.</p>
         </div>
-      </section>
-    </div>
+        <div class="contact-grid">
+          <article class="card contact-card">
+            <div class="contact-icon" aria-hidden="true">@</div>
+            <h3>Recruitment enquiries</h3>
+            <p>Email the recruitment team for vacancy and application enquiries.</p>
+            <p><a href="mailto:recruitment@defence.gov.pg">recruitment@defence.gov.pg</a></p>
+          </article>
+          <article class="card contact-card">
+            <div class="contact-icon" aria-hidden="true">in</div>
+            <h3>LinkedIn</h3>
+            <p>Visit the Department of Defence Papua New Guinea LinkedIn profile for official professional updates.</p>
+            <p><a href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">Open Department of Defence LinkedIn</a></p>
+          </article>
+        </div>
+        <div class="contact-note"><strong>When reporting a portal issue:</strong> include your name, the position reference number, the page where the issue occurred, and a screenshot if available. Do not email passwords or other account credentials.</div>
+      </div>
+    </section>
   </main>
-
   <footer class="footer">
     <div class="container">
             <div class="footer-social" aria-label="Department of Defence social media">
@@ -771,148 +210,26 @@
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/></svg>
         </a>
       </div>
-<strong>Department of Defence Papua New Guinea</strong>
-      <p>
-        &copy; <span id="year"></span> Official Recruitment Portal
-      </p>
+<div class="footer-grid">
+        <div><h2>Department of Defence Papua New Guinea</h2><p>Official online portal for advertised civilian position vacancies and applications.</p></div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a><a href="vacancies_by_divisions.html">Vacancy Register</a><a href="application-form.html">Application Form</a><a href="contact-us.html">Contact Us</a>
+        </nav>
+      </div>
+      <div class="copyright">&copy; <span data-current-year></span> Department of Defence Papua New Guinea. All rights reserved.</div>
     </div>
   </footer>
-
   <script>
-    "use strict";
-
-    const RECEIPT_STORAGE_KEY = "dodVacancyApplicationReceipt";
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    function readConfirmedApplication() {
-      try {
-        const rawValue =
-          sessionStorage.getItem(RECEIPT_STORAGE_KEY) || "null";
-        const value = JSON.parse(rawValue);
-
-        if (
-          !value ||
-          value.backendConfirmed !== true ||
-          !value.submissionId ||
-          !value.applicationReference
-        ) {
-          return null;
-        }
-
-        return value;
-      } catch (error) {
-        console.error("Unable to read the confirmed receipt.", error);
-        return null;
-      }
+    document.querySelectorAll("[data-current-year]").forEach((element) => { element.textContent = new Date().getFullYear(); });
+    const menuButton = document.querySelector(".menu-button");
+    const menu = document.getElementById("primary-menu");
+    if (menuButton && menu) {
+      menuButton.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+      menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => { menu.classList.remove("open"); menuButton.setAttribute("aria-expanded", "false"); }));
     }
-
-    function formatDate(value) {
-      const date = new Date(value);
-
-      if (Number.isNaN(date.getTime())) {
-        return value || "Not available";
-      }
-
-      return new Intl.DateTimeFormat("en-PG", {
-        timeZone: "Pacific/Port_Moresby",
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true,
-        timeZoneName: "short"
-      }).format(date);
-    }
-
-    function formatSalary(value) {
-      const amount = Number(value);
-      return Number.isFinite(amount) ? `K${amount.toLocaleString("en-PG")}` : String(value || "");
-    }
-
-    function setText(id, value, fallback = "Not available") {
-      const element = document.getElementById(id);
-
-      if (element) {
-        element.textContent =
-          String(value || "").trim() || fallback;
-      }
-    }
-
-    function displayConfirmedApplication(application) {
-      setText(
-        "application-reference",
-        application.applicationReference
-      );
-      setText(
-        "applicant-name",
-        `${application.firstName || ""} ${application.lastName || ""}`
-      );
-      setText(
-        "submitted-at",
-        formatDate(application.submittedAt)
-      );
-      setText("position", application.positionTitle);
-      setText("position-reference", application.referenceNumber);
-      setText("division", application.division);
-      setText("position-location", application.positionLocation);
-      setText("position-class", application.positionClass);
-      setText("base-salary", application.baseSalary ? formatSalary(application.baseSalary) : "");
-      setText("email", application.email);
-      setText("submission-id", application.submissionId);
-      setText("application-id", application.applicationId);
-      setText("receipt-signature", application.receiptSignature);
-
-      document.title =
-        `${application.applicationReference} | Application Confirmation`;
-    }
-
-    function displayMissingReceiptState() {
-      const statusIcon = document.getElementById("status-icon");
-      statusIcon.textContent = "!";
-      statusIcon.style.background = "var(--danger)";
-
-      document.getElementById("page-title").textContent =
-        "No confirmed submission found";
-
-      document.getElementById("page-message").textContent =
-        "This page only confirms an application after the recruitment " +
-        "backend records it successfully.";
-
-      document.getElementById(
-        "official-reference-panel"
-      ).hidden = true;
-
-      document.getElementById("confirmation-details").hidden = true;
-      document.getElementById("technical-details").hidden = true;
-
-      const notice =
-        document.getElementById("confirmation-notice");
-
-      notice.classList.add("error");
-      notice.innerHTML =
-        "<strong>Application not confirmed</strong><br>" +
-        "Return to the application form and submit again. " +
-        "Do not treat this page as evidence of a completed application.";
-
-      document.querySelector(".actions").innerHTML =
-        '<a class="btn btn-primary" href="application-form.html">' +
-        "Open application form</a>";
-    }
-
-    const application = readConfirmedApplication();
-
-    if (application) {
-      displayConfirmedApplication(application);
-    } else {
-      displayMissingReceiptState();
-    }
-
-    document
-      .getElementById("print-button")
-      ?.addEventListener("click", () => window.print());
   </script>
 </body>
 </html>
