@@ -3194,6 +3194,95 @@
       }
     }
 
+
+
+    /* ============================================================
+       APPLICATION STEP BAR — FINAL ALIGNMENT FIX
+       Equal-width tabs, fixed vertical rhythm, no mid-word wrapping.
+       ============================================================ */
+    .step-tabs {
+      display: grid !important;
+      grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+      align-items: stretch;
+      overflow: visible;
+      padding: 0 0.9rem;
+    }
+
+    .step-tabs li {
+      display: grid !important;
+      grid-template-rows: 1.05rem minmax(2.7rem, auto);
+      align-content: center;
+      justify-items: center;
+      min-width: 0;
+      min-height: 70px;
+      padding: 0.62rem 0.28rem 0.55rem;
+      border-right: 0;
+      text-align: center;
+      white-space: normal !important;
+      word-break: normal !important;
+      overflow-wrap: normal !important;
+      hyphens: none !important;
+    }
+
+    .step-tabs .step-number {
+      display: block;
+      width: 100%;
+      color: inherit;
+      font-size: 0.66rem;
+      font-weight: 850;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .step-tabs .step-label {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      max-width: 100%;
+      color: inherit;
+      font-size: 0.66rem;
+      font-weight: 780;
+      line-height: 1.2;
+      text-align: center;
+      white-space: normal;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none;
+    }
+
+    @media screen and (min-width: 1000px) {
+      .step-tabs li {
+        min-height: 66px;
+        padding-inline: 0.45rem;
+      }
+
+      .step-tabs .step-number,
+      .step-tabs .step-label {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media screen and (max-width: 820px) and (min-width: 701px) {
+      .step-tabs {
+        padding-inline: 0.35rem;
+      }
+
+      .step-tabs li {
+        min-height: 72px;
+        padding-inline: 0.18rem;
+      }
+
+      .step-tabs .step-number {
+        font-size: 0.61rem;
+      }
+
+      .step-tabs .step-label {
+        font-size: 0.61rem;
+        line-height: 1.16;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3265,14 +3354,14 @@
         </div>
 
         <ol class="step-tabs" aria-label="Application steps">
-          <li class="active">1. Position</li>
-          <li>2. Instructions</li>
-          <li>3. Personal</li>
-          <li>4. Employment</li>
-          <li>5. Education &amp; Qualifications</li>
-          <li>6. Relevant Training</li>
-          <li>7. Referees &amp; Documents</li>
-          <li>8. Review &amp; Declaration</li>
+          <li class="active"><span class="step-number">1.</span><span class="step-label">Position</span></li>
+          <li><span class="step-number">2.</span><span class="step-label">Instructions</span></li>
+          <li><span class="step-number">3.</span><span class="step-label">Personal</span></li>
+          <li><span class="step-number">4.</span><span class="step-label">Employment</span></li>
+          <li><span class="step-number">5.</span><span class="step-label">Education &amp; Qualifications</span></li>
+          <li><span class="step-number">6.</span><span class="step-label">Relevant Training</span></li>
+          <li><span class="step-number">7.</span><span class="step-label">Referees &amp; Documents</span></li>
+          <li><span class="step-number">8.</span><span class="step-label">Review &amp; Declaration</span></li>
         </ol>
 
         <div class="form-body">
@@ -4743,8 +4832,8 @@
   <div class="submission-overlay" id="submission-overlay" aria-hidden="true" aria-live="assertive" role="alertdialog" aria-labelledby="submission-overlay-title" aria-describedby="submission-overlay-message">
     <div class="submission-overlay-card" role="document">
       <div class="submission-spinner" aria-hidden="true"></div>
-      <h2 id="submission-overlay-title">Sending your application</h2>
-      <p id="submission-overlay-message">Please do not close or refresh this page while your application is being processed.</p>
+      <h2 id="submission-overlay-title">Submitting your application</h2>
+      <p id="submission-overlay-message">Please wait while your application is being submitted. Do not close or refresh this page until the confirmation screen appears. This may take a few moments.</p>
     </div>
   </div>
 
@@ -6336,8 +6425,8 @@
         };
 
         setSubmissionStatus(
-          "Sending your application",
-          "Please do not close or refresh this page while the backend stores your documents and records your entry.",
+          "Submitting your application",
+          "Please wait while your application is being submitted. Do not close or refresh this page until the confirmation screen appears. This may take a few moments.",
           true
         );
 
@@ -6382,13 +6471,18 @@
         clearPendingSubmission(submissionId);
 
         setSubmissionStatus(
-          "Application received",
-          "Your application was recorded successfully. Opening the confirmation page now.",
+          "Application submitted successfully",
+          "Your application has been received. Opening your confirmation page now.",
           true
         );
 
         window.setTimeout(() => {
-          location.assign("success.html");
+          const successUrl = new URL("success.html", window.location.href);
+          successUrl.searchParams.set(
+            "ref",
+            confirmedReceipt.applicationReference || submissionId
+          );
+          window.location.replace(successUrl.href);
         }, 500);
       } catch (error) {
         console.error(error);
