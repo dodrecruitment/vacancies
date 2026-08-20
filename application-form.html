@@ -6486,11 +6486,12 @@
         );
 
         window.setTimeout(() => {
-          const successUrl = new URL("success.html", window.location.href);
+          const successUrl = new URL("/success.html", window.location.origin);
           successUrl.searchParams.set(
             "ref",
             confirmedReceipt.applicationReference || submissionId
           );
+          successUrl.searchParams.set("confirmed", "1");
           window.location.replace(successUrl.href);
         }, 500);
       } catch (error) {
