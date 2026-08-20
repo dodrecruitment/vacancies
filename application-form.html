@@ -3292,6 +3292,318 @@
       margin-right: 0;
     }
 
+  
+
+    /* ============================================================
+       FINAL MOBILE HARDENING — 21 AUGUST 2026 RELEASE
+       Prevents page-level horizontal overflow and keeps all portal
+       content within 320px+ mobile screens.
+       ============================================================ */
+    @media screen and (max-width: 700px) {
+      html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .brand {
+        min-width: 0;
+        min-height: 0 !important;
+        padding: 0.75rem 0 !important;
+        gap: 0.4rem !important;
+      }
+
+      .brand > span,
+      .brand-name,
+      .brand-subtitle,
+      .page-title p,
+      .footer p,
+      .footer a,
+      .nav-links a {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .nav-row {
+        position: relative;
+        min-width: 0;
+      }
+
+      .nav-label {
+        min-width: 0;
+        max-width: calc(100% - 58px);
+        overflow-wrap: anywhere;
+      }
+
+      .nav-links {
+        left: 0.75rem !important;
+        right: 0.75rem !important;
+        width: auto !important;
+        max-width: calc(100% - 1.5rem) !important;
+      }
+
+      .page-title {
+        overflow: hidden;
+      }
+
+      .page-title h1 {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+
+      .footer-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .footer-links {
+        justify-content: flex-start !important;
+      }
+
+      .card,
+      .notice,
+      .contact-card,
+      main,
+      section,
+      article {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        max-width: 100%;
+      }
+    }
+
+  
+
+    /* ============================================================
+       FINAL APPLICATION MOBILE VIEW — 21 AUGUST 2026
+       Mobile keeps only the progress bar; stage names/numbers are hidden.
+       ============================================================ */
+    @media screen and (max-width: 700px) {
+      .application-shell {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0.9rem 0 2.25rem !important;
+        margin: 0 !important;
+      }
+
+      .application-shell > .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-inline: 0.65rem !important;
+      }
+
+      .form-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        border-radius: 0.45rem !important;
+      }
+
+      .progress-wrap {
+        padding: 0.75rem 0.8rem !important;
+      }
+
+      .progress-meta,
+      .step-tabs {
+        display: none !important;
+      }
+
+      .progress-track {
+        display: block !important;
+        width: 100% !important;
+        height: 7px !important;
+        margin: 0 !important;
+      }
+
+      .form-body {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.8rem !important;
+        overflow: hidden;
+      }
+
+      .form-step,
+      fieldset,
+      .standard-sections,
+      .standard-section,
+      .standard-section-fields,
+      .form-grid,
+      .repeatable-section,
+      .repeatable-list,
+      .repeatable-card,
+      .training-list,
+      .training-card,
+      .referee-card,
+      .review-sheet,
+      .review-grid,
+      .instruction-standard,
+      .instruction-standard-row,
+      .instruction-standard-content {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .form-grid,
+      .review-grid,
+      .academic-highlight-section .form-grid,
+      .skills-highlight-section .form-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .standard-section,
+      .instruction-standard-row,
+      .repeatable-section-heading,
+      .repeatable-card,
+      .training-card,
+      .referee-card {
+        display: block !important;
+      }
+
+      .standard-section-label,
+      .instruction-standard-label {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 0.55rem !important;
+      }
+
+      .control,
+      input.control,
+      select.control,
+      textarea.control,
+      input[type="file"] {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        font-size: 16px !important;
+      }
+
+      textarea.control {
+        min-height: 96px;
+      }
+
+      .rs32-relative-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+      }
+
+      .rs32-relative-head {
+        display: none !important;
+      }
+
+      .repeatable-actions,
+      .training-actions {
+        align-items: stretch !important;
+      }
+
+      .repeatable-actions .btn,
+      .training-actions .btn {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+      }
+
+      .form-actions {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.55rem !important;
+      }
+
+      .form-actions .spacer {
+        display: none !important;
+      }
+
+      .form-actions #exit-button {
+        grid-column: 1 / -1;
+        order: 3;
+      }
+
+      .form-actions .btn {
+        width: 100% !important;
+        min-width: 0 !important;
+        padding-inline: 0.6rem !important;
+      }
+
+      .documents-highlight-section .standard-section-fields,
+      .documents-highlight-section .upload-field,
+      .review-declaration-body,
+      .review-check-row,
+      .submission-overlay-card {
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      .desktop-example-title {
+        display: none !important;
+      }
+
+      .instruction-clean-list,
+      .instruction-clean-numbered {
+        padding-left: 1.15rem !important;
+      }
+
+      .instruction-clean-list li,
+      .instruction-clean-numbered li {
+        overflow-wrap: anywhere;
+      }
+
+      .footer-social {
+        justify-content: flex-end !important;
+      }
+    }
+
+  
+
+    /* FINAL MOBILE ACTION BAR — keep Exit, Back and Next/Submit evenly aligned. */
+    @media screen and (max-width: 700px) {
+      .form-actions {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        align-items: stretch !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+      }
+
+      .form-actions .spacer {
+        display: none !important;
+      }
+
+      .form-actions #exit-button,
+      .form-actions #back-button,
+      .form-actions #next-button,
+      .form-actions #submit-button {
+        grid-column: auto !important;
+        order: initial !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 44px !important;
+        margin: 0 !important;
+        padding: 0.62rem 0.35rem !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap !important;
+      }
+
+      .form-actions #back-button:disabled {
+        opacity: 0.52 !important;
+        cursor: not-allowed !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3306,14 +3618,6 @@
           <span class="brand-subtitle">Position Vacancies and Online Applications</span>
         </span>
       </a>
-
-      <div class="header-social" aria-label="Department of Defence social media">
-        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/>
-          </svg>
-        </a>
-      </div>
     </div>
   </header>
 
@@ -3339,14 +3643,14 @@
         <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Online Application</li></ol>
         <p class="eyebrow">Department of Defence Recruitment</p>
         <h1>Online Application</h1>
-        <p>Select one of the 40 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 24 August 2026 at 8:00 AM and close 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
+        <p>Select one of the 40 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 21 August 2026 at 6:00 AM and close 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
       </div>
     </header>
 
     <div class="container application-shell">
       <div class="notice" id="application-notice" style="margin-bottom:1rem">
         <span class="notice-dot" id="application-notice-icon" aria-hidden="true">i</span>
-        <div><strong id="application-notice-title">Checking application service</strong><p id="application-notice-message">Please wait while the authoritative vacancy register and campaign status are loaded.</p></div>
+        <div><strong id="application-notice-title">Checking application service</strong><p id="application-notice-message">Please wait while the current vacancy register and application period are checked.</p></div>
       </div>
 
       <form class="card form-card" id="application-form" novalidate>
@@ -3443,6 +3747,26 @@
                   </div>
                 </section>
 
+
+                <section class="instruction-standard-row" aria-labelledby="instruction-rs32-title">
+                  <div class="instruction-standard-label">
+                    <h3 id="instruction-rs32-title">Form RS 3.2 Cross-reference</h3>
+                    <p>Digital application mapping</p>
+                  </div>
+                  <div class="instruction-standard-content">
+                    <p><strong>This online application is the electronic recruitment version of Form RS 3.2.</strong> The information from the paper form is captured across the relevant online steps rather than repeated on one page.</p>
+                    <ul class="instruction-clean-list">
+                      <li><strong>Position and personal particulars:</strong> Steps 1 and 3.</li>
+                      <li><strong>Employment record, Armed Forces service, convictions and previous applications:</strong> Step 4.</li>
+                      <li><strong>Secondary education, qualifications, further study, publications and professional information:</strong> Step 5.</li>
+                      <li><strong>Civic activities, interests, sports and recreation:</strong> Step 6.</li>
+                      <li><strong>Referees and supporting documents:</strong> Step 7. For this recruitment exercise, provide the three referees requested by the online portal.</li>
+                      <li><strong>Applicant declaration:</strong> Step 8.</li>
+                    </ul>
+                    <p><strong>Advertisement source:</strong> Department of Defence Position Vacancies portal — dodcareers.link.</p>
+                  </div>
+                </section>
+
                 <section class="instruction-standard-row" aria-labelledby="instruction-eoi-title">
                   <div class="instruction-standard-label">
                     <h3 id="instruction-eoi-title">EOI Address</h3>
@@ -3461,9 +3785,9 @@
                   </div>
                   <div class="instruction-standard-content">
                     <ol class="instruction-clean-list instruction-clean-numbered">
-                      <li><strong>EOI subject line:</strong> State the <strong>Position Reference Number</strong> and <strong>Designation/Position Title</strong>. Example: <strong>DEX.008_Deputy Secretary - Policy Wing</strong></li>
+                      <li><strong>EOI subject line:</strong> State the <strong>Position Reference Number</strong> and <strong>Designation/Position Title</strong>. Example: <strong>DEX.008<span class="desktop-example-title">_Deputy Secretary - Policy Wing</span></strong></li>
                       <li><strong>Compiled application:</strong> Combine all application documents into <strong>one (1) PDF file</strong> not exceeding <strong>10 MB</strong>.</li>
-                      <li><strong>PDF filename:</strong> Use the format <strong>Reference Number_Position Title_Your Surname</strong>. Example: <strong>DEX.008_Deputy Secretary - Policy Wing_Taureka</strong></li>
+                      <li><strong>PDF filename:</strong> Use the format <strong>Reference Number_Position Title_Your Surname</strong>. Example: <strong>DEX.008<span class="desktop-example-title">_Deputy Secretary - Policy Wing</span>_Taureka</strong></li>
                     </ol>
                   </div>
                 </section>
@@ -4873,11 +5197,11 @@
     const STATUS_API_URL = `${API_BASE_URL}/v1/status`;
     const SUBMISSION_API_URL = `${API_BASE_URL}/v1/applications`;
     const VACANCIES_API_URL = `${API_BASE_URL}/v1/vacancies`;
-    const FORM_VERSION = "external-rs32-integrated-preview-2026-08-18";
+    const FORM_VERSION = "external-rs32-final-2026-08-21";
     const EXPECTED_VACANCY_COUNT = 40;
-    const VACANCY_OPEN_AT = new Date("2026-08-24T08:00:00+10:00");
+    const VACANCY_OPEN_AT = new Date("2026-08-21T06:00:00+10:00");
     const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
-    const VACANCY_OPEN_LABEL = "24 August 2026 at 8:00 AM";
+    const VACANCY_OPEN_LABEL = "21 August 2026 at 6:00 AM";
     const VACANCY_CLOSE_LABEL = "7 September 2026 at 4:06 PM";
     const SUBMISSION_REQUEST_TIMEOUT_MS = 300000;
     const PENDING_SUBMISSION_STORAGE_KEY = "dodVacancyPendingSubmission";
@@ -5001,7 +5325,9 @@
       document.getElementById("progress-fill").style.width = `${percent}%`;
       document.querySelector(".progress-track").setAttribute("aria-valuenow", String(stepNumber));
 
-      backButton.hidden = currentStep === 0;
+      backButton.hidden = false;
+      backButton.disabled = currentStep === 0;
+      backButton.setAttribute("aria-disabled", String(currentStep === 0));
       const reviewStepReached = currentStep === steps.length - 1;
       nextButton.hidden = reviewStepReached;
       nextButton.style.display = reviewStepReached ? "none" : "";
@@ -5082,7 +5408,8 @@
         divisionSelect.disabled = false;
         positionSelect.disabled = !divisionSelect.value;
         nextButton.disabled = false;
-        backButton.disabled = false;
+        backButton.disabled = currentStep === 0;
+        backButton.setAttribute("aria-disabled", String(currentStep === 0));
         submitButton.disabled = false;
       }
 
@@ -5205,7 +5532,7 @@
       setApplicationNotice(
         "warning",
         "Checking application service",
-        "Please wait while the Cloud SQL-backed vacancy register and campaign status are loaded."
+        "Please wait while the current vacancy register and application period are checked."
       );
 
       try {
