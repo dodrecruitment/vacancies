@@ -3906,6 +3906,57 @@
       }
     }
 
+  
+
+    /* FINAL EDUCATION LAYOUT REFINEMENT — 2026-08-20 */
+    .academic-highlight-section,
+    .skills-highlight-section {
+      grid-column: 1 / -1 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .academic-highlight-section .standard-section-fields,
+    .skills-highlight-section .standard-section-fields {
+      min-width: 0;
+      width: 100%;
+    }
+
+    /* Keep education inputs neutral white, including browser autofill. */
+    .secondary-education-section .control {
+      color: var(--ink-900) !important;
+      background-color: #fff !important;
+    }
+
+    .secondary-education-section input.control:-webkit-autofill,
+    .secondary-education-section input.control:-webkit-autofill:hover,
+    .secondary-education-section input.control:-webkit-autofill:focus,
+    .secondary-education-section textarea.control:-webkit-autofill,
+    .secondary-education-section select.control:-webkit-autofill {
+      -webkit-text-fill-color: var(--ink-900) !important;
+      caret-color: var(--ink-900) !important;
+      box-shadow: 0 0 0 1000px #fff inset !important;
+      transition: background-color 9999s ease-out 0s;
+    }
+
+    .secondary-school-header {
+      justify-content: flex-start;
+    }
+
+    @media screen and (max-width: 700px) {
+      .academic-highlight-section,
+      .skills-highlight-section {
+        display: block !important;
+        margin-top: 0.35rem !important;
+        padding: 0.9rem 0 !important;
+      }
+
+      .academic-highlight-section .standard-section-label,
+      .skills-highlight-section .standard-section-label {
+        margin-bottom: 0.65rem !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -4777,7 +4828,6 @@
                   <article class="secondary-school-card" data-secondary-school="1">
                     <div class="secondary-school-header">
                       <div><span class="repeatable-number">School 1</span><h4>Secondary education record</h4></div>
-                      <span class="repeatable-badge">Primary entry</span>
                     </div>
                     <div class="secondary-school-fields">
                       <label class="field"><span class="field-label">School name <span class="required">*</span></span><input class="control" id="secondary-school-1" type="text" maxlength="180"></label>
@@ -4824,7 +4874,6 @@
                   <article class="secondary-school-card" data-secondary-school="2" hidden>
                     <div class="secondary-school-header">
                       <div><span class="repeatable-number">School 2</span><h4>Secondary education record</h4></div>
-                      <span class="repeatable-badge">Additional</span>
                     </div>
                     <div class="secondary-school-fields">
                       <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-2" type="text" maxlength="180"></label>
@@ -4871,7 +4920,6 @@
                   <article class="secondary-school-card" data-secondary-school="3" hidden>
                     <div class="secondary-school-header">
                       <div><span class="repeatable-number">School 3</span><h4>Secondary education record</h4></div>
-                      <span class="repeatable-badge">Additional</span>
                     </div>
                     <div class="secondary-school-fields">
                       <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-3" type="text" maxlength="180"></label>
@@ -4918,7 +4966,6 @@
                   <article class="secondary-school-card" data-secondary-school="4" hidden>
                     <div class="secondary-school-header">
                       <div><span class="repeatable-number">School 4</span><h4>Secondary education record</h4></div>
-                      <span class="repeatable-badge">Additional</span>
                     </div>
                     <div class="secondary-school-fields">
                       <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-4" type="text" maxlength="180"></label>
@@ -4965,7 +5012,6 @@
                   <article class="secondary-school-card" data-secondary-school="5" hidden>
                     <div class="secondary-school-header">
                       <div><span class="repeatable-number">School 5</span><h4>Secondary education record</h4></div>
-                      <span class="repeatable-badge">Additional</span>
                     </div>
                     <div class="secondary-school-fields">
                       <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-5" type="text" maxlength="180"></label>
@@ -5268,7 +5314,7 @@
                   </div>
                 </div>
 
-              <div class="standard-section rs32-integrated-section academic-highlight-section" style="margin-top:1.25rem">
+              <div class="standard-section field-full rs32-integrated-section academic-highlight-section" style="margin-top:1.25rem">
                 <div class="standard-section-label">
                   <h3>Additional academic information</h3>
                   <p>Further study, research, publications, awards and memberships.</p>
@@ -5293,7 +5339,7 @@
                 </div>
               </div>
 
-              <div class="standard-section supplement-section skills-highlight-section" style="margin-top:1.25rem">
+              <div class="standard-section field-full supplement-section skills-highlight-section" style="margin-top:1.25rem">
                 <div class="standard-section-label">
                   <h3>Skills, knowledge &amp; professional registration</h3>
                   <p>Additional information used for recruitment screening and Form RS 3.7 assessment.</p>
