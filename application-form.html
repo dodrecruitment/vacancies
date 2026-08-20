@@ -8,7 +8,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.dodcareers.link; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests;">
   <title>Online Application | Department of Defence PNG</title>
-  <meta name="description" content="Official online application form for 41 Department of Defence Papua New Guinea position vacancies.">
+  <meta name="description" content="Official online application form for 40 Department of Defence Papua New Guinea position vacancies.">
   <link rel="icon" href="logo.png" type="image/png">
   <style>
 
@@ -2886,7 +2886,91 @@
         height: 76px;
       }
     }
-</style>
+
+
+    /* Official social media link in the masthead. */
+    .masthead .container { position: relative; }
+
+    .header-social {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: flex;
+      align-items: center;
+      transform: translateY(-50%);
+    }
+
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: #fff;
+      background: #0a66c2;
+      text-decoration: none;
+      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.24);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .linkedin-link:hover {
+      color: #fff;
+      background: #084f96;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(10, 102, 194, 0.3);
+    }
+
+    .linkedin-link svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 760px) {
+      .header-social {
+        position: static;
+        justify-content: center;
+        transform: none;
+        margin: -0.25rem 0 0.75rem;
+      }
+    }
+
+
+    /* LinkedIn placement: top-right of the portal header and top of the footer. */
+    .header-social {
+      top: 1rem;
+      right: 0;
+      transform: none;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-social .linkedin-link {
+      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.3);
+    }
+
+    @media (max-width: 760px) {
+      .header-social {
+        position: absolute;
+        top: 0.65rem;
+        right: 0;
+        margin: 0;
+        transform: none;
+      }
+
+      .footer-social {
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+      }
+    }
+
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -2900,6 +2984,14 @@
           <span class="brand-subtitle">Position Vacancies and Online Applications</span>
         </span>
       </a>
+
+      <div class="header-social" aria-label="Department of Defence social media">
+        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -2913,7 +3005,8 @@
       <ul class="nav-links" id="primary-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="vacancies_by_divisions.html">Position Vacancies</a></li>
-        <li><a class="nav-action" href="application-form.html" aria-current="page">Apply Online</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+<li><a class="nav-action" href="application-form.html" aria-current="page">Apply Online</a></li>
       </ul>
     </div>
   </nav>
@@ -2924,7 +3017,7 @@
         <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Online Application</li></ol>
         <p class="eyebrow">Department of Defence Recruitment</p>
         <h1>Online Application</h1>
-        <p>Select one of the 41 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 24 August 2026 at 8:00 AM and close 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
+        <p>Select one of the 40 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 24 August 2026 at 8:00 AM and close 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
       </div>
     </header>
 
@@ -4500,7 +4593,12 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
+            <div class="footer-social" aria-label="Department of Defence social media">
+        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/></svg>
+        </a>
+      </div>
+<div class="footer-grid">
         <div>
           <h2>Department of Defence Papua New Guinea</h2>
           <p>Official online portal for advertised civilian position vacancies and applications.</p>
@@ -4509,7 +4607,8 @@
           <a href="index.html">Home</a>
           <a href="vacancies_by_divisions.html">Vacancy Register</a>
           <a href="application-form.html">Application Form</a>
-        </nav>
+                  <a href="contact-us.html">Contact Us</a>
+</nav>
       </div>
       <div class="copyright">&copy; <span data-current-year></span> Department of Defence Papua New Guinea. All rights reserved.</div>
     </div>
@@ -4543,7 +4642,7 @@
     const SUBMISSION_API_URL = `${API_BASE_URL}/v1/applications`;
     const VACANCIES_API_URL = `${API_BASE_URL}/v1/vacancies`;
     const FORM_VERSION = "external-rs32-integrated-preview-2026-08-18";
-    const EXPECTED_VACANCY_COUNT = 41;
+    const EXPECTED_VACANCY_COUNT = 40;
     const VACANCY_OPEN_AT = new Date("2026-08-24T08:00:00+10:00");
     const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
     const VACANCY_OPEN_LABEL = "24 August 2026 at 8:00 AM";
@@ -4555,7 +4654,7 @@
 
     // Approved 2026 external advertisement vacancy register.
     // Position title, reference, location, class and base salary are taken from the uploaded Excel annexure.
-    const EXCEL_VACANCIES = [{"no":1,"division":"Executive Division","referenceNumber":"DEX.008","positionTitle":"Deputy Secretary - Policy Wing","location":"HQ Murray Barracks-Port Moresby","class":"PS19","award":"PUBC","baseSalary":90525,"remarks":"Vacant","positionCode":"105DOD0377","costAccount":"105DODEXE000000000"},{"no":2,"division":"Executive Division","referenceNumber":"DEX.012","positionTitle":"Deputy Secretary - Corporate Services Wing","location":"HQ Murray Barracks-Port Moresby","class":"PS19","award":"PUBC","baseSalary":90525,"remarks":"Vacant","positionCode":"105DOD0005","costAccount":"105DODEXE000000000"},{"no":3,"division":"Executive Division","referenceNumber":"DEX.004","positionTitle":"Ministry Liasion Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS18","award":"PUBC","baseSalary":74761,"remarks":"Vacant","positionCode":"105DOD0306","costAccount":"105DODEXE000000000"},{"no":4,"division":"Executive Division","referenceNumber":"DEX.015","positionTitle":"Chief Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS18","award":"PUBC","baseSalary":74761,"remarks":"Vacant","positionCode":"105DOD0009","costAccount":"105DODEXEAUD000000"},{"no":5,"division":"Executive Division","referenceNumber":"DEX.016","positionTitle":"Senior Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0010","costAccount":"105DODEXEAUD000000"},{"no":6,"division":"Executive Division","referenceNumber":"DEX.034","positionTitle":"Assistant Secretary - Strategic Intelligence & Estimates","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0205","costAccount":"105DODEXESIE000000"},{"no":7,"division":"Executive Division","referenceNumber":"DEX.002","positionTitle":"Executive Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"PUBC","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0001","costAccount":"105DODEXE000000000"},{"no":8,"division":"Executive Division","referenceNumber":"DEX.024","positionTitle":"Legal Officer- Commercial","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"PUBC","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0400","costAccount":"105DODEXELEG000000"},{"no":9,"division":"Executive Division","referenceNumber":"DEX.025","positionTitle":"Legal Officer- Litigation","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"PUBC","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0401","costAccount":"105DODEXELEG000000"},{"no":10,"division":"Executive Division","referenceNumber":"DEX.026","positionTitle":"Manager - Public Relations","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"PUBC","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0022","costAccount":"105DODCPR000000000"},{"no":11,"division":"Executive Division","referenceNumber":"DEX.005","positionTitle":"Senior Policy Advisor","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0307","costAccount":"105DODEXE000000000"},{"no":12,"division":"Executive Division","referenceNumber":"DEX.010","positionTitle":"Senior Policy Officer -Defence Committee","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0042","costAccount":"105DODEXE000000000"},{"no":13,"division":"Executive Division","referenceNumber":"DEX.017","positionTitle":"Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0011","costAccount":"105DODEXEAUD000000"},{"no":14,"division":"Executive Division","referenceNumber":"DEX.018","positionTitle":"Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0013","costAccount":"105DODEXEAUD000000"},{"no":15,"division":"Executive Division","referenceNumber":"DEX.019","positionTitle":"Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0014","costAccount":"105DODEXEAUD000000"},{"no":16,"division":"Executive Division","referenceNumber":"DEX.029","positionTitle":"Accountant Class 5","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0102","costAccount":"105DODEXECSP000000"},{"no":17,"division":"Executive Division","referenceNumber":"DEX.035","positionTitle":"Senior Strategic Analyst","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0403","costAccount":"105DODEXESIE000000"},{"no":18,"division":"Executive Division","referenceNumber":"DEX.020","positionTitle":"Assistant Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0015","costAccount":"105DODEXEAUD000000"},{"no":19,"division":"Executive Division","referenceNumber":"DEX.033","positionTitle":"Contract Management Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0101","costAccount":"105DODEXECSP000000"},{"no":20,"division":"Executive Division","referenceNumber":"DEX.036","positionTitle":"Security Analyst Internal","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0404","costAccount":"105DODEXESIE000000"},{"no":21,"division":"Executive Division","referenceNumber":"DEX.037","positionTitle":"Security Analyst External","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0405","costAccount":"105DODEXESIE000000"},{"no":22,"division":"Executive Division","referenceNumber":"DEX.013","positionTitle":"Executive Assistant - Corporate Services Wing","location":"HQ Murray Barracks-Port Moresby","class":"PS11","award":"PUB","baseSalary":37459,"remarks":"Vacant","positionCode":"105DOD0006","costAccount":"105DODEXE000000000"},{"no":23,"division":"Executive Division","referenceNumber":"DEX.038","positionTitle":"Administration Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"PUB","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0406","costAccount":"105DODEXESIE000000"},{"no":24,"division":"Executive Division","referenceNumber":"DEX.014","positionTitle":"Driver - Corporate Services Wing","location":"HQ Murray Barracks-Port Moresby","class":"PS09","award":"PUB","baseSalary":29974,"remarks":"Vacant","positionCode":"105DOD0007","costAccount":"105DODEXE000000000"},{"no":25,"division":"Executive Division","referenceNumber":"DEX.022","positionTitle":"Driver/ Administration Clerk","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"PUB","baseSalary":26999,"remarks":"Vacant","positionCode":"105DOD0017","costAccount":"105DODEXEAUD000000"},{"no":26,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.004","positionTitle":"Assistant Secretary - Policy Research & Development","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0068","costAccount":"105DODPOLSPRPRD000"},{"no":27,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.008","positionTitle":"Assistant Secretary - Strategic International Policy","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0050","costAccount":"105DODPOLSPRINT000"},{"no":28,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.014","positionTitle":"Assistant Secretary - Defence Treaty & Agreements","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0410","costAccount":"105DODPOLSPRTRE000"},{"no":29,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.009","positionTitle":"Desk Officer - Australia","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0051","costAccount":"105DODPOLSPRINT000"},{"no":30,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.010","positionTitle":"Desk Officer - NZ/ Pacific","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0052","costAccount":"105DODPOLSPRINT000"},{"no":31,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.012","positionTitle":"Desk Officer - Europe/Asia & Others","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0058","costAccount":"105DODPOLSPRINT000"},{"no":32,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.015","positionTitle":"Defence Treaty & Agreement Officer - Australia","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0037","costAccount":"105DODPOLSPRTRE000"},{"no":33,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.016","positionTitle":"Defence Treaty & Agreement Officer - Indonesia","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0057","costAccount":"105DODPOLSPRTRE000"},{"no":34,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.017","positionTitle":"Defence Treaty & Agreement Officer - USA","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0059","costAccount":"105DODPOLSPRTRE000"},{"no":35,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.013","positionTitle":"Assistant Desk Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"PUB","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0060","costAccount":"105DODPOLSPRINT000"},{"no":36,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.009","positionTitle":"Policy Liasion Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0135","costAccount":"105DODPOLCASCAS000"},{"no":37,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.013","positionTitle":"Contract Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0019","costAccount":"105DODPOLCASCMG000"},{"no":38,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.014","positionTitle":"Contract Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0092","costAccount":"105DODPOLCASCMG000"},{"no":39,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.015","positionTitle":"Contract Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0103","costAccount":"105DODPOLCASCMG000"},{"no":40,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.017","positionTitle":"Central Registry Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0309","costAccount":"105DODPOLCASCMG000"},{"no":41,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.002","positionTitle":"Executive Assistant","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"PUB","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0062","costAccount":"105DODPOLCAS000000"}];
+    const EXCEL_VACANCIES = [{"no":1,"division":"Executive Division","referenceNumber":"DEX.008","positionTitle":"Deputy Secretary - Policy Wing","location":"HQ Murray Barracks-Port Moresby","class":"PS19","award":"PUBC","baseSalary":90525,"remarks":"Vacant","positionCode":"105DOD0377","costAccount":"105DODEXE000000000"},{"no":2,"division":"Executive Division","referenceNumber":"DEX.004","positionTitle":"Ministry Liasion Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS18","award":"PUBC","baseSalary":74761,"remarks":"Vacant","positionCode":"105DOD0306","costAccount":"105DODEXE000000000"},{"no":3,"division":"Executive Division","referenceNumber":"DEX.015","positionTitle":"Chief Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS18","award":"PUBC","baseSalary":74761,"remarks":"Vacant","positionCode":"105DOD0009","costAccount":"105DODEXEAUD000000"},{"no":4,"division":"Executive Division","referenceNumber":"DEX.016","positionTitle":"Senior Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0010","costAccount":"105DODEXEAUD000000"},{"no":5,"division":"Executive Division","referenceNumber":"DEX.034","positionTitle":"Assistant Secretary - Strategic Intelligence & Estimates","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0205","costAccount":"105DODEXESIE000000"},{"no":6,"division":"Executive Division","referenceNumber":"DEX.002","positionTitle":"Executive Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"PUBC","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0001","costAccount":"105DODEXE000000000"},{"no":7,"division":"Executive Division","referenceNumber":"DEX.024","positionTitle":"Legal Officer- Commercial","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"PUBC","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0400","costAccount":"105DODEXELEG000000"},{"no":8,"division":"Executive Division","referenceNumber":"DEX.025","positionTitle":"Legal Officer- Litigation","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"PUBC","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0401","costAccount":"105DODEXELEG000000"},{"no":9,"division":"Executive Division","referenceNumber":"DEX.026","positionTitle":"Manager - Public Relations","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"PUBC","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0022","costAccount":"105DODCPR000000000"},{"no":10,"division":"Executive Division","referenceNumber":"DEX.005","positionTitle":"Senior Policy Advisor","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0307","costAccount":"105DODEXE000000000"},{"no":11,"division":"Executive Division","referenceNumber":"DEX.010","positionTitle":"Senior Policy Officer -Defence Committee","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0042","costAccount":"105DODEXE000000000"},{"no":12,"division":"Executive Division","referenceNumber":"DEX.017","positionTitle":"Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0011","costAccount":"105DODEXEAUD000000"},{"no":13,"division":"Executive Division","referenceNumber":"DEX.018","positionTitle":"Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0013","costAccount":"105DODEXEAUD000000"},{"no":14,"division":"Executive Division","referenceNumber":"DEX.019","positionTitle":"Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0014","costAccount":"105DODEXEAUD000000"},{"no":15,"division":"Executive Division","referenceNumber":"DEX.029","positionTitle":"Accountant Class 5","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0102","costAccount":"105DODEXECSP000000"},{"no":16,"division":"Executive Division","referenceNumber":"DEX.035","positionTitle":"Senior Strategic Analyst","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0403","costAccount":"105DODEXESIE000000"},{"no":17,"division":"Executive Division","referenceNumber":"DEX.020","positionTitle":"Assistant Internal Auditor","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0015","costAccount":"105DODEXEAUD000000"},{"no":18,"division":"Executive Division","referenceNumber":"DEX.033","positionTitle":"Contract Management Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0101","costAccount":"105DODEXECSP000000"},{"no":19,"division":"Executive Division","referenceNumber":"DEX.036","positionTitle":"Security Analyst Internal","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0404","costAccount":"105DODEXESIE000000"},{"no":20,"division":"Executive Division","referenceNumber":"DEX.037","positionTitle":"Security Analyst External","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0405","costAccount":"105DODEXESIE000000"},{"no":21,"division":"Executive Division","referenceNumber":"DEX.013","positionTitle":"Executive Assistant - Corporate Services Wing","location":"HQ Murray Barracks-Port Moresby","class":"PS11","award":"PUB","baseSalary":37459,"remarks":"Vacant","positionCode":"105DOD0006","costAccount":"105DODEXE000000000"},{"no":22,"division":"Executive Division","referenceNumber":"DEX.038","positionTitle":"Administration Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"PUB","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0406","costAccount":"105DODEXESIE000000"},{"no":23,"division":"Executive Division","referenceNumber":"DEX.014","positionTitle":"Driver - Corporate Services Wing","location":"HQ Murray Barracks-Port Moresby","class":"PS09","award":"PUB","baseSalary":29974,"remarks":"Vacant","positionCode":"105DOD0007","costAccount":"105DODEXE000000000"},{"no":24,"division":"Executive Division","referenceNumber":"DEX.022","positionTitle":"Driver/ Administration Clerk","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"PUB","baseSalary":26999,"remarks":"Vacant","positionCode":"105DOD0017","costAccount":"105DODEXEAUD000000"},{"no":25,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.004","positionTitle":"Assistant Secretary - Policy Research & Development","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0068","costAccount":"105DODPOLSPRPRD000"},{"no":26,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.008","positionTitle":"Assistant Secretary - Strategic International Policy","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0050","costAccount":"105DODPOLSPRINT000"},{"no":27,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.014","positionTitle":"Assistant Secretary - Defence Treaty & Agreements","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"PUBC","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0410","costAccount":"105DODPOLSPRTRE000"},{"no":28,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.009","positionTitle":"Desk Officer - Australia","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0051","costAccount":"105DODPOLSPRINT000"},{"no":29,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.010","positionTitle":"Desk Officer - NZ/ Pacific","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0052","costAccount":"105DODPOLSPRINT000"},{"no":30,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.012","positionTitle":"Desk Officer - Europe/Asia & Others","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0058","costAccount":"105DODPOLSPRINT000"},{"no":31,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.015","positionTitle":"Defence Treaty & Agreement Officer - Australia","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0037","costAccount":"105DODPOLSPRTRE000"},{"no":32,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.016","positionTitle":"Defence Treaty & Agreement Officer - Indonesia","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0057","costAccount":"105DODPOLSPRTRE000"},{"no":33,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.017","positionTitle":"Defence Treaty & Agreement Officer - USA","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"PUB","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0059","costAccount":"105DODPOLSPRTRE000"},{"no":34,"division":"Strategic Policy Research & Development Division","referenceNumber":"DSPRD.013","positionTitle":"Assistant Desk Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"PUB","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0060","costAccount":"105DODPOLSPRINT000"},{"no":35,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.009","positionTitle":"Policy Liasion Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0135","costAccount":"105DODPOLCASCAS000"},{"no":36,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.013","positionTitle":"Contract Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0019","costAccount":"105DODPOLCASCMG000"},{"no":37,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.014","positionTitle":"Contract Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0092","costAccount":"105DODPOLCASCMG000"},{"no":38,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.015","positionTitle":"Contract Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0103","costAccount":"105DODPOLCASCMG000"},{"no":39,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.017","positionTitle":"Central Registry Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"PUB","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0309","costAccount":"105DODPOLCASCMG000"},{"no":40,"division":"Capability Acquisition & Sustainability Division","referenceNumber":"DCAS.002","positionTitle":"Executive Assistant","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"PUB","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0062","costAccount":"105DODPOLCAS000000"}];
     let VACANCIES = [];
     let applicationServiceReady = false;
     let campaignState = null;
@@ -5014,7 +5113,7 @@
         setApplicationNotice(
           "success",
           "applications are open",
-          `Select one of the 41 positions and complete all required sections. Applications close on ${VACANCY_CLOSE_LABEL} (Papua New Guinea time).`
+          `Select one of the 40 positions and complete all required sections. Applications close on ${VACANCY_CLOSE_LABEL} (Papua New Guinea time).`
         );
         preselectFromUrl();
       } catch (error) {
