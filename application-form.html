@@ -2970,6 +2970,230 @@
       }
     }
 
+  
+
+    /* ============================================================
+       UI REFINEMENTS — 2026-08-20
+       Light-blue highlights, cleaner instructions, better step spacing,
+       word-limit handling and submitting overlay.
+       ============================================================ */
+    :root {
+      --info-blue-bg: #eaf5ff;
+      --info-blue-border: #bad6f3;
+      --info-blue-text: #244b73;
+    }
+
+    .step-tabs {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .step-tabs li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      min-height: 64px;
+      padding: 0.72rem 0.42rem;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+      white-space: normal;
+    }
+
+    @media screen and (max-width: 980px) {
+      .step-tabs li {
+        min-height: 72px;
+        font-size: 0.69rem;
+      }
+    }
+
+    .instruction-standard-content ul,
+    .instruction-standard-content ol {
+      margin: 0.55rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    .instruction-clean-list {
+      margin-top: 0.55rem;
+      padding-left: 1.2rem;
+    }
+
+    .instruction-clean-list li {
+      margin-bottom: 0.45rem;
+      padding-left: 0;
+      min-height: 0;
+      line-height: 1.55;
+    }
+
+    .instruction-clean-list li::before {
+      content: none;
+    }
+
+    .instruction-clean-numbered {
+      list-style: decimal;
+    }
+
+    .instruction-clean-numbered li::marker {
+      font-weight: 800;
+      color: var(--green-800);
+    }
+
+    .instruction-clean-contact {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .instruction-clean-contact li {
+      margin-bottom: 0.4rem;
+    }
+
+    .plain-confirm-check {
+      min-height: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .academic-highlight-section,
+    .skills-highlight-section {
+      margin-top: 1.35rem !important;
+    }
+
+    .academic-highlight-section .standard-section-fields,
+    .skills-highlight-section .standard-section-fields {
+      width: 100%;
+    }
+
+    .academic-highlight-section .form-grid,
+    .skills-highlight-section .form-grid {
+      grid-template-columns: 1fr;
+      gap: 0.95rem;
+    }
+
+    .documents-highlight-section .standard-section-fields {
+      padding: 0.75rem;
+      border: 1px solid var(--info-blue-border);
+      border-radius: 0.8rem;
+      background: #f7fbff;
+    }
+
+    .documents-highlight-section .upload-field {
+      border-style: solid;
+      border-color: var(--info-blue-border);
+      background: var(--info-blue-bg);
+    }
+
+    .documents-highlight-section .hint,
+    .documents-highlight-section .file-status {
+      color: var(--info-blue-text);
+    }
+
+    .word-limit-hint {
+      color: #5b6f80;
+      font-size: 0.72rem;
+    }
+
+    .word-limit-hint.limit-reached {
+      color: #8b5e00;
+      font-weight: 700;
+    }
+
+    .rs32-review-form .review-declaration-section {
+      background: var(--info-blue-bg);
+      border-top: 1px solid var(--info-blue-border);
+    }
+
+    .rs32-review-form .review-declaration-body {
+      padding: 0.95rem;
+      background: var(--info-blue-bg);
+    }
+
+    .rs32-review-form .review-section-title {
+      background: #deefff;
+    }
+
+    .review-check-group {
+      display: grid;
+      gap: 0.8rem;
+      margin: 0 0 0.95rem;
+    }
+
+    .rs32-review-form .review-check-row {
+      border: 1px solid var(--info-blue-border);
+      border-radius: 0.6rem;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .rs32-review-form .review-signature-field {
+      padding: 0.95rem 0 0;
+      border-top: 1px solid var(--info-blue-border);
+    }
+
+    .submission-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(234, 245, 255, 0.92);
+      backdrop-filter: blur(1.5px);
+    }
+
+    .submission-overlay.show {
+      display: flex;
+    }
+
+    .submission-overlay-card {
+      width: min(440px, 100%);
+      padding: 1.35rem 1.25rem;
+      border: 1px solid var(--info-blue-border);
+      border-radius: 1rem;
+      background: #ffffff;
+      box-shadow: 0 20px 48px rgba(36, 75, 115, 0.18);
+      text-align: center;
+    }
+
+    .submission-spinner {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 0.95rem;
+      border: 4px solid #d6e9fb;
+      border-top-color: var(--green-700);
+      border-radius: 50%;
+      animation: submission-spin 0.85s linear infinite;
+    }
+
+    .submission-overlay-card h2 {
+      margin: 0 0 0.45rem;
+      color: var(--green-950);
+      font-size: 1.15rem;
+    }
+
+    .submission-overlay-card p {
+      margin: 0;
+      color: var(--ink-700);
+      line-height: 1.55;
+    }
+
+    body.is-submitting {
+      overflow: hidden;
+    }
+
+    @keyframes submission-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .submission-spinner {
+        animation-duration: 1.6s;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3100,10 +3324,7 @@
                     <p>How to apply</p>
                   </div>
                   <div class="instruction-standard-content">
-                    <p class="instruction-primary-text">
-                      All interested applicants are required to submit their applications strictly through the
-                      online portal at <a href="https://dodcareers.link">dodcareers.link</a>.
-                    </p>
+                    <p>All interested applicants are required to submit their applications strictly through the online portal at <a href="https://dodcareers.link">dodcareers.link</a>.</p>
                   </div>
                 </section>
 
@@ -3113,20 +3334,13 @@
                     <p>Prepare before submission</p>
                   </div>
                   <div class="instruction-standard-content">
-                    <p class="instruction-primary-text">Your application must include:</p>
-                    <div class="rs32-digital-note">
-                      <strong>Form RS 3.2 is completed electronically in this online application.</strong>
-                      <span>You do not need to complete and upload a separate RS 3.2 form unless the Department specifically requests it.</span>
-                    </div>
-                    <ul class="instruction-document-list">
+                    <p><strong>Form RS 3.2 is completed electronically in this online application.</strong> You do not need to complete and upload a separate RS 3.2 form unless the Department specifically requests it.</p>
+                    <ul class="instruction-clean-list">
                       <li><strong>Expression of Interest (EOI)</strong></li>
                       <li><strong>Curriculum Vitae (CV)</strong></li>
                       <li><strong>Certificates of Educational Qualifications</strong></li>
                       <li><strong>References</strong></li>
-                      <li>
-                        <strong>Other relevant supporting documents</strong>, including one (1) valid form of
-                        identification such as a Passport, PNG Driver's Licence, NID, Work ID or Student ID.
-                      </li>
+                      <li><strong>Other relevant supporting documents</strong>, including one (1) valid form of identification such as a Passport, PNG Driver's Licence, NID, Work ID or Student ID.</li>
                     </ul>
                   </div>
                 </section>
@@ -3137,21 +3351,8 @@
                     <p>Address your letter correctly</p>
                   </div>
                   <div class="instruction-standard-content">
-                    <div class="instruction-address-grid" aria-label="Expression of Interest addressing details">
-                      <div class="instruction-address-label">Addressed to</div>
-                      <div class="instruction-address-value">
-                        <strong>Secretary</strong><br>
-                        Department of Defence<br>
-                        Free Mail Bag, Boroko<br>
-                        Port Moresby, N.C.D
-                      </div>
-
-                      <div class="instruction-address-label">Attention</div>
-                      <div class="instruction-address-value">
-                        First Assistant Secretary<br>
-                        Human Resource Management
-                      </div>
-                    </div>
+                    <p><strong>Addressed to:</strong><br>Secretary<br>Department of Defence<br>Free Mail Bag, Boroko<br>Port Moresby, N.C.D</p>
+                    <p style="margin-top:0.6rem;"><strong>Attention:</strong><br>First Assistant Secretary<br>Human Resource Management</p>
                   </div>
                 </section>
 
@@ -3161,46 +3362,11 @@
                     <p>Subject and PDF requirements</p>
                   </div>
                   <div class="instruction-standard-content">
-                    <div class="instruction-requirement">
-                      <span class="instruction-requirement-number">1</span>
-                      <div>
-                        <strong>EOI subject line</strong>
-                        <p>
-                          State the <strong>Position Reference Number</strong> and
-                          <strong>Designation/Position Title</strong>.
-                        </p>
-                        <div class="instruction-example-standard">
-                          <span>Example</span>
-                          <code>DEX.008_Deputy Secretary - Policy Wing</code>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="instruction-requirement">
-                      <span class="instruction-requirement-number">2</span>
-                      <div>
-                        <strong>Compiled application</strong>
-                        <p>
-                          Combine all application documents into <strong>one (1) PDF file</strong>
-                          not exceeding <strong>10 MB</strong>.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="instruction-requirement">
-                      <span class="instruction-requirement-number">3</span>
-                      <div>
-                        <strong>PDF filename</strong>
-                        <p>
-                          Use the format:
-                          <strong>Reference Number_Position Title_Your Surname</strong>.
-                        </p>
-                        <div class="instruction-example-standard">
-                          <span>Example</span>
-                          <code>DEX.008_Deputy Secretary - Policy Wing_Taureka</code>
-                        </div>
-                      </div>
-                    </div>
+                    <ol class="instruction-clean-list instruction-clean-numbered">
+                      <li><strong>EOI subject line:</strong> State the <strong>Position Reference Number</strong> and <strong>Designation/Position Title</strong>. Example: <strong>DEX.008_Deputy Secretary - Policy Wing</strong></li>
+                      <li><strong>Compiled application:</strong> Combine all application documents into <strong>one (1) PDF file</strong> not exceeding <strong>10 MB</strong>.</li>
+                      <li><strong>PDF filename:</strong> Use the format <strong>Reference Number_Position Title_Your Surname</strong>. Example: <strong>DEX.008_Deputy Secretary - Policy Wing_Taureka</strong></li>
+                    </ol>
                   </div>
                 </section>
 
@@ -3210,16 +3376,10 @@
                     <p>Queries and clarification</p>
                   </div>
                   <div class="instruction-standard-content">
-                    <dl class="instruction-contact-list">
-                      <div>
-                        <dt>Email</dt>
-                        <dd><a href="mailto:dodrecruitment@defence.gov.pg">dodrecruitment@defence.gov.pg</a></dd>
-                      </div>
-                      <div>
-                        <dt>Phone</dt>
-                        <dd><a href="tel:+6753242198">324 2198</a></dd>
-                      </div>
-                    </dl>
+                    <ul class="instruction-clean-contact">
+                      <li><strong>Email:</strong> <a href="mailto:dodrecruitment@defence.gov.pg">dodrecruitment@defence.gov.pg</a></li>
+                      <li><strong>Phone:</strong> <a href="tel:+6753242198">324 2198</a></li>
+                    </ul>
                   </div>
                 </section>
 
@@ -3229,11 +3389,7 @@
                     <p>Official authorization</p>
                   </div>
                   <div class="instruction-standard-content">
-                    <div class="instruction-approval">
-                      <span>Approved by</span>
-                      <strong>Hari John Akipe</strong>
-                      <span>Secretary of Defence</span>
-                    </div>
+                    <p><strong>Approved by:</strong> Hari John Akipe, Secretary of Defence.</p>
                   </div>
                 </section>
 
@@ -3243,16 +3399,12 @@
                     <p>Required to continue</p>
                   </div>
                   <div class="instruction-standard-content">
-                    <label class="instruction-confirm-check">
-                      <input id="instructions-confirm" type="checkbox" required>
-                      <span>
-                        I have read and understood the application process and instructions above.
-                        <span class="required">*</span>
-                      </span>
+                    <label class="instruction-confirm-check plain-confirm-check">
+                      <input id="instruction-confirm" type="checkbox" required>
+                      <span><strong>I have read and understood</strong> the application process and instructions above. <span class="required">*</span></span>
                     </label>
                   </div>
                 </section>
-
               </div>
             </fieldset>
           </section>
@@ -4137,7 +4289,7 @@
                   </div>
                 </div>
 
-              <div class="standard-section rs32-integrated-section" style="margin-top:1.25rem">
+              <div class="standard-section rs32-integrated-section academic-highlight-section" style="margin-top:1.25rem">
                 <div class="standard-section-label">
                   <h3>Additional academic information</h3>
                   <p>Further study, research, publications, awards and memberships.</p>
@@ -4162,7 +4314,7 @@
                 </div>
               </div>
 
-              <div class="standard-section supplement-section" style="margin-top:1.25rem">
+              <div class="standard-section supplement-section skills-highlight-section" style="margin-top:1.25rem">
                 <div class="standard-section-label">
                   <h3>Skills, knowledge &amp; professional registration</h3>
                   <p>Additional information used for recruitment screening and Form RS 3.7 assessment.</p>
@@ -4475,7 +4627,7 @@
 
                 
 
-                <div class="standard-section field-full">
+                <div class="standard-section field-full documents-highlight-section">
                   <div class="standard-section-label">
                     <h3>Documents</h3>
                     <p>Final compiled application package.</p>
@@ -4525,21 +4677,23 @@
                       Incorrect or misleading information, or a deliberate omission, may affect any resulting employment or contractual arrangement.
                     </p>
 
-                    <label class="check-row review-check-row">
-                      <input id="declaration-confirm" type="checkbox" required>
-                      <span>I declare that the information and documents supplied are true, complete, and accurate. <span class="required">*</span></span>
-                    </label>
+                    <div class="review-check-group">
+                      <label class="check-row review-check-row">
+                        <input id="declaration-confirm" type="checkbox" required>
+                        <span>I declare that the information and documents supplied are true, complete, and accurate. <span class="required">*</span></span>
+                      </label>
+
+                      <label class="check-row review-check-row">
+                        <input id="privacy-consent" type="checkbox" required>
+                        <span>I consent to the Department of Defence collecting, verifying, storing, and using my information and documents for recruitment and employment assessment purposes. <span class="required">*</span></span>
+                      </label>
+                    </div>
 
                     <div class="field review-signature-field">
                       <label for="digital-declaration-name">Electronic declaration name <span class="required">*</span></label>
                       <input class="control" id="digital-declaration-name" name="digital_declaration_name" type="text" maxlength="180" placeholder="Type your full legal name" required>
                       <span class="hint">Typing your full legal name records your electronic declaration for this application.</span>
                     </div>
-
-                    <label class="check-row review-check-row">
-                      <input id="privacy-consent" type="checkbox" required>
-                      <span>I consent to the Department of Defence collecting, verifying, storing, and using my information and documents for recruitment and employment assessment purposes. <span class="required">*</span></span>
-                    </label>
                   </div>
                 </div>
               </div>
@@ -4585,6 +4739,14 @@
       <div class="copyright">&copy; <span data-current-year></span> Department of Defence Papua New Guinea. All rights reserved.</div>
     </div>
   </footer>
+
+  <div class="submission-overlay" id="submission-overlay" aria-hidden="true" aria-live="assertive" role="alertdialog" aria-labelledby="submission-overlay-title" aria-describedby="submission-overlay-message">
+    <div class="submission-overlay-card" role="document">
+      <div class="submission-spinner" aria-hidden="true"></div>
+      <h2 id="submission-overlay-title">Sending your application</h2>
+      <p id="submission-overlay-message">Please do not close or refresh this page while your application is being processed.</p>
+    </div>
+  </div>
 
   <script>
 
@@ -5626,10 +5788,21 @@
       });
     }
 
-    function setSubmissionStatus(title, message) {
+    function setSubmissionOverlay(visible, title = "", message = "") {
+      const overlay = document.getElementById("submission-overlay");
+      if (!overlay) return;
+      if (title) document.getElementById("submission-overlay-title").textContent = title;
+      if (message) document.getElementById("submission-overlay-message").textContent = message;
+      overlay.classList.toggle("show", Boolean(visible));
+      overlay.setAttribute("aria-hidden", visible ? "false" : "true");
+      document.body.classList.toggle("is-submitting", Boolean(visible));
+    }
+
+    function setSubmissionStatus(title, message, showOverlay = false) {
       document.getElementById("submission-status").classList.add("show");
       document.getElementById("submission-title").textContent = title;
       document.getElementById("submission-message").textContent = message;
+      setSubmissionOverlay(showOverlay, title, message);
     }
 
     function createSubmissionId() {
@@ -6164,7 +6337,8 @@
 
         setSubmissionStatus(
           "Sending your application",
-          "Please do not close or refresh this page while the backend stores your documents and records your entry."
+          "Please do not close or refresh this page while the backend stores your documents and records your entry.",
+          true
         );
 
         const backendReceipt = await submitApplicationToBackend(
@@ -6209,7 +6383,8 @@
 
         setSubmissionStatus(
           "Application received",
-          "Your application was recorded successfully. Opening the confirmation page now."
+          "Your application was recorded successfully. Opening the confirmation page now.",
+          true
         );
 
         window.setTimeout(() => {
@@ -6217,16 +6392,66 @@
         }, 500);
       } catch (error) {
         console.error(error);
+        submitting = false;
         setSubmissionStatus(
           "Submission was not completed",
           error?.message ||
-          "No authoritative application record was confirmed. Check your internet connection and try again; the same submission reference will be reused to prevent a duplicate entry."
+          "No authoritative application record was confirmed. Check your internet connection and try again; the same submission reference will be reused to prevent a duplicate entry.",
+          false
         );
-        submitting = false;
         submitButton.disabled = false;
         submitButton.textContent = "Submit application";
       }
     });
+
+    function countWords(value) {
+      const trimmed = String(value || "").trim();
+      return trimmed ? trimmed.split(/\s+/).length : 0;
+    }
+
+    function trimToWordLimit(value, limit) {
+      const words = String(value || "").trim().split(/\s+/).filter(Boolean);
+      if (words.length <= limit) {
+        return String(value || "");
+      }
+      return words.slice(0, limit).join(" ");
+    }
+
+    function applyWordLimit(field, limit = 250) {
+      if (!field || field.dataset.wordLimitReady === "true") return;
+      field.dataset.wordLimitReady = "true";
+      field.setAttribute("data-word-limit", String(limit));
+
+      let note = null;
+      if (field.tagName === "TEXTAREA") {
+        note = document.createElement("span");
+        note.className = "hint word-limit-hint";
+        note.dataset.for = field.id || "";
+        field.insertAdjacentElement("afterend", note);
+      }
+
+      const update = () => {
+        const trimmed = trimToWordLimit(field.value, limit);
+        if (field.value !== trimmed) {
+          field.value = trimmed;
+        }
+        if (note) {
+          const count = countWords(field.value);
+          note.textContent = `Maximum ${limit} words. ${count}/${limit} words used.`;
+          note.classList.toggle("limit-reached", count >= limit);
+        }
+      };
+
+      field.addEventListener("input", update);
+      field.addEventListener("blur", update);
+      update();
+    }
+
+    function initializeWordLimits() {
+      document.querySelectorAll('textarea.control, input.control[type="text"]').forEach((field) => {
+        applyWordLimit(field, 250);
+      });
+    }
 
     const currentYear = new Date().getFullYear();
     document.querySelectorAll(".qualification-year").forEach((field) => {
@@ -6236,6 +6461,7 @@
     initializeEmploymentEntries();
     initializeQualificationEntries();
     initializeTrainingEntries();
+    initializeWordLimits();
     setFormAvailability(false);
     showStep(0);
     initializeApplicationService();
