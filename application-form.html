@@ -1250,7 +1250,7 @@
     }
 
     .application-shell {
-      width: min(1080px, calc(100% - 2rem));
+      width: min(var(--max-width), calc(100% - 2rem));
       margin-inline: auto;
       padding: 2rem 0 4rem;
     }
@@ -1702,7 +1702,7 @@
 
     @media screen and (max-width: 700px) {
       .application-shell {
-        width: min(100% - 1rem, 1080px);
+        width: min(100% - 1rem, var(--max-width));
         padding: 1rem 0 2.5rem;
       }
 
@@ -3281,6 +3281,15 @@
         font-size: 0.61rem;
         line-height: 1.16;
       }
+    }
+
+
+    /* Page alignment: application notice and form use the same container width as the portal. */
+    .application-shell > .notice,
+    .application-shell > .form-card {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
     }
 
   </style>
