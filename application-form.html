@@ -3604,6 +3604,308 @@
       }
     }
 
+  
+
+    /* ============================================================
+       FINAL STRUCTURED RS 3.2 SECTIONS — MOBILE-FIRST
+       Dependants, close relatives and secondary education.
+       ============================================================ */
+    .structured-section,
+    .secondary-education-section {
+      min-width: 0;
+    }
+
+    .structured-title-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .structured-table-head,
+    .structured-row {
+      display: grid;
+      gap: 0.6rem;
+      align-items: end;
+      min-width: 0;
+    }
+
+    .dependant-head,
+    .dependant-row {
+      grid-template-columns: 48px minmax(150px, 1.4fr) minmax(130px, 1fr) minmax(110px, .75fr) minmax(145px, .9fr);
+    }
+
+    .subject-head,
+    .subject-row {
+      grid-template-columns: 48px minmax(180px, 1fr) minmax(130px, .55fr);
+    }
+
+    .structured-table-head {
+      padding: 0.55rem 0.65rem;
+      border: 1px solid var(--line);
+      border-bottom: 0;
+      border-radius: 0.5rem 0.5rem 0 0;
+      color: var(--green-950);
+      background: var(--green-50);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .structured-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .structured-row {
+      padding: 0.65rem;
+      border: 1px solid var(--line);
+      border-top: 0;
+      background: #fff;
+    }
+
+    .structured-row:last-child:not([hidden]) {
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+    .structured-row[hidden] { display: none !important; }
+
+    .structured-number {
+      align-self: center;
+      color: var(--green-700);
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .structured-field {
+      display: block;
+      min-width: 0;
+      margin: 0;
+    }
+
+    .structured-field > span {
+      display: none;
+      margin-bottom: 0.32rem;
+      color: var(--ink-700);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .structured-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    .structured-status {
+      flex: 1 1 260px;
+      color: var(--ink-700);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .secondary-school-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .secondary-school-card {
+      min-width: 0;
+      padding: 0.95rem;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--green-600);
+      border-radius: 0.65rem;
+      background: #fbfcfb;
+    }
+
+    .secondary-school-card[hidden] { display: none !important; }
+
+    .secondary-school-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .secondary-school-header h4 {
+      margin: 0.12rem 0 0;
+      color: var(--green-950);
+      font-size: 1rem;
+    }
+
+    .secondary-school-fields {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(130px, .55fr);
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .secondary-subjects {
+      min-width: 0;
+      padding-top: 0.25rem;
+    }
+
+    .rs32-relative-field {
+      display: block;
+      min-width: 0;
+      margin: 0;
+    }
+
+    .rs32-relative-field > span {
+      display: none;
+      margin-bottom: 0.3rem;
+      color: var(--ink-700);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    /* Keep Exit / Back / Next (or Submit) evenly aligned on mobile. */
+    @media screen and (max-width: 700px) {
+      .form-actions {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 0.45rem !important;
+        align-items: stretch !important;
+      }
+
+      .form-actions .spacer { display: none !important; }
+      .form-actions #exit-button,
+      .form-actions #back-button,
+      .form-actions #next-button,
+      .form-actions #submit-button {
+        grid-column: auto !important;
+        order: initial !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0.58rem 0.3rem !important;
+        font-size: 0.78rem !important;
+        white-space: nowrap;
+      }
+
+      .structured-table-head { display: none !important; }
+
+      .dependant-row,
+      .subject-row {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 0.62rem !important;
+        margin-bottom: 0.75rem;
+        padding: 0.75rem !important;
+        border: 1px solid var(--line) !important;
+        border-left: 4px solid var(--green-600) !important;
+        border-radius: 0.55rem !important;
+        background: #fbfcfb !important;
+      }
+
+      .structured-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--green-700);
+        font-size: 0.76rem;
+      }
+
+      .structured-field > span,
+      .rs32-relative-field > span {
+        display: block !important;
+      }
+
+      .structured-actions,
+      .secondary-school-actions,
+      .compact-actions {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 0.5rem !important;
+      }
+
+      .structured-status {
+        width: 100%;
+      }
+
+      .structured-actions .btn {
+        width: 100% !important;
+      }
+
+      .secondary-school-card {
+        padding: 0.75rem !important;
+      }
+
+      .secondary-school-fields {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 0.65rem !important;
+      }
+
+      .secondary-school-header {
+        align-items: center;
+      }
+
+      .secondary-school-header .repeatable-badge {
+        white-space: nowrap;
+      }
+
+      .rs32-relative-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 0.65rem !important;
+        margin-bottom: 0.75rem;
+        padding: 0.75rem !important;
+        border: 1px solid var(--line) !important;
+        border-left: 4px solid var(--green-600) !important;
+        border-radius: 0.55rem !important;
+        background: #fbfcfb;
+      }
+
+      .rs32-relative-grid > strong {
+        display: block;
+        margin-bottom: 0.05rem;
+        color: var(--green-950) !important;
+        font-size: 0.95rem !important;
+      }
+
+      .rs32-relative-grid .control,
+      .structured-row .control,
+      .secondary-school-card .control {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        min-height: 46px !important;
+        font-size: 16px !important;
+      }
+
+      .secondary-education-section .standard-section-label,
+      .secondary-education-section .standard-section-fields {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      .secondary-school-header {
+        display: block;
+      }
+      .secondary-school-header .repeatable-badge {
+        display: inline-block;
+        margin-top: 0.45rem;
+      }
+      .form-actions { gap: 0.32rem !important; }
+      .form-actions #exit-button,
+      .form-actions #back-button,
+      .form-actions #next-button,
+      .form-actions #submit-button {
+        font-size: 0.72rem !important;
+        padding-inline: 0.2rem !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3934,23 +4236,69 @@
                       <label for="spouse-file-number">Spouse's file number <span class="optional">(if Government employed)</span></label>
                       <input class="control" id="spouse-file-number" name="spouse_file_number" type="text" maxlength="80">
                     </div>
-                    <div class="field">
-                      <label for="has-children">Do you have children? <span class="required">*</span></label>
+                    <div class="field field-full">
+                      <label for="has-children">Do you have children or other dependants? <span class="required">*</span></label>
                       <select class="control" id="has-children" name="has_children" required>
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
+                      <span class="hint">Form RS 3.2 asks applicants to provide child details. This online section also allows other dependants to be recorded by relationship.</span>
                     </div>
-                    <div class="field">
-                      <label for="number-of-dependants">Number of dependants <span class="required">*</span></label>
-                      <input class="control" id="number-of-dependants" name="number_of_dependants" type="number" min="0" max="30" value="0" required>
-                      <span class="hint">Include children and any other persons who are financially dependent on you.</span>
-                    </div>
-                    <div class="field field-full" data-conditional-for="has-children" hidden>
-                      <label for="dependants-details">Children / dependants details <span class="optional">(if applicable)</span></label>
-                      <textarea class="control" id="dependants-details" name="dependants_details" rows="5" maxlength="1600" placeholder="One person per line: Full name | Relationship | Male/Female | Date of birth"></textarea>
-                      <span class="hint">For children, include the information requested by Form RS 3.2. For other dependants, state the relationship.</span>
+                    <input id="number-of-dependants" name="number_of_dependants" type="hidden" value="0">
+                    <div class="field field-full structured-section" data-conditional-for="has-children" hidden>
+                      <div class="structured-title-row">
+                        <div>
+                          <span class="field-label">Children / dependant details</span>
+                          <span class="hint">Enter each child or dependant separately. Add up to five records.</span>
+                        </div>
+                      </div>
+                      <textarea id="dependants-details" name="dependants_details" hidden aria-hidden="true"></textarea>
+                      <div class="structured-table-head dependant-head" aria-hidden="true">
+                        <span>No.</span><span>Full name</span><span>Relationship</span><span>Gender</span><span>Date of birth</span>
+                      </div>
+                      <div class="structured-list" id="dependant-list">
+                      <div class="structured-row dependant-row" data-dependant-entry="1">
+                        <span class="structured-number" aria-hidden="true">1</span>
+                        <label class="structured-field"><span>Full name</span><input class="control" id="dependant1-full-name" type="text" maxlength="180" autocomplete="off"></label>
+                        <label class="structured-field"><span>Relationship</span><input class="control" id="dependant1-relationship" type="text" maxlength="100" placeholder="e.g. Son, Daughter, Other"></label>
+                        <label class="structured-field"><span>Gender</span><select class="control" id="dependant1-gender"><option value="">Select</option><option>Male</option><option>Female</option></select></label>
+                        <label class="structured-field"><span>Date of birth</span><input class="control" id="dependant1-date-of-birth" type="date"></label>
+                      </div>
+                      <div class="structured-row dependant-row" data-dependant-entry="2" hidden>
+                        <span class="structured-number" aria-hidden="true">2</span>
+                        <label class="structured-field"><span>Full name</span><input class="control" id="dependant2-full-name" type="text" maxlength="180" autocomplete="off"></label>
+                        <label class="structured-field"><span>Relationship</span><input class="control" id="dependant2-relationship" type="text" maxlength="100" placeholder="e.g. Son, Daughter, Other"></label>
+                        <label class="structured-field"><span>Gender</span><select class="control" id="dependant2-gender"><option value="">Select</option><option>Male</option><option>Female</option></select></label>
+                        <label class="structured-field"><span>Date of birth</span><input class="control" id="dependant2-date-of-birth" type="date"></label>
+                      </div>
+                      <div class="structured-row dependant-row" data-dependant-entry="3" hidden>
+                        <span class="structured-number" aria-hidden="true">3</span>
+                        <label class="structured-field"><span>Full name</span><input class="control" id="dependant3-full-name" type="text" maxlength="180" autocomplete="off"></label>
+                        <label class="structured-field"><span>Relationship</span><input class="control" id="dependant3-relationship" type="text" maxlength="100" placeholder="e.g. Son, Daughter, Other"></label>
+                        <label class="structured-field"><span>Gender</span><select class="control" id="dependant3-gender"><option value="">Select</option><option>Male</option><option>Female</option></select></label>
+                        <label class="structured-field"><span>Date of birth</span><input class="control" id="dependant3-date-of-birth" type="date"></label>
+                      </div>
+                      <div class="structured-row dependant-row" data-dependant-entry="4" hidden>
+                        <span class="structured-number" aria-hidden="true">4</span>
+                        <label class="structured-field"><span>Full name</span><input class="control" id="dependant4-full-name" type="text" maxlength="180" autocomplete="off"></label>
+                        <label class="structured-field"><span>Relationship</span><input class="control" id="dependant4-relationship" type="text" maxlength="100" placeholder="e.g. Son, Daughter, Other"></label>
+                        <label class="structured-field"><span>Gender</span><select class="control" id="dependant4-gender"><option value="">Select</option><option>Male</option><option>Female</option></select></label>
+                        <label class="structured-field"><span>Date of birth</span><input class="control" id="dependant4-date-of-birth" type="date"></label>
+                      </div>
+                      <div class="structured-row dependant-row" data-dependant-entry="5" hidden>
+                        <span class="structured-number" aria-hidden="true">5</span>
+                        <label class="structured-field"><span>Full name</span><input class="control" id="dependant5-full-name" type="text" maxlength="180" autocomplete="off"></label>
+                        <label class="structured-field"><span>Relationship</span><input class="control" id="dependant5-relationship" type="text" maxlength="100" placeholder="e.g. Son, Daughter, Other"></label>
+                        <label class="structured-field"><span>Gender</span><select class="control" id="dependant5-gender"><option value="">Select</option><option>Male</option><option>Female</option></select></label>
+                        <label class="structured-field"><span>Date of birth</span><input class="control" id="dependant5-date-of-birth" type="date"></label>
+                      </div>
+                      </div>
+                      <div class="structured-actions">
+                        <span class="structured-status" id="dependant-status">1 dependant entry shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small" id="add-dependant-button" type="button">+ Add more</button>
+                        <button class="btn btn-secondary btn-small" id="remove-dependant-button" type="button" hidden>Remove last</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -4021,21 +4369,21 @@
                     </div>
                     <div class="rs32-relative-grid">
                       <strong>Father</strong>
-                      <input class="control" id="father-full-name" type="text" maxlength="180">
-                      <input class="control" id="father-date-of-birth" type="date">
-                      <input class="control" id="father-address" type="text" maxlength="300">
+                      <label class="rs32-relative-field"><span>Full name</span><input class="control" id="father-full-name" type="text" maxlength="180"></label>
+                      <label class="rs32-relative-field"><span>Date of birth</span><input class="control" id="father-date-of-birth" type="date"></label>
+                      <label class="rs32-relative-field"><span>Address</span><input class="control" id="father-address" type="text" maxlength="300"></label>
                     </div>
                     <div class="rs32-relative-grid">
                       <strong>Mother</strong>
-                      <input class="control" id="mother-full-name" type="text" maxlength="180">
-                      <input class="control" id="mother-date-of-birth" type="date">
-                      <input class="control" id="mother-address" type="text" maxlength="300">
+                      <label class="rs32-relative-field"><span>Full name</span><input class="control" id="mother-full-name" type="text" maxlength="180"></label>
+                      <label class="rs32-relative-field"><span>Date of birth</span><input class="control" id="mother-date-of-birth" type="date"></label>
+                      <label class="rs32-relative-field"><span>Address</span><input class="control" id="mother-address" type="text" maxlength="300"></label>
                     </div>
                     <div class="rs32-relative-grid">
                       <strong>Spouse</strong>
-                      <input class="control" id="spouse-full-name" type="text" maxlength="180">
-                      <input class="control" id="spouse-date-of-birth" type="date">
-                      <input class="control" id="spouse-address" type="text" maxlength="300">
+                      <label class="rs32-relative-field"><span>Full name</span><input class="control" id="spouse-full-name" type="text" maxlength="180"></label>
+                      <label class="rs32-relative-field"><span>Date of birth</span><input class="control" id="spouse-date-of-birth" type="date"></label>
+                      <label class="rs32-relative-field"><span>Address</span><input class="control" id="spouse-address" type="text" maxlength="300"></label>
                     </div>
                   </div>
                 </div>
@@ -4419,44 +4767,253 @@
               <legend>Education and qualifications</legend>
               <p class="step-intro">Enter your highest or most relevant qualification first. Use <strong>Add another qualification</strong> only when you have additional relevant qualifications to declare.</p>
 
-              <div class="standard-section rs32-integrated-section" style="margin-bottom:1.2rem">
+              <div class="standard-section rs32-integrated-section secondary-education-section" style="margin-bottom:1.2rem">
                 <div class="standard-section-label">
                   <h3>Secondary education</h3>
-                  <p>School, examination, year passed and subject results.</p>
+                  <p>School, examination, year passed, core subjects and results.</p>
                 </div>
-                <div class="standard-section-fields form-grid">
-                  <div class="field">
-                    <label for="secondary-school-1">School 1 <span class="required">*</span></label>
-                    <input class="control" id="secondary-school-1" type="text" maxlength="180" required>
+                <div class="standard-section-fields">
+                  <div class="secondary-school-list" id="secondary-school-list">
+                  <article class="secondary-school-card" data-secondary-school="1">
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 1</span><h4>Secondary education record</h4></div>
+                      <span class="repeatable-badge">Primary entry</span>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name <span class="required">*</span></span><input class="control" id="secondary-school-1" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination <span class="required">*</span></span><input class="control" id="secondary-exam-1" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed <span class="required">*</span></span><input class="control qualification-year" id="secondary-year-1" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary1-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="1-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="1-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="1-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="1-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="1-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary1-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary1-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary1-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="1">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="1" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="secondary-school-card" data-secondary-school="2" hidden>
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 2</span><h4>Secondary education record</h4></div>
+                      <span class="repeatable-badge">Additional</span>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-2" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-2" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-2" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary2-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="2-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="2-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="2-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="2-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="2-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary2-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary2-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary2-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="2">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="2" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="secondary-school-card" data-secondary-school="3" hidden>
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 3</span><h4>Secondary education record</h4></div>
+                      <span class="repeatable-badge">Additional</span>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-3" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-3" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-3" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary3-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="3-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="3-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="3-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="3-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="3-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary3-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary3-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary3-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="3">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="3" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="secondary-school-card" data-secondary-school="4" hidden>
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 4</span><h4>Secondary education record</h4></div>
+                      <span class="repeatable-badge">Additional</span>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-4" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-4" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-4" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary4-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="4-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="4-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="4-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="4-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="4-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary4-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary4-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary4-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="4">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="4" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="secondary-school-card" data-secondary-school="5" hidden>
+                    <div class="secondary-school-header">
+                      <div><span class="repeatable-number">School 5</span><h4>Secondary education record</h4></div>
+                      <span class="repeatable-badge">Additional</span>
+                    </div>
+                    <div class="secondary-school-fields">
+                      <label class="field"><span class="field-label">School name</span><input class="control" id="secondary-school-5" type="text" maxlength="180"></label>
+                      <label class="field"><span class="field-label">Examination</span><input class="control" id="secondary-exam-5" type="text" maxlength="140" placeholder="e.g. Grade 12 Examination"></label>
+                      <label class="field"><span class="field-label">Year passed</span><input class="control qualification-year" id="secondary-year-5" type="number" min="1950" max="2026"></label>
+                    </div>
+                    <div class="secondary-subjects">
+                      <div class="structured-title-row"><div><span class="field-label">Core subjects &amp; results</span><span class="hint">Enter each core subject and its result separately.</span></div></div>
+                      <div class="structured-table-head subject-head" aria-hidden="true"><span>No.</span><span>Core subject</span><span>Result</span></div>
+                      <div class="structured-list" id="secondary5-subject-list">
+                        <div class="structured-row subject-row" data-secondary-subject="5-1">
+                          <span class="structured-number" aria-hidden="true">1</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject1" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result1" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="5-2" hidden>
+                          <span class="structured-number" aria-hidden="true">2</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject2" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result2" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="5-3" hidden>
+                          <span class="structured-number" aria-hidden="true">3</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject3" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result3" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="5-4" hidden>
+                          <span class="structured-number" aria-hidden="true">4</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject4" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result4" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                        <div class="structured-row subject-row" data-secondary-subject="5-5" hidden>
+                          <span class="structured-number" aria-hidden="true">5</span>
+                          <label class="structured-field"><span>Core subject</span><input class="control" id="secondary5-subject5" type="text" maxlength="140"></label>
+                          <label class="structured-field"><span>Result</span><input class="control" id="secondary5-result5" type="text" maxlength="80" placeholder="Grade / result"></label>
+                        </div>
+                      </div>
+                      <div class="structured-actions compact-actions">
+                        <span class="structured-status" id="secondary5-subject-status">1 subject shown. You can add up to 4 more.</span>
+                        <button class="btn btn-primary btn-small secondary-add-subject" type="button" data-school="5">+ Add more subject</button>
+                        <button class="btn btn-secondary btn-small secondary-remove-subject" type="button" data-school="5" hidden>Remove last</button>
+                      </div>
+                    </div>
+                  </article>
                   </div>
-                  <div class="field">
-                    <label for="secondary-exam-1">Examination <span class="required">*</span></label>
-                    <input class="control" id="secondary-exam-1" type="text" maxlength="140" placeholder="For example: Grade 12 / HSC" required>
-                  </div>
-                  <div class="field">
-                    <label for="secondary-year-1">Year passed <span class="required">*</span></label>
-                    <input class="control qualification-year" id="secondary-year-1" type="number" min="1950" max="2026" required>
-                  </div>
-                  <div class="field field-full">
-                    <label for="secondary-results-1">Subjects and results <span class="required">*</span></label>
-                    <textarea class="control" id="secondary-results-1" rows="4" maxlength="1600" placeholder="List subject and result, one per line." required></textarea>
-                  </div>
-
-                  <div class="field">
-                    <label for="secondary-school-2">School 2 <span class="optional">(optional)</span></label>
-                    <input class="control" id="secondary-school-2" type="text" maxlength="180">
-                  </div>
-                  <div class="field">
-                    <label for="secondary-exam-2">Examination <span class="optional">(optional)</span></label>
-                    <input class="control" id="secondary-exam-2" type="text" maxlength="140">
-                  </div>
-                  <div class="field">
-                    <label for="secondary-year-2">Year passed <span class="optional">(optional)</span></label>
-                    <input class="control qualification-year" id="secondary-year-2" type="number" min="1950" max="2026">
-                  </div>
-                  <div class="field field-full">
-                    <label for="secondary-results-2">Subjects and results <span class="optional">(optional)</span></label>
-                    <textarea class="control" id="secondary-results-2" rows="4" maxlength="1600"></textarea>
+                  <div class="structured-actions secondary-school-actions">
+                    <span class="structured-status" id="secondary-school-status">1 school entry shown. You can add up to 4 more.</span>
+                    <button class="btn btn-primary btn-small" id="add-secondary-school-button" type="button">+ Add another school</button>
+                    <button class="btn btn-secondary btn-small" id="remove-secondary-school-button" type="button" hidden>Remove last school</button>
                   </div>
                 </div>
               </div>
@@ -5251,7 +5808,6 @@
     }
 
     const yesNoConditionalRules = [
-      { controllerId: "has-children", targetIds: ["dependants-details"] },
       { controllerId: "public-service-employee", targetIds: ["public-service-agency", "public-service-file-number"] },
       { controllerId: "armed-forces-service", targetIds: ["service-branch", "service-rank", "service-enlistment-date", "service-discharge-date", "service-discharge-reason"] },
       { controllerId: "convicted-offence", targetIds: ["conviction-details"] }
@@ -5427,6 +5983,22 @@
         if (!card.hidden) setTrainingCardState(card, true);
       });
       updateTrainingControls();
+
+      getSecondarySchoolCards().forEach((card) => {
+        if (!card.hidden) {
+          const n = Number(card.dataset.secondarySchool);
+          card.querySelectorAll(":scope > .secondary-school-fields input").forEach((field) => {
+            field.disabled = !applicationServiceReady;
+            field.required = true;
+          });
+          getSecondarySubjectRows(n).forEach((row) => {
+            setSecondarySubjectRowState(row, !row.hidden);
+          });
+          updateSecondarySubjectControls(n);
+        }
+      });
+      updateSecondarySchoolControls();
+      updateDependantControls();
 
       refreshConditionalFields(false);
     }
@@ -5662,6 +6234,240 @@
 
     function fileName(id) {
       return document.getElementById(id)?.files?.[0]?.name || "Not uploaded";
+    }
+
+    // Structured children / dependant records (maximum five).
+    function getDependantRows() {
+      return [...document.querySelectorAll("[data-dependant-entry]")];
+    }
+
+    function getDependantCount() {
+      return getDependantRows().filter((row) => !row.hidden).length;
+    }
+
+    function setDependantRowState(row, active) {
+      row.hidden = !active;
+      row.querySelectorAll("input, select").forEach((field) => {
+        field.disabled = !applicationServiceReady || !active;
+        field.required = active;
+        if (!active) field.setCustomValidity("");
+      });
+    }
+
+    function updateDependantSerialization() {
+      const rows = getDependantRows().filter((row) => !row.hidden);
+      const entries = rows.map((row) => {
+        const n = Number(row.dataset.dependantEntry);
+        return {
+          fullName: fieldValue(`dependant${n}-full-name`),
+          relationship: fieldValue(`dependant${n}-relationship`),
+          gender: fieldValue(`dependant${n}-gender`),
+          dateOfBirth: fieldValue(`dependant${n}-date-of-birth`)
+        };
+      });
+      const numberField = document.getElementById("number-of-dependants");
+      const serialized = document.getElementById("dependants-details");
+      if (numberField) numberField.value = document.getElementById("has-children")?.value === "Yes" ? String(entries.length) : "0";
+      if (serialized) serialized.value = entries.map((entry) => [entry.fullName, entry.relationship, entry.gender, entry.dateOfBirth].join(" | ")).join("\n");
+      return entries;
+    }
+
+    function updateDependantControls() {
+      const hasDependants = fieldValue("has-children") === "Yes";
+      const wrapper = document.getElementById("dependants-details")?.closest(".field");
+      const count = getDependantCount();
+      const addButton = document.getElementById("add-dependant-button");
+      const removeButton = document.getElementById("remove-dependant-button");
+      const status = document.getElementById("dependant-status");
+
+      if (wrapper) wrapper.hidden = !hasDependants;
+      getDependantRows().forEach((row, index) => {
+        const shouldBeActive = hasDependants && index < Math.max(1, count);
+        setDependantRowState(row, shouldBeActive && !row.hidden || (hasDependants && index === 0));
+      });
+
+      if (!hasDependants) {
+        getDependantRows().forEach((row, index) => setDependantRowState(row, false));
+        if (getDependantRows()[0]) getDependantRows()[0].hidden = false;
+      }
+
+      const activeCount = hasDependants ? getDependantCount() : 0;
+      if (addButton) {
+        addButton.disabled = !applicationServiceReady || !hasDependants || activeCount >= 5;
+        addButton.hidden = activeCount >= 5;
+      }
+      if (removeButton) {
+        removeButton.disabled = !applicationServiceReady || !hasDependants || activeCount <= 1;
+        removeButton.hidden = activeCount <= 1;
+      }
+      if (status) {
+        status.textContent = activeCount >= 5
+          ? "5 dependant entries shown — the maximum allowed."
+          : `${activeCount || 1} dependant entr${(activeCount || 1) === 1 ? "y" : "ies"} shown. You can add up to ${5 - (activeCount || 1)} more.`;
+      }
+      updateDependantSerialization();
+    }
+
+    function initializeDependantEntries() {
+      getDependantRows().forEach((row, index) => setDependantRowState(row, index === 0));
+      updateDependantControls();
+    }
+
+    function addDependantEntry() {
+      if (fieldValue("has-children") !== "Yes") return;
+      const rows = getDependantRows();
+      const count = getDependantCount();
+      if (count >= 5) return;
+      const next = rows[count];
+      if (!next) return;
+      setDependantRowState(next, true);
+      updateDependantControls();
+      next.querySelector("input, select")?.focus();
+    }
+
+    function removeLastDependantEntry() {
+      const rows = getDependantRows();
+      const count = getDependantCount();
+      if (count <= 1) return;
+      const last = rows[count - 1];
+      last.querySelectorAll("input, select").forEach((field) => { field.value = ""; field.setCustomValidity(""); });
+      setDependantRowState(last, false);
+      updateDependantControls();
+    }
+
+    function getDependantEntries() {
+      return updateDependantSerialization();
+    }
+
+    // Secondary education: one school initially, up to five schools; each school supports up to five core subjects/results.
+    function getSecondarySchoolCards() {
+      return [...document.querySelectorAll("[data-secondary-school]")];
+    }
+
+    function getSecondarySchoolCount() {
+      return getSecondarySchoolCards().filter((card) => !card.hidden).length;
+    }
+
+    function getSecondarySubjectRows(schoolNumber) {
+      return [...document.querySelectorAll(`[data-secondary-subject^="${schoolNumber}-"]`)];
+    }
+
+    function setSecondarySubjectRowState(row, active) {
+      row.hidden = !active;
+      row.querySelectorAll("input").forEach((field) => {
+        field.disabled = !applicationServiceReady || !active;
+        field.required = active;
+        if (!active) field.setCustomValidity("");
+      });
+    }
+
+    function setSecondarySchoolState(card, active) {
+      const schoolNumber = Number(card.dataset.secondarySchool);
+      card.hidden = !active;
+      card.querySelectorAll(":scope > .secondary-school-fields input").forEach((field) => {
+        field.disabled = !applicationServiceReady || !active;
+        field.required = active;
+        if (!active) field.setCustomValidity("");
+      });
+      const subjectRows = getSecondarySubjectRows(schoolNumber);
+      subjectRows.forEach((row, index) => setSecondarySubjectRowState(row, active && index === 0));
+      updateSecondarySubjectControls(schoolNumber);
+    }
+
+    function getSecondarySubjectCount(schoolNumber) {
+      return getSecondarySubjectRows(schoolNumber).filter((row) => !row.hidden).length;
+    }
+
+    function updateSecondarySubjectControls(schoolNumber) {
+      const card = document.querySelector(`[data-secondary-school="${schoolNumber}"]`);
+      if (!card) return;
+      const activeSchool = !card.hidden;
+      const count = getSecondarySubjectCount(schoolNumber);
+      const addButton = card.querySelector(".secondary-add-subject");
+      const removeButton = card.querySelector(".secondary-remove-subject");
+      const status = document.getElementById(`secondary${schoolNumber}-subject-status`);
+      if (addButton) { addButton.disabled = !applicationServiceReady || !activeSchool || count >= 5; addButton.hidden = count >= 5; }
+      if (removeButton) { removeButton.disabled = !applicationServiceReady || !activeSchool || count <= 1; removeButton.hidden = count <= 1; }
+      if (status) status.textContent = count >= 5 ? "5 subjects shown — the maximum allowed." : `${count || 1} subject${(count || 1) === 1 ? "" : "s"} shown. You can add up to ${5 - (count || 1)} more.`;
+    }
+
+    function addSecondarySubject(schoolNumber) {
+      const rows = getSecondarySubjectRows(schoolNumber);
+      const count = getSecondarySubjectCount(schoolNumber);
+      if (count >= 5) return;
+      const next = rows[count];
+      if (!next) return;
+      setSecondarySubjectRowState(next, true);
+      updateSecondarySubjectControls(schoolNumber);
+      next.querySelector("input")?.focus();
+    }
+
+    function removeLastSecondarySubject(schoolNumber) {
+      const rows = getSecondarySubjectRows(schoolNumber);
+      const count = getSecondarySubjectCount(schoolNumber);
+      if (count <= 1) return;
+      const last = rows[count - 1];
+      last.querySelectorAll("input").forEach((field) => { field.value = ""; field.setCustomValidity(""); });
+      setSecondarySubjectRowState(last, false);
+      updateSecondarySubjectControls(schoolNumber);
+    }
+
+    function updateSecondarySchoolControls() {
+      const count = getSecondarySchoolCount();
+      const addButton = document.getElementById("add-secondary-school-button");
+      const removeButton = document.getElementById("remove-secondary-school-button");
+      const status = document.getElementById("secondary-school-status");
+      if (addButton) { addButton.disabled = !applicationServiceReady || count >= 5; addButton.hidden = count >= 5; }
+      if (removeButton) { removeButton.disabled = !applicationServiceReady || count <= 1; removeButton.hidden = count <= 1; }
+      if (status) status.textContent = count >= 5 ? "5 school entries shown — the maximum allowed." : `${count} school entr${count === 1 ? "y" : "ies"} shown. You can add up to ${5 - count} more.`;
+    }
+
+    function initializeSecondaryEducation() {
+      getSecondarySchoolCards().forEach((card, index) => setSecondarySchoolState(card, index === 0));
+      updateSecondarySchoolControls();
+    }
+
+    function addSecondarySchool() {
+      const cards = getSecondarySchoolCards();
+      const count = getSecondarySchoolCount();
+      if (count >= 5) return;
+      const next = cards[count];
+      if (!next) return;
+      setSecondarySchoolState(next, true);
+      updateSecondarySchoolControls();
+      next.querySelector("input")?.focus();
+      next.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function removeLastSecondarySchool() {
+      const cards = getSecondarySchoolCards();
+      const count = getSecondarySchoolCount();
+      if (count <= 1) return;
+      const last = cards[count - 1];
+      last.querySelectorAll("input").forEach((field) => { field.value = ""; field.setCustomValidity(""); });
+      setSecondarySchoolState(last, false);
+      updateSecondarySchoolControls();
+    }
+
+    function getSecondaryEducationEntries() {
+      const entries = [];
+      getSecondarySchoolCards().forEach((card) => {
+        if (card.hidden) return;
+        const n = Number(card.dataset.secondarySchool);
+        const subjects = getSecondarySubjectRows(n).filter((row) => !row.hidden).map((row) => {
+          const parts = row.dataset.secondarySubject.split("-");
+          const s = Number(parts[1]);
+          return { subject: fieldValue(`secondary${n}-subject${s}`), result: fieldValue(`secondary${n}-result${s}`) };
+        });
+        entries.push({
+          school: fieldValue(`secondary-school-${n}`),
+          examination: fieldValue(`secondary-exam-${n}`),
+          yearPassed: fieldValue(`secondary-year-${n}`),
+          subjects,
+          subjectsResults: subjects.map((item) => `${item.subject}: ${item.result}`).join(" | ")
+        });
+      });
+      return entries;
     }
 
     // Employment history: show one record first, then reveal additional records one at a time (maximum five).
@@ -6197,6 +7003,23 @@
     document.getElementById("remove-qualification-button").addEventListener("click", removeLastQualificationEntry);
     document.getElementById("add-training-button").addEventListener("click", addTrainingEntry);
     document.getElementById("remove-training-button").addEventListener("click", removeLastTrainingEntry);
+    document.getElementById("add-dependant-button").addEventListener("click", addDependantEntry);
+    document.getElementById("remove-dependant-button").addEventListener("click", removeLastDependantEntry);
+    document.getElementById("has-children").addEventListener("change", () => {
+      if (fieldValue("has-children") !== "Yes") {
+        getDependantRows().forEach((row, index) => {
+          row.querySelectorAll("input, select").forEach((field) => { field.value = ""; field.setCustomValidity(""); });
+          setDependantRowState(row, false);
+          if (index === 0) row.hidden = false;
+        });
+      }
+      updateDependantControls();
+    });
+    getDependantRows().forEach((row) => row.addEventListener("input", updateDependantSerialization));
+    document.getElementById("add-secondary-school-button").addEventListener("click", addSecondarySchool);
+    document.getElementById("remove-secondary-school-button").addEventListener("click", removeLastSecondarySchool);
+    document.querySelectorAll(".secondary-add-subject").forEach((button) => button.addEventListener("click", () => addSecondarySubject(Number(button.dataset.school))));
+    document.querySelectorAll(".secondary-remove-subject").forEach((button) => button.addEventListener("click", () => removeLastSecondarySubject(Number(button.dataset.school))));
 
     function fileToBase64(id) {
       return new Promise((resolve, reject) => {
@@ -6506,6 +7329,8 @@
         const employmentEntries = getEmploymentEntries();
         const qualificationEntries = getQualificationEntries();
         const trainingEntries = getTrainingEntries();
+        const dependantEntries = fieldValue("has-children") === "Yes" ? getDependantEntries() : [];
+        const secondaryEducationEntries = getSecondaryEducationEntries();
         const applicationData = {
           division: selectedDivision,
           division_branch: selectedDivision,
@@ -6550,6 +7375,7 @@
             hasChildren: fieldValue("has-children"),
             numberOfDependants: fieldValue("number-of-dependants"),
             dependantsDetails: fieldValue("dependants-details"),
+            dependants: dependantEntries,
             permanentAddress: fieldValue("permanent-address"),
             presentAddressUntil: fieldValue("present-address-until"),
             residenceHistoryFiveYears: fieldValue("residence-history-five-years"),
@@ -6579,20 +7405,7 @@
             convictedOffence: fieldValue("convicted-offence"),
             convictionDetails: fieldValue("conviction-details"),
             previousPngApplications: fieldValue("previous-png-applications"),
-            secondaryEducation: [
-              {
-                school: fieldValue("secondary-school-1"),
-                examination: fieldValue("secondary-exam-1"),
-                yearPassed: fieldValue("secondary-year-1"),
-                subjectsResults: fieldValue("secondary-results-1")
-              },
-              {
-                school: fieldValue("secondary-school-2"),
-                examination: fieldValue("secondary-exam-2"),
-                yearPassed: fieldValue("secondary-year-2"),
-                subjectsResults: fieldValue("secondary-results-2")
-              }
-            ],
+            secondaryEducation: secondaryEducationEntries,
             additionalStudyResearch: fieldValue("additional-study-research"),
             publications: fieldValue("publications"),
             prizesScholarships: fieldValue("prizes-scholarships"),
@@ -6892,6 +7705,8 @@
     initializeEmploymentEntries();
     initializeQualificationEntries();
     initializeTrainingEntries();
+    initializeDependantEntries();
+    initializeSecondaryEducation();
     initializeWordLimits();
     setFormAvailability(false);
     showStep(0);
