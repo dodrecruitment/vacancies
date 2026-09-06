@@ -602,6 +602,134 @@
     .empty-state h2 { margin-top: 0; color: var(--green-950); }
     .closed-label { display: inline-flex; min-height: 38px; align-items: center; padding: 0.5rem 0.72rem; border-radius: 0.55rem; color: #6c2328; background: #f9e5e7; font-size: 0.78rem; font-weight: 850; }
 
+    /* Position Vacancies header layout and application countdown. */
+    .page-title-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .page-title-copy { min-width: 0; }
+
+    .vacancy-header-status {
+      padding: 1.35rem;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(10px);
+    }
+
+    .vacancy-header-status h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 1.12rem;
+    }
+
+    .vacancy-header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+      padding: 0.38rem 0.68rem;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--green-600);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .vacancy-header-badge::before {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: currentColor;
+      content: "";
+    }
+
+    .vacancy-header-date {
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.17);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .vacancy-countdown {
+      margin-top: 1rem;
+      padding: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 0.85rem;
+      background: rgba(0,0,0,0.16);
+    }
+
+    .vacancy-countdown-label {
+      display: block;
+      margin-bottom: 0.65rem;
+      color: var(--gold-200);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .vacancy-countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .vacancy-countdown-unit {
+      min-width: 0;
+      padding: 0.58rem 0.28rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 0.6rem;
+      background: rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    .vacancy-countdown-value {
+      display: block;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.18rem, 2.2vw, 1.55rem);
+      font-weight: 800;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .vacancy-countdown-unit small {
+      display: block;
+      margin-top: 0.3rem;
+      color: #dce9e2;
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .vacancy-countdown.closed .vacancy-countdown-label { color: #fff; }
+    .vacancy-countdown.closed .vacancy-countdown-unit { opacity: 0.7; }
+
+    @media (max-width: 850px) {
+      .page-title-layout { grid-template-columns: 1fr; gap: 1.6rem; }
+      .vacancy-header-status { max-width: 520px; }
+    }
+
+    @media (max-width: 650px) {
+      .page-title-layout { gap: 1.2rem; }
+      .vacancy-header-status { padding: 1rem; }
+      .vacancy-countdown { padding: 0.72rem; }
+      .vacancy-countdown-grid { gap: 0.35rem; }
+      .vacancy-countdown-unit { padding: 0.5rem 0.18rem; }
+      .vacancy-countdown-value { font-size: 1.12rem; }
+      .vacancy-countdown-unit small { font-size: 0.52rem; }
+    }
+
     @media (max-width: 850px) {
       .toolbar { position: static; }
       .toolbar-grid { grid-template-columns: 1fr 1fr; }
@@ -950,11 +1078,30 @@
 
   <main id="main-content">
     <header class="page-title">
-      <div class="container">
-        <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Position Vacancies</li></ol>
-        <p class="eyebrow">Vacancy Register</p>
-        <h1>Position Vacancies</h1>
-        <p>The approved register contains 39 vacancies across the Executive Division, Strategic Policy Research & Development Division, and Capability Acquisition & Sustainability Division.</p>
+      <div class="container page-title-layout">
+        <div class="page-title-copy">
+          <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Position Vacancies</li></ol>
+          <p class="eyebrow">Vacancy Register</p>
+          <h1>Position Vacancies</h1>
+          <p>The approved register contains 39 vacancies across the Executive Division, Strategic Policy Research & Development Division, and Capability Acquisition & Sustainability Division.</p>
+        </div>
+
+        <aside class="vacancy-header-status" aria-labelledby="vacancy-countdown-heading">
+          <div class="vacancy-header-badge" id="vacancy-header-badge">Applications open</div>
+          <h2 id="vacancy-countdown-heading">Current application period</h2>
+
+          <div class="vacancy-countdown" id="vacancy-countdown" role="timer" aria-live="polite" aria-atomic="true">
+            <span class="vacancy-countdown-label" id="vacancy-countdown-label">Time remaining to apply</span>
+            <div class="vacancy-countdown-grid" aria-label="Application countdown">
+              <div class="vacancy-countdown-unit"><span class="vacancy-countdown-value" id="vacancy-countdown-days">00</span><small>Days</small></div>
+              <div class="vacancy-countdown-unit"><span class="vacancy-countdown-value" id="vacancy-countdown-hours">00</span><small>Hours</small></div>
+              <div class="vacancy-countdown-unit"><span class="vacancy-countdown-value" id="vacancy-countdown-minutes">00</span><small>Minutes</small></div>
+              <div class="vacancy-countdown-unit"><span class="vacancy-countdown-value" id="vacancy-countdown-seconds">00</span><small>Seconds</small></div>
+            </div>
+          </div>
+
+          <div class="vacancy-header-date" id="vacancy-header-date">Closes 7 September 2026, 4:06 PM (PNG time)</div>
+        </aside>
       </div>
     </header>
 
@@ -968,7 +1115,10 @@
       <div class="container">
         <div class="notice" id="phase-notice" style="margin-bottom:1rem;border-color:#d8c37a;border-left-color:#b78918;background:#fff8df;color:#503e0c">
           <span class="notice-dot" aria-hidden="true">✓</span>
-          <div><strong id="phase-notice-title">Applications open 21 August 2026</strong><p id="phase-notice-message">Applications open at 6:00 AM on 21 August 2026 and close on 7 September 2026 at 4:06 PM (Papua New Guinea time).</p></div>
+          <div style="flex:1;min-width:0">
+            <strong id="phase-notice-title">Applications open 21 August 2026</strong>
+            <p id="phase-notice-message">Applications open at 6:00 AM on 21 August 2026 and close on 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
+          </div>
         </div>
 
         <div class="toolbar no-print">
@@ -1052,18 +1202,59 @@
     const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
     let currentApplicationPhase = "";
 
+    const padCountdown = (value) => String(value).padStart(2, "0");
+
     function getApplicationPhase() {
       const now = new Date();
       if (now < VACANCY_OPEN_AT) return "before";
       if (now <= VACANCY_CLOSE_AT) return "open";
       return "closed";
     }
-    function updatePhaseScheduleUI() {
+
+    function setVacancyCountdown(targetDate, labelText, isClosed = false) {
       const now = new Date();
+      const countdown = document.getElementById("vacancy-countdown");
+      const label = document.getElementById("vacancy-countdown-label");
+      const days = document.getElementById("vacancy-countdown-days");
+      const hours = document.getElementById("vacancy-countdown-hours");
+      const minutes = document.getElementById("vacancy-countdown-minutes");
+      const seconds = document.getElementById("vacancy-countdown-seconds");
+
+      if (!countdown || !label || !days || !hours || !minutes || !seconds) return;
+
+      if (isClosed) {
+        label.textContent = "Applications closed";
+        days.textContent = "00";
+        hours.textContent = "00";
+        minutes.textContent = "00";
+        seconds.textContent = "00";
+        countdown.classList.add("closed");
+        return;
+      }
+
+      countdown.classList.remove("closed");
+      label.textContent = labelText;
+
+      const remaining = Math.max(0, targetDate.getTime() - now.getTime());
+      const totalSeconds = Math.floor(remaining / 1000);
+      const dayValue = Math.floor(totalSeconds / 86400);
+      const hourValue = Math.floor((totalSeconds % 86400) / 3600);
+      const minuteValue = Math.floor((totalSeconds % 3600) / 60);
+      const secondValue = totalSeconds % 60;
+
+      days.textContent = padCountdown(dayValue);
+      hours.textContent = padCountdown(hourValue);
+      minutes.textContent = padCountdown(minuteValue);
+      seconds.textContent = padCountdown(secondValue);
+    }
+
+    function updatePhaseScheduleUI() {
       const phase = getApplicationPhase();
       const notice = document.getElementById("phase-notice");
       const title = document.getElementById("phase-notice-title");
       const message = document.getElementById("phase-notice-message");
+      const headerBadge = document.getElementById("vacancy-header-badge");
+      const headerDate = document.getElementById("vacancy-header-date");
 
       if (phase === "before") {
         notice.style.borderColor = "#d8c37a";
@@ -1072,6 +1263,12 @@
         notice.style.color = "#503e0c";
         title.textContent = "Applications open 21 August 2026 at 6:00 AM";
         message.textContent = "Applications open on 21 August 2026 at 6:00 AM and close on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+        if (headerBadge) {
+          headerBadge.textContent = "Applications not yet open";
+          headerBadge.style.background = "#b78918";
+        }
+        if (headerDate) headerDate.textContent = "Opens 21 August 2026, 6:00 AM · Closes 7 September 2026, 4:06 PM (PNG time)";
+        setVacancyCountdown(VACANCY_OPEN_AT, "Applications open in");
       } else if (phase === "open") {
         notice.style.borderColor = "#a9d2bd";
         notice.style.borderLeftColor = "var(--green-600)";
@@ -1079,6 +1276,12 @@
         notice.style.color = "var(--green-950)";
         title.textContent = "Online applications are open";
         message.textContent = "Online applications are open. Closing time: 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+        if (headerBadge) {
+          headerBadge.textContent = "Applications open";
+          headerBadge.style.background = "var(--green-600)";
+        }
+        if (headerDate) headerDate.textContent = "Closes 7 September 2026, 4:06 PM (PNG time)";
+        setVacancyCountdown(VACANCY_CLOSE_AT, "Time remaining to apply");
       } else {
         notice.style.borderColor = "#e6a8ae";
         notice.style.borderLeftColor = "var(--danger)";
@@ -1086,6 +1289,12 @@
         notice.style.color = "#721c24";
         title.textContent = "Online applications are closed";
         message.textContent = "Applications closed on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+        if (headerBadge) {
+          headerBadge.textContent = "Applications closed";
+          headerBadge.style.background = "var(--danger)";
+        }
+        if (headerDate) headerDate.textContent = "Closed 7 September 2026, 4:06 PM (PNG time)";
+        setVacancyCountdown(VACANCY_CLOSE_AT, "Applications closed", true);
       }
 
       if (phase !== currentApplicationPhase) {
@@ -1260,6 +1469,7 @@
     currentApplicationPhase = getApplicationPhase();
     render();
     updatePhaseScheduleUI();
+    window.setInterval(updatePhaseScheduleUI, 1000);
   </script>
 </body>
 </html>
