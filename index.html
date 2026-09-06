@@ -546,6 +546,61 @@
       font-weight: 700;
     }
 
+    .countdown {
+      margin-top: 1.15rem;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 0.85rem;
+      background: rgba(0,0,0,0.16);
+    }
+
+    .countdown-label {
+      display: block;
+      margin-bottom: 0.7rem;
+      color: var(--gold-200);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .countdown-unit {
+      min-width: 0;
+      padding: 0.65rem 0.3rem;
+      border-radius: 0.65rem;
+      background: rgba(255,255,255,0.12);
+      text-align: center;
+    }
+
+    .countdown-value {
+      display: block;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 800;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown-unit small {
+      display: block;
+      margin-top: 0.35rem;
+      color: #dce9e2;
+      font-size: 0.64rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .countdown.closed .countdown-label { color: #fff; }
+    .countdown.closed .countdown-unit { opacity: 0.7; }
+
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -960,7 +1015,18 @@
           <div class="status-badge" id="application-status-badge">Applications not yet open</div>
           <h2 id="application-status-title">Current application period</h2>
           <p id="application-status-message">Applications open on 21 August 2026 at 6:00 AM (Papua New Guinea time).</p>
-          <div class="status-date">Opens 21 August 2026, 6:00 AM · Closes 7 September 2026, 4:06 PM</div>
+
+          <div class="countdown" id="application-countdown" role="timer" aria-live="polite" aria-atomic="true">
+            <span class="countdown-label" id="countdown-label">Time remaining to apply</span>
+            <div class="countdown-grid" aria-label="Application countdown">
+              <div class="countdown-unit"><span class="countdown-value" id="countdown-days">00</span><small>Days</small></div>
+              <div class="countdown-unit"><span class="countdown-value" id="countdown-hours">00</span><small>Hours</small></div>
+              <div class="countdown-unit"><span class="countdown-value" id="countdown-minutes">00</span><small>Minutes</small></div>
+              <div class="countdown-unit"><span class="countdown-value" id="countdown-seconds">00</span><small>Seconds</small></div>
+            </div>
+          </div>
+
+          <div class="status-date">Opens 21 August 2026, 6:00 AM · Closes 7 September 2026, 4:06 PM (PNG time)</div>
         </aside>
       </div>
     </section>
@@ -1077,41 +1143,88 @@
 
     const VACANCY_OPEN_AT = new Date("2026-08-21T06:00:00+10:00");
     const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
+
+    const padCountdown = (value) => String(value).padStart(2, "0");
+
+    function setCountdown(targetDate, labelText, isClosed = false) {
+      const now = new Date();
+      const countdown = document.getElementById("application-countdown");
+      const label = document.getElementById("countdown-label");
+      const days = document.getElementById("countdown-days");
+      const hours = document.getElementById("countdown-hours");
+      const minutes = document.getElementById("countdown-minutes");
+      const seconds = document.getElementById("countdown-seconds");
+
+      if (!countdown || !label || !days || !hours || !minutes || !seconds) return;
+
+      if (isClosed) {
+        label.textContent = "Applications closed";
+        days.textContent = "00";
+        hours.textContent = "00";
+        minutes.textContent = "00";
+        seconds.textContent = "00";
+        countdown.classList.add("closed");
+        return;
+      }
+
+      countdown.classList.remove("closed");
+      label.textContent = labelText;
+
+      const remaining = Math.max(0, targetDate.getTime() - now.getTime());
+      const totalSeconds = Math.floor(remaining / 1000);
+
+      const dayValue = Math.floor(totalSeconds / 86400);
+      const hourValue = Math.floor((totalSeconds % 86400) / 3600);
+      const minuteValue = Math.floor((totalSeconds % 3600) / 60);
+      const secondValue = totalSeconds % 60;
+
+      days.textContent = padCountdown(dayValue);
+      hours.textContent = padCountdown(hourValue);
+      minutes.textContent = padCountdown(minuteValue);
+      seconds.textContent = padCountdown(secondValue);
+    }
+
     function updateVacancyStatus() {
       const now = new Date();
       const badge = document.getElementById("application-status-badge");
       const message = document.getElementById("application-status-message");
       const applyButton = document.getElementById("home-apply-button");
 
+      if (!badge || !message || !applyButton) return;
+
       if (now < VACANCY_OPEN_AT) {
         badge.textContent = "Applications not yet open";
-        message.textContent = "Opening: 21 August 2026 at 6:00 AM (Papua New Guinea time).";
+        message.textContent = "Applications open on 21 August 2026 at 6:00 AM (Papua New Guinea time).";
         applyButton.textContent = "Apply from 21 August";
         applyButton.removeAttribute("href");
         applyButton.setAttribute("aria-disabled", "true");
         applyButton.classList.add("disabled");
+        setCountdown(VACANCY_OPEN_AT, "Applications open in");
         return;
       }
 
       if (now <= VACANCY_CLOSE_AT) {
         badge.textContent = "Applications open";
-        message.textContent = "Online applications are being accepted.";
+        message.textContent = "Online applications are being accepted. Submit your application before the deadline.";
         applyButton.textContent = "Apply Now";
         applyButton.href = "application-form.html";
         applyButton.removeAttribute("aria-disabled");
         applyButton.classList.remove("disabled");
+        setCountdown(VACANCY_CLOSE_AT, "Time remaining to apply");
         return;
       }
 
       badge.textContent = "Applications closed";
-      message.textContent = "The application period has ended.";
+      message.textContent = "The application period ended on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
       applyButton.textContent = "Applications Closed";
       applyButton.removeAttribute("href");
       applyButton.setAttribute("aria-disabled", "true");
       applyButton.classList.add("disabled");
+      setCountdown(VACANCY_CLOSE_AT, "Applications closed", true);
     }
 
     updateVacancyStatus();
+    window.setInterval(updateVacancyStatus, 1000);
 
   </script>
 </body>
