@@ -4064,6 +4064,202 @@
       .footer-follow-label { font-size: 0.78rem; }
     }
 
+  
+
+    /* ============================================================
+       APPLICATION HEADER COUNTDOWN — 7 SEPTEMBER 2026
+       Matches the index-page application status card and timer.
+       ============================================================ */
+    .application-title-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .application-title-copy {
+      min-width: 0;
+    }
+
+    .application-title-copy > p:last-child {
+      max-width: 760px;
+    }
+
+    .application-status-card {
+      padding: 1.35rem;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(10px);
+    }
+
+    .application-status-card h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 1.18rem;
+    }
+
+    .application-status-card p {
+      margin: 0.65rem 0 0;
+      color: #deebe4;
+      font-size: 0.9rem;
+    }
+
+    .application-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--green-600);
+      font-size: 0.75rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .application-status-badge::before {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: currentColor;
+      content: "";
+    }
+
+    .application-status-badge.closed {
+      background: var(--red-700);
+    }
+
+    .application-countdown {
+      margin-top: 1rem;
+      padding: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 0.8rem;
+      background: rgba(0,0,0,0.16);
+    }
+
+    .application-countdown-label {
+      display: block;
+      margin-bottom: 0.65rem;
+      color: var(--gold-200);
+      font-size: 0.75rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .application-countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .application-countdown-unit {
+      min-width: 0;
+      padding: 0.62rem 0.25rem;
+      border-radius: 0.6rem;
+      background: rgba(255,255,255,0.12);
+      text-align: center;
+    }
+
+    .application-countdown-value {
+      display: block;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.28rem, 2.5vw, 1.7rem);
+      font-weight: 800;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .application-countdown-unit small {
+      display: block;
+      margin-top: 0.32rem;
+      color: #dce9e2;
+      font-size: 0.6rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .application-countdown.closed .application-countdown-label {
+      color: #fff;
+    }
+
+    .application-countdown.closed .application-countdown-unit {
+      opacity: 0.72;
+    }
+
+    .application-status-date {
+      margin-top: 0.95rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.17);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .application-title-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .application-status-card {
+        max-width: 540px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .application-title-layout {
+        gap: 1rem;
+      }
+
+      .application-status-card {
+        max-width: none;
+        padding: 1rem;
+      }
+
+      .application-status-card h2 {
+        font-size: 1rem;
+      }
+
+      .application-status-card p {
+        font-size: 0.8rem;
+      }
+
+      .application-status-badge {
+        font-size: 0.64rem;
+      }
+
+      .application-countdown {
+        padding: 0.72rem;
+      }
+
+      .application-countdown-grid {
+        gap: 0.35rem;
+      }
+
+      .application-countdown-unit {
+        padding: 0.55rem 0.15rem;
+      }
+
+      .application-countdown-value {
+        font-size: 1.18rem;
+      }
+
+      .application-countdown-unit small {
+        font-size: 0.54rem;
+      }
+
+      .application-status-date {
+        font-size: 0.7rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -4099,11 +4295,31 @@
 
   <main id="main-content">
     <header class="page-title">
-      <div class="container">
-        <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Online Application</li></ol>
-        <p class="eyebrow">Department of Defence Recruitment</p>
-        <h1>Online Application</h1>
-        <p>Select one of the 39 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 21 August 2026 at 6:00 AM and close 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
+      <div class="container application-title-layout">
+        <div class="application-title-copy">
+          <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Online Application</li></ol>
+          <p class="eyebrow">Department of Defence Recruitment</p>
+          <h1>Online Application</h1>
+          <p>Select one of the 39 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 21 August 2026 at 6:00 AM and close 7 September 2026 at 4:06 PM (Papua New Guinea time).</p>
+        </div>
+
+        <aside class="application-status-card" aria-labelledby="application-header-status-title">
+          <div class="application-status-badge" id="application-header-status-badge">Applications open</div>
+          <h2 id="application-header-status-title">Current application period</h2>
+          <p id="application-header-status-message">Online applications are being accepted. Submit your application before the deadline.</p>
+
+          <div class="application-countdown" id="application-header-countdown" role="timer" aria-live="polite" aria-atomic="true">
+            <span class="application-countdown-label" id="application-header-countdown-label">Time remaining to apply</span>
+            <div class="application-countdown-grid" aria-label="Application countdown">
+              <div class="application-countdown-unit"><span class="application-countdown-value" id="application-header-countdown-days">00</span><small>Days</small></div>
+              <div class="application-countdown-unit"><span class="application-countdown-value" id="application-header-countdown-hours">00</span><small>Hours</small></div>
+              <div class="application-countdown-unit"><span class="application-countdown-value" id="application-header-countdown-minutes">00</span><small>Minutes</small></div>
+              <div class="application-countdown-unit"><span class="application-countdown-value" id="application-header-countdown-seconds">00</span><small>Seconds</small></div>
+            </div>
+          </div>
+
+          <div class="application-status-date">Opens 21 August 2026, 6:00 AM · Closes 7 September 2026, 4:06 PM (PNG time)</div>
+        </aside>
       </div>
     </header>
 
@@ -5914,6 +6130,63 @@
     const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
     const VACANCY_OPEN_LABEL = "21 August 2026 at 6:00 AM";
     const VACANCY_CLOSE_LABEL = "7 September 2026 at 4:06 PM";
+
+    const padApplicationCountdown = (value) => String(value).padStart(2, "0");
+
+    function updateApplicationHeaderCountdown() {
+      const now = new Date();
+      const badge = document.getElementById("application-header-status-badge");
+      const message = document.getElementById("application-header-status-message");
+      const countdown = document.getElementById("application-header-countdown");
+      const label = document.getElementById("application-header-countdown-label");
+      const days = document.getElementById("application-header-countdown-days");
+      const hours = document.getElementById("application-header-countdown-hours");
+      const minutes = document.getElementById("application-header-countdown-minutes");
+      const seconds = document.getElementById("application-header-countdown-seconds");
+
+      if (!badge || !message || !countdown || !label || !days || !hours || !minutes || !seconds) return;
+
+      let targetDate = VACANCY_CLOSE_AT;
+      let labelText = "Time remaining to apply";
+
+      if (now < VACANCY_OPEN_AT) {
+        targetDate = VACANCY_OPEN_AT;
+        labelText = "Applications open in";
+        badge.textContent = "Applications not yet open";
+        badge.classList.remove("closed");
+        message.textContent = "Applications open on 21 August 2026 at 6:00 AM (Papua New Guinea time).";
+        countdown.classList.remove("closed");
+      } else if (now <= VACANCY_CLOSE_AT) {
+        badge.textContent = "Applications open";
+        badge.classList.remove("closed");
+        message.textContent = "Online applications are being accepted. Submit your application before the deadline.";
+        countdown.classList.remove("closed");
+      } else {
+        badge.textContent = "Applications closed";
+        badge.classList.add("closed");
+        message.textContent = "The application period ended on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+        label.textContent = "Applications closed";
+        days.textContent = "00";
+        hours.textContent = "00";
+        minutes.textContent = "00";
+        seconds.textContent = "00";
+        countdown.classList.add("closed");
+        return;
+      }
+
+      label.textContent = labelText;
+      const remaining = Math.max(0, targetDate.getTime() - now.getTime());
+      const totalSeconds = Math.floor(remaining / 1000);
+
+      days.textContent = padApplicationCountdown(Math.floor(totalSeconds / 86400));
+      hours.textContent = padApplicationCountdown(Math.floor((totalSeconds % 86400) / 3600));
+      minutes.textContent = padApplicationCountdown(Math.floor((totalSeconds % 3600) / 60));
+      seconds.textContent = padApplicationCountdown(totalSeconds % 60);
+    }
+
+    updateApplicationHeaderCountdown();
+    window.setInterval(updateApplicationHeaderCountdown, 1000);
+
     const SUBMISSION_REQUEST_TIMEOUT_MS = 300000;
     const PENDING_SUBMISSION_STORAGE_KEY = "dodVacancyPendingSubmission";
     const RECEIPT_STORAGE_KEY = "dodVacancyApplicationReceipt";
