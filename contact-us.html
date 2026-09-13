@@ -47,10 +47,6 @@
     .brand-kicker { display:block; color:var(--red-700); font-size:.76rem; font-weight:850; letter-spacing:.15em; text-transform:uppercase; }
     .brand-name { display:block; margin-top:.15rem; font-family:Georgia,"Times New Roman",serif; font-size:clamp(1.55rem,3vw,2.35rem); font-weight:800; line-height:1.08; }
     .brand-subtitle { display:block; margin-top:.32rem; color:var(--ink-700); font-size:.92rem; font-weight:650; }
-    .header-social { position:absolute; top:50%; right:0; display:flex; align-items:center; transform:translateY(-50%); }
-    .linkedin-link { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; color:#fff; background:#0a66c2; text-decoration:none; box-shadow:0 7px 18px rgba(10,102,194,.24); transition:transform 160ms ease, background 160ms ease; }
-    .linkedin-link:hover { color:#fff; background:#084f96; transform:translateY(-1px); }
-    .linkedin-link svg { width:18px; height:18px; fill:currentColor; }
     .site-nav { position:sticky; z-index:100; top:0; color:#fff; background:var(--green-800); box-shadow:0 5px 18px rgba(5,41,31,.18); }
     .nav-row { display:flex; align-items:center; justify-content:space-between; min-height:62px; }
     .nav-label { color:#fff; font-size:.9rem; font-weight:850; letter-spacing:.04em; text-decoration:none; text-transform:uppercase; }
@@ -78,18 +74,6 @@
     .contact-card h3 { margin:0 0 .45rem; color:var(--green-950); font-family:Georgia,"Times New Roman",serif; font-size:1.35rem; }
     .contact-card p { margin:.35rem 0; color:var(--ink-700); }
     .contact-card a { font-weight:800; overflow-wrap:anywhere; }
-    .linkedin-card-icon {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:36px;
-      height:36px;
-      margin-bottom:.8rem;
-      border-radius:50%;
-      color:#fff;
-      background:#0a66c2;
-    }
-    .linkedin-card-icon svg { width:18px; height:18px; fill:currentColor; }
     .footer { padding:2.6rem 0 1.6rem; color:#dbe7e1; background:var(--green-950); }
     .footer-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:2rem; }
     .footer h2 { margin:0 0 .6rem; color:#fff; font-family:Georgia,"Times New Roman",serif; font-size:1.25rem; }
@@ -114,7 +98,6 @@
       .brand { min-height:0; flex-direction:column; gap:.35rem; padding:.75rem 0 .2rem; text-align:center; }
       .brand img { width:76px; height:76px; }
       .brand-subtitle { font-size:.78rem; }
-      .header-social { position:static; justify-content:center; transform:none; margin:.25rem 0 .75rem; }
       .menu-button { display:inline-flex; }
       .nav-links { display:none; position:absolute; left:1rem; right:1rem; top:calc(100% + .45rem); padding:.55rem; border-radius:.7rem; background:var(--green-900); box-shadow:0 14px 25px rgba(5,41,31,.25); }
       .nav-links.open { display:grid; }
@@ -124,47 +107,7 @@
       .contact-grid .contact-card:last-child { grid-column:auto; }
       .footer-links { justify-content:flex-start; }
     }
-  
-    /* LinkedIn placement: top-right of the portal header and top of the footer. */
-    .header-social {
-      top: 1rem;
-      right: 0;
-      transform: none;
-    }
-
-    .footer-social {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 0.6rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .footer-follow-label {
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 750;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .footer-social .linkedin-link {
-      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.3);
-    }
-
-    @media (max-width: 760px) {
-      .header-social {
-        position: absolute;
-        top: 0.65rem;
-        right: 0;
-        margin: 0;
-        transform: none;
-      }
-
-      .footer-social {
-        justify-content: flex-end;
-        margin-bottom: 1rem;
-      }
+@media (max-width: 760px) {
     }
 
   
@@ -264,16 +207,7 @@
 
   
     /* Footer social label */
-    .footer-social { gap: 0.55rem; }
-    .footer-follow-label {
-      color: #fff;
-      font-size: 0.82rem;
-      font-weight: 800;
-      line-height: 1;
-      white-space: nowrap;
-    }
     @media (max-width: 760px) {
-      .footer-follow-label { font-size: 0.78rem; }
     }
 
   </style>
@@ -336,10 +270,7 @@
           </article>
 
           <article class="card contact-card">
-            <div class="linkedin-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/></svg>
-            </div>
-            <h3>LinkedIn</h3>
+<h3>LinkedIn</h3>
             <p>Visit the Department of Defence Papua New Guinea LinkedIn profile for official professional updates.</p>
             <p class="contact-detail"><a href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">Open LinkedIn profile</a></p>
           </article>
@@ -349,12 +280,6 @@
   </main>
   <footer class="footer">
     <div class="container">
-            <div class="footer-social" aria-label="Department of Defence social media">
-        <span class="footer-follow-label">Follow Us</span>
-        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/></svg>
-        </a>
-      </div>
 <div class="footer-grid">
         <div><h2>Department of Defence Papua New Guinea</h2><p>Official online portal for advertised civilian position vacancies and applications.</p></div>
         <nav class="footer-links" aria-label="Footer navigation">
