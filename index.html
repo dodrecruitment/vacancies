@@ -777,89 +777,15 @@
     /* Official social media link in the masthead. */
     .masthead .container { position: relative; }
 
-    .header-social {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      display: flex;
-      align-items: center;
-      transform: translateY(-50%);
-    }
-
-    .linkedin-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      color: #fff;
-      background: #0a66c2;
-      text-decoration: none;
-      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.24);
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    }
-
-    .linkedin-link:hover {
-      color: #fff;
-      background: #084f96;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(10, 102, 194, 0.3);
-    }
-
-    .linkedin-link svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-    }
-
     @media (max-width: 760px) {
-      .header-social {
-        position: static;
-        justify-content: center;
-        transform: none;
-        margin: -0.25rem 0 0.75rem;
-      }
     }
-
-
-    /* LinkedIn placement: top-right of the portal header and top of the footer. */
-    .header-social {
-      top: 1rem;
-      right: 0;
-      transform: none;
-    }
-
-    .footer-social {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      margin-bottom: 1.25rem;
-    }
-
-    .footer-social .linkedin-link {
-      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.3);
-    }
-
-    @media (max-width: 760px) {
-      .header-social {
-        position: absolute;
-        top: 0.65rem;
-        right: 0;
-        margin: 0;
-        transform: none;
-      }
-
-      .footer-social {
-        justify-content: flex-end;
-        margin-bottom: 1rem;
-      }
+@media (max-width: 760px) {
     }
 
   
 
     /* ============================================================
-       FINAL MOBILE HARDENING — 21 AUGUST 2026 RELEASE
+       FINAL MOBILE HARDENING — 14 SEPTEMBER 2026 BATCH 2 RELEASE
        Prevents page-level horizontal overflow and keeps all portal
        content within 320px+ mobile screens.
        ============================================================ */
@@ -953,16 +879,7 @@
 
   
     /* Footer social label */
-    .footer-social { gap: 0.55rem; }
-    .footer-follow-label {
-      color: #fff;
-      font-size: 0.82rem;
-      font-weight: 800;
-      line-height: 1;
-      white-space: nowrap;
-    }
     @media (max-width: 760px) {
-      .footer-follow-label { font-size: 0.78rem; }
     }
 
   </style>
@@ -1004,17 +921,17 @@
         <div class="hero-copy">
           <p class="eyebrow">Department of Defence Recruitment</p>
           <h1>Position Vacancies</h1>
-          <p>Review 39 approved civilian vacancies across three Department of Defence divisions and select a position that matches your qualifications and experience.</p>
+          <p>Review 41 approved civilian vacancies across four Department of Defence divisions and select a position that matches your qualifications and experience.</p>
           <div class="hero-actions">
             <a class="btn btn-gold" href="vacancies_by_divisions.html">View Position Vacancies <span aria-hidden="true">→</span></a>
-            <a class="btn btn-secondary" id="home-apply-button" href="application-form.html">Apply from 21 August</a>
+            <a class="btn btn-secondary" id="home-apply-button" href="application-form.html">Apply from 14 September</a>
           </div>
         </div>
 
         <aside class="status-card" aria-labelledby="application-status-title">
           <div class="status-badge" id="application-status-badge">Applications not yet open</div>
           <h2 id="application-status-title">Current application period</h2>
-          <p id="application-status-message">Applications open on 21 August 2026 at 6:00 AM (Papua New Guinea time).</p>
+          <p id="application-status-message">Applications open on 14 September 2026 at 7:45 AM (Papua New Guinea time).</p>
 
           <div class="countdown" id="application-countdown" role="timer" aria-live="polite" aria-atomic="true">
             <span class="countdown-label" id="countdown-label">Time remaining to apply</span>
@@ -1026,14 +943,14 @@
             </div>
           </div>
 
-          <div class="status-date">Opens 21 August 2026, 6:00 AM · Closes 7 September 2026, 4:06 PM (PNG time)</div>
+          <div class="status-date">Opens 14 September 2026, 7:45 AM · Closes 28 September 2026, 4:06 PM (PNG time)</div>
         </aside>
       </div>
     </section>
 
     <div class="container stats" aria-label="Vacancy register summary">
-      <div class="card stat"><strong>39</strong><span>Advertised positions</span></div>
-      <div class="card stat"><strong>3</strong><span>Divisions</span></div>
+      <div class="card stat"><strong>41</strong><span>Advertised positions</span></div>
+      <div class="card stat"><strong>4</strong><span>Divisions</span></div>
       <div class="card stat"><strong>Online</strong><span>searchable vacancy register</span></div>
     </div>
 
@@ -1095,12 +1012,6 @@
 
   <footer class="footer">
     <div class="container">
-            <div class="footer-social" aria-label="Department of Defence social media">
-        <span class="footer-follow-label">Follow Us</span>
-        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/></svg>
-        </a>
-      </div>
 <div class="footer-grid">
         <div>
           <h2>Department of Defence Papua New Guinea</h2>
@@ -1141,8 +1052,8 @@
     }
 
 
-    const VACANCY_OPEN_AT = new Date("2026-08-21T06:00:00+10:00");
-    const VACANCY_CLOSE_AT = new Date("2026-09-07T16:06:00+10:00");
+    const VACANCY_OPEN_AT = new Date("2026-09-14T07:45:00+10:00");
+    const VACANCY_CLOSE_AT = new Date("2026-09-28T16:06:00+10:00");
 
     const padCountdown = (value) => String(value).padStart(2, "0");
 
@@ -1194,7 +1105,7 @@
 
       if (now < VACANCY_OPEN_AT) {
         badge.textContent = "Applications not yet open";
-        message.textContent = "Applications open on 21 August 2026 at 6:00 AM (Papua New Guinea time).";
+        message.textContent = "Applications open on 14 September 2026 at 7:45 AM (Papua New Guinea time).";
         applyButton.textContent = "Apply from 21 August";
         applyButton.removeAttribute("href");
         applyButton.setAttribute("aria-disabled", "true");
@@ -1215,7 +1126,7 @@
       }
 
       badge.textContent = "Applications closed";
-      message.textContent = "The application period ended on 7 September 2026 at 4:06 PM (Papua New Guinea time).";
+      message.textContent = "The application period ended on 28 September 2026 at 4:06 PM (Papua New Guinea time).";
       applyButton.textContent = "Applications Closed";
       applyButton.removeAttribute("href");
       applyButton.setAttribute("aria-disabled", "true");
