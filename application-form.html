@@ -8,7 +8,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.dodcareers.link; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests;">
   <title>Online Application | Department of Defence PNG</title>
-  <meta name="description" content="Official online application form for 41 Department of Defence Papua New Guinea Batch 2 position vacancies.">
+  <meta name="description" content="Official online application form for 41 Department of Defence Papua New Guinea External Advertisement Batch 3 position vacancies.">
   <link rel="icon" href="logo.png" type="image/png">
   <style>
 
@@ -2891,9 +2891,83 @@
     /* Official social media link in the masthead. */
     .masthead .container { position: relative; }
 
-    @media (max-width: 760px) {
+    .header-social {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: flex;
+      align-items: center;
+      transform: translateY(-50%);
     }
-@media (max-width: 760px) {
+
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #fff;
+      background: #0a66c2;
+      text-decoration: none;
+      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.24);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .linkedin-link:hover {
+      color: #fff;
+      background: #084f96;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(10, 102, 194, 0.3);
+    }
+
+    .linkedin-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 760px) {
+      .header-social {
+        position: static;
+        justify-content: center;
+        transform: none;
+        margin: -0.25rem 0 0.75rem;
+      }
+    }
+
+
+    /* LinkedIn placement: top-right of the portal header and top of the footer. */
+    .header-social {
+      top: 1rem;
+      right: 0;
+      transform: none;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-social .linkedin-link {
+      box-shadow: 0 7px 18px rgba(10, 102, 194, 0.3);
+    }
+
+    @media (max-width: 760px) {
+      .header-social {
+        position: absolute;
+        top: 0.65rem;
+        right: 0;
+        margin: 0;
+        transform: none;
+      }
+
+      .footer-social {
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+      }
     }
 
   
@@ -3221,7 +3295,7 @@
   
 
     /* ============================================================
-       FINAL MOBILE HARDENING — 14 SEPTEMBER 2026 BATCH 2 RELEASE
+       FINAL MOBILE HARDENING — 21 AUGUST 2026 RELEASE
        Prevents page-level horizontal overflow and keeps all portal
        content within 320px+ mobile screens.
        ============================================================ */
@@ -3316,7 +3390,7 @@
   
 
     /* ============================================================
-       FINAL APPLICATION MOBILE VIEW — 14 SEPTEMBER 2026
+       FINAL APPLICATION MOBILE VIEW — 21 AUGUST 2026
        Mobile keeps only the progress bar; stage names/numbers are hidden.
        ============================================================ */
     @media screen and (max-width: 700px) {
@@ -3486,6 +3560,10 @@
       .instruction-clean-list li,
       .instruction-clean-numbered li {
         overflow-wrap: anywhere;
+      }
+
+      .footer-social {
+        justify-content: flex-end !important;
       }
     }
 
@@ -3974,203 +4052,16 @@
 
   
     /* Footer social label */
-    @media (max-width: 760px) {
-    }
-
-  
-
-    /* ============================================================
-       APPLICATION HEADER COUNTDOWN — 28 SEPTEMBER 2026
-       Matches the index-page application status card and timer.
-       ============================================================ */
-    .application-title-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-      align-items: center;
-      gap: 2.5rem;
-    }
-
-    .application-title-copy {
-      min-width: 0;
-    }
-
-    .application-title-copy > p:last-child {
-      max-width: 760px;
-    }
-
-    .application-status-card {
-      padding: 1.35rem;
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: var(--radius-lg);
-      background: rgba(255,255,255,0.1);
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(10px);
-    }
-
-    .application-status-card h2 {
-      margin: 0;
+    .footer-social { gap: 0.55rem; }
+    .footer-follow-label {
       color: #fff;
-      font-size: 1.18rem;
-    }
-
-    .application-status-card p {
-      margin: 0.65rem 0 0;
-      color: #deebe4;
-      font-size: 0.9rem;
-    }
-
-    .application-status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.9rem;
-      padding: 0.4rem 0.7rem;
-      border-radius: 999px;
-      color: #fff;
-      background: var(--green-600);
-      font-size: 0.75rem;
-      font-weight: 850;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .application-status-badge::before {
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 50%;
-      background: currentColor;
-      content: "";
-    }
-
-    .application-status-badge.closed {
-      background: var(--red-700);
-    }
-
-    .application-countdown {
-      margin-top: 1rem;
-      padding: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 0.8rem;
-      background: rgba(0,0,0,0.16);
-    }
-
-    .application-countdown-label {
-      display: block;
-      margin-bottom: 0.65rem;
-      color: var(--gold-200);
-      font-size: 0.75rem;
-      font-weight: 850;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .application-countdown-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.5rem;
-    }
-
-    .application-countdown-unit {
-      min-width: 0;
-      padding: 0.62rem 0.25rem;
-      border-radius: 0.6rem;
-      background: rgba(255,255,255,0.12);
-      text-align: center;
-    }
-
-    .application-countdown-value {
-      display: block;
-      color: #fff;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.28rem, 2.5vw, 1.7rem);
+      font-size: 0.82rem;
       font-weight: 800;
       line-height: 1;
-      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
-
-    .application-countdown-unit small {
-      display: block;
-      margin-top: 0.32rem;
-      color: #dce9e2;
-      font-size: 0.6rem;
-      font-weight: 750;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .application-countdown.closed .application-countdown-label {
-      color: #fff;
-    }
-
-    .application-countdown.closed .application-countdown-unit {
-      opacity: 0.72;
-    }
-
-    .application-status-date {
-      margin-top: 0.95rem;
-      padding-top: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.17);
-      color: #fff;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    @media (max-width: 900px) {
-      .application-title-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .application-status-card {
-        max-width: 540px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .application-title-layout {
-        gap: 1rem;
-      }
-
-      .application-status-card {
-        max-width: none;
-        padding: 1rem;
-      }
-
-      .application-status-card h2 {
-        font-size: 1rem;
-      }
-
-      .application-status-card p {
-        font-size: 0.8rem;
-      }
-
-      .application-status-badge {
-        font-size: 0.64rem;
-      }
-
-      .application-countdown {
-        padding: 0.72rem;
-      }
-
-      .application-countdown-grid {
-        gap: 0.35rem;
-      }
-
-      .application-countdown-unit {
-        padding: 0.55rem 0.15rem;
-      }
-
-      .application-countdown-value {
-        font-size: 1.18rem;
-      }
-
-      .application-countdown-unit small {
-        font-size: 0.54rem;
-      }
-
-      .application-status-date {
-        font-size: 0.7rem;
-      }
+    @media (max-width: 760px) {
+      .footer-follow-label { font-size: 0.78rem; }
     }
 
   </style>
@@ -4208,31 +4099,11 @@
 
   <main id="main-content">
     <header class="page-title">
-      <div class="container application-title-layout">
-        <div class="application-title-copy">
-          <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Online Application</li></ol>
-          <p class="eyebrow">Department of Defence Recruitment</p>
-          <h1>Online Application</h1>
-          <p>Select one of the 41 positions, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 14 September 2026 at 7:45 AM and close 28 September 2026 at 4:06 PM (Papua New Guinea time).</p>
-        </div>
-
-        <aside class="application-status-card" aria-labelledby="application-header-status-title">
-          <div class="application-status-badge" id="application-header-status-badge">Applications not yet open</div>
-          <h2 id="application-header-status-title">Current application period</h2>
-          <p id="application-header-status-message">Online applications are being accepted. Submit your application before the deadline.</p>
-
-          <div class="application-countdown" id="application-header-countdown" role="timer" aria-live="polite" aria-atomic="true">
-            <span class="application-countdown-label" id="application-header-countdown-label">Applications open in</span>
-            <div class="application-countdown-grid" aria-label="Application countdown">
-              <div class="application-countdown-unit"><span class="application-countdown-value" id="application-header-countdown-days">00</span><small>Days</small></div>
-              <div class="application-countdown-unit"><span class="application-countdown-value" id="application-header-countdown-hours">00</span><small>Hours</small></div>
-              <div class="application-countdown-unit"><span class="application-countdown-value" id="application-header-countdown-minutes">00</span><small>Minutes</small></div>
-              <div class="application-countdown-unit"><span class="application-countdown-value" id="application-header-countdown-seconds">00</span><small>Seconds</small></div>
-            </div>
-          </div>
-
-          <div class="application-status-date">Opens 14 September 2026, 7:45 AM · Closes 28 September 2026, 4:06 PM (PNG time)</div>
-        </aside>
+      <div class="container">
+        <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li>Online Application</li></ol>
+        <p class="eyebrow">Department of Defence Recruitment</p>
+        <h1>Online Application</h1>
+        <p>Select one of the 57 Batch 3 positions within the Assets & Services Division, complete all required fields, attach your supporting documents, and review the application before submission. Applications open 5 October 2026 at 7:45 AM and close 16 October 2026 at 4:06 PM (Papua New Guinea time).</p>
       </div>
     </header>
 
@@ -5980,6 +5851,12 @@
 
   <footer class="footer">
     <div class="container">
+            <div class="footer-social" aria-label="Department of Defence social media">
+        <span class="footer-follow-label">Follow Us</span>
+        <a class="linkedin-link" href="https://www.linkedin.com/in/department-of-defence-papua-new-guinea-32856742b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Department of Defence Papua New Guinea on LinkedIn" title="Follow Department of Defence Papua New Guinea on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/></svg>
+        </a>
+      </div>
 <div class="footer-grid">
         <div>
           <h2>Department of Defence Papua New Guinea</h2>
@@ -6031,77 +5908,20 @@
     const STATUS_API_URL = `${API_BASE_URL}/v1/status`;
     const SUBMISSION_API_URL = `${API_BASE_URL}/v1/applications`;
     const VACANCIES_API_URL = `${API_BASE_URL}/v1/vacancies`;
-    const FORM_VERSION = "external-rs32-batch2-2026-09-14";
-    const EXPECTED_VACANCY_COUNT = 41;
-    const VACANCY_OPEN_AT = new Date("2026-09-14T07:45:00+10:00");
-    const VACANCY_CLOSE_AT = new Date("2026-09-28T16:06:00+10:00");
-    const VACANCY_OPEN_LABEL = "14 September 2026 at 7:45 AM";
-    const VACANCY_CLOSE_LABEL = "28 September 2026 at 4:06 PM";
-
-    const padApplicationCountdown = (value) => String(value).padStart(2, "0");
-
-    function updateApplicationHeaderCountdown() {
-      const now = new Date();
-      const badge = document.getElementById("application-header-status-badge");
-      const message = document.getElementById("application-header-status-message");
-      const countdown = document.getElementById("application-header-countdown");
-      const label = document.getElementById("application-header-countdown-label");
-      const days = document.getElementById("application-header-countdown-days");
-      const hours = document.getElementById("application-header-countdown-hours");
-      const minutes = document.getElementById("application-header-countdown-minutes");
-      const seconds = document.getElementById("application-header-countdown-seconds");
-
-      if (!badge || !message || !countdown || !label || !days || !hours || !minutes || !seconds) return;
-
-      let targetDate = VACANCY_CLOSE_AT;
-      let labelText = "Time remaining to apply";
-
-      if (now < VACANCY_OPEN_AT) {
-        targetDate = VACANCY_OPEN_AT;
-        labelText = "Applications open in";
-        badge.textContent = "Applications not yet open";
-        badge.classList.remove("closed");
-        message.textContent = "Applications open on 14 September 2026 at 7:45 AM (Papua New Guinea time).";
-        countdown.classList.remove("closed");
-      } else if (now <= VACANCY_CLOSE_AT) {
-        badge.textContent = "Applications open";
-        badge.classList.remove("closed");
-        message.textContent = "Online applications are being accepted. Submit your application before the deadline.";
-        countdown.classList.remove("closed");
-      } else {
-        badge.textContent = "Applications closed";
-        badge.classList.add("closed");
-        message.textContent = "The application period ended on 28 September 2026 at 4:06 PM (Papua New Guinea time).";
-        label.textContent = "Applications closed";
-        days.textContent = "00";
-        hours.textContent = "00";
-        minutes.textContent = "00";
-        seconds.textContent = "00";
-        countdown.classList.add("closed");
-        return;
-      }
-
-      label.textContent = labelText;
-      const remaining = Math.max(0, targetDate.getTime() - now.getTime());
-      const totalSeconds = Math.floor(remaining / 1000);
-
-      days.textContent = padApplicationCountdown(Math.floor(totalSeconds / 86400));
-      hours.textContent = padApplicationCountdown(Math.floor((totalSeconds % 86400) / 3600));
-      minutes.textContent = padApplicationCountdown(Math.floor((totalSeconds % 3600) / 60));
-      seconds.textContent = padApplicationCountdown(totalSeconds % 60);
-    }
-
-    updateApplicationHeaderCountdown();
-    window.setInterval(updateApplicationHeaderCountdown, 1000);
-
+    const FORM_VERSION = "external-rs32-batch3-2026-10-04";
+    const EXPECTED_VACANCY_COUNT = 57;
+    const VACANCY_OPEN_AT = new Date("2026-10-05T07:45:00+10:00");
+    const VACANCY_CLOSE_AT = new Date("2026-10-16T16:06:00+10:00");
+    const VACANCY_OPEN_LABEL = "5 October 2026 at 7:45 AM";
+    const VACANCY_CLOSE_LABEL = "16 October 2026 at 4:06 PM";
     const SUBMISSION_REQUEST_TIMEOUT_MS = 300000;
     const PENDING_SUBMISSION_STORAGE_KEY = "dodVacancyPendingSubmission";
     const RECEIPT_STORAGE_KEY = "dodVacancyApplicationReceipt";
     const PENDING_SUBMISSION_MAX_AGE_MS = 48 * 60 * 60 * 1000;
 
-    // Approved 2026 External Advertisement Batch 2 vacancy register.
-    // Position title, reference, location, class and base salary follow the approved Batch 2 register.
-    const EXCEL_VACANCIES = [{"no":1,"division":"Information Communication Technology Division","referenceNumber":"DICT.005","positionTitle":"Team Leader Information Support","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":2,"division":"Information Communication Technology Division","referenceNumber":"DICT.007","positionTitle":"Team Leader Server Infrastructure","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":3,"division":"Information Communication Technology Division","referenceNumber":"DICT.006","positionTitle":"Information Support Assistant","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0026","costAccount":"105DODEADAIC000000"},{"no":4,"division":"Information Communication Technology Division","referenceNumber":"DICT.013","positionTitle":"Network Infrastructure Assistant","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0315","costAccount":"105DODEXEICT000000"},{"no":5,"division":"Information Communication Technology Division","referenceNumber":"DICT.014","positionTitle":"Desktop & PC Hardware Assistant - Moem","location":"Moem Barracks-Wewak","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0407","costAccount":"105DODEXEICT000000"},{"no":6,"division":"Information Communication Technology Division","referenceNumber":"DICT.015","positionTitle":"Desktop & PC Hardware Assistant - Igam","location":"Igam Barracks-Lae","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0408","costAccount":"105DODEXEICT000000"},{"no":7,"division":"Information Communication Technology Division","referenceNumber":"DICT.016","positionTitle":"Desktop & PC Hardware Assistant - Tarangau / HMPNGS","location":"HMPNGS Tarangau Base-Manus","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0409","costAccount":"105DODEXEICT000000"},{"no":8,"division":"Information Communication Technology Division","referenceNumber":"DICT.003","positionTitle":"Driver - ICT","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"105DOD0303","costAccount":"105DODEXEICT000000"},{"no":9,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.004","positionTitle":"Assistant Secretary - Agency Programming","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0379","costAccount":"105DODFOPDCAAAAAPI"},{"no":10,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.008","positionTitle":"Assistant Secretary - Monitoring/White Paper","location":"HQ Murray Barracks-Port Moresby","class":"PS16","award":"","baseSalary":57541,"remarks":"Vacant","positionCode":"105DOD0038","costAccount":"105DODPOLAPIMON000"},{"no":11,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.005","positionTitle":"Desk Officer - National Fire Service","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0085","costAccount":"105DODFOPDCAAAAAPI"},{"no":12,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.006","positionTitle":"Desk Officer - National Disaster Service","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0086","costAccount":"105DODFOPDCAAAAAPI"},{"no":13,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.009","positionTitle":"Senior Policy Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0039","costAccount":"105DODPOLAPIMON000"},{"no":14,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.010","positionTitle":"Policy Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0040","costAccount":"105DODPOLAPIMON000"},{"no":15,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.002","positionTitle":"Executive Assistant","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0084","costAccount":"105DODPOLAPI000000"},{"no":16,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.011","positionTitle":"Assistant Policy Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0043","costAccount":"105DODPOLAPIMON000"},{"no":17,"division":"Agencies Programming & Monitoring Division","referenceNumber":"DAPM.003","positionTitle":"Driver","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"105DOD0248","costAccount":"105DODPOLAPI000000"},{"no":18,"division":"Human Resource Management Division","referenceNumber":"DHRM.003","positionTitle":"Industrial Relationship Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0202","costAccount":"105DODCSDHRM000000"},{"no":19,"division":"Human Resource Management Division","referenceNumber":"DHRM.004","positionTitle":"Occupational Health & Safety Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0209","costAccount":"105DODCSDHRM000000"},{"no":20,"division":"Human Resource Management Division","referenceNumber":"DHRM.006","positionTitle":"GESI Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0035","costAccount":"105DODCSDHRM000000"},{"no":21,"division":"Human Resource Management Division","referenceNumber":"DHRM.011","positionTitle":"Staff Development Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0212","costAccount":"105DODCSDHRMTRN000"},{"no":22,"division":"Human Resource Management Division","referenceNumber":"DHRM.019","positionTitle":"Contracts Management Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0217","costAccount":"105DODCSDHRMPAYCIV"},{"no":23,"division":"Human Resource Management Division","referenceNumber":"DHRM.020","positionTitle":"Personnel Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0218","costAccount":"105DODCSDHRMPAYCIV"},{"no":24,"division":"Human Resource Management Division","referenceNumber":"DHRM.022","positionTitle":"Senior Service Personnel Payroll Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0221","costAccount":"105DODCSDHRMPAYPER"},{"no":25,"division":"Human Resource Management Division","referenceNumber":"DHRM.002","positionTitle":"Executive Assistant","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0070","costAccount":"105DODCSDHRM000000"},{"no":26,"division":"Human Resource Management Division","referenceNumber":"DHRM.017","positionTitle":"Salaries Edit Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0215","costAccount":"105DODCSDHRMPAYCIV"},{"no":27,"division":"Human Resource Management Division","referenceNumber":"DHRM.018","positionTitle":"Salaries Edit Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0216","costAccount":"105DODCSDHRMPAYCIV"},{"no":28,"division":"Human Resource Management Division","referenceNumber":"DHRM.026","positionTitle":"Payroll Officer - Igam","location":"Igam Barracks-Lae","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0225","costAccount":"105DODCSDHRMPAYPER"},{"no":29,"division":"Financial Management Division","referenceNumber":"DFM.011","positionTitle":"Accountant - Class 5","location":"HQ Murray Barracks-Port Moresby","class":"PS15","award":"","baseSalary":52342,"remarks":"Vacant","positionCode":"105DOD0186","costAccount":"105DODCSDFINACC000"},{"no":30,"division":"Financial Management Division","referenceNumber":"DFM.005","positionTitle":"Senior Budget Officer - Estimates","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0048","costAccount":"105DODCSDFINBEP000"},{"no":31,"division":"Financial Management Division","referenceNumber":"DFM.007","positionTitle":"Senior Budget Officer - Programming","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0182","costAccount":"105DODCSDFINBEP000"},{"no":32,"division":"Financial Management Division","referenceNumber":"DFM.012","positionTitle":"Finance Inspector","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"105DOD0181","costAccount":"105DODCSDFINACC000"},{"no":33,"division":"Financial Management Division","referenceNumber":"DFM.031","positionTitle":"Area Finance Officer - Moem","location":"Moem Barracks-Wewak","class":"PS13","award":"","baseSalary":44466,"remarks":"Vacant","positionCode":"105DOD0110","costAccount":"105DODCSDFINARE000"},{"no":34,"division":"Financial Management Division","referenceNumber":"DFM.033","positionTitle":"Area Finance Officer - HMSPNG Tarangau","location":"HMPNGS Tarangau Base-Manus","class":"PS13","award":"","baseSalary":44466,"remarks":"Vacant","positionCode":"105DOD0112","costAccount":"105DODCSDFINARE000"},{"no":35,"division":"Financial Management Division","referenceNumber":"DFM.035","positionTitle":"Area Finance Officer - Hela","location":"Hela Barracks-Hela","class":"PS13","award":"","baseSalary":44466,"remarks":"Vacant","positionCode":"105DOD0119","costAccount":"105DODCSDFINARE000"},{"no":36,"division":"Financial Management Division","referenceNumber":"DFM.008","positionTitle":"Budget Officer - Programming","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0183","costAccount":"105DODCSDFINBEP000"},{"no":37,"division":"Financial Management Division","referenceNumber":"DFM.020","positionTitle":"Claims Examiner","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0189","costAccount":"105DODCSDFINACC000"},{"no":38,"division":"Financial Management Division","referenceNumber":"DFM.024","positionTitle":"Commitment Clerk","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"105DOD0193","costAccount":"105DODCSDFINACC000"},{"no":39,"division":"Financial Management Division","referenceNumber":"DFM.002","positionTitle":"Executive Assistant","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0177","costAccount":"105DODCSDFIN000000"},{"no":40,"division":"Financial Management Division","referenceNumber":"DFM.009","positionTitle":"Assistant Budget Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0184","costAccount":"105DODCSDFINBEP000"},{"no":41,"division":"Financial Management Division","referenceNumber":"DFM.017","positionTitle":"Assistant Abstract Clerk","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"105DOD0320","costAccount":"105DODCSDFINACC000"}];
+    // Approved External Advertisement Batch 3 vacancy register.
+    // Position title, reference, location, class and base salary match the Batch 3 vacancy page.
+    const EXCEL_VACANCIES = [{"no":1,"division":"Assets & Services Division","referenceNumber":"DAS.077","positionTitle":"Office Cleaner (ATW Hanger)","location":"ATW/Kiki Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":2,"division":"Assets & Services Division","referenceNumber":"DAS.079","positionTitle":"General Cleaner","location":"ATW/Kiki Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":3,"division":"Assets & Services Division","referenceNumber":"DAS.076","positionTitle":"Executive Assistant - CO Air Transport Wing","location":"ATW/Kiki Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":4,"division":"Assets & Services Division","referenceNumber":"DAS.083","positionTitle":"Artisian Grade 5 - Carpenter/ Painter","location":"ATW/Kiki Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":5,"division":"Assets & Services Division","referenceNumber":"DAS.042","positionTitle":"Foreman General Cleaner","location":"FSB HQ-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":6,"division":"Assets & Services Division","referenceNumber":"DAS.047","positionTitle":"Artisan Grade 5 - Electrician","location":"FSB HQ-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":7,"division":"Assets & Services Division","referenceNumber":"DAS.048","positionTitle":"Artisan Grade 5 - Plumber","location":"FSB HQ-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":8,"division":"Assets & Services Division","referenceNumber":"DAS.049","positionTitle":"Artisan Grade 5 - Plumber","location":"FSB HQ-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":9,"division":"Assets & Services Division","referenceNumber":"DAS.050","positionTitle":"Artisan Grade 5 - Carpenter/Painter","location":"FSB HQ-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":10,"division":"Assets & Services Division","referenceNumber":"DAS.043","positionTitle":"General Cleaner","location":"FSB HQ-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":11,"division":"Assets & Services Division","referenceNumber":"DAS.051","positionTitle":"Artisan Grade 5 - Carpenter/Painter","location":"FSB HQ-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":12,"division":"Assets & Services Division","referenceNumber":"DAS.088","positionTitle":"Office Cleaner - CO Training Depot","location":"Goldie Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":13,"division":"Assets & Services Division","referenceNumber":"DAS.089","positionTitle":"Office Cleaner - Training Wing One","location":"Goldie Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":14,"division":"Assets & Services Division","referenceNumber":"DAS.093","positionTitle":"General Cleaner","location":"Goldie Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":15,"division":"Assets & Services Division","referenceNumber":"DAS.086","positionTitle":"Librarian Grade 5 - Goldie","location":"Goldie Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":16,"division":"Assets & Services Division","referenceNumber":"DAS.098","positionTitle":"Artisan Grade 5-Plumber","location":"Goldie Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":17,"division":"Assets & Services Division","referenceNumber":"DAS.100","positionTitle":"Artisan Grade 5 - Carpenter/Painter","location":"Goldie Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":18,"division":"Assets & Services Division","referenceNumber":"DAS.104","positionTitle":"Water Plant Operator","location":"Goldie Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":19,"division":"Assets & Services Division","referenceNumber":"DAS.106","positionTitle":"Water Plant Operator","location":"Goldie Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":20,"division":"Assets & Services Division","referenceNumber":"DAS.037","positionTitle":"Office Attendant - HMPNGS Basilisk","location":"HMPNGS Basilisk Base-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":21,"division":"Assets & Services Division","referenceNumber":"DAS.073","positionTitle":"Executive Assistant - CO HMPNGS Basilisk Base","location":"HMPNGS Basilisk Base-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":22,"division":"Assets & Services Division","referenceNumber":"DAS.005","positionTitle":"Team Leader - Cataloguing","location":"HQ Murray Barracks-Port Moresby","class":"PS14","award":"","baseSalary":47922,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":23,"division":"Assets & Services Division","referenceNumber":"DAS.006","positionTitle":"Senior Cataloguer - International","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":24,"division":"Assets & Services Division","referenceNumber":"DAS.010","positionTitle":"Senior Assets Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":25,"division":"Assets & Services Division","referenceNumber":"DAS.017","positionTitle":"Team Leader - Area Administration","location":"HQ Murray Barracks-Port Moresby","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":26,"division":"Assets & Services Division","referenceNumber":"DAS.021","positionTitle":"Executive Assistant - Deputy Chief of Defence Force","location":"HQ Murray Barracks-Port Moresby","class":"PS11","award":"","baseSalary":37459,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":27,"division":"Assets & Services Division","referenceNumber":"DAS.022","positionTitle":"Executive Assistant - Chief of Staff","location":"HQ Murray Barracks-Port Moresby","class":"PS11","award":"","baseSalary":37459,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":28,"division":"Assets & Services Division","referenceNumber":"DAS.008","positionTitle":"Cataloguer - Field Project & Training","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":29,"division":"Assets & Services Division","referenceNumber":"DAS.011","positionTitle":"Assets Officer","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":30,"division":"Assets & Services Division","referenceNumber":"DAS.019","positionTitle":"Librarian Grade 5 - Head Quaters","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":31,"division":"Assets & Services Division","referenceNumber":"DAS.023","positionTitle":"Executive Assistant - Support Commander","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":32,"division":"Assets & Services Division","referenceNumber":"DAS.024","positionTitle":"Executive Assistant - Chief Of Operation","location":"HQ Murray Barracks-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":33,"division":"Assets & Services Division","referenceNumber":"DAS.013","positionTitle":"Artisian","location":"HQ Murray Barracks-Port Moresby","class":"PS09","award":"","baseSalary":29974,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":34,"division":"Assets & Services Division","referenceNumber":"DAS.026","positionTitle":"Office Attendant - Commanders Block","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":35,"division":"Assets & Services Division","referenceNumber":"DAS.027","positionTitle":"Office Attendant - Personnel","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":36,"division":"Assets & Services Division","referenceNumber":"DAS.028","positionTitle":"Office Attendant - Operations","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":37,"division":"Assets & Services Division","referenceNumber":"DAS.029","positionTitle":"Office Attendant - Support Command","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":38,"division":"Assets & Services Division","referenceNumber":"DAS.032","positionTitle":"Office Attendant - DCAA Block","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":39,"division":"Assets & Services Division","referenceNumber":"DAS.033","positionTitle":"Office Attendant - Training Command","location":"HQ Murray Barracks-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":40,"division":"Assets & Services Division","referenceNumber":"DAS.061","positionTitle":"General Cleaner","location":"Taurama Barracks (1RPIR)-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":41,"division":"Assets & Services Division","referenceNumber":"DAS.062","positionTitle":"General Cleaner","location":"Taurama Barracks (1RPIR)-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":42,"division":"Assets & Services Division","referenceNumber":"DAS.065","positionTitle":"Artisan Grade 5 - Electrician","location":"Taurama Barracks (1RPIR)-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":43,"division":"Assets & Services Division","referenceNumber":"DAS.067","positionTitle":"Artisian Grade 5 - Plumber","location":"Taurama Barracks (1RPIR)-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":44,"division":"Assets & Services Division","referenceNumber":"DAS.069","positionTitle":"Artisan Grade 5 - Carpenter/Painter","location":"Taurama Barracks (1RPIR)-Port Moresby","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":45,"division":"Assets & Services Division","referenceNumber":"DAS.055","positionTitle":"Office Attendant - HQ TBA","location":"Taurama Barracks (1RPIR)-Port Moresby","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":46,"division":"Assets & Services Division","referenceNumber":"DAS.180","positionTitle":"Artisan Grade 5 - Electrician","location":"Hela Barracks-Hela","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":47,"division":"Assets & Services Division","referenceNumber":"DAS.182","positionTitle":"Artisan Grade 5 - Carpenter/Painter","location":"Hela Barracks-Hela","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":48,"division":"Assets & Services Division","referenceNumber":"DAS.178","positionTitle":"General Cleaner","location":"Hela Barracks-Hela","class":"PS08","award":"","baseSalary":26999,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":49,"division":"Assets & Services Division","referenceNumber":"DAS.128","positionTitle":"Area Manager - Igam","location":"Igam Barracks-Lae","class":"PS15","award":"","baseSalary":52342,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":50,"division":"Assets & Services Division","referenceNumber":"DAS.146","positionTitle":"Senior Water Plant Operator","location":"Igam Barracks-Lae","class":"PS12","award":"","baseSalary":41455,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":51,"division":"Assets & Services Division","referenceNumber":"DAS.130","positionTitle":"Executive Assistant - Commandant Defence Academy","location":"Igam Barracks-Lae","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":52,"division":"Assets & Services Division","referenceNumber":"DAS.131","positionTitle":"Executive Assistant - CO Engineering Batt","location":"Igam Barracks-Lae","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":53,"division":"Assets & Services Division","referenceNumber":"DAS.132","positionTitle":"Librarian Grade 5","location":"Igam Barracks-Lae","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":54,"division":"Assets & Services Division","referenceNumber":"DAS.140","positionTitle":"Artisan Grade 5 - Electrician","location":"Igam Barracks-Lae","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":55,"division":"Assets & Services Division","referenceNumber":"DAS.142","positionTitle":"Artisian Grade 5 - Plumber","location":"Igam Barracks-Lae","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":56,"division":"Assets & Services Division","referenceNumber":"DAS.143","positionTitle":"Artisian Grade 5 - Plumber","location":"Igam Barracks-Lae","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""},{"no":57,"division":"Assets & Services Division","referenceNumber":"DAS.144","positionTitle":"Artisian Grade 5 - Carpenter/ Painter","location":"Igam Barracks-Lae","class":"PS10","award":"","baseSalary":33416,"remarks":"Vacant","positionCode":"","costAccount":""}];
     let VACANCIES = [];
     let applicationServiceReady = false;
     let campaignState = null;
@@ -6545,7 +6365,7 @@
         setApplicationNotice(
           "success",
           "applications are open",
-          `Select one of the 41 positions and complete all required sections. Applications close on ${VACANCY_CLOSE_LABEL} (Papua New Guinea time).`
+          `Select one of the 57 Batch 3 positions and complete all required sections. Applications close on ${VACANCY_CLOSE_LABEL} (Papua New Guinea time).`
         );
         preselectFromUrl();
       } catch (error) {
