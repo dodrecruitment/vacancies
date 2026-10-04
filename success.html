@@ -9,7 +9,7 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self';">
   <title>Application Confirmation | Department of Defence PNG</title>
-  <meta name="description" content="Confirmed Department of Defence Papua New Guinea position vacancy application submission.">
+  <meta name="description" content="Confirmed Department of Defence Papua New Guinea recruitment application submission.">
   <link rel="icon" href="logo.png" type="image/png">
 
   <style>
@@ -503,147 +503,6 @@
         display: grid;
       }
     }
-  
-
-    /* Official social media link in the masthead. */
-    .masthead .container { position: relative; }
-
-    @media (max-width: 760px) {
-    }
-@media (max-width: 760px) {
-    }
-
-  
-
-    /* ============================================================
-       FINAL MOBILE HARDENING — 21 AUGUST 2026 RELEASE
-       Prevents page-level horizontal overflow and keeps all portal
-       content within 320px+ mobile screens.
-       ============================================================ */
-    @media screen and (max-width: 700px) {
-      html, body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-
-      .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-
-      .brand {
-        min-width: 0;
-        min-height: 0 !important;
-        padding: 0.75rem 0 !important;
-        gap: 0.4rem !important;
-      }
-
-      .brand > span,
-      .brand-name,
-      .brand-subtitle,
-      .page-title p,
-      .footer p,
-      .footer a,
-      .nav-links a {
-        min-width: 0;
-        overflow-wrap: anywhere;
-      }
-
-      .nav-row {
-        position: relative;
-        min-width: 0;
-      }
-
-      .nav-label {
-        min-width: 0;
-        max-width: calc(100% - 58px);
-        overflow-wrap: anywhere;
-      }
-
-      .nav-links {
-        left: 0.75rem !important;
-        right: 0.75rem !important;
-        width: auto !important;
-        max-width: calc(100% - 1.5rem) !important;
-      }
-
-      .page-title {
-        overflow: hidden;
-      }
-
-      .page-title h1 {
-        max-width: 100%;
-        overflow-wrap: anywhere;
-      }
-
-      .footer-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr) !important;
-      }
-
-      .footer-links {
-        justify-content: flex-start !important;
-      }
-
-      .card,
-      .notice,
-      .contact-card,
-      main,
-      section,
-      article {
-        min-width: 0;
-        max-width: 100%;
-      }
-
-      input,
-      select,
-      textarea,
-      button {
-        max-width: 100%;
-      }
-    }
-
-  
-
-    @media screen and (max-width: 700px) {
-      .confirmation {
-        grid-template-columns: minmax(0, 1fr) !important;
-      }
-      .item.full {
-        grid-column: auto !important;
-      }
-      .content {
-        padding: 1.05rem !important;
-      }
-      .official-reference,
-      .confirmation,
-      .item,
-      .actions {
-        min-width: 0 !important;
-        max-width: 100% !important;
-      }
-      .actions {
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) !important;
-      }
-      .actions .btn,
-      .actions a,
-      .actions button {
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-    }
-
-  
-    /* Footer social label */
-    @media (max-width: 760px) {
-    }
-
   </style>
 </head>
 
@@ -683,8 +542,7 @@
         <li>
           <a href="vacancies_by_divisions.html">Position Vacancies</a>
         </li>
-              <li><a href="contact-us.html">Contact Us</a></li>
-</ul>
+      </ul>
     </div>
   </nav>
 
@@ -699,7 +557,8 @@
           <h1 id="page-title">Application received</h1>
 
           <p class="lead" id="page-message">
-            Your submission has been recorded successfully by the Department of Defence.
+            Your application was recorded successfully by the Department of
+            Defence recruitment service.
           </p>
 
           <div class="official-reference" id="official-reference-panel">
@@ -738,21 +597,6 @@
             </div>
 
             <div class="item full">
-              <div class="label">Advertised location</div>
-              <div class="value" id="position-location"></div>
-            </div>
-
-            <div class="item">
-              <div class="label">Classification</div>
-              <div class="value" id="position-class"></div>
-            </div>
-
-            <div class="item">
-              <div class="label">Base salary</div>
-              <div class="value" id="base-salary"></div>
-            </div>
-
-            <div class="item full">
               <div class="label">Applicant email</div>
               <div class="value" id="email"></div>
             </div>
@@ -760,8 +604,10 @@
 
           <div class="notice" id="confirmation-notice">
             <strong>What happens next</strong><br>
-            Your application has been received. Please keep the official application reference for your records and recruitment enquiries.
-            <strong>Only shortlisted applicants will be contacted.</strong>
+            An acknowledgement email has been queued for the applicant email
+            address shown above. Keep the official application reference for
+            any recruitment enquiry. This confirmation acknowledges receipt
+            only and does not mean the application has been shortlisted.
           </div>
 
           <details class="technical-details" id="technical-details">
@@ -785,7 +631,27 @@
           </details>
 
           <div class="actions">
-            <a class="btn btn-primary" href="index.html">Home</a>
+            <a
+              class="btn btn-primary"
+              href="vacancies_by_divisions.html"
+            >
+              View position vacancies
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="application-form.html"
+            >
+              Submit another application
+            </a>
+
+            <button
+              class="btn btn-secondary"
+              type="button"
+              id="print-button"
+            >
+              Print confirmation
+            </button>
           </div>
         </div>
       </section>
@@ -794,7 +660,7 @@
 
   <footer class="footer">
     <div class="container">
-<strong>Department of Defence Papua New Guinea</strong>
+      <strong>Department of Defence Papua New Guinea</strong>
       <p>
         &copy; <span id="year"></span> Official Recruitment Portal
       </p>
@@ -818,22 +684,13 @@
         if (
           !value ||
           value.backendConfirmed !== true ||
-          !value.submissionId
+          !value.submissionId ||
+          !value.applicationReference
         ) {
           return null;
         }
 
-        const queryReference = new URLSearchParams(window.location.search)
-          .get("ref")
-          ?.trim();
-
-        return {
-          ...value,
-          applicationReference:
-            String(value.applicationReference || "").trim() ||
-            queryReference ||
-            value.submissionId
-        };
+        return value;
       } catch (error) {
         console.error("Unable to read the confirmed receipt.", error);
         return null;
@@ -857,11 +714,6 @@
         hour12: true,
         timeZoneName: "short"
       }).format(date);
-    }
-
-    function formatSalary(value) {
-      const amount = Number(value);
-      return Number.isFinite(amount) ? `K${amount.toLocaleString("en-PG")}` : String(value || "");
     }
 
     function setText(id, value, fallback = "Not available") {
@@ -889,9 +741,6 @@
       setText("position", application.positionTitle);
       setText("position-reference", application.referenceNumber);
       setText("division", application.division);
-      setText("position-location", application.positionLocation);
-      setText("position-class", application.positionClass);
-      setText("base-salary", application.baseSalary ? formatSalary(application.baseSalary) : "");
       setText("email", application.email);
       setText("submission-id", application.submissionId);
       setText("application-id", application.applicationId);
@@ -910,7 +759,8 @@
         "No confirmed submission found";
 
       document.getElementById("page-message").textContent =
-        "This confirmation page is available after an application has been submitted successfully. If you have not completed a submission, return to the application form.";
+        "This page only confirms an application after the recruitment " +
+        "backend records it successfully.";
 
       document.getElementById(
         "official-reference-panel"
@@ -927,6 +777,10 @@
         "<strong>Application not confirmed</strong><br>" +
         "Return to the application form and submit again. " +
         "Do not treat this page as evidence of a completed application.";
+
+      document.querySelector(".actions").innerHTML =
+        '<a class="btn btn-primary" href="application-form.html">' +
+        "Open application form</a>";
     }
 
     const application = readConfirmedApplication();
@@ -936,6 +790,10 @@
     } else {
       displayMissingReceiptState();
     }
+
+    document
+      .getElementById("print-button")
+      ?.addEventListener("click", () => window.print());
   </script>
 </body>
 </html>
